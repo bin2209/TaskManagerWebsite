@@ -24,8 +24,13 @@ function blogs_insert(){
 		if($data['content'] == empty_lookup_value){ $data['content'] = ''; }
 	$data['date'] = parseCode('<%%creationDate%%>', true, true);
 	$data['author'] = parseCode('<%%creatorUsername%%>', true);
+
 	$data['posted'] = makeSafe($_REQUEST['posted']);
 		if($data['posted'] == empty_lookup_value){ $data['posted'] = ''; }
+
+	$data['star'] = makeSafe($_REQUEST['star']);
+		if($data['star'] == empty_lookup_value){ $data['star'] = ''; }
+
 	$data['photo'] = PrepareUploadedFile('photo', 5120000,'jpg|jpeg|gif|png', false, '');
 	if($data['photo']) createThumbnail($data['photo'], getThumbnailSpecs('blogs', 'photo', 'tv'));
 	if($data['photo']) createThumbnail($data['photo'], getThumbnailSpecs('blogs', 'photo', 'dv'));
@@ -75,7 +80,15 @@ function blogs_insert(){
 	}
 
 	$o = array('silentErrors' => true);
-	sql('insert into `blogs` set       `title`=' . (($data['title'] !== '' && $data['title'] !== NULL) ? "'{$data['title']}'" : 'NULL') . ', `category`=' . (($data['category'] !== '' && $data['category'] !== NULL) ? "'{$data['category']}'" : 'NULL') . ', `tags`=' . (($data['tags'] !== '' && $data['tags'] !== NULL) ? "'{$data['tags']}'" : 'NULL') . ', `content`=' . (($data['content'] !== '' && $data['content'] !== NULL) ? "'{$data['content']}'" : 'NULL') . ', ' . ($data['photo'] != '' ? "`photo`='{$data['photo']}'" : '`photo`=NULL') . ', `date`=' . "'{$data['date']}'" . ', `author`=' . "'{$data['author']}'" . ', `posted`=' . (($data['posted'] !== '' && $data['posted'] !== NULL) ? "'{$data['posted']}'" : 'NULL'), $o);
+	sql('insert into `blogs` set `title`=' . (($data['title'] !== '' && $data['title'] !== NULL) ? "'{$data['title']}'" : 'NULL') . ',
+								 `category`=' . (($data['category'] !== '' && $data['category'] !== NULL) ? "'{$data['category']}'" : 'NULL') . ', 
+								 `tags`=' . (($data['tags'] !== '' && $data['tags'] !== NULL) ? "'{$data['tags']}'" : 'NULL') . ', 
+								 `content`=' . (($data['content'] !== '' && $data['content'] !== NULL) ? "'{$data['content']}'" : 'NULL') . ', 
+								 ' . ($data['photo'] != '' ? "`photo`='{$data['photo']}'" : '`photo`=NULL') . ', 
+								 `date`=' . "'{$data['date']}'" . ', `author`=' . "'{$data['author']}'" . ', 
+
+								 `posted`=' . (($data['posted'] !== '' && $data['posted'] !== NULL) ? "'{$data['posted']}'" : 'NULL') .',
+								 `star`=' . (($data['star'] !== '' && $data['star'] !== NULL) ? "'{$data['star']}'" : '1'), $o);
 	if($o['error']!=''){
 		echo $o['error'];
 		echo "<a href=\"blogs_view.php?addNew_x=1\">{$Translation['< back']}</a>";
@@ -290,7 +303,7 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 		$combo_posted->ListItem = explode('||', entitiesToUTF8(convertLegacyOptions($posted_data)));
 		$combo_posted->ListData = $combo_posted->ListItem;
 	}else{
-		$combo_posted->ListItem = explode('||', entitiesToUTF8(convertLegacyOptions("draft;;publish")));
+		$combo_posted->ListItem = explode('||', entitiesToUTF8(convertLegacyOptions("chưa xong;;hoàn thành")));
 		$combo_posted->ListData = $combo_posted->ListItem;
 	}
 	$combo_posted->SelectName = 'posted';

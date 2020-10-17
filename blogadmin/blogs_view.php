@@ -30,7 +30,9 @@
 		"`blogs`.`photo`" => "photo",
 		"if(`blogs`.`date`,date_format(`blogs`.`date`,'%m/%d/%Y'),'')" => "date",
 		"`blogs`.`author`" => "author",
-		"`blogs`.`posted`" => "posted"
+		"`blogs`.`posted`" => "posted",
+		//LOI1
+		"`blogs`.`star`" => "star"	
 	);
 	// mapping incoming sort by requests to actual query fields
 	$x->SortFields = array(   
@@ -42,7 +44,8 @@
 		6 => 6,
 		7 => '`blogs`.`date`',
 		8 => 8,
-		9 => 9
+		9 => 9,
+		10 => 10
 	);
 
 	// Fields that can be displayed in the csv file
@@ -55,7 +58,8 @@
 		"`blogs`.`photo`" => "photo",
 		"if(`blogs`.`date`,date_format(`blogs`.`date`,'%m/%d/%Y'),'')" => "date",
 		"`blogs`.`author`" => "author",
-		"`blogs`.`posted`" => "posted"
+		"`blogs`.`posted`" => "posted",
+		"`blogs`.`star`" => "star"
 	);
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = array(   
@@ -66,7 +70,8 @@
 		"`blogs`.`content`" => "Content",
 		"`blogs`.`date`" => "Date",
 		"`blogs`.`author`" => "Author",
-		"`blogs`.`posted`" => "Status"
+		"`blogs`.`posted`" => "Status",
+		"`blogs`.`star`" => "star"
 	);
 
 	// Fields that can be quick searched
@@ -78,7 +83,8 @@
 		"`blogs`.`content`" => "content",
 		"if(`blogs`.`date`,date_format(`blogs`.`date`,'%m/%d/%Y'),'')" => "date",
 		"`blogs`.`author`" => "author",
-		"`blogs`.`posted`" => "posted"
+		"`blogs`.`posted`" => "posted",
+		"`blogs`.`star`" => "star"
 	);
 
 	// Lookup fields that can be used as filterers
@@ -111,10 +117,11 @@
 	$x->TableIcon = "resources/table_icons/feed.png";
 	$x->PrimaryKey = "`blogs`.`id`";
 
-	$x->ColWidth   = array(  150, 150, 150, 150, 150, 150, 150, 150);
-	$x->ColCaption = array("Title", "Category", "Tags", "Content", "Photo", "Date", "Author", "Status");
-	$x->ColFieldName = array('title', 'category', 'tags', 'content', 'photo', 'date', 'author', 'posted');
-	$x->ColNumber  = array(2, 3, 4, 5, 6, 7, 8, 9);
+	$x->ColWidth   = array(  150, 150, 150, 150, 150, 150, 150, 150,150);
+	//TRUONG2 - Thêm database cột star/ blog + recode
+	$x->ColCaption = array("Tiêu đề công việc", "Phân loại", "Tags", "Nội dung", "Ảnh", "Ngày tạo", "Thành viên tạo	", "Trạng thái","Độ ưu tiên");
+	$x->ColFieldName = array('title', 'category', 'tags', 'content', 'photo', 'date', 'author', 'posted','star');
+	$x->ColNumber  = array(2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/blogs_templateTV.html';

@@ -51,7 +51,8 @@
 			'photo' => array('appgini' => 'VARCHAR(50) not null '),
 			'date' => array('appgini' => 'DATE '),
 			'author' => array('appgini' => 'VARCHAR(40) '),
-			'posted' => array('appgini' => 'VARCHAR(40) not null ')
+			'posted' => array('appgini' => 'VARCHAR(40) not null '),
+			'star' => array('appgini' => 'INT(1) not null ')
 		),
 		'editors_choice' => array(   
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),

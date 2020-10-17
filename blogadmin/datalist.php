@@ -86,7 +86,7 @@ class DataList{
 		$this->AllowNavigation = 1;
 		$this->AllowPrinting = 1;
 		$this->HideTableView = 0;
-		$this->QuickSearch = 0;
+		$this->QuickSearch = 1;
 		$this->AllowCSV = 0;
 		$this->CSVSeparator = ",";
 		$this->HighlightColor = '#FFF0C2';  // default highlight color
@@ -659,7 +659,7 @@ class DataList{
 	// should SelectedID be reset on clicking TV buttons?
 		$resetSelection = ($this->SeparateDV ? "document.myform.SelectedID.value = '';" : "document.myform.writeAttribute('novalidate', 'novalidate');");
 
-		if($current_view == 'DV' &&  $current_view == 'TV' &&!$Embedded){
+		if($current_view == 'DV' && !$Embedded){
 			$this->HTML .= '<div class="page-header">';
 				$this->HTML .= '<h1>';
 					$this->HTML .= '<a style="text-decoration: none; color: inherit;" href="' . $this->TableName . '_view.php"><img src="' . $this->TableIcon . '"> ' . $this->TableTitle . '</a>';
@@ -670,7 +670,7 @@ class DataList{
 				$this->HTML .= '</h1>';
 			$this->HTML .= '</div>';
 		}
-		//TRUONG01
+		//TRUONG01 - THÊM NÚT ĐĂNG BÀI 
 		if ($current_view == 'TV'){
 			$this-> HTML.= '<button type="submit" id="addNew" name="addNew_x" value="1" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Thêm mới</button>';
 		}
