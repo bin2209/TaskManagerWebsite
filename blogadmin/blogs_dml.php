@@ -298,6 +298,10 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 	$combo_posted->MultipleSeparator = ', ';
 	$combo_posted->ListBoxHeight = 10;
 	$combo_posted->RadiosPerLine = 1;
+
+	// combobox: star
+	$combo_star = new DataCombo;
+
 	if(is_file(dirname(__FILE__).'/hooks/blogs.posted.csv')){
 		$posted_data = addslashes(implode('', @file(dirname(__FILE__).'/hooks/blogs.posted.csv')));
 		$combo_posted->ListItem = explode('||', entitiesToUTF8(convertLegacyOptions($posted_data)));
@@ -341,12 +345,18 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 		$combo_category->SelectedData = $row['category'];
 		$combo_date->DefaultDate = $row['date'];
 		$combo_posted->SelectedData = $row['posted'];
+		$combo_star->SelectedData = $row['star'];
 	}else{
 		$combo_category->SelectedData = $filterer_category;
 		$combo_posted->SelectedText = ( $_REQUEST['FilterField'][1]=='9' && $_REQUEST['FilterOperator'][1]=='<=>' ? (get_magic_quotes_gpc() ? stripslashes($_REQUEST['FilterValue'][1]) : $_REQUEST['FilterValue'][1]) : "");
 	}
+
 	$combo_category->HTML = '<span id="category-container' . $rnd1 . '"></span><input type="hidden" name="category" id="category' . $rnd1 . '" value="' . html_attr($combo_category->SelectedData) . '">';
 	$combo_category->MatchText = '<span id="category-container-readonly' . $rnd1 . '"></span><input type="hidden" name="category" id="category' . $rnd1 . '" value="' . html_attr($combo_category->SelectedData) . '">';
+	//combo_star -> lưu thông tin của id => back lên database = > thêm mới
+	$combo_star->HTML = '<span id="star-container' . $rnd1 . '"></span><input type="hidden" name="star" id="star' . $rnd1 . '" value="' . html_attr($combo_star->SelectedData) . '">';
+	$combo_star->MatchText = '<span id="star-container-readonly' . $rnd1 . '"></span><input type="hidden" name="star" id="star' . $rnd1 . '" value="' . html_attr($combo_star->SelectedData) . '">';
+
 	$combo_posted->Render();
 
 	ob_start();
