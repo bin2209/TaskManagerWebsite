@@ -23,8 +23,11 @@ function blogs_insert(){
 	$data['content'] = makeSafe($_REQUEST['content']);
 		if($data['content'] == empty_lookup_value){ $data['content'] = ''; }
 	$data['date'] = parseCode('<%%creationDate%%>', true, true);
-	$data['author'] = parseCode('<%%creatorUsername%%>', true);
 
+	$data['ngayhethan'] = makeSafe($_REQUEST['ngayhethan']);
+		if($data['ngayhethan'] == empty_lookup_value){ $data['ngayhethan'] = ''; }
+
+	$data['author'] = parseCode('<%%creatorUsername%%>', true);
 	$data['posted'] = makeSafe($_REQUEST['posted']);
 		if($data['posted'] == empty_lookup_value){ $data['posted'] = ''; }
 
@@ -85,8 +88,9 @@ function blogs_insert(){
 								 `tags`=' . (($data['tags'] !== '' && $data['tags'] !== NULL) ? "'{$data['tags']}'" : 'NULL') . ', 
 								 `content`=' . (($data['content'] !== '' && $data['content'] !== NULL) ? "'{$data['content']}'" : 'NULL') . ', 
 								 ' . ($data['photo'] != '' ? "`photo`='{$data['photo']}'" : '`photo`=NULL') . ', 
-								 `date`=' . "'{$data['date']}'" . ', `author`=' . "'{$data['author']}'" . ', 
-
+								 `date`=' . "'{$data['date']}'" . ', 
+								 `ngayhethan`=' . "'{$data['ngayhethan']}'" . ', 
+								 `author`=' . "'{$data['author']}'" . ', 
 								 `posted`=' . (($data['posted'] !== '' && $data['posted'] !== NULL) ? "'{$data['posted']}'" : 'NULL') .',
 								 `star`=' . (($data['star'] !== '' && $data['star'] !== NULL) ? "'{$data['star']}'" : '1'), $o);
 	if($o['error']!=''){
@@ -216,6 +220,18 @@ function blogs_update($selected_id){
 		exit;
 	}
 	$data['date'] = parseMySQLDate('', '<%%creationDate%%>');
+
+
+	$data['ngayhethan'] = makeSafe($_REQUEST['ngayhethan']);
+		if($data['ngayhethan'] == empty_lookup_value){ $data['ngayhethan'] = ''; }
+	if($data['ngayhethan']==''){
+		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Content': {$Translation['field not null']}<br><br>";
+		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
+		exit;
+	}
+
+
+
 	$data['posted'] = makeSafe($_REQUEST['posted']);
 		if($data['posted'] == empty_lookup_value){ $data['posted'] = ''; }
 	if($data['posted']==''){
@@ -271,6 +287,7 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 	if(!$arrPerm[1] && $selected_id==''){ return ''; }
 	$AllowInsert = ($arrPerm[1] ? true : false);
 	// print preview?
+
 	$dvprint = false;
 	if($selected_id && $_REQUEST['dvprint_x'] != ''){
 		$dvprint = true;
@@ -286,12 +303,20 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 	$combo_category = new DataCombo;
 	// combobox: date
 	$combo_date = new DateCombo;
-	$combo_date->DateFormat = "mdy";
+	$combo_date->DateFormat = "dmy";
 	$combo_date->MinYear = 1900;
 	$combo_date->MaxYear = 2100;
 	$combo_date->DefaultDate = parseMySQLDate('<%%creationDate%%>', '<%%creationDate%%>');
 	$combo_date->MonthNames = $Translation['month names'];
 	$combo_date->NamePrefix = 'date';
+	// combobox: ngayhethan
+	$combo_ngayhethan = new DateCombo;
+	$combo_ngayhethan->DateFormat ="dmy";
+	$combo_ngayhethan->MinYear = 1900;
+	$combo_ngayhethan->MaxYear = 2100;
+	// $combo_ngayhethan->DefaultDate  = parseMySQLDate('<%%creationngayhethan%%>', '<%%creationngayhethan%%>');
+	// $combo_ngayhethan->MonthNames = $Translation['month names'];
+	$combo_ngayhethan->NamePrefix = 'ngayhethan';
 	// combobox: posted
 	$combo_posted = new Combo;
 	$combo_posted->ListType = 2;
@@ -344,6 +369,7 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 		$row = $hc->xss_clean($row); /* sanitize data */
 		$combo_category->SelectedData = $row['category'];
 		$combo_date->DefaultDate = $row['date'];
+		// $combo_ngayhethan->DefaultDate = $row['ngayhethan'];
 		$combo_posted->SelectedData = $row['posted'];
 		$combo_star->SelectedData = $row['star'];
 	}else{
@@ -354,8 +380,15 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 	$combo_category->HTML = '<span id="category-container' . $rnd1 . '"></span><input type="hidden" name="category" id="category' . $rnd1 . '" value="' . html_attr($combo_category->SelectedData) . '">';
 	$combo_category->MatchText = '<span id="category-container-readonly' . $rnd1 . '"></span><input type="hidden" name="category" id="category' . $rnd1 . '" value="' . html_attr($combo_category->SelectedData) . '">';
 	//combo_star -> lưu thông tin của id => back lên database = > thêm mới
+
 	$combo_star->HTML = '<span id="star-container' . $rnd1 . '"></span><input type="hidden" name="star" id="star' . $rnd1 . '" value="' . html_attr($combo_star->SelectedData) . '">';
 	$combo_star->MatchText = '<span id="star-container-readonly' . $rnd1 . '"></span><input type="hidden" name="star" id="star' . $rnd1 . '" value="' . html_attr($combo_star->SelectedData) . '">';
+
+
+
+	// $combo_ngayhethan->HTML = '<span id="ngayhethan-container' . $rnd1 . '"></span><input type="hidden" name="ngayhethan" id="ngayhethan' . $rnd1 . '" value="' . html_attr($combo_ngayhethan->SelectedData) . '">';
+	// $combo_ngayhethan->MatchText = '<span id="ngayhethan-container-readonly' . $rnd1 . '"></span><input type="hidden" name="ngayhethan" id="ngayhethan' . $rnd1 . '" value="' . html_attr($combo_ngayhethan->SelectedData) . '">';
+
 
 	$combo_posted->Render();
 
@@ -526,6 +559,16 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 	$templateCode = str_replace('<%%URLCOMBOTEXT(category)%%>', urlencode($combo_category->MatchText), $templateCode);
 	$templateCode = str_replace('<%%COMBO(date)%%>', ($selected_id && !$arrPerm[3] ? '<div class="form-control-static">' . $combo_date->GetHTML(true) . '</div>' : $combo_date->GetHTML()), $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(date)%%>', $combo_date->GetHTML(true), $templateCode);
+
+
+
+
+	//FIX CODE NGAYHETHAN INPUT
+	// 	$templateCode = str_replace('<%%COMBO(ngayhethan)%%>', ($selected_id && !$arrPerm[3] ? '<div class="form-control-static">' . $combo_date->GetHTML(true) . '</div>' : $combo_date->GetHTML()), $templateCode);
+	// $templateCode = str_replace('<%%COMBOTEXT(ngayhethan)%%>', $combo_date->GetHTML(true), $templateCode);
+
+
+
 	$templateCode = str_replace('<%%COMBO(posted)%%>', $combo_posted->HTML, $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(posted)%%>', $combo_posted->SelectedData, $templateCode);
 
@@ -558,6 +601,7 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 		$templateCode = str_replace('<%%REMOVEFILE(photo)%%>', '', $templateCode);
 	}
 	$templateCode = str_replace('<%%UPLOADFILE(date)%%>', '', $templateCode);
+	// $templateCode = str_replace('<%%UPLOADFILE(ngayhethan)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(author)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(posted)%%>', '', $templateCode);
 
@@ -606,6 +650,10 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 		$templateCode = str_replace('<%%VALUE(photo)%%>', 'blank.gif', $templateCode);
 		$templateCode = str_replace('<%%VALUE(date)%%>', '<%%creationDate%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(date)%%>', urlencode('<%%creationDate%%>'), $templateCode);
+
+		$templateCode = str_replace('<%%VALUE(ngayhethan)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(ngayhethan)%%>', urlencode(''), $templateCode);
+
 		$templateCode = str_replace('<%%VALUE(author)%%>', '<%%creatorUsername%%>', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(author)%%>', urlencode('<%%creatorUsername%%>'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(posted)%%>', '', $templateCode);

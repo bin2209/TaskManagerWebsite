@@ -5,7 +5,7 @@
 	$currDir=dirname(__FILE__);
 	include("$currDir/defaultLang.php");
 	include("$currDir/language.php");
-	include("$currDir/lib.php");
+	include("$currDir/lib.php"); 
 	@include("$currDir/hooks/blogs.php");
 	include("$currDir/blogs_dml.php");
 
@@ -28,10 +28,10 @@
 		"`blogs`.`tags`" => "tags",
 		"`blogs`.`content`" => "content",
 		"`blogs`.`photo`" => "photo",
-		"if(`blogs`.`date`,date_format(`blogs`.`date`,'%m/%d/%Y'),'')" => "date",
+		"if(`blogs`.`date`,date_format(`blogs`.`date`,'%d/%m/%Y'),'')" => "date",
+		"if(`blogs`.`ngayhethan`,date_format(`blogs`.`ngayhethan`,'%d/%m/%Y'),'')" => "ngayhethan",
 		"`blogs`.`author`" => "author",
 		"`blogs`.`posted`" => "posted",
-		//LOI1
 		"`blogs`.`star`" => "star"	
 	);
 	// mapping incoming sort by requests to actual query fields
@@ -43,9 +43,10 @@
 		5 => 5,
 		6 => 6,
 		7 => '`blogs`.`date`',
-		8 => 8,
+		8 => '`blogs`.`ngayhethan`',
 		9 => 9,
-		10 => 10
+		10 => 10,
+		11 => 11
 	);
 
 	// Fields that can be displayed in the csv file
@@ -56,7 +57,9 @@
 		"`blogs`.`tags`" => "tags",
 		"`blogs`.`content`" => "content",
 		"`blogs`.`photo`" => "photo",
-		"if(`blogs`.`date`,date_format(`blogs`.`date`,'%m/%d/%Y'),'')" => "date",
+		"if(`blogs`.`date`,date_format(`blogs`.`date`,'%d/%m/%Y'),'')" => "date",
+		//TRUONG004 - TABLE NGÀY HẾT HẠN
+		"if(`blogs`.`ngayhethan`,date_format(`blogs`.`ngayhethan`,'%d/%m/%Y'),'')" => "ngayhethan",
 		"`blogs`.`author`" => "author",
 		"`blogs`.`posted`" => "posted",
 		"`blogs`.`star`" => "star"
@@ -69,6 +72,7 @@
 		"`blogs`.`tags`" => "Tags",
 		"`blogs`.`content`" => "Content",
 		"`blogs`.`date`" => "Date",
+		"`blogs`.`ngayhethan`" => "NgayHetHan",
 		"`blogs`.`author`" => "Author",
 		"`blogs`.`posted`" => "Status",
 		"`blogs`.`star`" => "star"
@@ -81,7 +85,8 @@
 		"IF(    CHAR_LENGTH(`blog_categories1`.`name`), CONCAT_WS('',   `blog_categories1`.`name`), '') /* Category */" => "category",
 		"`blogs`.`tags`" => "tags",
 		"`blogs`.`content`" => "content",
-		"if(`blogs`.`date`,date_format(`blogs`.`date`,'%m/%d/%Y'),'')" => "date",
+		"if(`blogs`.`date`,date_format(`blogs`.`date`,'%d/%m/%Y'),'')" => "date",
+		"if(`blogs`.`ngayhethan`,date_format(`blogs`.`ngayhethan`,'%d/%m/%Y'),'')" => "ngayhethan",
 		"`blogs`.`author`" => "author",
 		"`blogs`.`posted`" => "posted",
 		"`blogs`.`star`" => "star"
@@ -117,11 +122,11 @@
 	$x->TableIcon = "resources/table_icons/feed.png";
 	$x->PrimaryKey = "`blogs`.`id`";
 
-	$x->ColWidth   = array(  150, 150, 150, 150, 150, 150, 150, 150,150);
+	$x->ColWidth   = array(  150, 150, 150, 150, 150, 150, 150, 150,150,150);
 	//TRUONG2 - Thêm database cột star/ blog + recode
-	$x->ColCaption = array("Tiêu đề công việc", "Phân loại", "Tags", "Nội dung", "Ảnh", "Ngày tạo", "Thành viên tạo	", "Trạng thái","Độ ưu tiên");
-	$x->ColFieldName = array('title', 'category', 'tags', 'content', 'photo', 'date', 'author', 'posted','star');
-	$x->ColNumber  = array(2, 3, 4, 5, 6, 7, 8, 9, 10);
+	$x->ColCaption = array("Tiêu đề công việc", "Phân loại", "Tags", "Nội dung", "Ảnh", "Ngày tạo","Ngày hết hạn", "Thành viên tạo	", "Trạng thái","Độ ưu tiên");
+	$x->ColFieldName = array('title', 'category', 'tags', 'content', 'photo', 'date',' ngayhethan', 'author', 'posted','star');
+	$x->ColNumber  = array(2, 3, 4, 5, 6, 7, 8, 9, 10,11);
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/blogs_templateTV.html';
