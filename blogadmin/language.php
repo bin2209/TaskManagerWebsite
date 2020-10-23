@@ -15,7 +15,7 @@
 
 	// datalist.php
 	$Translation['quick search'] = "Tìm kiếm nhanh";
-	$Translation['records x to y of z'] = "Bản ghi <FirstRecord> thành <LastRecord> của <RecordCount>";
+	$Translation['records x to y of z'] = "Từ <FirstRecord> đến <LastRecord> trên tổng số <RecordCount>";
 	$Translation['filters'] = "Bộ lọc";
 	$Translation['filter'] = "Bộ lọc";
 	$Translation['filtered field'] = "Trường đã lọc";
@@ -43,7 +43,7 @@
 	$Translation['edit filters'] = "Edit filters";
 	$Translation['clear filters'] = "Clear filters";
 	$Translation['order by'] = 'Order by';
-	$Translation['go to page'] = 'Go to page:';
+	$Translation['go to page'] = 'Trang:';
 	$Translation['none'] = 'None';
 	$Translation['Select all records'] = 'Select all records';
 	$Translation['With selected records'] = 'With selected records';
@@ -75,25 +75,25 @@
 	$Translation['*'] = '*';
 	$Translation['today'] = 'Hôm nay';
 	$Translation['Hold CTRL key to select multiple items from the above list.'] = 'Hold CTRL key to select multiple items from the above list.';
-	$Translation['Save New'] = 'Save New';
-	$Translation['Save As Copy'] = 'Save As Copy';
+	$Translation['Save New'] = 'Lưu mới';
+	$Translation['Save As Copy'] = 'Lưu dưới dạng bản sao';
 	$Translation['Deselect'] = 'Bỏ chọn';
 	$Translation['Add New'] = 'Thêm mới';
 	$Translation['Delete'] = 'Xóa';
 	$Translation['Cancel'] = 'Huỷ bỏ';
 	$Translation['Print Preview'] = 'Xem trước trang in';
 	$Translation['Save Changes'] = 'Lưu thay đổi';
-	$Translation['CSV'] = 'Save CSV';
-	$Translation['Reset Filters'] = 'Show All';
-	$Translation['Find It'] = 'Find It';
-	$Translation['Previous'] = 'Previous';
-	$Translation['Next'] = 'Next';
-	$Translation['Back'] = 'Back';
+	$Translation['CSV'] = 'Lưu CSV';
+	$Translation['Reset Filters'] = 'Xem tất cả';
+	$Translation['Find It'] = 'Tìm';
+	$Translation['Previous'] = 'Trước';
+	$Translation['Next'] = 'Sau';
+	$Translation['Back'] = 'Trở về';
 
 	// lib.php
 	$Translation['select a table'] = "Jump to ...";
-	$Translation['homepage'] = "Homepage";
-	$Translation['error:'] = "Error:";
+	$Translation['homepage'] = "Trang chủ";
+	$Translation['error:'] = "Lỗi:";
 	$Translation['sql error:'] = "SQL error:";
 	$Translation['query:'] = "Query:";
 	$Translation['< back'] = "Back";

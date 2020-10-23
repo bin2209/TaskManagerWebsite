@@ -17,7 +17,7 @@
                   </div>
                   <div class="col-xs-6 text-right">
                     <p class="announcement-heading"><?php countrecords("blogs","all");?></p>
-                    <p class="announcement-text"><strong>Blogs</strong></p>
+                    <p class="announcement-text"><strong>Công việc đang theo dõi</strong></p>
                   </div>
                 </div>
               </div>
@@ -44,7 +44,7 @@
                   </div>
                   <div class="col-xs-6 text-right">
                     <p class="announcement-heading"><?php admincounter("blog_categories");?></p>
-                    <p class="announcement-text"><strong>Categories</strong></p>
+                    <p class="announcement-text"><strong>Phân loại công việc</strong></p>
                   </div>
                 </div>
               </div>
@@ -71,7 +71,7 @@
                   </div>
                   <div class="col-xs-6 text-right">
                     <p class="announcement-heading"><?php countrecords("blogs","publish");?></p>
-                    <p class="announcement-text"><strong>Published</strong></p>
+                    <p class="announcement-text"><strong>Đã hoàn thành</strong></p>
                   </div>
                 </div>
               </div>
@@ -98,7 +98,7 @@
                   </div>
                   <div class="col-xs-6 text-right">
                     <p class="announcement-heading"><?php countrecords("blogs","draft");?></p>
-                    <p class="announcement-text"><strong>Drafts</strong></p>
+                    <p class="announcement-text"><strong>Chưa hoàn thành</strong></p>
                   </div>
                 </div>
               </div>

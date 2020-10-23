@@ -118,8 +118,8 @@
 	$x->QuickSearchText = $Translation["quick search"];
 	$x->ScriptFileName = "blogs_view.php";
 	$x->RedirectAfterInsert = "blogs_view.php?SelectedID=#ID#";
-	$x->TableTitle = "Blogs";
-	$x->TableIcon = "resources/table_icons/feed.png";
+	$x->TableTitle = "Danh sách công việc";
+	// $x->TableIcon = "resources/table_icons/feed.png";
 	$x->PrimaryKey = "`blogs`.`id`";
 
 	$x->ColWidth   = array(  150, 150, 150, 150, 150, 150, 150, 150,150,150);
