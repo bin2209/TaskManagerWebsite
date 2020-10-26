@@ -92,6 +92,7 @@
 		"`blogs`.`star`" => "star"
 	);
 
+	
 	// Lookup fields that can be used as filterers
 	$x->filterers = array(  'category' => 'Category');
 
@@ -139,7 +140,6 @@
 	$x->TVClasses = "";
 	$x->DVClasses = "";
 	$x->HighlightColor = '#FFF0C2';
-
 	// mm: build the query based on current member's permissions
 	$DisplayRecords = $_REQUEST['DisplayRecords'];
 	if(!in_array($DisplayRecords, array('user', 'group'))){ $DisplayRecords = 'all'; }
@@ -179,7 +179,10 @@
 		echo str_replace('<%%HEADER%%>', $dHeader, $headerCode);
 	}
 
+
+include 'tiendocongviec.php';
 	echo $x->HTML;
+
 	// hook: blogs_footer
 	$footerCode='';
 	if(function_exists('blogs_footer')){
