@@ -1,11 +1,12 @@
-			<!-- Add footer template above here -->
-			<div class="clearfix"></div>
-			<?php if(!$_REQUEST['Embedded']){ ?>
-				<div style="height: 70px;" class="hidden-print"></div>
-			<?php } ?>
-
-		</div> <!-- /div class="container" -->
-		<?php if(!defined('APPGINI_SETUP') && is_file(dirname(__FILE__) . '/hooks/footer-extras.php')){ include(dirname(__FILE__).'/hooks/footer-extras.php'); } ?>
-		<script src="<?php echo PREPEND_PATH; ?>resources/lightbox/js/lightbox.min.js"></script>
-	</body>
-</html>
+<footer class="m-footer">
+	<div class="m-footer__content">
+		<p class="m-footer-copyright">
+			Nguyễn Hải Trường - Binazure Team<br>
+			Chịu trách nhiệm sản phẩm về Nguyễn Hải Trường.<br>
+			Địa chỉ: Phường 1 - Thành Phố Đông Hà - Tỉnh Quảng Trị<br>
+			EMAIL: binteam@outlook.com<br>
+			PHONE: 0899240332<br>
+			Copyright 2020 By NGUYENHAITRUONG
+		</p>
+	</div>
+</footer>

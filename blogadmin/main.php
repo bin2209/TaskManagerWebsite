@@ -1,142 +1,108 @@
 <?php if(!isset($Translation)){ @header('Location: index.php'); exit; } ?>
-  <?php include_once("{$currDir}/header-user.php"); ?>
-  <?php @include("{$currDir}/hooks/links-home.php"); ?>
+<?php include_once("{$currDir}/header-user.php"); ?>
+<?php @include("{$currDir}/hooks/links-home.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 </head>
 <!--cards-->
- <div class="row">
-          <div class="col-lg-3">
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <div class="row">
-                  <div class="col-xs-6">
-                    <i class="fa fa-rss fa-5x"></i>
-                  </div>
-                  <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><?php countrecords("blogs","all");?></p>
-                    <p class="announcement-text"><strong>Công việc đang theo dõi</strong></p>
-                  </div>
-                </div>
-              </div>
-              <a href="blogs_view.php">
-                <div class="panel-footer announcement-bottom">
-                  <div class="row">
-                    <div class="col-xs-6">
-                      View
-                    </div>
-                    <div class="col-xs-6 text-right">
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="panel panel-warning">
-              <div class="panel-heading">
-                <div class="row">
-                  <div class="col-xs-6">
-                    <i class="fa fa-tags fa-5x"></i>
-                  </div>
-                  <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><?php admincounter("blog_categories");?></p>
-                    <p class="announcement-text"><strong>Phân loại công việc</strong></p>
-                  </div>
-                </div>
-              </div>
-              <a href="blog_categories_view.php">
-                <div class="panel-footer announcement-bottom">
-                  <div class="row">
-                    <div class="col-xs-6">
-                      View
-                    </div>
-                    <div class="col-xs-6 text-right">
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="panel panel-success">
-              <div class="panel-heading">
-                <div class="row">
-                  <div class="col-xs-6">
-                    <i class="fa fa-check fa-5x"></i>
-                  </div>
-                  <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><?php countrecords("blogs","publish");?></p>
-                    <p class="announcement-text"><strong>Đã hoàn thành</strong></p>
-                  </div>
-                </div>
-              </div>
-              <a href="blogs_view.php">
-                <div class="panel-footer announcement-bottom">
-                  <div class="row">
-                    <div class="col-xs-6">
-                      View
-                    </div>
-                    <div class="col-xs-6 text-right">
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="panel panel-danger">
-              <div class="panel-heading">
-                <div class="row">
-                  <div class="col-xs-6">
-                    <i class="fa fa-tasks fa-5x"></i>
-                  </div>
-                  <div class="col-xs-6 text-right">
-                    <p class="announcement-heading"><?php countrecords("blogs","draft");?></p>
-                    <p class="announcement-text"><strong>Chưa hoàn thành</strong></p>
-                  </div>
-                </div>
-              </div>
-              <a href="#">
-                <div class="panel-footer announcement-bottom">
-                  <div class="row">
-                    <div class="col-xs-6">
-                      View
-                    </div>
-                    <div class="col-xs-6 text-right">
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div><!-- /.row -->
-        <?php
-  $usernow=getLoggedMemberID();
-  if ($usernow=="admin") {
-        # code...show more widgets for admin only
-    include_once('adminview.php');
-  }
-  ?>
-  
-      </div><!-- /#page-wrapper -->
 
-    </div><!-- /#wrapper -->
-    <!-- JavaScript -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
-<footer class="footer footer-inverse">
-      <div class="container">
-        <div class="text-center">
-          <small>NGUYENTRUONG 2020 | LEADER <a href="https://www.facebook.com/binazure" target="_blank">BINAZURE</a></small>
-        </div>
+
+  <article class="m-article-card post tag-a-better-you">
+    <div class="m-article-card__picture lozad" data-background-image="/content/images/size/w600/2020/09/Blog-Post-Image--2-.png">
+      <a href="blogs_view.php" class="m-article-card__picture-link" aria-label="Article"></a>
+    </div>
+    <div class="m-article-card__info">
+      <a href="blogs_view.php" class="m-article-card__tag"><?php countrecords("blogs","all");?></a>
+      <a href="blogs_view.php" class="m-article-card__info-link">
+        <div>
+          <h2 class="m-article-card__title js-article-card-title ">
+           Công việc đang theo dõi
+         </h2>
+       </div>
+     </a>
+   </div>
+ </article>
+ <article class="m-article-card post tag-nhung-cuon-sach-hay-nhat">
+  <div class="m-article-card__picture lozad" data-background-image="/content/images/size/w600/2020/09/Blog-Post-Image--1-.png">
+    <a href="blog_categories_view.php" class="m-article-card__picture-link" aria-label="Article"></a>
+  </div>
+  <div class="m-article-card__info">
+    <a href="blog_categories_view.php" class="m-article-card__tag"><?php admincounter("blog_categories");?></a>
+    <a href="blog_categories_view.php" class="m-article-card__info-link">
+      <div>
+        <h2 class="m-article-card__title js-article-card-title " >
+          Phân loại công việc
+        </h2>
       </div>
-    </footer>
-  </body>
+    </a>
+  </div>
+</article>
+<article class="m-article-card post tag-thai-van-linh-book-club">
+  <div class="m-article-card__picture lozad" data-background-image="/content/images/size/w600/2020/08/Blog-Post-Image--2--2.png">
+    <a href="blogs_view.php" class="m-article-card__picture-link" aria-label="Article"></a>
+  </div>
+  <div class="m-article-card__info">
+    <a href="blogs_view.php" class="m-article-card__tag"><?php countrecords("blogs","publish");?></a>
+    <a href="blogs_view.php" class="m-article-card__info-link">
+      <div>
+        <h2 class="m-article-card__title js-article-card-title ">
+         Đã hoàn thành
+       </h2>
+     </div>
+   </a>
+ </div>
+</article>
+  </div>
+     </div>
+   </div>
+ </main>
+</div>
+<div class="m-search js-search">
+  <button class="m-icon-button outlined as-close-search js-close-search" aria-label="Close search">
+    <span class="icon-close"></span>
+  </button>
+  <div class="m-search__content">
+    <form class="m-search__form">
+      <fieldset>
+        <span class="icon-search m-search-icon"></span>
+        <input type="text" class="m-input in-search js-input-search" placeholder="Nhập để tìm kiếm" aria-label="Type to search">
+      </fieldset>
+    </form>
+    <div class="js-search-results hide"></div>
+    <p class="m-not-found align-center hide js-no-results">
+      Không tìm thấy kết quả, bạn hãy thử một từ khác nhé
+    </p>
+  </div>
+</div>
+<?php include 'footer.php' ?>
+<script crossorigin="anonymous" src="../polyfill.io/v3/polyfill.mina50e.js?features=IntersectionObserver%2CPromise%2CArray.prototype.includes%2CString.prototype.endsWith%2CString.prototype.startsWith%2CObject.assign%2CNodeList.prototype.forEach"></script>
+<script defer src="assets/js/vendor/content-api.min2daf.js?v=a5dd59f074"></script>
+<script defer src="assets/js/manifest2daf.js?v=a5dd59f074"></script>
+<script defer src="assets/js/vendor2daf.js?v=a5dd59f074"></script>
+<script defer src="assets/js/app2daf.js?v=a5dd59f074"></script>
+<script defer src="assets/js/home2daf.js?v=a5dd59f074"></script>
+</body>
+</html>
+
+
+<?php
+$usernow=getLoggedMemberID();
+if ($usernow=="admin") {
+        # code...show more widgets for admin only
+  include_once(
+    'adminview.php'
+  );
+}
+?>
+
+</div><!-- /#page-wrapper -->
+
+</div><!-- /#wrapper -->
+<!-- JavaScript -->
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
 </html>

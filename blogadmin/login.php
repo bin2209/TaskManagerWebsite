@@ -10,7 +10,11 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
+<style type="text/css">
+	.container-login100{
+		background-image: -webkit-linear-gradient( 139deg,rgb(26,49,84) 0%,rgb(148,210,255) 100% ) !important;
+	}
+</style>
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -40,7 +44,10 @@
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" name="signIn" type="submit" id="submit" value="signIn" >Đăng nhập
+						<button style="background: #ff4b1f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ff4b1f, #ff9068); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ff4b1f, #ff9068); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+" class="login100-form-btn" name="signIn" type="submit" id="submit" value="signIn" >Đăng nhập
 						</button>
 					</div>
 
