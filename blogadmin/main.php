@@ -10,12 +10,12 @@
 
 
   <article class="m-article-card post tag-a-better-you">
-    <div class="m-article-card__picture lozad" data-background-image="/content/images/size/w600/2020/09/Blog-Post-Image--2-.png">
-      <a href="blogs_view.php" class="m-article-card__picture-link" aria-label="Article"></a>
+    <div class="m-article-card__picture lozad" data-background-image="content/images/system/1.jpg">
+      <a href="danhsachcongviec.php" class="m-article-card__picture-link" aria-label="Article"></a>
     </div>
     <div class="m-article-card__info">
-      <a href="blogs_view.php" class="m-article-card__tag"><?php countrecords("blogs","all");?></a>
-      <a href="blogs_view.php" class="m-article-card__info-link">
+      <a href="danhsachcongviec.php" class="m-article-card__tag"><?php countrecords("blogs","all");?></a>
+      <a href="danhsachcongviec.php" class="m-article-card__info-link">
         <div>
           <h2 class="m-article-card__title js-article-card-title ">
            Công việc đang theo dõi
@@ -25,7 +25,7 @@
    </div>
  </article>
  <article class="m-article-card post tag-nhung-cuon-sach-hay-nhat">
-  <div class="m-article-card__picture lozad" data-background-image="/content/images/size/w600/2020/09/Blog-Post-Image--1-.png">
+  <div class="m-article-card__picture lozad" data-background-image="content/images/system/2.jpg">
     <a href="blog_categories_view.php" class="m-article-card__picture-link" aria-label="Article"></a>
   </div>
   <div class="m-article-card__info">
@@ -40,12 +40,12 @@
   </div>
 </article>
 <article class="m-article-card post tag-thai-van-linh-book-club">
-  <div class="m-article-card__picture lozad" data-background-image="/content/images/size/w600/2020/08/Blog-Post-Image--2--2.png">
-    <a href="blogs_view.php" class="m-article-card__picture-link" aria-label="Article"></a>
+  <div class="m-article-card__picture lozad" data-background-image="content/images/system/3.jpg">
+    <a href="danhsachcongviec.php" class="m-article-card__picture-link" aria-label="Article"></a>
   </div>
   <div class="m-article-card__info">
-    <a href="blogs_view.php" class="m-article-card__tag"><?php countrecords("blogs","publish");?></a>
-    <a href="blogs_view.php" class="m-article-card__info-link">
+    <a href="danhsachcongviec.php" class="m-article-card__tag"><?php countrecords("blogs","publish");?></a>
+    <a href="danhsachcongviec.php" class="m-article-card__info-link">
       <div>
         <h2 class="m-article-card__title js-article-card-title ">
          Đã hoàn thành

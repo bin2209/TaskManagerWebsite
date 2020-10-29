@@ -59,8 +59,8 @@
 	// _dml.php
 	$Translation['are you sure?'] = 'Bạn có chắc chắn muốn xóa bản ghi này không?';
 	$Translation['add new record'] = 'Thêm bản ghi mới';
-	$Translation['update record'] = 'Cập nhật hồ sơ';
-	$Translation['delete record'] = 'Xóa hồ sơ';
+	$Translation['update record'] = 'Cập nhật';
+	$Translation['delete record'] = 'Xóa';
 	$Translation['deselect record'] = 'Bỏ chọn bản ghi';
 	$Translation["couldn't delete"] = 'Không thể xóa bản ghi do sự hiện diện của (các) bản ghi liên quan <RelatedRecords> trong bảng [<TableName>]';
 	$Translation['confirm delete'] = 'This record has <RelatedRecords> related record(s) in table [<TableName>]. Do you still want to delete it? <Delete> &nbsp; <Cancel>';
@@ -173,8 +173,8 @@
 	$Translation['sign up disabled']="Xin lỗi! Đăng ký tạm thời bị vô hiệu hóa bởi quản trị viên. Thử lại sau.";
 	$Translation['check availability']="Kiểm tra xem tên người dùng này có sẵn không";
 	$Translation['confirm password']="Nhập lại mật khẩu";
-	$Translation['email']="Email Address";
-	$Translation['group']="Group";
+	$Translation['email']="Địa chỉ email";
+	$Translation['group']="Nhóm người dùng";
 	$Translation['groups *']="Nếu bạn chọn đăng ký vào một nhóm có dấu hoa thị (*), bạn sẽ không thể đăng nhập cho đến khi quản trị viên chấp thuận bạn. Bạn sẽ nhận được một email khi bạn được chấp thuận.";
 	$Translation['sign up']="Đăng ký";
 
@@ -186,7 +186,7 @@
 	$Translation['password reset ready']="Một email với hướng dẫn đặt lại mật khẩu đã được gửi đến địa chỉ email đã đăng ký của bạn. Vui lòng làm theo hướng dẫn trong email đó. <br> <br> Nếu bạn không nhận được email này trong vòng 5 phút, hãy thử đặt lại mật khẩu của bạn một lần nữa và đảm bảo bạn nhập đúng tên người dùng hoặc địa chỉ email.";
 	$Translation['password reset invalid']="Invalid username or password. <a href=membership_passwordReset.php>Try again</a>, or go <a href=index.php>back to homepage</a>.";
 	$Translation['password change']="Password Change Page";
-	$Translation['new password']="New password";
+	$Translation['new password']="Mật khẩu mới";
 	$Translation['password reset done']="Your password was changed successfully. You can <a href=index.php?signOut=1>log in with the new password here</a>.";
 
 	$Translation['Loading ...']='Đang tải ...';
@@ -208,7 +208,7 @@
 	$Translation['Not allowed'] = 'Không cho phép';
 	$Translation['Your info'] = 'Thông tin của bạn';
 	$Translation['Hello user'] = 'Xin chào %s!';
-	$Translation['Your access permissions'] = 'Your access permissions';
+	$Translation['Your access permissions'] = 'Quyền hạn truy cập của bạn';
 	$Translation['Update profile'] = 'Cập nhật hồ sơ';
 	$Translation['Update password'] = 'Cập nhật mật khẩu';
 	$Translation['Change your password'] = 'Thay đổi mật khẩu của bạn';

@@ -5,7 +5,7 @@
 <!-- add the following to the blogs_init() hook (in hooks/blogs.php file) -->
 <!--     $options->ShowTableHeader = 0;     -->
 <!-- 	VIEW TABLE  blogs_view.php-->
-		<td id="blogs-title-<%%VALUE(id)%%>" class="blogs-title"><%%SELECT%%><%%VALUE(title)%%><%%ENDSELECT%%></td>
+		<td id="blogs-title-<%%VALUE(id)%%>" class="blogs-title js-tooltip" data-tippy-content="x"><%%SELECT%%><%%VALUE(title)%%><%%ENDSELECT%%></td>
 		<td id="blogs-category-<%%VALUE(id)%%>" class="blogs-category"><%%SELECT%%><%%VALUE(category)%%><%%ENDSELECT%%></td>
 		<td id="blogs-tags-<%%VALUE(id)%%>" class="blogs-tags"><%%SELECT%%><%%VALUE(tags)%%><%%ENDSELECT%%></td>
 		<td id="blogs-content-<%%VALUE(id)%%>" class="blogs-content"><%%SELECT%%><%%VALUE(content)%%><%%ENDSELECT%%></td>
@@ -15,4 +15,3 @@
 		<td id="blogs-author-<%%VALUE(id)%%>" class="blogs-author"><%%SELECT%%><%%VALUE(author)%%><%%ENDSELECT%%></td>
 		<td id="blogs-posted-<%%VALUE(id)%%>" class="blogs-posted"><%%SELECT%%><%%VALUE(posted)%%><%%ENDSELECT%%></td>
 		<td id="blogs-star-<%%VALUE(id)%%>" class="blogs-star"><%%SELECT%%><%%VALUE(star)%%><%%ENDSELECT%%></td>
-

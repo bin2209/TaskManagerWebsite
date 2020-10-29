@@ -32,219 +32,219 @@
 								<div class="container true">
 									<div class="fonos-root-navbar--brand">
 										<div><button class="navbar-toggler  mr-3 navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-											<a
-											class="brand" href="index.html"><img src="_next/static/images/logo-white-a35cd0609b903e2985dcc1bc6221bc6d.png" class="image /_next/static/images/logo-white-a35cd0609b903e2985dcc1bc6221bc6d.png" height="48" /></a>
+											<!-- <a
+												class="brand" href="index.html"><img src="_next/static/images/logo-white-a35cd0609b903e2985dcc1bc6221bc6d.png" class="image /_next/static/images/logo-white-a35cd0609b903e2985dcc1bc6221bc6d.png" height="48" /></a> -->
+											</div>
+											<div class="d-md-none d-flex align-items-center"></div>
 										</div>
-										<div class="d-md-none d-flex align-items-center"></div>
-									</div>
-									<div class="search-bar-collapse">
-										<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-											<ul class="navbar-nav ">
-												<li class="nav-item ">
-													<a class="nav-link" href="index.php">
-														<div style="color:#557fa7" class="fonos-text fonos-large mb-0  fonos-light ">
-														Trang chủ</div>
-													</a>
-												</li>							
-												<li class="nav-item ">
-													<a class="nav-link" href="#" target="_blank">
-														<div style="color:#557fa7" class="fonos-text fonos-large mb-0  fonos-light ">Cộng đồng</div>
-													</a>
-												</li>
-												<li class="nav-item ">
-													<a class="nav-link" href="http://facebook.com/binazure" target="_blank">
-														<div style="color:#557fa7" class="fonos-text fonos-large mb-0  fonos-light ">Fanpage</div>
-													</a>
-												</li>
-												<li class="nav-item ">
-													<a class="nav-link" href="blogadmin/login.php">
-														<div style="color:#557fa7" class="fonos-text fonos-large mb-0  fonos-light ">Đăng nhập</div>
-													</a>
-												</li>
-												<form action="search.php" method="post" class="form-inline my-2 my-lg-0 header-search" name="form">
-													<input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm..." required="yes" type="text" name="search[keyword]">
-													<button class="btn btn1 my-2 my-sm-0" type="submit" name="submit"><i class="fas fa-search"></i></button>
-												</form>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</nav>
-						</div>
-					</div>
-					<div class="appModernstyle__ContentWrapper-sc-3tq9sx-1 ivRGZI">
-						<div id="home" class="bannerstyle__BannerWrapper-sc-1t20giu-0 clQFeW">
-							<div class="style__ContainerWrapper-sc-1gre7ok-0 cnvkcL container">
-								<div class="bannerstyle__BannerContent-sc-1t20giu-1 hlhwRJ">
-									<div class="react-reveal">
-										<h1 font-weight="bold" class="Heading__HeadingWrapper-sc-10v4eax-0 iZtwpV">Đồng hành cùng bạn mỗi ngày</h1>
-									</div>
-									<div class="react-reveal">
-										<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">Giúp bạn tập trung hơn và đạt hiệu quả cao cho công việc mỗi ngày.</p>
-									</div>
-									<img src="_next/static/images/mascot_pointing_right-70115e63f0ad6615ddfd52335311377a.png" alt="Fonos Mascot" class="react-reveal mascot" /></div>
-									<div class="bannerstyle__BannerImage-sc-1t20giu-3 eLUFAp">
-										<!-- <div class="react-reveal"><img src="_next/static/images/MockupMainFinal%402x-1002427ffeffef5f2a9e8eb2e387830f.png" alt="Banner" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /></div> -->
-									</div>
-								</div> <img class="bannerBottomShape" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMTkiIGhlaWdodD0iMjkzLjA5NCI+PHBhdGggZD0iTTAgMjkzYy4xNy0uMTMxIDEyOC43NCA3IDIyMy04MCA5OS40OC05MS44MjIgOTYtMjEzIDk2LTIxM3YyOTNIMHoiIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg=="
-								alt="Bottom Circle" /></div>
-								<section id="features" class="featuresstyle__SectionWrapper-uvd861-0 hsmczZ">
-									<div class="style__ContainerWrapper-sc-1gre7ok-0 cnvkcL container">
-										<header class="appModernstyle__SectionHeader-sc-3tq9sx-2 gHknyw">
-											<h3 class="react-reveal">HÃY LẮNG NGHE NHIỀU HƠN TRONG CUỘC SỐNG</h3>
-											<div class="react-reveal">
-												<h2 font-weight="bold" class="Heading__HeadingWrapper-sc-10v4eax-0 iZtwpV">Tận dụng tối đa từng khoảnh khắc, bất kể bạn đang ở nhà, trong phòng tập thể dục, đang nấu ăn, trên đường đi du lịch hay ở bất cứ nơi nào.</h2>
-											</div>
-										</header>
-										<div class="featuresstyle__FeatureWrapper-uvd861-1 iltswj">
-											<div class="react-reveal">
-												<div class="featureBlockstyle__FeatureBlockWrapper-sc-1pllarm-0 mGdpT feature__block icon_left" style="--color:#F55767">
-													<div class="featureBlockstyle__IconWrapper-sc-1pllarm-1 gfuhTH icon__wrapper"><i fill="currentColor" style="display:inline-block" class="plus"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M18 10h-4v-4c0-1.104-.896-2-2-2s-2 .896-2 2l.071 4h-4.071c-1.104 0-2 .896-2 2s.896 2 2 2l4.071-.071-.071 4.071c0 1.104.896 2 2 2s2-.896 2-2v-4.071l4 .071c1.104 0 2-.896 2-2s-.896-2-2-2z"></path></svg></i>
-														<i
-														fill="currentColor" style="display:inline-block" class="circle"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M12 8c2.205 0 4 1.794 4 4s-1.795 4-4 4-4-1.794-4-4 1.795-4 4-4m0-2c-3.314 0-6 2.686-6 6 0 3.312 2.686 6 6 6 3.312 0 6-2.688 6-6 0-3.314-2.688-6-6-6z"></path></svg></i><img
-														src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEwNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgY3g9Ii04LjE1MiUiIGN5PSItMTkuMjU3JSIgZng9Ii04LjE1MiUiIGZ5PSItMTkuMjU3JSIgcj0iMTAwJSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAuOTg3NSAwIC0uMDAyKSIgaWQ9ImIiPjxzdG9wIHN0b3AtY29sb3I9IiNGRkE2NTkiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjRkY2RDZEIiBvZmZzZXQ9IjEwMCUiLz48L3JhZGlhbEdyYWRpZW50PjxmaWx0ZXIgeD0iLTM3LjUlIiB5PSItNzguOSUiIHdpZHRoPSIxNzUlIiBoZWlnaHQ9IjI1Ny45JSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiBpZD0iYSI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMTAiIGluPSJTb3VyY2VHcmFwaGljIi8+PC9maWx0ZXI+PC9kZWZzPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI0KSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cmVjdCBmaWxsPSIjRkY4OTYzIiBvcGFjaXR5PSIuODQ4IiBmaWx0ZXI9InVybCgjYSkiIHk9IjQyIiB3aWR0aD0iODAiIGhlaWdodD0iMzgiIHJ4PSIxOSIvPjxyZWN0IGZpbGw9InVybCgjYikiIGZpbGwtcnVsZT0ibm9uemVybyIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgxLjAxMyIgcng9IjMyIi8+PHBhdGggZD0iTTUwLjI1IDQ5LjY3MmMtMS4yNCAwLTIuMjUtLjk5NC0yLjI1LTIuMjE1IDAtMS4yMjEgMS4wMS0yLjIxNSAyLjI1LTIuMjE1czIuMjUuOTk0IDIuMjUgMi4yMTVjMCAxLjIyMS0xLjAxIDIuMjE1LTIuMjUgMi4yMTVNNDYuNSAyOWExLjUgMS41IDAgMDExLjI4NS43MTZsNC4wNjQgNi42NjdINTguNWMuODMgMCAxLjUuNjYxIDEuNSAxLjQ3NnY4Ljg2YzAgLjgxNS0uNjcgMS40NzYtMS41IDEuNDc2aC0zLjA3N2MtLjM2NyAyLjQ5OS0yLjUzNiA0LjQzLTUuMTczIDQuNDNzLTQuODA2LTEuOTMxLTUuMTczLTQuNDNoLTcuNjU0Yy0uMzY3IDIuNDk5LTIuNTM2IDQuNDMtNS4xNzMgNC40M3MtNC44MDYtMS45MzEtNS4xNzQtNC40M0gyNS41Yy0uODMgMC0xLjUtLjY2MS0xLjUtMS40NzZ2LTcuMzgzYzAtLjI5LjA4OC0uNTc3LjI1Mi0uODJsNi04Ljg1OUExLjUxIDEuNTEgMCAwMTMxLjUgMjl6TTMyLjI1IDQ1LjI0MmMtMS4yNCAwLTIuMjUuOTk0LTIuMjUgMi4yMTUgMCAxLjIyMSAxLjAxIDIuMjE1IDIuMjUgMi4yMTVzMi4yNS0uOTk0IDIuMjUtMi4yMTVjMC0xLjIyMS0xLjAxLTIuMjE1LTIuMjUtMi4yMTV6bTEzLjQzOC0xMy4yODlIMzIuMjMzTDI4LjUgMzcuODZoMjAuNDZsLTMuMjcyLTUuOTA2eiIgZmlsbD0iI0ZGRiIvPjwvZz48L3N2Zz4="
-														alt="Không còn lo ngại mỗi khi kẹt xe" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /><i fill="currentColor" style="display:inline-block" class="star"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M16.855 20.966c-.224 0-.443-.05-.646-.146l-.104-.051-4.107-2.343-4.107 2.344-.106.053c-.488.228-1.085.174-1.521-.143-.469-.34-.701-.933-.586-1.509l.957-4.642-1.602-1.457-1.895-1.725-.078-.082c-.375-.396-.509-.97-.34-1.492.173-.524.62-.912 1.16-1.009l.102-.018 4.701-.521 1.946-4.31.06-.11c.262-.473.764-.771 1.309-.771.543 0 1.044.298 1.309.77l.06.112 1.948 4.312 4.701.521.104.017c.539.1.986.486 1.158 1.012.17.521.035 1.098-.34 1.494l-.078.078-3.498 3.184.957 4.632c.113.587-.118 1.178-.59 1.519-.252.182-.556.281-.874.281zm-8.149-6.564c-.039.182-.466 2.246-.845 4.082l3.643-2.077c.307-.175.684-.175.99 0l3.643 2.075-.849-4.104c-.071-.346.045-.705.308-.942l3.1-2.822-4.168-.461c-.351-.039-.654-.26-.801-.584l-1.728-3.821-1.726 3.821c-.146.322-.45.543-.801.584l-4.168.461 3.1 2.822c.272.246.384.617.302.966z"></path></svg></i></div>
-														<div
-														class="featureBlockstyle__ContentWrapper-sc-1pllarm-2 bVJtlh content__wrapper">
-														<h3 font-weight="bold" class="Heading__HeadingWrapper-sc-10v4eax-0 iZtwpV">Không còn lo ngại mỗi khi kẹt xe</h3>
-														<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">Tận dụng thời gian bị mất trong những lúc bị kẹt xe để nâng cao bản thân bằng cách lắng nghe những cuốn sách nói bán chạy nhất về kinh doanh, phát triển bản thân và nhiều chủ đề khác nữa.</p>
-													</div>
-												</div>
-											</div>
-											<div class="react-reveal">
-												<div class="featureBlockstyle__FeatureBlockWrapper-sc-1pllarm-0 mGdpT feature__block icon_left" style="--color:#ff4742">
-													<div class="featureBlockstyle__IconWrapper-sc-1pllarm-1 gfuhTH icon__wrapper"><i fill="currentColor" style="display:inline-block" class="plus"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M18 10h-4v-4c0-1.104-.896-2-2-2s-2 .896-2 2l.071 4h-4.071c-1.104 0-2 .896-2 2s.896 2 2 2l4.071-.071-.071 4.071c0 1.104.896 2 2 2s2-.896 2-2v-4.071l4 .071c1.104 0 2-.896 2-2s-.896-2-2-2z"></path></svg></i>
-														<i
-														fill="currentColor" style="display:inline-block" class="circle"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M12 8c2.205 0 4 1.794 4 4s-1.795 4-4 4-4-1.794-4-4 1.795-4 4-4m0-2c-3.314 0-6 2.686-6 6 0 3.312 2.686 6 6 6 3.312 0 6-2.688 6-6 0-3.314-2.688-6-6-6z"></path></svg></i><img
-														src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEwNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgY3g9Ii04LjE1MiUiIGN5PSItMTkuMjU3JSIgZng9Ii04LjE1MiUiIGZ5PSItMTkuMjU3JSIgcj0iMTAwJSIgaWQ9ImIiPjxzdG9wIHN0b3AtY29sb3I9IiNGRkE2NTkiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjRkY2RDZEIiBvZmZzZXQ9IjEwMCUiLz48L3JhZGlhbEdyYWRpZW50PjxmaWx0ZXIgeD0iLTM3LjUlIiB5PSItNzguOSUiIHdpZHRoPSIxNzUlIiBoZWlnaHQ9IjI1Ny45JSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiBpZD0iYSI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMTAiIGluPSJTb3VyY2VHcmFwaGljIi8+PC9maWx0ZXI+PC9kZWZzPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI0KSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cmVjdCBmaWxsPSIjRkY4OTYzIiBvcGFjaXR5PSIuODQ4IiBmaWx0ZXI9InVybCgjYSkiIHk9IjQyIiB3aWR0aD0iODAiIGhlaWdodD0iMzgiIHJ4PSIxOSIvPjxyZWN0IGZpbGw9InVybCgjYikiIGZpbGwtcnVsZT0ibm9uemVybyIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiByeD0iMzIiLz48cGF0aCBkPSJNNTUuMjE2IDQ2LjU2NUM1Mi42NDkgNTIuMTI0IDQ3LjAzIDU2IDQwLjUwNyA1NnMtMTIuMTQzLTMuODc2LTE0LjcxLTkuNDM1ek0yNi4wNSAyNS4zOTVhMS4zNTMgMS4zNTMgMCAwMTEuOTA5IDBsNi45MTMgNi45MDJhOC4wNDQgOC4wNDQgMCAwMTIuOTM0LS41NThjNC4wMDUgMCA3LjMzMiAyLjkyIDcuOTc4IDYuNzM5aDkuNTc0Yy43NDUgMCAxLjM1LjYwNCAxLjM1IDEuMzQ4IDAgMS4zOTktLjE5OSAyLjc0OC0uNTMzIDQuMDQzSDI0LjgzOGExNi4wNDggMTYuMDQ4IDAgMDEtLjUzMy00LjA0M2MwLS43NDQuNjAzLTEuMzQ4IDEuMzUtMS4zNDhoNC4xNzJhOC4wMSA4LjAxIDAgMDEuNjI1LTIuMDIzbC01LjMtMi4xMTdhMS4zNDcgMS4zNDcgMCAxMTEuMDA0LTIuNTAybDUuODY0IDIuMzRjLjE1LS4xNTQuMzEyLS4zLjQ3NS0uNDQxTDI2LjA1MSAyNy4zYTEuMzQ1IDEuMzQ1IDAgMDEwLTEuOTA2em0xOC41MDYuOTUzYzUuMjEyIDAgOS40NTEgNC4yMzIgOS40NTEgOS40MzRoLTYuMTkzYTEwLjc1NCAxMC43NTQgMCAwMC05Ljg4My02LjczIDkuNDU4IDkuNDU4IDAgMDE2LjYyNS0yLjcwNHoiIGZpbGw9IiNGRkYiLz48L2c+PC9zdmc+"
-														alt="KHÔNG CÒN PHẢI NẤU ĂN MỘT MÌNH" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /><i fill="currentColor" style="display:inline-block" class="star"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M16.855 20.966c-.224 0-.443-.05-.646-.146l-.104-.051-4.107-2.343-4.107 2.344-.106.053c-.488.228-1.085.174-1.521-.143-.469-.34-.701-.933-.586-1.509l.957-4.642-1.602-1.457-1.895-1.725-.078-.082c-.375-.396-.509-.97-.34-1.492.173-.524.62-.912 1.16-1.009l.102-.018 4.701-.521 1.946-4.31.06-.11c.262-.473.764-.771 1.309-.771.543 0 1.044.298 1.309.77l.06.112 1.948 4.312 4.701.521.104.017c.539.1.986.486 1.158 1.012.17.521.035 1.098-.34 1.494l-.078.078-3.498 3.184.957 4.632c.113.587-.118 1.178-.59 1.519-.252.182-.556.281-.874.281zm-8.149-6.564c-.039.182-.466 2.246-.845 4.082l3.643-2.077c.307-.175.684-.175.99 0l3.643 2.075-.849-4.104c-.071-.346.045-.705.308-.942l3.1-2.822-4.168-.461c-.351-.039-.654-.26-.801-.584l-1.728-3.821-1.726 3.821c-.146.322-.45.543-.801.584l-4.168.461 3.1 2.822c.272.246.384.617.302.966z"></path></svg></i></div>
-														<div
-														class="featureBlockstyle__ContentWrapper-sc-1pllarm-2 bVJtlh content__wrapper">
-														<h3 font-weight="bold" class="Heading__HeadingWrapper-sc-10v4eax-0 iZtwpV">KHÔNG CÒN PHẢI NẤU ĂN MỘT MÌNH</h3>
-														<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">Đưa bạn đến những thế giới khác qua các cuốn tiểu thuyết kinh điển trong thời gian nấu ăn. Củng cố sự tự tin của bản thân với các kiến thức, và kinh nghiệm nuôi dạy con trong những cuốn sách nói dạy làm cha mẹ hay
-														nhất.</p>
-													</div>
-												</div>
-											</div>
-											<div class="react-reveal">
-												<div class="featureBlockstyle__FeatureBlockWrapper-sc-1pllarm-0 mGdpT feature__block icon_left" style="--color:#fb5781">
-													<div class="featureBlockstyle__IconWrapper-sc-1pllarm-1 gfuhTH icon__wrapper"><i fill="currentColor" style="display:inline-block" class="plus"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M18 10h-4v-4c0-1.104-.896-2-2-2s-2 .896-2 2l.071 4h-4.071c-1.104 0-2 .896-2 2s.896 2 2 2l4.071-.071-.071 4.071c0 1.104.896 2 2 2s2-.896 2-2v-4.071l4 .071c1.104 0 2-.896 2-2s-.896-2-2-2z"></path></svg></i>
-														<i
-														fill="currentColor" style="display:inline-block" class="circle"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M12 8c2.205 0 4 1.794 4 4s-1.795 4-4 4-4-1.794-4-4 1.795-4 4-4m0-2c-3.314 0-6 2.686-6 6 0 3.312 2.686 6 6 6 3.312 0 6-2.688 6-6 0-3.314-2.688-6-6-6z"></path></svg></i><img
-														src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEwNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgY3g9Ii04LjE1MiUiIGN5PSItMTkuMjU3JSIgZng9Ii04LjE1MiUiIGZ5PSItMTkuMjU3JSIgcj0iMTAwJSIgaWQ9ImIiPjxzdG9wIHN0b3AtY29sb3I9IiNGRkE2NTkiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjRkY2RDZEIiBvZmZzZXQ9IjEwMCUiLz48L3JhZGlhbEdyYWRpZW50PjxmaWx0ZXIgeD0iLTM3LjUlIiB5PSItNzguOSUiIHdpZHRoPSIxNzUlIiBoZWlnaHQ9IjI1Ny45JSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiBpZD0iYSI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMTAiIGluPSJTb3VyY2VHcmFwaGljIi8+PC9maWx0ZXI+PC9kZWZzPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI0KSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cmVjdCBmaWxsPSIjRkY4OTYzIiBvcGFjaXR5PSIuODQ4IiBmaWx0ZXI9InVybCgjYSkiIHk9IjQyIiB3aWR0aD0iODAiIGhlaWdodD0iMzgiIHJ4PSIxOSIvPjxyZWN0IHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgcng9IjMyIiBmaWxsPSJ1cmwoI2IpIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNMzQuMDU4IDI4LjE3NGwuMTM2LjAwN2MuMjcxLjAzLjUzLjE1LjczLjM1bC4wOTMuMTAzYy4yNTcuMzIzLjMzNC43NTcuMiAxLjE1NWwtLjEzMS40MDlhMTEuODQgMTEuODQgMCAwMC0uNDk0IDMuMzk0bC4wMDQuM2MuMTYgNi4zNzcgNS4zOTYgMTEuNTE2IDExLjgxIDExLjUxNmwuNDM0LS4wMDhhMTEuNzg1IDExLjc4NSAwIDAwMy4zNzItLjYybC4xMzItLjAzNmMuNC0uMDg2LjgyOC4wMzQgMS4xMjYuMzMybC4wOTEuMTAzYy4yNTUuMzIzLjMzNS43NTcuMiAxLjE1M2wtLjExLjMxM0ExNC4yNTUgMTQuMjU1IDAgMDEzOC4yNTkgNTZsLS4zMTQtLjAwM0MzMC4yMjUgNTUuODI5IDI0IDQ5LjQ5NyAyNCA0MS43NGwuMDA0LS4zMzJhMTQuMjUxIDE0LjI1MSAwIDAxOS42NjEtMTMuMTcgMS4yMSAxLjIxIDAgMDEuMzkzLS4wNjV6bTExLjA1NCA0LjE3NGExLjE0OSAxLjE0OSAwIDAxLjgxMiAxLjk2MWwtMi42OTYgMi42OTdoMS44ODRhMS4xNSAxLjE1IDAgMDEwIDIuMjk4aC00LjY1OGExLjE0OSAxLjE0OSAwIDAxLS44MTItMS45NjFsMi42OTUtMi42OTdoLTEuODgzYTEuMTUgMS4xNSAwIDAxMC0yLjI5OGg0LjY1OHpNNTQuODYyIDI0YTEuMTM4IDEuMTM4IDAgMDEuODA0IDEuOTQzbC00LjEyNyA0LjEyOGgzLjMyM2ExLjEzOSAxLjEzOSAwIDAxMCAyLjI3N0g0OC43OWExLjEzOCAxLjEzOCAwIDAxLS44MDUtMS45NDNsNC4xMjctNC4xMjhINDguNzlhMS4xMzkgMS4xMzkgMCAwMTAtMi4yNzdoNi4wN3oiIGZpbGw9IiNGRkYiLz48L2c+PC9zdmc+"
-														alt="Thư giãn khi đêm về" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /><i fill="currentColor" style="display:inline-block" class="star"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M16.855 20.966c-.224 0-.443-.05-.646-.146l-.104-.051-4.107-2.343-4.107 2.344-.106.053c-.488.228-1.085.174-1.521-.143-.469-.34-.701-.933-.586-1.509l.957-4.642-1.602-1.457-1.895-1.725-.078-.082c-.375-.396-.509-.97-.34-1.492.173-.524.62-.912 1.16-1.009l.102-.018 4.701-.521 1.946-4.31.06-.11c.262-.473.764-.771 1.309-.771.543 0 1.044.298 1.309.77l.06.112 1.948 4.312 4.701.521.104.017c.539.1.986.486 1.158 1.012.17.521.035 1.098-.34 1.494l-.078.078-3.498 3.184.957 4.632c.113.587-.118 1.178-.59 1.519-.252.182-.556.281-.874.281zm-8.149-6.564c-.039.182-.466 2.246-.845 4.082l3.643-2.077c.307-.175.684-.175.99 0l3.643 2.075-.849-4.104c-.071-.346.045-.705.308-.942l3.1-2.822-4.168-.461c-.351-.039-.654-.26-.801-.584l-1.728-3.821-1.726 3.821c-.146.322-.45.543-.801.584l-4.168.461 3.1 2.822c.272.246.384.617.302.966z"></path></svg></i></div>
-														<div
-														class="featureBlockstyle__ContentWrapper-sc-1pllarm-2 bVJtlh content__wrapper">
-														<h3 font-weight="bold" class="Heading__HeadingWrapper-sc-10v4eax-0 iZtwpV">Thư giãn khi đêm về</h3>
-														<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">Thả trôi những căng thẳng trong ngày và lắng nghe những câu chuyện ngủ mới nhất được viết riêng cho bạn.</p>
-													</div>
-												</div>
+										<div class="search-bar-collapse">
+											<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+												<ul class="navbar-nav ">
+													<li class="nav-item ">
+														<a class="nav-link" href="index.php">
+															<div style="color:#557fa7" class="fonos-text fonos-large mb-0  fonos-light ">
+															Trang chủ</div>
+														</a>
+													</li>							
+													<li class="nav-item ">
+														<a class="nav-link" href="#" target="_blank">
+															<div style="color:#557fa7" class="fonos-text fonos-large mb-0  fonos-light ">Cộng đồng</div>
+														</a>
+													</li>
+													<li class="nav-item ">
+														<a class="nav-link" href="http://facebook.com/binazure" target="_blank">
+															<div style="color:#557fa7" class="fonos-text fonos-large mb-0  fonos-light ">Fanpage</div>
+														</a>
+													</li>
+													<li class="nav-item ">
+														<a class="nav-link" href="blogadmin">
+
+
+															<div style="color:#557fa7" class="fonos-text fonos-large mb-0  fonos-light ">Đăng nhập</div>
+														</a>
+													</li>
+													<form action="search.php" method="post" class="form-inline my-2 my-lg-0 header-search" name="form">
+														<input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm..." required="yes" type="text" name="search[keyword]">
+														<button class="btn btn1 my-2 my-sm-0" type="submit" name="submit"><i class="fas fa-search"></i></button>
+													</form>
+												</ul>
 											</div>
 										</div>
 									</div>
-								</section>
-								<div id="audiobooks" class="audiobooksstyle__SectionWrapper-b5cho6-0 bBjLPn">
-									<div class="react-reveal">
-										<div class="style__ContainerWrapper-sc-1gre7ok-0 cnvkcL container">
-											<div class="audiobooksstyle__ContentWrapper-b5cho6-1 iBJTKr">
-												<div class="image"><img src="_next/static/images/Audiobooks%402x-d737bcb21647ca93070081ed769d76c0.png" alt="Fonos Audiobooks" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /></div>
-												<div class="content">
-													<h2>TỐI ƯU HÓA CÔNG VIỆC</h2>
-													<h3>Sắp xếp và thông báo công việc</h3>
-													<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">Liên tục cập nhật những cuốn sách nói có bản quyền bán chạy nhất của các tác giả quốc tế và Việt Nam. Bạn có thể nghe sách trong xe hơi, trong phòng tập thể dục, trong khi nấu ăn, dọn dẹp hoặc bất cứ nơi nào trên đường đi.
-													Hãy thử ngay bây giờ, chương đầu tiên của mỗi quyển sách nói luôn miễn phí!</p>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div id="meditations" class="meditationsstyle__SectionWrapper-sc-16r7m8s-0 bvZyUg">
-									<div class="react-reveal">
-										<div class="style__ContainerWrapper-sc-1gre7ok-0 cnvkcL container">
-											<div class="meditationsstyle__ContentWrapper-sc-16r7m8s-1 iRZcM">
-												<div class="content">
-													<h2>DỄ DÀNG SỬ DỤNG</h2>
-													<h3>Giao diện tối giản hóa dễ dàng thao tác</h3>
-													<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">Hãy sống một cuộc sống khỏe mạnh hơn, hạnh phúc hơn bằng cách cho phép cơ thể và tâm trí được nghỉ ngơi qua các buổi thực hành thiền. Có nhiều chủ đề từ giảm căng thẳng, cải thiện giấc ngủ đến tăng cường sự tập trung và giảm
-													lo lắng... thích hợp với tất cả mọi người cho dù bạn mới tham gia hoặc đã thiền định nâng cao. Những bản âm thanh hướng dẫn Thiền định của chúng tôi là sự lựa chọn hoàn hảo cho những người có cuộc sống bận rộn, đầy lo toan.</p>
-												</div>
-												<div class="image"><img src="_next/static/images/Meditation%402x-e948773f363c5f780a4458c37447447f.png" alt="Fonos Meditations" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div id="sleep" class="sleepstoriesstyle__SectionWrapper-go1dz-0 eYlLb">
-									<div class="react-reveal">
-										<div class="style__ContainerWrapper-sc-1gre7ok-0 cnvkcL container">
-											<div class="sleepstoriesstyle__ContentWrapper-go1dz-1 fmLMuL">
-												<div class="image"><img src="_next/static/images/SleepStory%402x-de358bb5fcdb2b91d5fc3f2bcfc53042.png" alt="Fonos Sleep Stories" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /></div>
-												<div class="content">
-													<h2>BẢO ĐẢM SỨC KHỎE</h2>
-													<h3>Tính năng thời điểm vàng</h3>
-													<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">Lạc vào xứ sở mộng mơ một cách dễ dàng với những câu chuyện nhẹ nhàng của chúng tôi, pha trộn với âm nhạc và giọng nói truyền cảm đáng kinh ngạc. Được tạo ra dưới sự tư vấn của các chuyên gia quốc tế được chứng nhận, những
-													câu chuyện này chắc chắn sẽ mang đến cho bạn giấc ngủ sâu và khoẻ khoắn.</p>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div id="summaries" class="summariesstyle__SectionWrapper-sc-111mx6w-0 fTTzxo">
-									<div class="react-reveal">
-										<div class="style__ContainerWrapper-sc-1gre7ok-0 cnvkcL container">
-											<div class="summariesstyle__ContentWrapper-sc-111mx6w-1 cVELCQ">
-												<div class="content">
-													<h2>TĂNG HIỆU QUẢ LÀM VIỆC</h2>
-													<h3>Hỗ trợ trong học tập và làm việc hiệu quả</h3>
-													<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">Tập hợp các ý chính từ những quyển sách phi hư cấu bán chạy nhất được các chuyên gia của chúng tôi chắt lọc thành các đoạn âm thanh ngắn. Tiếp thu ngay lập tức kiến thức có trong những quyển sách hay nhất thế giới.</p>
-												</div>
-												<div class="image"><img src="_next/static/images/BookSummaries%402x-5a56cd6ecdc6ea0f7404ea247ec483f3.png" alt="Fonos Book Summaries" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div id="music" class="musicstyle__SectionWrapper-sc-1u7oklp-0 ksVQnR">
-									<div class="react-reveal">
-										<div class="style__ContainerWrapper-sc-1gre7ok-0 cnvkcL container">
-											<div class="musicstyle__ContentWrapper-sc-1u7oklp-1 khdqIN">
-												<div class="image"><img src="_next/static/images/Music%402x-1c965bc3f078cf1a996c3bfa5b70ad38.png" alt="Fonos Music" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /></div>
-												<div class="content">
-													<h2>TÍNH NĂNG SẼ CẬP NHẬT SAU</h2>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								</nav>
 							</div>
-							<footer class="footerstyle__FooterArea-sc-1a7t3z-0 fPNGHt">
+						</div>
+						<div class="appModernstyle__ContentWrapper-sc-3tq9sx-1 ivRGZI">
+							<div id="home" class="bannerstyle__BannerWrapper-sc-1t20giu-0 clQFeW">
 								<div class="style__ContainerWrapper-sc-1gre7ok-0 cnvkcL container">
-									<div class="footerstyle__MenuArea-sc-1a7t3z-2 jFnZKM"><a class="Link__LinkWrapper-gszw5l-0 cryXUa logo" href="index.html" display="inline-block"><img src="_next/static/images/logo-white-a35cd0609b903e2985dcc1bc6221bc6d.png" alt="Fonos" class="Image__ImageWrapper-csrlc2-0 jZhmLy"/></a>
-										<ul class="footerstyle__Menu-sc-1a7t3z-3 kAIoyq">
-											<li class="footerstyle__MenuItem-sc-1a7t3z-4 hOMhBK"><a href="chinh-sach-bao-mat-thong-tin.html">Chính sách bảo mật</a></li>
-											<li class="footerstyle__MenuItem-sc-1a7t3z-4 hOMhBK"><a href="https://www.facebook.com/bin2209" target="_blank">Liên hệ</a></li>
-											<li class="footerstyle__MenuItem-sc-1a7t3z-4 hOMhBK"><a href="https://www.facebook.com/binazure" target="_blank">Fanpage</a></li>
-										</ul>
-										<div class="footerstyle__BestBooks-sc-1a7t3z-5 erXaKV">Binazure là một đội ngũ được thành lập năm 2017 bởi Nguyễn Hải Trường, đến nay đã hợp tác cho ra mắt nhiều sản phẩm phục vụ cho Design và Coder trong đó có phần mềm được tin dùng như Deepads2019, trang web kho nhạc SoundColorVN.com, và là thành viên hợp tác của nhiều sản phẩm khác cùng với Zyth Team.
-											
-											<p class="footerstyle__AddressText-sc-1a7t3z-6 cWyblH">Nguyễn Hải Trường - Binazure Team<br/>Chịu trách nhiệm sản phẩm về Nguyễn Hải Trường.<br/>Địa chỉ: Phường 1 - Thành Phố Đông Hà - Tỉnh Quảng Trị<br/>EMAIL:
-												binteam@outlook.com<br/>  PHONE: 0899240332</p>
-												<p class="footerstyle__CopyrightText-sc-1a7t3z-8 kVhZLC">Copyright 2020 By NGUYENHAITRUONG</p>
+									<div class="bannerstyle__BannerContent-sc-1t20giu-1 hlhwRJ">
+										<div class="react-reveal">
+											<h1 font-weight="bold" class="Heading__HeadingWrapper-sc-10v4eax-0 iZtwpV">Đồng hành cùng bạn mỗi ngày</h1>
+										</div>
+										<div class="react-reveal">
+											<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">Giúp bạn tập trung hơn và đạt hiệu quả cao cho công việc mỗi ngày.</p>
+										</div>
+										<img src="_next/static/images/mascot_pointing_right-70115e63f0ad6615ddfd52335311377a.png" alt="Fonos Mascot" class="react-reveal mascot" /></div>
+										<div class="bannerstyle__BannerImage-sc-1t20giu-3 eLUFAp">
+											<!-- <div class="react-reveal"><img src="_next/static/images/MockupMainFinal%402x-1002427ffeffef5f2a9e8eb2e387830f.png" alt="Banner" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /></div> -->
+										</div>
+									</div> <img class="bannerBottomShape" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMTkiIGhlaWdodD0iMjkzLjA5NCI+PHBhdGggZD0iTTAgMjkzYy4xNy0uMTMxIDEyOC43NCA3IDIyMy04MCA5OS40OC05MS44MjIgOTYtMjEzIDk2LTIxM3YyOTNIMHoiIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg=="
+									alt="Bottom Circle" /></div>
+									<section id="features" class="featuresstyle__SectionWrapper-uvd861-0 hsmczZ">
+										<div class="style__ContainerWrapper-sc-1gre7ok-0 cnvkcL container">
+											<header class="appModernstyle__SectionHeader-sc-3tq9sx-2 gHknyw">
+												<h3 class="react-reveal">CONTENT CHƯA SUY NGHĨ RA</h3>
+												<div class="react-reveal">
+													<h2 font-weight="bold" class="Heading__HeadingWrapper-sc-10v4eax-0 iZtwpV">CONTENT CHƯA SUY NGHĨ RA</h2>
+												</div>
+											</header>
+											<div class="featuresstyle__FeatureWrapper-uvd861-1 iltswj">
+												<div class="react-reveal">
+													<div class="featureBlockstyle__FeatureBlockWrapper-sc-1pllarm-0 mGdpT feature__block icon_left" style="--color:#F55767">
+														<div class="featureBlockstyle__IconWrapper-sc-1pllarm-1 gfuhTH icon__wrapper"><i fill="currentColor" style="display:inline-block" class="plus"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M18 10h-4v-4c0-1.104-.896-2-2-2s-2 .896-2 2l.071 4h-4.071c-1.104 0-2 .896-2 2s.896 2 2 2l4.071-.071-.071 4.071c0 1.104.896 2 2 2s2-.896 2-2v-4.071l4 .071c1.104 0 2-.896 2-2s-.896-2-2-2z"></path></svg></i>
+															<i
+															fill="currentColor" style="display:inline-block" class="circle"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M12 8c2.205 0 4 1.794 4 4s-1.795 4-4 4-4-1.794-4-4 1.795-4 4-4m0-2c-3.314 0-6 2.686-6 6 0 3.312 2.686 6 6 6 3.312 0 6-2.688 6-6 0-3.314-2.688-6-6-6z"></path></svg></i><img
+															src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEwNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgY3g9Ii04LjE1MiUiIGN5PSItMTkuMjU3JSIgZng9Ii04LjE1MiUiIGZ5PSItMTkuMjU3JSIgcj0iMTAwJSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAuOTg3NSAwIC0uMDAyKSIgaWQ9ImIiPjxzdG9wIHN0b3AtY29sb3I9IiNGRkE2NTkiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjRkY2RDZEIiBvZmZzZXQ9IjEwMCUiLz48L3JhZGlhbEdyYWRpZW50PjxmaWx0ZXIgeD0iLTM3LjUlIiB5PSItNzguOSUiIHdpZHRoPSIxNzUlIiBoZWlnaHQ9IjI1Ny45JSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiBpZD0iYSI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMTAiIGluPSJTb3VyY2VHcmFwaGljIi8+PC9maWx0ZXI+PC9kZWZzPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI0KSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cmVjdCBmaWxsPSIjRkY4OTYzIiBvcGFjaXR5PSIuODQ4IiBmaWx0ZXI9InVybCgjYSkiIHk9IjQyIiB3aWR0aD0iODAiIGhlaWdodD0iMzgiIHJ4PSIxOSIvPjxyZWN0IGZpbGw9InVybCgjYikiIGZpbGwtcnVsZT0ibm9uemVybyIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgxLjAxMyIgcng9IjMyIi8+PHBhdGggZD0iTTUwLjI1IDQ5LjY3MmMtMS4yNCAwLTIuMjUtLjk5NC0yLjI1LTIuMjE1IDAtMS4yMjEgMS4wMS0yLjIxNSAyLjI1LTIuMjE1czIuMjUuOTk0IDIuMjUgMi4yMTVjMCAxLjIyMS0xLjAxIDIuMjE1LTIuMjUgMi4yMTVNNDYuNSAyOWExLjUgMS41IDAgMDExLjI4NS43MTZsNC4wNjQgNi42NjdINTguNWMuODMgMCAxLjUuNjYxIDEuNSAxLjQ3NnY4Ljg2YzAgLjgxNS0uNjcgMS40NzYtMS41IDEuNDc2aC0zLjA3N2MtLjM2NyAyLjQ5OS0yLjUzNiA0LjQzLTUuMTczIDQuNDNzLTQuODA2LTEuOTMxLTUuMTczLTQuNDNoLTcuNjU0Yy0uMzY3IDIuNDk5LTIuNTM2IDQuNDMtNS4xNzMgNC40M3MtNC44MDYtMS45MzEtNS4xNzQtNC40M0gyNS41Yy0uODMgMC0xLjUtLjY2MS0xLjUtMS40NzZ2LTcuMzgzYzAtLjI5LjA4OC0uNTc3LjI1Mi0uODJsNi04Ljg1OUExLjUxIDEuNTEgMCAwMTMxLjUgMjl6TTMyLjI1IDQ1LjI0MmMtMS4yNCAwLTIuMjUuOTk0LTIuMjUgMi4yMTUgMCAxLjIyMSAxLjAxIDIuMjE1IDIuMjUgMi4yMTVzMi4yNS0uOTk0IDIuMjUtMi4yMTVjMC0xLjIyMS0xLjAxLTIuMjE1LTIuMjUtMi4yMTV6bTEzLjQzOC0xMy4yODlIMzIuMjMzTDI4LjUgMzcuODZoMjAuNDZsLTMuMjcyLTUuOTA2eiIgZmlsbD0iI0ZGRiIvPjwvZz48L3N2Zz4="
+															alt="Không còn lo ngại mỗi khi kẹt xe" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /><i fill="currentColor" style="display:inline-block" class="star"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M16.855 20.966c-.224 0-.443-.05-.646-.146l-.104-.051-4.107-2.343-4.107 2.344-.106.053c-.488.228-1.085.174-1.521-.143-.469-.34-.701-.933-.586-1.509l.957-4.642-1.602-1.457-1.895-1.725-.078-.082c-.375-.396-.509-.97-.34-1.492.173-.524.62-.912 1.16-1.009l.102-.018 4.701-.521 1.946-4.31.06-.11c.262-.473.764-.771 1.309-.771.543 0 1.044.298 1.309.77l.06.112 1.948 4.312 4.701.521.104.017c.539.1.986.486 1.158 1.012.17.521.035 1.098-.34 1.494l-.078.078-3.498 3.184.957 4.632c.113.587-.118 1.178-.59 1.519-.252.182-.556.281-.874.281zm-8.149-6.564c-.039.182-.466 2.246-.845 4.082l3.643-2.077c.307-.175.684-.175.99 0l3.643 2.075-.849-4.104c-.071-.346.045-.705.308-.942l3.1-2.822-4.168-.461c-.351-.039-.654-.26-.801-.584l-1.728-3.821-1.726 3.821c-.146.322-.45.543-.801.584l-4.168.461 3.1 2.822c.272.246.384.617.302.966z"></path></svg></i></div>
+															<div
+															class="featureBlockstyle__ContentWrapper-sc-1pllarm-2 bVJtlh content__wrapper">
+															<h3 font-weight="bold" class="Heading__HeadingWrapper-sc-10v4eax-0 iZtwpV">CONTENT CHƯA SUY NGHĨ RA</h3>
+															<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">CONTENT CHƯA SUY NGHĨ RA</p>
+														</div>
+													</div>
+												</div>
+												<div class="react-reveal">
+													<div class="featureBlockstyle__FeatureBlockWrapper-sc-1pllarm-0 mGdpT feature__block icon_left" style="--color:#ff4742">
+														<div class="featureBlockstyle__IconWrapper-sc-1pllarm-1 gfuhTH icon__wrapper"><i fill="currentColor" style="display:inline-block" class="plus"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M18 10h-4v-4c0-1.104-.896-2-2-2s-2 .896-2 2l.071 4h-4.071c-1.104 0-2 .896-2 2s.896 2 2 2l4.071-.071-.071 4.071c0 1.104.896 2 2 2s2-.896 2-2v-4.071l4 .071c1.104 0 2-.896 2-2s-.896-2-2-2z"></path></svg></i>
+															<i
+															fill="currentColor" style="display:inline-block" class="circle"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M12 8c2.205 0 4 1.794 4 4s-1.795 4-4 4-4-1.794-4-4 1.795-4 4-4m0-2c-3.314 0-6 2.686-6 6 0 3.312 2.686 6 6 6 3.312 0 6-2.688 6-6 0-3.314-2.688-6-6-6z"></path></svg></i><img
+															src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEwNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgY3g9Ii04LjE1MiUiIGN5PSItMTkuMjU3JSIgZng9Ii04LjE1MiUiIGZ5PSItMTkuMjU3JSIgcj0iMTAwJSIgaWQ9ImIiPjxzdG9wIHN0b3AtY29sb3I9IiNGRkE2NTkiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjRkY2RDZEIiBvZmZzZXQ9IjEwMCUiLz48L3JhZGlhbEdyYWRpZW50PjxmaWx0ZXIgeD0iLTM3LjUlIiB5PSItNzguOSUiIHdpZHRoPSIxNzUlIiBoZWlnaHQ9IjI1Ny45JSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiBpZD0iYSI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMTAiIGluPSJTb3VyY2VHcmFwaGljIi8+PC9maWx0ZXI+PC9kZWZzPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI0KSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cmVjdCBmaWxsPSIjRkY4OTYzIiBvcGFjaXR5PSIuODQ4IiBmaWx0ZXI9InVybCgjYSkiIHk9IjQyIiB3aWR0aD0iODAiIGhlaWdodD0iMzgiIHJ4PSIxOSIvPjxyZWN0IGZpbGw9InVybCgjYikiIGZpbGwtcnVsZT0ibm9uemVybyIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiByeD0iMzIiLz48cGF0aCBkPSJNNTUuMjE2IDQ2LjU2NUM1Mi42NDkgNTIuMTI0IDQ3LjAzIDU2IDQwLjUwNyA1NnMtMTIuMTQzLTMuODc2LTE0LjcxLTkuNDM1ek0yNi4wNSAyNS4zOTVhMS4zNTMgMS4zNTMgMCAwMTEuOTA5IDBsNi45MTMgNi45MDJhOC4wNDQgOC4wNDQgMCAwMTIuOTM0LS41NThjNC4wMDUgMCA3LjMzMiAyLjkyIDcuOTc4IDYuNzM5aDkuNTc0Yy43NDUgMCAxLjM1LjYwNCAxLjM1IDEuMzQ4IDAgMS4zOTktLjE5OSAyLjc0OC0uNTMzIDQuMDQzSDI0LjgzOGExNi4wNDggMTYuMDQ4IDAgMDEtLjUzMy00LjA0M2MwLS43NDQuNjAzLTEuMzQ4IDEuMzUtMS4zNDhoNC4xNzJhOC4wMSA4LjAxIDAgMDEuNjI1LTIuMDIzbC01LjMtMi4xMTdhMS4zNDcgMS4zNDcgMCAxMTEuMDA0LTIuNTAybDUuODY0IDIuMzRjLjE1LS4xNTQuMzEyLS4zLjQ3NS0uNDQxTDI2LjA1MSAyNy4zYTEuMzQ1IDEuMzQ1IDAgMDEwLTEuOTA2em0xOC41MDYuOTUzYzUuMjEyIDAgOS40NTEgNC4yMzIgOS40NTEgOS40MzRoLTYuMTkzYTEwLjc1NCAxMC43NTQgMCAwMC05Ljg4My02LjczIDkuNDU4IDkuNDU4IDAgMDE2LjYyNS0yLjcwNHoiIGZpbGw9IiNGRkYiLz48L2c+PC9zdmc+"
+															alt="KHÔNG CÒN PHẢI NẤU ĂN MỘT MÌNH" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /><i fill="currentColor" style="display:inline-block" class="star"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M16.855 20.966c-.224 0-.443-.05-.646-.146l-.104-.051-4.107-2.343-4.107 2.344-.106.053c-.488.228-1.085.174-1.521-.143-.469-.34-.701-.933-.586-1.509l.957-4.642-1.602-1.457-1.895-1.725-.078-.082c-.375-.396-.509-.97-.34-1.492.173-.524.62-.912 1.16-1.009l.102-.018 4.701-.521 1.946-4.31.06-.11c.262-.473.764-.771 1.309-.771.543 0 1.044.298 1.309.77l.06.112 1.948 4.312 4.701.521.104.017c.539.1.986.486 1.158 1.012.17.521.035 1.098-.34 1.494l-.078.078-3.498 3.184.957 4.632c.113.587-.118 1.178-.59 1.519-.252.182-.556.281-.874.281zm-8.149-6.564c-.039.182-.466 2.246-.845 4.082l3.643-2.077c.307-.175.684-.175.99 0l3.643 2.075-.849-4.104c-.071-.346.045-.705.308-.942l3.1-2.822-4.168-.461c-.351-.039-.654-.26-.801-.584l-1.728-3.821-1.726 3.821c-.146.322-.45.543-.801.584l-4.168.461 3.1 2.822c.272.246.384.617.302.966z"></path></svg></i></div>
+															<div
+															class="featureBlockstyle__ContentWrapper-sc-1pllarm-2 bVJtlh content__wrapper">
+															<h3 font-weight="bold" class="Heading__HeadingWrapper-sc-10v4eax-0 iZtwpV">CONTENT CHƯA SUY NGHĨ RA</h3>
+															<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">CONTENT CHƯA SUY NGHĨ RA</p>
+														</div>
+													</div>
+												</div>
+												<div class="react-reveal">
+													<div class="featureBlockstyle__FeatureBlockWrapper-sc-1pllarm-0 mGdpT feature__block icon_left" style="--color:#fb5781">
+														<div class="featureBlockstyle__IconWrapper-sc-1pllarm-1 gfuhTH icon__wrapper"><i fill="currentColor" style="display:inline-block" class="plus"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M18 10h-4v-4c0-1.104-.896-2-2-2s-2 .896-2 2l.071 4h-4.071c-1.104 0-2 .896-2 2s.896 2 2 2l4.071-.071-.071 4.071c0 1.104.896 2 2 2s2-.896 2-2v-4.071l4 .071c1.104 0 2-.896 2-2s-.896-2-2-2z"></path></svg></i>
+															<i
+															fill="currentColor" style="display:inline-block" class="circle"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M12 8c2.205 0 4 1.794 4 4s-1.795 4-4 4-4-1.794-4-4 1.795-4 4-4m0-2c-3.314 0-6 2.686-6 6 0 3.312 2.686 6 6 6 3.312 0 6-2.688 6-6 0-3.314-2.688-6-6-6z"></path></svg></i><img
+															src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEwNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgY3g9Ii04LjE1MiUiIGN5PSItMTkuMjU3JSIgZng9Ii04LjE1MiUiIGZ5PSItMTkuMjU3JSIgcj0iMTAwJSIgaWQ9ImIiPjxzdG9wIHN0b3AtY29sb3I9IiNGRkE2NTkiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjRkY2RDZEIiBvZmZzZXQ9IjEwMCUiLz48L3JhZGlhbEdyYWRpZW50PjxmaWx0ZXIgeD0iLTM3LjUlIiB5PSItNzguOSUiIHdpZHRoPSIxNzUlIiBoZWlnaHQ9IjI1Ny45JSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiBpZD0iYSI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMTAiIGluPSJTb3VyY2VHcmFwaGljIi8+PC9maWx0ZXI+PC9kZWZzPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI0KSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cmVjdCBmaWxsPSIjRkY4OTYzIiBvcGFjaXR5PSIuODQ4IiBmaWx0ZXI9InVybCgjYSkiIHk9IjQyIiB3aWR0aD0iODAiIGhlaWdodD0iMzgiIHJ4PSIxOSIvPjxyZWN0IHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgcng9IjMyIiBmaWxsPSJ1cmwoI2IpIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNMzQuMDU4IDI4LjE3NGwuMTM2LjAwN2MuMjcxLjAzLjUzLjE1LjczLjM1bC4wOTMuMTAzYy4yNTcuMzIzLjMzNC43NTcuMiAxLjE1NWwtLjEzMS40MDlhMTEuODQgMTEuODQgMCAwMC0uNDk0IDMuMzk0bC4wMDQuM2MuMTYgNi4zNzcgNS4zOTYgMTEuNTE2IDExLjgxIDExLjUxNmwuNDM0LS4wMDhhMTEuNzg1IDExLjc4NSAwIDAwMy4zNzItLjYybC4xMzItLjAzNmMuNC0uMDg2LjgyOC4wMzQgMS4xMjYuMzMybC4wOTEuMTAzYy4yNTUuMzIzLjMzNS43NTcuMiAxLjE1M2wtLjExLjMxM0ExNC4yNTUgMTQuMjU1IDAgMDEzOC4yNTkgNTZsLS4zMTQtLjAwM0MzMC4yMjUgNTUuODI5IDI0IDQ5LjQ5NyAyNCA0MS43NGwuMDA0LS4zMzJhMTQuMjUxIDE0LjI1MSAwIDAxOS42NjEtMTMuMTcgMS4yMSAxLjIxIDAgMDEuMzkzLS4wNjV6bTExLjA1NCA0LjE3NGExLjE0OSAxLjE0OSAwIDAxLjgxMiAxLjk2MWwtMi42OTYgMi42OTdoMS44ODRhMS4xNSAxLjE1IDAgMDEwIDIuMjk4aC00LjY1OGExLjE0OSAxLjE0OSAwIDAxLS44MTItMS45NjFsMi42OTUtMi42OTdoLTEuODgzYTEuMTUgMS4xNSAwIDAxMC0yLjI5OGg0LjY1OHpNNTQuODYyIDI0YTEuMTM4IDEuMTM4IDAgMDEuODA0IDEuOTQzbC00LjEyNyA0LjEyOGgzLjMyM2ExLjEzOSAxLjEzOSAwIDAxMCAyLjI3N0g0OC43OWExLjEzOCAxLjEzOCAwIDAxLS44MDUtMS45NDNsNC4xMjctNC4xMjhINDguNzlhMS4xMzkgMS4xMzkgMCAwMTAtMi4yNzdoNi4wN3oiIGZpbGw9IiNGRkYiLz48L2c+PC9zdmc+"
+															alt="Thư giãn khi đêm về" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /><i fill="currentColor" style="display:inline-block" class="star"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" height="16" width="16" viewBox="0 0 24 24"><path d="M16.855 20.966c-.224 0-.443-.05-.646-.146l-.104-.051-4.107-2.343-4.107 2.344-.106.053c-.488.228-1.085.174-1.521-.143-.469-.34-.701-.933-.586-1.509l.957-4.642-1.602-1.457-1.895-1.725-.078-.082c-.375-.396-.509-.97-.34-1.492.173-.524.62-.912 1.16-1.009l.102-.018 4.701-.521 1.946-4.31.06-.11c.262-.473.764-.771 1.309-.771.543 0 1.044.298 1.309.77l.06.112 1.948 4.312 4.701.521.104.017c.539.1.986.486 1.158 1.012.17.521.035 1.098-.34 1.494l-.078.078-3.498 3.184.957 4.632c.113.587-.118 1.178-.59 1.519-.252.182-.556.281-.874.281zm-8.149-6.564c-.039.182-.466 2.246-.845 4.082l3.643-2.077c.307-.175.684-.175.99 0l3.643 2.075-.849-4.104c-.071-.346.045-.705.308-.942l3.1-2.822-4.168-.461c-.351-.039-.654-.26-.801-.584l-1.728-3.821-1.726 3.821c-.146.322-.45.543-.801.584l-4.168.461 3.1 2.822c.272.246.384.617.302.966z"></path></svg></i></div>
+															<div
+															class="featureBlockstyle__ContentWrapper-sc-1pllarm-2 bVJtlh content__wrapper">
+															<h3 font-weight="bold" class="Heading__HeadingWrapper-sc-10v4eax-0 iZtwpV">CONTENT CHƯA SUY NGHĨ RA</h3>
+															<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">CONTENT CHƯA SUY NGHĨ RA</p>
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
-									</footer>
+									</section>
+									<div id="audiobooks" class="audiobooksstyle__SectionWrapper-b5cho6-0 bBjLPn">
+										<div class="react-reveal">
+											<div class="style__ContainerWrapper-sc-1gre7ok-0 cnvkcL container">
+												<div class="audiobooksstyle__ContentWrapper-b5cho6-1 iBJTKr">
+													<div class="image"><img src="_next/static/images/Audiobooks%402x-d737bcb21647ca93070081ed769d76c0.png" alt="Fonos Audiobooks" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /></div>
+													<div class="content">
+														<h2>TỐI ƯU HÓA CÔNG VIỆC</h2>
+														<h3>Sắp xếp và thông báo công việc</h3>
+														<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">CONTENT CHƯA SUY NGHĨ RA</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="meditations" class="meditationsstyle__SectionWrapper-sc-16r7m8s-0 bvZyUg">
+										<div class="react-reveal">
+											<div class="style__ContainerWrapper-sc-1gre7ok-0 cnvkcL container">
+												<div class="meditationsstyle__ContentWrapper-sc-16r7m8s-1 iRZcM">
+													<div class="content">
+														<h2>DỄ DÀNG SỬ DỤNG</h2>
+														<h3>Giao diện tối giản hóa dễ dàng thao tác</h3>
+														<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">CONTENT CHƯA SUY NGHĨ RA</p>
+													</div>
+													<div class="image"><img src="_next/static/images/Meditation%402x-e948773f363c5f780a4458c37447447f.png" alt="Fonos Meditations" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="sleep" class="sleepstoriesstyle__SectionWrapper-go1dz-0 eYlLb">
+										<div class="react-reveal">
+											<div class="style__ContainerWrapper-sc-1gre7ok-0 cnvkcL container">
+												<div class="sleepstoriesstyle__ContentWrapper-go1dz-1 fmLMuL">
+													<div class="image"><img src="_next/static/images/SleepStory%402x-de358bb5fcdb2b91d5fc3f2bcfc53042.png" alt="Fonos Sleep Stories" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /></div>
+													<div class="content">
+														<h2>BẢO ĐẢM SỨC KHỎE</h2>
+														<h3>Tính năng thời điểm vàng</h3>
+														<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">CONTENT CHƯA SUY NGHĨ RA</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="summaries" class="summariesstyle__SectionWrapper-sc-111mx6w-0 fTTzxo">
+										<div class="react-reveal">
+											<div class="style__ContainerWrapper-sc-1gre7ok-0 cnvkcL container">
+												<div class="summariesstyle__ContentWrapper-sc-111mx6w-1 cVELCQ">
+													<div class="content">
+														<h2>TĂNG HIỆU QUẢ LÀM VIỆC</h2>
+														<h3>Hỗ trợ trong học tập và làm việc hiệu quả</h3>
+														<p class="Text__TextWrapper-sc-49k381-0 bCAqxw">CONTENT CHƯA SUY NGHĨ RA</p>
+													</div>
+													<div class="image"><img src="_next/static/images/BookSummaries%402x-5a56cd6ecdc6ea0f7404ea247ec483f3.png" alt="Fonos Book Summaries" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="music" class="musicstyle__SectionWrapper-sc-1u7oklp-0 ksVQnR">
+										<div class="react-reveal">
+											<div class="style__ContainerWrapper-sc-1gre7ok-0 cnvkcL container">
+												<div class="musicstyle__ContentWrapper-sc-1u7oklp-1 khdqIN">
+													<div class="image"><img src="_next/static/images/Music%402x-1c965bc3f078cf1a996c3bfa5b70ad38.png" alt="Fonos Music" class="Image__ImageWrapper-csrlc2-0 jZhmLy" /></div>
+													<div class="content">
+														<h2>TÍNH NĂNG SẼ CẬP NHẬT SAU</h2>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<footer class="footerstyle__FooterArea-sc-1a7t3z-0 fPNGHt">
+									<div class="style__ContainerWrapper-sc-1gre7ok-0 cnvkcL container">
+										<div class="footerstyle__MenuArea-sc-1a7t3z-2 jFnZKM">
+											<!-- 	<a class="Link__LinkWrapper-gszw5l-0 cryXUa logo" href="index.html" display="inline-block"><img src="_next/static/images/logo-white-a35cd0609b903e2985dcc1bc6221bc6d.png" alt="Fonos" class="Image__ImageWrapper-csrlc2-0 jZhmLy"/></a> -->
+											<!-- <logo -->
+												<ul class="footerstyle__Menu-sc-1a7t3z-3 kAIoyq">
+													<li class="footerstyle__MenuItem-sc-1a7t3z-4 hOMhBK"><a href="chinh-sach-bao-mat-thong-tin.html">Chính sách bảo mật</a></li>
+													<li class="footerstyle__MenuItem-sc-1a7t3z-4 hOMhBK"><a href="https://www.facebook.com/bin2209" target="_blank">Liên hệ</a></li>
+													<li class="footerstyle__MenuItem-sc-1a7t3z-4 hOMhBK"><a href="https://www.facebook.com/binazure" target="_blank">Fanpage</a></li>
+												</ul>
+												<div class="footerstyle__BestBooks-sc-1a7t3z-5 erXaKV">Binazure là một đội ngũ được thành lập năm 2017 bởi Nguyễn Hải Trường, đến nay đã hợp tác cho ra mắt nhiều sản phẩm phục vụ cho Design và Coder trong đó có phần mềm được tin dùng như Deepads2019, trang web kho nhạc SoundColorVN.com, và là thành viên hợp tác của nhiều sản phẩm khác cùng với Zyth Team.
+
+													<p class="footerstyle__AddressText-sc-1a7t3z-6 cWyblH">Nguyễn Hải Trường - Binazure Team<br/>Chịu trách nhiệm sản phẩm về Nguyễn Hải Trường.<br/>Địa chỉ: Phường 1 - Thành Phố Đông Hà - Tỉnh Quảng Trị<br/>EMAIL:
+														binteam@outlook.com<br/>  PHONE: 0899240332</p>
+														<p class="footerstyle__CopyrightText-sc-1a7t3z-8 kVhZLC">Copyright 2020 By NGUYENHAITRUONG</p>
+													</div>
+												</div>
+											</footer>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-					<script id="__NEXT_DATA__" type="application/json">
-						{"props":{"isServer":true,"initialState":{"entities":{},"audio":{"audioById":{"isLoading":false,"isSuccess":false,"error":null,"data":null},"search":{"isLoading":false,"isSuccess":false,"isLoadMore":false,"error":null,"data":[],"total":0,"skip":0,"limit":10,"searchText":"","entityType":null},"byCategory":{"isLoading":false,"isSuccess":false,"error":null,"mediaType":null,"categoryId":-1,"page":0,"total":0,"data":[]}},"reviews":{"getReview":{"data":[],"total":0,"skip":0,"limit":10,"isLoadingMore":false,"isLoading":false,"isSuccess":false,"error":null,"owner":{}}},"category":{"isLoading":false,"isSuccess":false,"error":null,"data":[]},"embed":{"isLoading":false,"isSuccess":false,"isError":false,"error":null,"data":[]}},"initialProps":{"pageProps":{}}},"page":"/","query":{},"buildId":"r8QELebCWcKAk97y6OE_k","runtimeConfig":{},"isFallback":false}
-					</script>
-					<script nomodule="" src="_next/static/runtime/polyfills-907a7b49cf9724580ae7.js"></script>
-					<script type="text/javascript" src="_next\static\chunks\947d55b11c9714556c7cb6e35f131a072a36cbdf.80e82394d6490ff9750b.js"></script>
+							<script id="__NEXT_DATA__" type="application/json">
+								{"props":{"isServer":true,"initialState":{"entities":{},"audio":{"audioById":{"isLoading":false,"isSuccess":false,"error":null,"data":null},"search":{"isLoading":false,"isSuccess":false,"isLoadMore":false,"error":null,"data":[],"total":0,"skip":0,"limit":10,"searchText":"","entityType":null},"byCategory":{"isLoading":false,"isSuccess":false,"error":null,"mediaType":null,"categoryId":-1,"page":0,"total":0,"data":[]}},"reviews":{"getReview":{"data":[],"total":0,"skip":0,"limit":10,"isLoadingMore":false,"isLoading":false,"isSuccess":false,"error":null,"owner":{}}},"category":{"isLoading":false,"isSuccess":false,"error":null,"data":[]},"embed":{"isLoading":false,"isSuccess":false,"isError":false,"error":null,"data":[]}},"initialProps":{"pageProps":{}}},"page":"/","query":{},"buildId":"r8QELebCWcKAk97y6OE_k","runtimeConfig":{},"isFallback":false}
+							</script>
+							<script nomodule="" src="_next/static/runtime/polyfills-907a7b49cf9724580ae7.js"></script>
+							<script type="text/javascript" src="_next\static\chunks\947d55b11c9714556c7cb6e35f131a072a36cbdf.80e82394d6490ff9750b.js"></script>
 
-					<script src="js/jquery-2.2.3.min.js"></script>
-					<script src="js/jquery.desoslide.js"></script>
+							<script src="js/jquery-2.2.3.min.js"></script>
+							<script src="js/jquery.desoslide.js"></script>
 
 
-				</body>
+						</body>
 
-				</html>
+						</html>

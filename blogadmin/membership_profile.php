@@ -139,59 +139,6 @@
 					</fieldset>
 				</div>
 			</div>
-
-			<!-- access permissions -->
-			<div class="panel panel-info">
-				<div class="panel-heading">
-					<h3 class="panel-title">
-						<i class="glyphicon glyphicon-lock"></i>
-						<?php echo $Translation['Your access permissions']; ?>
-					</h3>
-				</div>
-				<div class="panel-body">
-					<p><strong><?php echo $Translation['Legend']; ?></strong></p>
-					<div class="row">
-						<div class="col-xs-2 col-md-1 text-right"><img src="admin/images/stop_icon.gif"></div>
-						<div class="col-xs-10 col-md-5"><?php echo $Translation['Not allowed']; ?></div>
-						<div class="col-xs-2 col-md-1 text-right"><img src="admin/images/member_icon.gif"></div>
-						<div class="col-xs-10 col-md-5"><?php echo $Translation['Only your own records']; ?></div>
-					</div>
-					<div class="row">
-						<div class="col-xs-2 col-md-1 text-right"><img src="admin/images/members_icon.gif"></div>
-						<div class="col-xs-10 col-md-5"><?php echo $Translation['All records owned by your group']; ?></div>
-						<div class="col-xs-2 col-md-1 text-right"><img src="admin/images/approve_icon.gif"></div>
-						<div class="col-xs-10 col-md-5"><?php echo $Translation['All records']; ?></div>
-					</div>
-
-					<p class="vspacer-lg"></p>
-
-					<div class="table-responsive">
-						<table class="table table-striped table-hover table-bordered" id="permissions">
-							<thead>
-								<tr>
-									<th><?php echo $Translation['Table']; ?></th>
-									<th class="text-center"><?php echo $Translation['View']; ?></th>
-									<th class="text-center"><?php echo $Translation['Add New']; ?></th>
-									<th class="text-center"><?php echo $Translation['Edit']; ?></th>
-									<th class="text-center"><?php echo $Translation['Delete']; ?></th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php foreach($permissions as $tn => $perm){ ?>
-									<tr>
-										<td><img src="<?php echo $userTables[$tn][2]; ?>"> <a href="<?php echo $tn; ?>_view.php"><?php echo $userTables[$tn][0]; ?></a></td>
-										<td class="text-center"><img src="admin/images/<?php echo permIcon($perm[2]); ?>" /></td>
-										<td class="text-center"><img src="admin/images/<?php echo ($perm[1] ? 'approve' : 'stop'); ?>_icon.gif" /></td>
-										<td class="text-center"><img src="admin/images/<?php echo permIcon($perm[3]); ?>" /></td>
-										<td class="text-center"><img src="admin/images/<?php echo permIcon($perm[4]); ?>" /></td>
-									</tr>
-								<?php } ?>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-
 		</div>
 
 		<div class="col-md-6">

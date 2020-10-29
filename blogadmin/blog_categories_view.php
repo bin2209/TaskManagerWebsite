@@ -74,7 +74,7 @@
 	$x->QuickSearchText = $Translation["quick search"];
 	$x->ScriptFileName = "blog_categories_view.php";
 	$x->RedirectAfterInsert = "blog_categories_view.php?SelectedID=#ID#";
-	$x->TableTitle = "Blog categories";
+	$x->TableTitle = "Phân loại công việc";
 	$x->TableIcon = "resources/table_icons/award_star_bronze_2.png";
 	$x->PrimaryKey = "`blog_categories`.`id`";
 
