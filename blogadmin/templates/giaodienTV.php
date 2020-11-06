@@ -7,23 +7,23 @@
 
 <article class="m-article-card post tag-a-better-you" >
 	<div class="m-article-card__picture lozad loaded" data-background-image="content/images/system/<%%VALUE(photo)%%>" data-loaded="true" style="background-image: url(/resblog/blogadmin/images/<%%VALUE(photo)%%>)">
+
 		<a href="danhsachcongviec.php" class="m-article-card__picture-link" aria-label="Article"></a>
 	</div>
+
+	<center><hr style="margin: 0px;"></hr><div class="triangle-down" id="trangthai-<%%VALUE(id)%%>"></div></center>
 	<div class="m-article-card__info">
-		<CENTER>
-			<a href="danhsachcongviec.php" class="m-article-card__tag" id="blogs-title-<%%VALUE(id)%%>"> <%%SELECT%%><%%VALUE(star)%%> SAO  | <%%VALUE(title)%%> <%%ENDSELECT%%></a>
-			<a href="danhsachcongviec.php" class="m-article-card__info-link">
-				<div>
-					<p id="blogs-content-<%%VALUE(id)%%>" class="m-article-card__title js-article-card-title " style="" >
-						<%%SELECT%%><%%VALUE(content)%%> <%%ENDSELECT%%>
-					</p>
-					<br>
-					<p id="blogs-date-<%%VALUE(id)%%>">Ngày tạo: <%%VALUE(date)%%> </p> 
-					<p id="blogs-ngayhethan-<%%VALUE(id)%%>"> Ngày hết hạn: <%%VALUE(ngayhethan)%%> </p>
-					<p id="thoigian<%%VALUE(id)%%>">TIME</p>
-				</div>
-			</a>
-		</CENTER>
+		<!-- <style type="text/css"> #trangthai-22{    border-top: 3em solid green;}</style> -->
+
+		<center><p class="m-article-card__tag" id="blogs-title-<%%VALUE(id)%%>"><%%SELECT%%><%%VALUE(title)%%> <%%ENDSELECT%%></p></center>
+		<center><hr style="margin: 5px; " width="80%"></hr></center>
+		<div style="padding-left: 10%; font-size: 14px;">
+			<p  id="blogs-star-<%%VALUE(id)%%>">Độ quan trọng <%%VALUE(star)%%> SAO  </p>
+			<p id="blogs-star-<%%VALUE(id)%%>" >Nội dung: <%%VALUE(content)%%></p>
+			<p id="blogs-date-<%%VALUE(id)%%>">Ngày tạo: <%%VALUE(date)%%> </p> 
+			<p id="blogs-ngayhethan-<%%VALUE(id)%%>"> Ngày hết hạn: <%%VALUE(ngayhethan)%%> </p>
+			<p id="thoigian<%%VALUE(id)%%>">TIME</p>
+		</div>
 	</div>
 </article>
 

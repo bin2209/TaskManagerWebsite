@@ -184,15 +184,15 @@ include 'tiendocongviec.php';
 	echo $x->HTML;
 
 	// hook: blogs_footer
-	$footerCode='';
-	if(function_exists('blogs_footer')){
-		$args=array();
-		$footerCode=blogs_footer($x->ContentType, getMemberInfo(), $args);
-	}  
-	if(!$footerCode){
-		include_once("$currDir/footer.php"); 
-	}else{
-		ob_start(); include_once("$currDir/footer.php"); $dFooter=ob_get_contents(); ob_end_clean();
-		echo str_replace('<%%FOOTER%%>', $dFooter, $footerCode);
-	}
+	// $footerCode='';
+	// if(function_exists('blogs_footer')){
+	// 	$args=array();
+	// 	$footerCode=blogs_footer($x->ContentType, getMemberInfo(), $args);
+	// }  
+	// if(!$footerCode){
+	// 	include_once("$currDir/footer.php"); 
+	// }else{
+	// 	ob_start(); include_once("$currDir/footer.php"); $dFooter=ob_get_contents(); ob_end_clean();
+	// 	echo str_replace('<%%FOOTER%%>', $dFooter, $footerCode);
+	// }
 ?>

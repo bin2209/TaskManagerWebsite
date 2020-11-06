@@ -1,4 +1,17 @@
-<?php require("libs/fetch_data.php");?>
+<?php require("libs/fetch_data.php");
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
+$currDir = dirname(__FILE__);
+include("blogadmin/lib.php");
+
+$x = new DataList;
+$x->TableTitle = $Translation['homepage'];
+$tablesPerRow = 2;
+$arrTables = getTableList();
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="vn">
 <head>
@@ -60,7 +73,16 @@
 														<a class="nav-link" href="blogadmin">
 
 
-															<div style="color:#557fa7" class="fonos-text fonos-large mb-0  fonos-light ">Đăng nhập</div>
+															<div style="color:#557fa7" class="fonos-text fonos-large mb-0  fonos-light ">
+																<?php
+																if(getLoggedMemberID()=='guest' ){
+																	print "Đăng nhập";
+																} else {
+																	print "Xin chào ".getLoggedMemberID()." !"; 
+																}
+																?>
+
+															</div>
 														</a>
 													</li>
 													<form action="search.php" method="post" class="form-inline my-2 my-lg-0 header-search" name="form">

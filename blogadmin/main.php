@@ -1,12 +1,19 @@
-<?php if(!isset($Translation)){ @header('Location: index.php'); exit; } ?>
-<?php include_once("{$currDir}/header-user.php"); ?>
-<?php @include("{$currDir}/hooks/links-home.php"); ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<!--cards-->
+  <?php if(!isset($Translation)){ @header('Location: index.php'); exit; } ?>
+  <?php include_once("{$currDir}/header-user.php"); ?>
+  <?php @include("{$currDir}/hooks/links-home.php"); ?>
+  <?php 
+  include("libs/db_connect.php");
+  $currentuser=getLoggedMemberID();
+  $sql = "SELECT  posted,author FROM blogs";
+  $result = mysqli_query($con, $sql);
+  ?>
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset charset=UTF-8>
+    <title></title>
+  </head>
+  <!--cards-->
 
 
   <article class="m-article-card post tag-a-better-you">
@@ -44,7 +51,13 @@
     <a href="danhsachcongviec.php" class="m-article-card__picture-link" aria-label="Article"></a>
   </div>
   <div class="m-article-card__info">
-    <a href="danhsachcongviec.php" class="m-article-card__tag"><?php countrecords("blogs","publish");?></a>
+    <a href="danhsachcongviec.php" class="m-article-card__tag">  <?php 
+    if (mysqli_num_rows($result) > 0) {
+      $count=0;
+      while($row = mysqli_fetch_assoc($result)) if ($row["author"] == $currentuser &&$row["posted"]!="ch?a xong") $count++;    
+    }
+    echo $count;
+    ?></a>
     <a href="danhsachcongviec.php" class="m-article-card__info-link">
       <div>
         <h2 class="m-article-card__title js-article-card-title ">
@@ -54,10 +67,10 @@
    </a>
  </div>
 </article>
-  </div>
-     </div>
-   </div>
- </main>
+</div>
+</div>
+</div>
+</main>
 </div>
 <div class="m-search js-search">
   <button class="m-icon-button outlined as-close-search js-close-search" aria-label="Close search">
@@ -90,7 +103,7 @@
 <?php
 $usernow=getLoggedMemberID();
 if ($usernow=="admin") {
-        # code...show more widgets for admin only
+          # code...show more widgets for admin only
   include_once(
     'adminview.php'
   );

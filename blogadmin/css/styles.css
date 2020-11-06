@@ -1,0 +1,51 @@
+h1 {
+	font-family: 'Muli', sans-serif !important; 
+	font-size: 24px !important;
+	font-style: normal !important;
+	font-variant: normal !important;
+	font-weight: 700 !important;
+	line-height: 26.4px !important;
+}
+h3 {
+	font-family: 'Muli', sans-serif !important;
+	font-size: 14px !important ;
+	font-style: normal !important ;
+	font-variant: normal !important ;
+	font-weight: 700 !important ;
+	line-height: 15.4px !important ;
+}
+p {
+	font-family: 'Muli', sans-serif !important;
+	font-size: 14px !important ;
+	font-style: normal !important ;
+	font-variant: normal !important ;
+	font-weight: 400 !important ;
+	line-height: 20px !important ;
+}
+blockquote {
+	font-family: 'Muli', sans-serif !important;
+	font-size: 21px !important ;
+	font-style: normal !important ;
+	font-variant: normal !important ;
+	font-weight: 400 !important ;
+	line-height: 30px !important ;
+}
+pre {
+	font-family: 'Muli', sans-serif !important ;
+	font-size: 13px !important ;
+	font-style: normal !important ;
+	font-variant: normal !important ;
+	font-weight: 400 !important ;
+	line-height: 18.5714px !important ;
+}
+.triangle-down {
+	position: relative;
+	z-index: 999;
+	width: 0;
+	height: 0;
+	border-left: 3em solid transparent;
+	border-right: 3em solid transparent;
+	border-top: 3.5em solid red;
+	bottom: 5px;
+	border-radius: 1em;
+}
