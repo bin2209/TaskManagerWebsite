@@ -69,6 +69,8 @@
 
                      <li><a href="<?php echo PREPEND_PATH; ?>luutrudulieu.php"><i class="fa fa-user"></i> <strong>Lưu trữ dữ liệu</strong> </a></li>
                      <br>
+                     <li><a href="<?php echo PREPEND_PATH; ?>thaoluan.php"><i class="fa fa-user"></i> <strong>Thảo luận</strong> </a></li>
+                     <br>
                      <li><a href="<?php echo PREPEND_PATH; ?>membership_profile.php"><i class="fa fa-user"></i> <strong>Cài đặt chung</strong> </a></li>
                      <!--login/logout area starts-->
 
