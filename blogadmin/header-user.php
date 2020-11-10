@@ -43,23 +43,28 @@
               <ul role="submenu">
                 <li class="only-desktop" role="menuitem">
                   <a href="index.html" class="m-site-name in-desktop-menu">
-                   Khu vực thành viên
-                 </a>
+                    Quản lý công việc
+                  </a>
+                </li>
+                <li class="nav-ve-fonos" role="menuitem">
+                  <?php 
+                  $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+                  $key = '/chat/';
+
+                  if (strpos($path, $key) == true) { 
+                    echo ' <a href="../">Về trang chủ</a>';
+                  } 
+                  else { 
+                   echo ' <a href="../">HOME</a>';
+                 } 
+                 ?>
+
+
+
                </li>
-               <li class="nav-ve-fonos" role="menuitem">
-                <?php 
-                $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-                $ketqua = basename($path);
-                if  ($ketqua=="index.php"){
-                  echo ' <a href="../">Về trang chủ</a>';
-                } else{
-                  echo ' <a href="./">Trở lại</a>';
-                }
-                ?>
-              </li>
-            </ul>
-          </nav>
-          <div class="m-nav__right">
+             </ul>
+           </nav>
+           <div class="m-nav__right">
             <button class="m-icon-button in-menu-main more js-toggle-submenu" aria-label="Toggle submenu">
               <span class="icon-more">
               </button><p class="in-menu-main more js-toggle-submenu m-icon-button" style="padding-left: 10px;   cursor: pointer; width: 100%; font-size: 15px;" >  <?php echo getLoggedMemberID(); ?><p>
@@ -69,46 +74,80 @@
 
                      <li><a href="<?php echo PREPEND_PATH; ?>luutrudulieu.php"><i class="fa fa-user"></i> <strong>Lưu trữ dữ liệu</strong> </a></li>
                      <br>
-                     <li><a href="<?php echo PREPEND_PATH; ?>thaoluan.php"><i class="fa fa-user"></i> <strong>Thảo luận</strong> </a></li>
-                     <br>
-                     <li><a href="<?php echo PREPEND_PATH; ?>membership_profile.php"><i class="fa fa-user"></i> <strong>Cài đặt chung</strong> </a></li>
-                     <!--login/logout area starts-->
+                     <li><i class="fa fa-user"></i> <strong>  
 
-                     <?php if(getLoggedAdmin()){ ?>
-                       <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm hidden-xs"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
-                       <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm visible-xs btn-sm"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
-                     <?php } ?>
-                     <?php if(!$_GET['signIn'] && !$_GET['loginFailed']){ ?>
-                       <?php if(getLoggedMemberID() == $adminConfig['anonymousMember']){ ?>
-                         <p class="navbar-text navbar-right">&nbsp;</p>
-                         <a href="<?php echo PREPEND_PATH; ?>index.php?signIn=1" class="">Đăng xuất</a>
-                         <p class="navbar-text navbar-right">
-                           Bạn chưa đăng nhập!
-                         </p>
-                       <?php }else{ ?>
-                        <ul class="nav navbar-nav navbar-right hidden-xs" style="min-width: 330px;">
-                        </ul>
-                        <ul class="nav navbar-nav visible-xs">
-                        </ul>
-                      <?php } ?>
-                    <?php } ?>
-                    <li><a  href="<?php echo PREPEND_PATH; ?>index.php?signOut=1"><i class="fa fa-power-off"></i> <strong>Đăng xuất</strong> </a></li>
-                  </section>
-                </div>
-              </div>
-            </li>
-            <button class="m-icon-button in-menu-main js-open-search" aria-label="Open search">
-              <span class="icon-search"></span>
-            </button>
-            <div class="m-toggle-darkmode js-tooltip" data-tippy-content="Bật chế độ tối">
-              <input type="checkbox" class="js-toggle-darkmode">
-              <div></div>
+                      <?php 
+                      $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+                      $key = '/chat/';
+
+                      if (strpos($path, $key) == true) { 
+                        echo ' <a href="../thaoluan.php">Thảo luận</a>';
+                      } 
+                      else { 
+                        echo ' <a href="chat/index.php">Thảo luận</a>';
+                      } 
+                      ?>
+
+                    </strong> </a></li>
+                    <br>
+                    <li><a href="<?php echo PREPEND_PATH; ?>membership_profile.php"><i class="fa fa-user"></i> <strong>
+                     <?php 
+                     $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+                     $key = '/chat/';
+
+                     if (strpos($path, $key) == true) { 
+                      echo ' <a href="../membership_profile.php">Cài đặt chung</a>';
+                    } 
+                    else { 
+                      echo ' <a href="membership_profile.php">Cài đặt chung</a>';
+                    } 
+                    ?>
+                  </strong> </a></li>
+                  <!--login/logout area starts-->
+
+                  <?php if(getLoggedAdmin()){ ?>
+                   <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm hidden-xs"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
+                   <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm visible-xs btn-sm"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
+                 <?php } ?>
+                 <?php if(!$_GET['signIn'] && !$_GET['loginFailed']){ ?>
+                   <?php if(getLoggedMemberID() == $adminConfig['anonymousMember']){ ?>
+                     <p class="navbar-text navbar-right">&nbsp;</p>
+
+        
+                    <ul class="nav navbar-nav navbar-right hidden-xs" style="min-width: 330px;">
+                    </ul>
+                    <ul class="nav navbar-nav visible-xs">
+                    </ul>
+                  <?php } ?>
+                <?php } ?>
+                <br/>
+                <li>            
+                 <?php 
+                     $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+                     $keychat = '/chat/';
+  if (strpos($path, $keychat) == true) { //chat
+    echo '<a  href="../../index.php?signOut=1"><i class="fa fa-power-off"></i> <strong>Đăng xuất</strong> </a>';
+  } else {
+     echo '<a  href="index.php?signOut=1"><i class="fa fa-power-off"></i> <strong>Đăng xuất</strong> </a>';
+  }
+ ?>
+                 </li>
+              </section>
             </div>
           </div>
+        </li>
+        <button class="m-icon-button in-menu-main js-open-search" aria-label="Open search">
+          <span class="icon-search"></span>
+        </button>
+        <div class="m-toggle-darkmode js-tooltip" data-tippy-content="Bật chế độ tối">
+          <input type="checkbox" class="js-toggle-darkmode">
+          <div></div>
         </div>
       </div>
     </div>
   </div>
+</div>
+</div>
 </header>
 
 <?php
@@ -123,7 +162,7 @@ if ($usernow=="admin") {
 <section class="m-hero with-picture" data-aos="fade">
   <div class="m-hero__picture "></div>
   <div class="m-hero__content" data-aos="fade-down">
-   <?php 
+<!--    <?php 
    $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
    $ketqua = basename($path);
    if  ($ketqua=="index.php"){
@@ -132,7 +171,22 @@ if ($usernow=="admin") {
   } else{
     echo ' <h1 class="m-hero-title bigger">Danh sách công việc</h1>';
   }
-  ?>
+  ?> -->
+
+  <?php 
+  $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+  $keychat = '/chat/';
+  $keydanhsachcongviec ='danhsachcongviec.php';
+   $ketqua = basename($path);//index
+  if (strpos($path, $keychat) == true) { //chat
+    echo '<h1 class="m-hero-title bigger">Thảo luận</h1>';
+  } else if (strpos($path, $keydanhsachcongviec)){
+     echo '<h1 class="m-hero-title bigger">Danh sách công việc</h1>';
+  } else if ((strpos($path, $keychat) == false) && $ketqua=="index.php"){ //index
+   echo '<h1 class="m-hero-title bigger">Khu vực quản lý công việc</h1>
+   <p class="m-hero-description bigger">Hãy bắt đầu ngày mới bằng cách hoàn thành các công việc</p>';
+ } 
+ ?>
 
 </div>
 </section>

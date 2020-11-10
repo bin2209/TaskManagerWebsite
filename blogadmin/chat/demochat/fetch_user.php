@@ -29,8 +29,8 @@ $output = '
 foreach($result as $row)
 {
 	$status = '';
-	$current_timestamp = strtotime(date("Y-m-d H:i:s") . '- 10 second');
-	$current_timestamp = date('Y-m-d H:i:s', $current_timestamp);
+	$current_timestamp = strtotime(date("d-m-Y H:i:s") . '- 10 second');
+	$current_timestamp = date('d-m-Y H:i:s', $current_timestamp);
 	$user_last_activity = fetch_user_last_activity($row['user_id'], $connect);
 	if($user_last_activity > $current_timestamp)
 	{

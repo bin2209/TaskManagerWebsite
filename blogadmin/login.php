@@ -9,7 +9,6 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 <style type="text/css">
 	.container-login100{
 		background-image: -webkit-linear-gradient( 139deg,rgb(26,49,84) 0%,rgb(148,210,255) 100% ) !important;
@@ -73,9 +72,6 @@
 			</div>
 		</div>
 	</div>
-
-<!-- 
-<iframe src="membership_signup.php" title="W3Schools Free Online Web Tutorials"></iframe> -->
 <script type="text/javascript">
 	var clickregister = document.getElementById("register");
 	document.getElementById('register').onclick = function(){

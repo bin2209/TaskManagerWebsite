@@ -160,7 +160,7 @@ $(document).ready(function(){
 
 	function make_chat_dialog_box(to_user_id, to_user_name)
 	{
-		var modal_content = '<div id="user_dialog_'+to_user_id+'" class="user_dialog" title="You have chat with '+to_user_name+'">';
+		var modal_content = '<div id="user_dialog_'+to_user_id+'" class="user_dialog" title="Thảo luận với '+to_user_name+'">';
 		modal_content += '<div style="height:400px; border:1px solid #ccc; overflow-y: scroll; margin-bottom:24px; padding:16px;" class="chat_history" data-touserid="'+to_user_id+'" id="chat_history_'+to_user_id+'">';
 		modal_content += fetch_user_chat_history(to_user_id);
 		modal_content += '</div>';
@@ -320,7 +320,7 @@ $(document).ready(function(){
 
 	$(document).on('click', '.remove_chat', function(){
 		var chat_message_id = $(this).attr('id');
-		if(confirm("Are you sure you want to remove this chat?"))
+		if(confirm("Bạn có muốn xóa tin nhắn này, người nhận sẽ không thể thấy tin nhắn này nữa!"))
 		{
 			$.ajax({
 				url:"remove_chat.php",

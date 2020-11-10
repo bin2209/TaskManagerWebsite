@@ -46,13 +46,13 @@ function fetch_user_chat_history($from_user_id, $to_user_id, $connect)
 		{
 			if($row["status"] == '2')
 			{
-				$chat_message = '<em>This message has been removed</em>';
-				$user_name = '<b class="text-success">You</b>';
+				$chat_message = '<em>Tin nhắn đã được xóa.</em>';
+				$user_name = '<b class="text-success">Bạn</b>';
 			}
 			else
 			{
 				$chat_message = $row['chat_message'];
-				$user_name = '<button type="button" class="btn btn-danger btn-xs remove_chat" id="'.$row['chat_message_id'].'">x</button>&nbsp;<b class="text-success">You</b>';
+				$user_name = '<button type="button" class="btn btn-danger btn-xs remove_chat" id="'.$row['chat_message_id'].'">x</button>&nbsp;<b class="text-success">Bạn</b>';
 			}
 			
 
@@ -62,7 +62,7 @@ function fetch_user_chat_history($from_user_id, $to_user_id, $connect)
 		{
 			if($row["status"] == '2')
 			{
-				$chat_message = '<em>This message has been removed</em>';
+				$chat_message = '<em>Tin nhắn đã được xóa.</em>';
 			}
 			else
 			{
@@ -141,7 +141,7 @@ function fetch_is_type_status($user_id, $connect)
 	{
 		if($row["is_type"] == 'yes')
 		{
-			$output = ' - <small><em><span class="text-muted">Typing...</span></em></small>';
+			$output = ' - <small><em><span class="text-muted">Đang nhập...</span></em></small>';
 		}
 	}
 	return $output;
@@ -171,13 +171,13 @@ function fetch_group_chat_history($connect)
 		{
 			if($row["status"] == '2')
 			{
-				$chat_message = '<em>This message has been removed</em>';
-				$user_name = '<b class="text-success">You</b>';
+				$chat_message = '<em>Tin nhắn đã được xóa.</em>';
+				$user_name = '<b class="text-success">Bạn</b>';
 			}
 			else
 			{
 				$chat_message = $row["chat_message"];
-				$user_name = '<button type="button" class="btn btn-danger btn-xs remove_chat" id="'.$row['chat_message_id'].'">x</button>&nbsp;<b class="text-success">You</b>';
+				$user_name = '<button type="button" class="btn btn-danger btn-xs remove_chat" id="'.$row['chat_message_id'].'">x</button>&nbsp;<b class="text-success">Bạn</b>';
 			}
 			
 			$dynamic_background = 'background-color:#ffe6e6;';
@@ -186,7 +186,7 @@ function fetch_group_chat_history($connect)
 		{
 			if($row["status"] == '2')
 			{
-				$chat_message = '<em>This message has been removed</em>';
+				$chat_message = '<em>Tin nhắn đã được xóa.</em>';
 			}
 			else
 			{

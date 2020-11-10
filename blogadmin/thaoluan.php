@@ -1,3 +1,3 @@
 <?php
-	include 'chat/index.php';
+header('location:chat/index.php');
 ?>

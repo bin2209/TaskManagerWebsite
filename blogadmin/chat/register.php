@@ -36,8 +36,6 @@ if (mysqli_num_rows($result) > 0) {
 			$password = $row["password"];
 			$checking_id = $row["user_id"]; 
 		} 
-
-	}
 }
 
 // $pass là bên databse cũ
@@ -63,50 +61,7 @@ if ($check==1){
 		echo "Lỗi: " . $sql . "<br>" . mysqli_error($con);
 	}
 }
-
-
+}
 ?>
+<b>Function khai báo user bản fixx sau sẽ gộp vào main</b>
 
-<html>  
-<head>  
-	<title>Chat Application using PHP Ajax Jquery</title>  
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-</head>  
-<body>  
-	<div class="container">
-		<br />
-
-		<h3 align="center">Chat Application using PHP Ajax Jquery</a></h3><br />
-		<br />
-		<div class="panel panel-default">
-			<div class="panel-heading">Chat Application Register</div>
-			<div class="panel-body">
-				<form method="post">
-			<!-- 		<span class="text-danger"><?php echo $message; ?></span>
-					<div class="form-group">
-						<label>Enter Username</label>
-						<input type="text" name="username" class="form-control" />
-					</div>
-					<div class="form-group">
-						<label>Enter Password</label>
-						<input type="password" name="password" class="form-control" />
-					</div>
-					<div class="form-group">
-						<label>Re-enter Password</label>
-						<input type="password" name="confirm_password" class="form-control" />
-					</div>
-					<div class="form-group">
-						<input type="submit" name="register" class="btn btn-info" value="Register" />
-					</div> -->
-					<div align="center">
-						<a href="login.php">Login</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</body>  
-</html>
