@@ -1,0 +1,21 @@
+.heading{
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+.form{
+    max-width: 75%;
+    margin: auto;
+}
+
+.table{
+    max-width: 75%;
+    margin: 30px auto;
+}
+
+.logo img{
+    height: 45px;
+    width: 43px;
+    margin-right: 30px;
+}

@@ -20,9 +20,9 @@ $result = $statement->fetchAll();
 $output = '
 <table class="table table-bordered table-striped">
 	<tr>
-		<th width="70%">Người dùng</td>
-		<th width="20%">Trạng thái</td>
-		<th width="10%">Hành động</td>
+		<th width="40%">Người dùng</td>
+		<th width="35%">Trạng thái</td>
+		<th width="25%">Hành động</td>
 	</tr>
 ';
 

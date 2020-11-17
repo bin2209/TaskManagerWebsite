@@ -1,8 +1,9 @@
 <?php
 
 //database_connection.php
+include '../../database/mainsetting.php';
 
-$connect = new PDO("mysql:host=localhost;dbname=blog_admin_db;charset=utf8mb4", "root", "");
+$connect = new PDO("mysql:host=".$db_host.";dbname=".$db_name.";charset=utf8mb4", "".$db_user."", "".$db_pass."");
 
 date_default_timezone_set('Asia/Kolkata');
 

@@ -142,9 +142,9 @@
 		$footerCode=blog_categories_footer($x->ContentType, getMemberInfo(), $args);
 	}  
 	if(!$footerCode){
-		include_once("$currDir/footer.php"); 
+		include_once("../footer.php"); 
 	}else{
-		ob_start(); include_once("$currDir/footer.php"); $dFooter=ob_get_contents(); ob_end_clean();
+		ob_start(); include_once("../footer.php"); $dFooter=ob_get_contents(); ob_end_clean();
 		echo str_replace('<%%FOOTER%%>', $dFooter, $footerCode);
 	}
 ?>

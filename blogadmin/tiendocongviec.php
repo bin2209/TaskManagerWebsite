@@ -21,8 +21,8 @@ if (mysqli_num_rows($result) > 0) {
 	$now= time();
 	while($row = mysqli_fetch_assoc($result)) {
 		if ($row["author"] == $currentuser){
+			$firsttime = false;
 			//THÒI GIAN CÒN LẠI
-
 			$date1=strtotime($row["ngayhethan"]);
 			$date2 = ($now); 
 			$date1 = strtotime(date( "Y-m-d",$date1));
@@ -148,6 +148,7 @@ if (mysqli_num_rows($result) > 0) {
 		}
 
 	}
+
 
 	echo "<script>".$thongbao."</script>";
 	echo "<script>".$returncolor."</script>";

@@ -1,5 +1,6 @@
 <?php
-$con=mysqli_connect("localhost","root","","blog_admin_db");
+include 'mainsetting.php';
+$con=mysqli_connect("".$db_host."","".$db_user."","".$db_pass."","".$db_name."");
 // Check connection
 if (mysqli_connect_errno())
   {

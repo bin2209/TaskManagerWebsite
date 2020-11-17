@@ -1,4 +1,4 @@
-<?php if(!isset($Translation)){ @header('Location: index.php'); exit; } ?>
+
 <?php include_once("{$currDir}/header-user.php"); ?>
 <?php @include("{$currDir}/hooks/links-home.php"); ?>
 <!DOCTYPE html>
@@ -37,7 +37,7 @@
     </p>
   </div>
 </div>
-<?php include 'footer.php' ?>
+<?php include '../footer.php' ?>
 <script crossorigin="anonymous" src="../polyfill.io/v3/polyfill.mina50e.js?features=IntersectionObserver%2CPromise%2CArray.prototype.includes%2CString.prototype.endsWith%2CString.prototype.startsWith%2CObject.assign%2CNodeList.prototype.forEach"></script>
 <script defer src="assets/js/vendor/content-api.min2daf.js?v=a5dd59f074"></script>
 <script defer src="assets/js/manifest2daf.js?v=a5dd59f074"></script>

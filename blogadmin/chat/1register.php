@@ -49,6 +49,7 @@ if ($check==1){
 		if ($con->query($sql) === TRUE) {
 			// echo "Thay dổi thành công";
 			//Thay đổi trường hợp database 1 có đổi pass
+			// header("location:index.php");
 		} else {
 			echo "Lỗi " . $con->error;
 		}
@@ -57,11 +58,13 @@ if ($check==1){
 	//TIẾN HÀNH ADD VALUE trường hợp database mới chưa có value
 	$sql = "INSERT INTO login(username, password) VALUES ('".$user."','".$pass."')";
 	if (mysqli_query($con, $sql)) {
+			// header("location:index.php");
 	} else {
 		echo "Lỗi: " . $sql . "<br>" . mysqli_error($con);
 	}
 }
 }
+header("location:index.php");
 ?>
-<b>Function khai báo user bản fixx sau sẽ gộp vào main</b>
+
 

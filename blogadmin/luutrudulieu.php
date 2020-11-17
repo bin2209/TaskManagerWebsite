@@ -1,1 +1,0 @@
-Tính năng lưu trữ dữ liệu đang viết

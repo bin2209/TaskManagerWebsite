@@ -1,5 +1,4 @@
 <?php
-	$database_username = 'root';//user name
-	$database_password = '';//password
-	$pdo_conn = new PDO( 'mysql:host=localhost;dbname=truong', $database_username, $database_password );
+	include 'mainsetting.php';
+	$pdo_conn = new PDO( 'mysql:host='.$db_host.';dbname='.$db_name.'', $db_user, $db_pass );
 ?>

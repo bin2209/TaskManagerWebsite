@@ -2,14 +2,13 @@
 include("../../blogadmin/lib.php");
 include('database_connection.php');
 session_start();
+// echo $_SESSION['user_id']);
 if(!isset($_SESSION['user_id']))
 {
 	header("location:login.php");
 }
 ?>
 <?php include_once("{$currDir}/header-user.php"); ?>
-
-
 <div class="panel panel-default">
 	<div class="panel-body">
 		<!-- TABLE THAO LUAN-->
@@ -86,7 +85,7 @@ if(!isset($_SESSION['user_id']))
 </div>
 
 
-<?php include '../footer.php' ?>
+<?php include '../../footer.php' ?>
 
 <script crossorigin="anonymous" src="../polyfill.io/v3/polyfill.mina50e.js?features=IntersectionObserver%2CPromise%2CArray.prototype.includes%2CString.prototype.endsWith%2CString.prototype.startsWith%2CObject.assign%2CNodeList.prototype.forEach"></script>
 <script defer src="../assets/js/vendor/content-api.min2daf.js?v=a5dd59f074"></script>
