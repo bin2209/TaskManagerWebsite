@@ -13,7 +13,7 @@ $user = $_POST['user'];
 
 echo $task;
 //insert data into table
-$sql = 'INSERT INTO todo (task, noidung, trangthai, user) VALUES ("'.$task.'","'.$noidung.'","'.$trangthai.'","'.$user.'")';
+$sql = 'INSERT INTO todo (task, noidung, trangthai, user,star) VALUES ("'.$task.'","'.$noidung.'","'.$trangthai.'","'.$user.'",0)';
 
 $result = mysqli_query($con, $sql);
 

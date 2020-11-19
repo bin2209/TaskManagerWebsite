@@ -16,10 +16,12 @@ $id = $_POST['id'];
 
 
 $stringdelete = "delete";
+$stringstar = "star";
 // echo $id;
 // echo $stringdelete;
-$pos = strstr($id, $stringdelete);
-if ($pos == true){
+$posdelete = strstr($id, $stringdelete);
+$posstar = strstr($id, $stringstar);
+if ($posdelete == true){
 	$id = ltrim($id, 'delete');
 	$sql = "DELETE FROM todo WHERE id =".$id."";
 	$result = mysqli_query($con, $sql);
@@ -29,6 +31,36 @@ if ($pos == true){
 	}else{
 		echo 'Data insertion failed: ';
 	}
+} else if($posstar == true){ // check star
+	$id = ltrim($id, 'star');
+
+	$sql ="SELECT id,star FROM `todo` WHERE id=".$id."";
+
+	$result = mysqli_query($con,$sql);
+
+	while ($row = mysqli_fetch_assoc($result)) 
+	{
+		$star = $row['star'];  
+	}
+
+	if ($star == '0') {
+		$sql = 'UPDATE todo
+		SET star="1" WHERE id='.$id.';
+		';
+
+	} else if ($star =='1'){
+		$sql = 'UPDATE todo
+		SET star="0" WHERE id='.$id.';
+		';
+	}
+	$result = mysqli_query($con, $sql);
+	if($result)
+	{
+		header('Location: index.php');
+	}else{
+		echo 'Data insertion failed: ';
+	}
+
 } else{
 	$sql ="SELECT trangthai,id FROM `todo` WHERE id=".$id."";
 
