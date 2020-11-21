@@ -5,7 +5,8 @@ if(!defined('PREPEND_PATH')) define('PREPEND_PATH', '');
 $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 $chat = '/chat/';
 $luutru = '/luutru/';
-if ((strpos($path, $chat) == true)||(strpos($path, $luutru) == true)) { 
+$task = '/task/';
+if ((strpos($path, $chat) == true)||(strpos($path, $luutru) == true ||(strpos($path, $task) == true))) { 
   $returnfolder = 1 ; // ở trong chat
 } 
 else { 
@@ -90,8 +91,15 @@ if (getLoggedMemberID()=='guest'){
 
                       <li><i class="fa fa-user"></i> <strong>
                        <?php 
-                       if ($returnfolder==1)  echo ' <a href="../danhsachcongviec.php">Quản lý công việc</a>';
-                       else echo '<a href="danhsachcongviec.php">Quản lý công việc</a>';
+                       if ($returnfolder==1)  echo ' <a href="../task">Công việc thường xuyên</a>';
+                       else echo '<a href="task/">Công việc thường xuyên</a>';
+                       ?>
+                     </strong></li><br>
+
+                     <li><i class="fa fa-user"></i> <strong>
+                       <?php 
+                       if ($returnfolder==1)  echo ' <a href="../danhsachcongviec.php">Quản lý công việc dài hạn</a>';
+                       else echo '<a href="danhsachcongviec.php">Quản lý công việc dài hạn</a>';
                        ?>
                      </strong></li><br>
 

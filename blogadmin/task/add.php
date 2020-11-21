@@ -13,16 +13,17 @@ $user = $_POST['user'];
 
 echo $task;
 //insert data into table
-$sql = 'INSERT INTO todo (task, noidung, trangthai, user,star) VALUES ("'.$task.'","'.$noidung.'","'.$trangthai.'","'.$user.'",0)';
+$sql = 'INSERT INTO todo (task, noidung, trangthai, user,star ,stamp) VALUES ("'.$task.'","'.$noidung.'","'.$trangthai.'","'.$user.'",0,"none")';
 
 $result = mysqli_query($con, $sql);
 
 // mysqli_query($con,$sql);
-// echo 1;
+// 
 if($result)
 {
     header('Location: index.php');
 }else{
     echo 'Data insertion failed: ';
+    echo 1;
 }
 ?>
