@@ -58,12 +58,11 @@ if ($usernow=="admin") {
 }
 ?>
 
-</div><!-- /#page-wrapper -->
-
-</div><!-- /#wrapper -->
-<!-- JavaScript -->
+</div>
+</div>
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/bootstrap.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js" ></script>
+<script src="js/loading.js"></script>
 </body>
 </html>

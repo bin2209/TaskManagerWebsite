@@ -16,8 +16,7 @@ if (getLoggedMemberID()=="guest"){
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- STAR -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script type="text/javascript">
-</script>
+
 </head>
 <style type="text/css">
   .m-hero.with-picture{
@@ -28,6 +27,7 @@ if (getLoggedMemberID()=="guest"){
     border-radius: 1em;
   }
 </style>
+
 <body  ondrop="dropout(event);"  ondragover="allowDrop(event)">
   <div class="wrapper" style="width: 100%">
    <nav id="sidebar">
@@ -46,7 +46,7 @@ if (getLoggedMemberID()=="guest"){
   <div id="content"><!-- <CONTENT -->
     <button type="button" id="sidebarCollapse" class="btn btn-info">
       <i class="fas fa-align-left"></i>
-     <!--  <span></span> -->
+      <!--  <span></span> -->
     </button>
     <div id="reload" style="display: none">reload</div>
     <script>
@@ -274,6 +274,9 @@ if (getLoggedMemberID()=="guest"){
     <div id="trash"  ondrop="drop(event)" ondragover="allowDrop(event)" style="height:100em; background: transparent;"></div>
   </form>
 </div>
+<script type="text/javascript">
+
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <script defer src="../assets/js/vendor/content-api.min2daf.js?v=a5dd59f074"></script>
@@ -285,8 +288,10 @@ if (getLoggedMemberID()=="guest"){
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js" ></script>
 
 <script src="js/function.js"></script>
 <script src="js/autoload.js"></script>
+<script src="../js/loading.js"></script>
 </body>
 </html>

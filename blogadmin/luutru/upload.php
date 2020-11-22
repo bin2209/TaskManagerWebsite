@@ -8,7 +8,6 @@ if(!empty($_FILES['file']['name'])){
 	$count = count($_FILES['file']['name']);
 	foreach ($_FILES['file']['name'] as $key => $filename){
 		$newFilename = time() . "_" . $filename;
-
 		$path = 'upload/' . $newFilename;
 
 		if(move_uploaded_file($_FILES['file']['tmp_name'][$key], $path)){
@@ -34,7 +33,7 @@ if(!empty($_FILES['file']['name'])){
 }
 else{
 	$out['error'] = true;
-	$out['message'] = 'Định dạng này chưa được hỗ trợ. Vui lòng chờ bản cập nhật sau!';
+	$out['message'] = 'Chọn lại file hoặc định dạng này chưa được hỗ trợ. Vui lòng chờ bản cập nhật sau!';
 }
 
 echo json_encode($out);

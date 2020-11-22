@@ -1,8 +1,4 @@
- // $(document).ready(function () {
- // 	$('#sidebarCollapse').on('click', function () {
- // 		$('#sidebar').toggleClass('active');
- // 	});
- // });
+
  function chitiet(clicked_id){
  	document.getElementById("idname").style.display = "block";
  	document.getElementById("addstep").style.display = "block";

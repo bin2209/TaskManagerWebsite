@@ -31,7 +31,7 @@ if (getLoggedMemberID()=='guest'){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title><?php echo getLoggedMemberID(); ?> | Hỗ trợ công việc</title>
+  <title><?php echo getLoggedMemberID(); ?> | TaskVN</title>
   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -65,8 +65,8 @@ if (getLoggedMemberID()=='guest'){
             <nav class="m-nav__left">
               <ul role="submenu">
                 <li class="only-desktop" role="menuitem">
-                  <a href="index.html" class="m-site-name in-desktop-menu">
-                    Quản lý công việc
+                  <a href="https://taskvn.com" class="m-site-name in-desktop-menu">
+                    TaskVN
                   </a>
                 </li>
                 <li class="nav-ve-fonos" role="menuitem">
