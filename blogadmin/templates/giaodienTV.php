@@ -6,7 +6,7 @@
 
 
 <article class="m-article-card post tag-a-better-you" >
-	<div class="m-article-card__picture lozad loaded" data-background-image="content/images/system/<%%VALUE(photo)%%>" data-loaded="true" style="background-image: url(/resblog/blogadmin/images/<%%VALUE(photo)%%>)">
+	<div class="m-article-card__picture lozad loaded" data-background-image="images/<%%VALUE(photo)%%>" data-loaded="true" style="background-image: url(images/<%%VALUE(photo)%%>)">
 
 		<a href="danhsachcongviec.php" class="m-article-card__picture-link" aria-label="Article"></a>
 	</div>
