@@ -14,7 +14,8 @@ $arrTables = getTableList();
 <html lang="vn">
 <head>
 	<title>TaskVN</title>
-	<link id="browser_favicon" rel="shortcut icon" href="blogadmin/images/<?php geticon("titles"); ?>">
+	<link rel="icon" href="images/logo.png" type="image/x-icon"/>
+	<link rel="shortcut icon" href="images/logo.png" type="image/x-icon"/>
 	<meta charSet="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<meta name="next-head-count" content="20" />

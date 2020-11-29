@@ -4,7 +4,11 @@
 			<div class="container true">
 				<div class="fonos-root-navbar--brand">
 					<div>
-						<a class="brand" href="index.html"><img src="_next/static/images/logo-white-a35cd0609b903e2985dcc1bc6221bc6d.png" class="image /_next/static/images/logo-white-a35cd0609b903e2985dcc1bc6221bc6d.png" height="48" /></a>
+						<h2 style="font-family: Muli;
+						font-weight: 600;
+						color: white;
+						font-size: 26px;">TaskVN</h2>
+
 					</div>
 					<div class="d-md-none d-flex align-items-center"></div>
 				</div>
