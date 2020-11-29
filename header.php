@@ -37,10 +37,26 @@
 							<li class="nav-item"><a class="nav-link" href="blogadmin">
 								<div style="color:#557fa7" class="fonos-text mb-0  fonos-light ">
 									<?php
+									include("blogadmin/libs/db_connect.php");
 									if(getLoggedMemberID()=='guest' ){
 										print "Đăng nhập";
 									} else {
-										print "Xin chào ".getLoggedMemberID()." !"; 
+										$sql = "SELECT * FROM membership_users WHERE memberID = '".getLoggedMemberID()."'";
+										$result = mysqli_query($con, $sql);
+										if ($result) {
+											if (mysqli_num_rows($result) > 0) {
+												while($row = mysqli_fetch_assoc($result)) {
+													if ($row["comments"]=='facebook'){
+														echo $row["custom1"];
+														echo '<img src="'.$row["custom2"].'" style="position: fixed; top:23px; width:40px; margin-left:20px;  border:2px solid #ccc; border-radius: 50%;" >';
+													} else{
+														echo getLoggedMemberID();
+													}
+
+												}
+											}
+										}
+										
 									}
 									?>
 								</div>

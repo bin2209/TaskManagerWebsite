@@ -12,10 +12,8 @@ if ((strpos($path, $chat) == true)||(strpos($path, $luutru) == true ||(strpos($p
 else { 
   $returnfolder = 0 ;
 } 
-
 session_start();
-
-
+include("libs/db_connect.php");
 if (getLoggedMemberID()=='guest'){
   $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
   $key = '/chat/';
@@ -90,84 +88,102 @@ if (getLoggedMemberID()=='guest'){
           <div class="m-nav__right">
             <button class="m-icon-button in-menu-main more js-toggle-submenu" aria-label="Toggle submenu">
               <span class="icon-more">
-              </button><p class="in-menu-main more js-toggle-submenu m-icon-button" style="padding-left: 10px;   cursor: pointer; width: 100%; font-size: 15px;" >  <?php echo getLoggedMemberID(); ?><p>
-                <div class="m-submenu js-submenu">
-                  <div class="l-wrapper in-submenu">
-                    <section class="m-recent-articles">
+              </button><p class="in-menu-main more js-toggle-submenu m-icon-button" style="padding-left: 10px;   cursor: pointer; width: 100%; font-size: 15px;" >  
+                <?php
+                $sql = "SELECT * FROM membership_users WHERE memberID = '".getLoggedMemberID()."'";
+                $result = mysqli_query($con, $sql);
+                if ($result) {
+                  if (mysqli_num_rows($result) > 0) {
+                    while($row = mysqli_fetch_assoc($result)) {
+                      if ($row["comments"]=='facebook'){
+                        $pass = $row["custom1"];
+                        $picture = $row["custom2"];
+                        echo $pass;
+                        echo '<img src="'.$picture.'" style="width:40px; margin-left:20px; border:2px solid #ccc; border-radius: 50%;" >';
+                      } else{
+                        echo getLoggedMemberID();
+                      }
+                    }
+                  }
+                }
+                ?>
+                <p>
+                  <div class="m-submenu js-submenu">
+                    <div class="l-wrapper in-submenu">
+                      <section class="m-recent-articles">
+                        <li><i class="fa fa-user"></i> <strong>
+                         <?php 
+                         if ($returnfolder==1)  echo ' <a href="../task">Công việc thường xuyên</a>';
+                         else echo '<a href="task/">Công việc thường xuyên</a>';
+                         ?>
+                       </strong></li><br>
 
+                       <li><i class="fa fa-user"></i> <strong>
+                         <?php 
+                         if ($returnfolder==1)  echo ' <a href="../danhsachcongviec.php">Quản lý công việc dài hạn</a>';
+                         else echo '<a href="danhsachcongviec.php">Quản lý công việc dài hạn</a>';
+                         ?>
+                       </strong></li><br>
+
+                       <li><i class="fa fa-user"></i> <strong>
+
+                        <?php 
+                        if ($returnfolder==1)  echo ' <a href="../luutru">Lưu trữ dữ liệu</a>';
+                        else echo '<a href="luutru/">Lưu trữ dữ liệu</a>';
+                        ?>
+
+                      </strong></li> <br>
+
+                      <li><i class="fa fa-user"></i> <strong>  
+                        <?php 
+                        if ($returnfolder==1)  echo ' <a href="../thaoluan.php">Thảo luận</a>';
+                        else echo ' <a href="chat/">Thảo luận</a>';
+                        ?>
+                      </strong></li>
+                      <br>
                       <li><i class="fa fa-user"></i> <strong>
                        <?php 
-                       if ($returnfolder==1)  echo ' <a href="../task">Công việc thường xuyên</a>';
-                       else echo '<a href="task/">Công việc thường xuyên</a>';
+                       if ($returnfolder==1) echo '<a href="../caidat.php">Cài đặt tài khoản</a>';
+                       else  echo ' <a href="caidat.php">Cài đặt tài khoản</a>';
                        ?>
-                     </strong></li><br>
-
-                     <li><i class="fa fa-user"></i> <strong>
-                       <?php 
-                       if ($returnfolder==1)  echo ' <a href="../danhsachcongviec.php">Quản lý công việc dài hạn</a>';
-                       else echo '<a href="danhsachcongviec.php">Quản lý công việc dài hạn</a>';
-                       ?>
-                     </strong></li><br>
-
-                     <li><i class="fa fa-user"></i> <strong>
-
-                      <?php 
-                      if ($returnfolder==1)  echo ' <a href="../luutru">Lưu trữ dữ liệu</a>';
-                      else echo '<a href="luutru/">Lưu trữ dữ liệu</a>';
-                      ?>
-
-                    </strong></li> <br>
-
-                    <li><i class="fa fa-user"></i> <strong>  
-                      <?php 
-                      if ($returnfolder==1)  echo ' <a href="../thaoluan.php">Thảo luận</a>';
-                      else echo ' <a href="chat/">Thảo luận</a>';
-                      ?>
-                    </strong></li>
-                    <br>
-                    <li><i class="fa fa-user"></i> <strong>
-                     <?php 
-                     if ($returnfolder==1) echo '<a href="../caidat.php">Cài đặt tài khoản</a>';
-                     else  echo ' <a href="caidat.php">Cài đặt tài khoản</a>';
-                     ?>
-                   </strong> </a></li>
-                   <?php if(getLoggedAdmin()){ ?>
-                     <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm hidden-xs"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
-                     <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm visible-xs btn-sm"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
-                   <?php } ?>
-                   <?php if(!$_GET['signIn'] && !$_GET['loginFailed']){ ?>
-                     <?php if(getLoggedMemberID() == $adminConfig['anonymousMember']){ ?>
-                       <p class="navbar-text navbar-right">&nbsp;</p>
-                       <ul class="nav navbar-nav navbar-right hidden-xs" style="min-width: 330px;">
-                       </ul>
-                       <ul class="nav navbar-nav visible-xs">
-                       </ul>
+                     </strong> </a></li>
+                     <?php if(getLoggedAdmin()){ ?>
+                       <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm hidden-xs"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
+                       <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm visible-xs btn-sm"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
                      <?php } ?>
-                   <?php } ?>
-                   <br/>
+                     <?php if(!$_GET['signIn'] && !$_GET['loginFailed']){ ?>
+                       <?php if(getLoggedMemberID() == $adminConfig['anonymousMember']){ ?>
+                         <p class="navbar-text navbar-right">&nbsp;</p>
+                         <ul class="nav navbar-nav navbar-right hidden-xs" style="min-width: 330px;">
+                         </ul>
+                         <ul class="nav navbar-nav visible-xs">
+                         </ul>
+                       <?php } ?>
+                     <?php } ?>
+                     <br/>
 
-                   <li>  
-                    <?php 
-                    if ($returnfolder==1)  echo '<a  href="../index.php?signOut=1"><i class="fa fa-power-off"></i> <strong>Đăng xuất</strong> </a>';
-                    else  echo '<a  href="index.php?signOut=1"><i class="fa fa-power-off"></i> <strong>Đăng xuất</strong> </a>';
-                    ?>
-                  </li>
-                </section>
+                     <li>  
+                      <?php 
+                      if ($returnfolder==1)  echo '<a  href="../index.php?signOut=1"><i class="fa fa-power-off"></i> <strong>Đăng xuất</strong> </a>';
+                      else  echo '<a  href="index.php?signOut=1"><i class="fa fa-power-off"></i> <strong>Đăng xuất</strong> </a>';
+                      ?>
+                    </li>
+                  </section>
+                </div>
               </div>
+            </li>
+            <button class="m-icon-button in-menu-main js-open-search" aria-label="Open search">
+              <span class="icon-search"></span>
+            </button>
+            <div class="m-toggle-darkmode js-tooltip" data-tippy-content="Bật chế độ tối">
+              <input type="checkbox" class="js-toggle-darkmode">
+              <div></div>
             </div>
-          </li>
-          <button class="m-icon-button in-menu-main js-open-search" aria-label="Open search">
-            <span class="icon-search"></span>
-          </button>
-          <div class="m-toggle-darkmode js-tooltip" data-tippy-content="Bật chế độ tối">
-            <input type="checkbox" class="js-toggle-darkmode">
-            <div></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </header>
 
 <?php

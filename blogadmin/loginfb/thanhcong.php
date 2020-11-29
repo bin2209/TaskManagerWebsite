@@ -17,9 +17,6 @@ if ($result) {
 		while($row = mysqli_fetch_assoc($result)) {
 			$pass = $row["passMD5"];
 		}
-
-		
-
     // header('Location: ../index.php');
       // chuyển qua login 
 	} else {
@@ -28,8 +25,9 @@ if ($result) {
 		$email = $_SESSION['userData']['email'];
 		$today = date("Y-m-d");   
 		$name = $_SESSION['userData']['name'];
-		echo $today;
-		$sqldangky = "INSERT INTO membership_users(memberID, passMD5, email, signupDate, groupID, isBanned, isApproved, custom1, custom2, custom3, custom4, comments, pass_reset_key, pass_reset_expiry) VALUES ('".$code."','".$pass."','".$email."','".$today."',3,0,1,'".$name."',NULL,NULL,NULL,'facebook',NULL,NULL)";
+		$picture =  $_SESSION['userData']['picture']['url'];
+		// echo $today;
+		$sqldangky = "INSERT INTO membership_users(memberID, passMD5, email, signupDate, groupID, isBanned, isApproved, custom1, custom2, custom3, custom4, comments, pass_reset_key, pass_reset_expiry) VALUES ('".$code."','".$pass."','".$email."','".$today."',3,0,1,'".$name."','".$picture."',NULL,NULL,'facebook',NULL,NULL)";
 
 		$resultdangky = mysqli_query($con, $sqldangky);
 		if ($resultdangky){

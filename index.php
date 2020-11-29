@@ -6,6 +6,7 @@ $x = new DataList;
 $x->TableTitle = $Translation['homepage'];
 $tablesPerRow = 2;
 $arrTables = getTableList();
+// include("libs/db_connect.php");
 ?>
 
 
