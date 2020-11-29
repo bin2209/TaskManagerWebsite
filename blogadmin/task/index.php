@@ -159,8 +159,8 @@ if (getLoggedMemberID()=="guest"){
 <!-- <form> -->
   <tbody id="tableBody" ondrop="dropstamp(event)" ondragover="allowDrop(event)" >
     <form action="stamp.php" method="POST">
-      <input id="idnamesentname" type="" name="" value="">
-      <input id="idnamesentid" type="" name="" value="">
+      <input id="idnamesentname" type="" name="" value="" style="display: none;">
+      <input id="idnamesentid" type="" name="" value="" style="display: none;">
       <?php 
       $sql = "SELECT * FROM `todo`";
       $result = mysqli_query($con, $sql);

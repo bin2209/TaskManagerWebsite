@@ -13,6 +13,9 @@ else {
   $returnfolder = 0 ;
 } 
 
+session_start();
+
+
 if (getLoggedMemberID()=='guest'){
   $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
   $key = '/chat/';
@@ -22,6 +25,9 @@ if (getLoggedMemberID()=='guest'){
     header("location:login.php");
   } 
 }
+
+
+
 ?>
 <?php if(!defined('datalist_db_encoding')) define('datalist_db_encoding', 'UTF-8'); ?>
 <?php require_once("libs/count_records.php");?>

@@ -621,7 +621,7 @@ body {
     right: 0;
     z-index: 999; }
   .fonos-root-navbar.transparent {
-    background-color: transparent; }
+    background-color: #343a408f !important; }
   @media only screen and (max-width: 65em) {
     .fonos-root-navbar .container {
       width: 100%;
