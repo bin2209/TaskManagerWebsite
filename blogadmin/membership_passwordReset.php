@@ -169,7 +169,6 @@
 			<?php
 		}
 
-		include_once("$currDir/footer.php");
 		exit;
 	}
 
@@ -217,4 +216,3 @@
 		});
 	</script>
 
-<?php include_once("$currDir/footer.php"); ?>

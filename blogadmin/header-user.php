@@ -12,6 +12,12 @@ if ((strpos($path, $chat) == true)||(strpos($path, $luutru) == true ||(strpos($p
 else { 
   $returnfolder = 0 ;
 } 
+
+if (strpos($path, 'vieccanlam.php') == true) { 
+  include("lib.php");
+} 
+
+
 session_start();
 include("libs/db_connect.php");
 if (getLoggedMemberID()=='guest'){
@@ -107,46 +113,59 @@ if (getLoggedMemberID()=='guest'){
                 }
                 ?>
                 <p>
+                  <style type="text/css">
+                    .menulink{
+                      padding: 4px;
+                    }
+                  </style>
                   <div class="m-submenu js-submenu">
                     <div class="l-wrapper in-submenu">
                       <section class="m-recent-articles">
-                        <li><i class="fa fa-user"></i> <strong>
+                        <li class="menulink"><i class="fa fa-user"></i> <strong>
                          <?php 
-                         if ($returnfolder==1)  echo ' <a href="../task">Công việc thường xuyên</a>';
-                         else echo '<a href="task/">Công việc thường xuyên</a>';
+                         if ($returnfolder==1)  echo ' <a href="../task">Việc cần làm</a>';
+                         else echo '<a href="task/">Việc cần làm</a>';
                          ?>
-                       </strong></li><br>
+                       </strong></li>
 
-                       <li><i class="fa fa-user"></i> <strong>
+                       <li class="menulink"><i class="fa fa-user"></i> <strong>
                          <?php 
-                         if ($returnfolder==1)  echo ' <a href="../danhsachcongviec.php">Quản lý công việc dài hạn</a>';
-                         else echo '<a href="danhsachcongviec.php">Quản lý công việc dài hạn</a>';
+                         if ($returnfolder==1)  echo ' <a href="../danhsachcongviec.php">Công việc dài hạn</a>';
+                         else echo '<a href="danhsachcongviec.php">Công việc dài hạn</a>';
                          ?>
-                       </strong></li><br>
+                       </strong></li>
 
-                       <li><i class="fa fa-user"></i> <strong>
+                       <li class="menulink"><i class="fa fa-user"></i> <strong>
 
                         <?php 
-                        if ($returnfolder==1)  echo ' <a href="../luutru">Lưu trữ dữ liệu</a>';
+                        if ($returnfolder==1)   echo ' <a href="../luutru">Lưu trữ dữ liệu</a>';
                         else echo '<a href="luutru/">Lưu trữ dữ liệu</a>';
                         ?>
 
-                      </strong></li> <br>
+                      </strong></li> 
 
-                      <li><i class="fa fa-user"></i> <strong>  
+                      <li class="menulink"><i class="fa fa-user"></i> <strong>  
                         <?php 
-                        if ($returnfolder==1)  echo ' <a href="../thaoluan.php">Thảo luận</a>';
+                        if ($returnfolder==1)  echo ' <a href="../chat">Thảo luận</a>';
                         else echo ' <a href="chat/">Thảo luận</a>';
                         ?>
                       </strong></li>
-                      <br>
-                      <li><i class="fa fa-user"></i> <strong>
+                      
+                      <li class="menulink"><i class="fa fa-user"></i> <strong>
                        <?php 
                        if ($returnfolder==1) echo '<a href="../caidat.php">Cài đặt tài khoản</a>';
                        else  echo ' <a href="caidat.php">Cài đặt tài khoản</a>';
                        ?>
                      </strong> </a></li>
-                     <?php if(getLoggedAdmin()){ ?>
+
+                     <li class="menulink">
+                      <?php 
+                      if ($returnfolder==1)  echo '<a  href="../index.php?signOut=1"><i class="fa fa-power-off"></i> <strong>Đăng xuất</strong> </a>';
+                      else  echo '<a  href="index.php?signOut=1"><i class="fa fa-power-off"></i> <strong>Đăng xuất</strong> </a>';
+                      ?>
+                    </li>
+
+                    <?php if(getLoggedAdmin()){ ?>
                        <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm hidden-xs"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
                        <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm visible-xs btn-sm"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
                      <?php } ?>
@@ -159,14 +178,6 @@ if (getLoggedMemberID()=='guest'){
                          </ul>
                        <?php } ?>
                      <?php } ?>
-                     <br/>
-
-                     <li>  
-                      <?php 
-                      if ($returnfolder==1)  echo '<a  href="../index.php?signOut=1"><i class="fa fa-power-off"></i> <strong>Đăng xuất</strong> </a>';
-                      else  echo '<a  href="index.php?signOut=1"><i class="fa fa-power-off"></i> <strong>Đăng xuất</strong> </a>';
-                      ?>
-                    </li>
                   </section>
                 </div>
               </div>

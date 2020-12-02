@@ -1,11 +1,4 @@
-
-
-
-
-
-
-
-<article class="m-article-card post tag-a-better-you" >
+<article class="m-article-card post tag-a-better-you" onclick="chitiet<%%VALUE(id)%%>()">
 	<div class="m-article-card__picture lozad loaded" data-background-image="images/<%%VALUE(photo)%%>" data-loaded="true" style="background-image: url(images/<%%VALUE(photo)%%>)">
 
 		<a href="danhsachcongviec.php" class="m-article-card__picture-link" aria-label="Article"></a>
@@ -13,19 +6,38 @@
 
 	<center><hr style="margin: 0px;"></hr><div class="triangle-down" id="trangthai-<%%VALUE(id)%%>"></div></center>
 	<div class="m-article-card__info">
-		<!-- <style type="text/css"> #trangthai-22{    border-top: 3em solid green;}</style> -->
+		<center><p class="m-article-card__tag" id="blogs-title-<%%VALUE(id)%%>">
+			<%%VALUE(title)%%>
 
-		<center><p class="m-article-card__tag" id="blogs-title-<%%VALUE(id)%%>"><%%SELECT%%><%%VALUE(title)%%> <%%ENDSELECT%%></p></center>
+		</p></center>
 		<center><hr style="margin: 5px; " width="80%"></hr></center>
-		<div style="padding-left: 10%; font-size: 14px;">
+		<div style="font-size: 14px;">
 			<p  id="blogs-star-<%%VALUE(id)%%>">Độ quan trọng <%%VALUE(star)%%> SAO  </p>
-			<p id="blogs-star-<%%VALUE(id)%%>" >Nội dung: <%%VALUE(content)%%></p>
-			<p id="blogs-date-<%%VALUE(id)%%>">Ngày tạo: <%%VALUE(date)%%> </p> 
-			<p id="blogs-ngayhethan-<%%VALUE(id)%%>"> Ngày hết hạn: <%%VALUE(ngayhethan)%%> </p>
+			<!-- <p id="blogs-star-<%%VALUE(id)%%>" >Nội dung: <%%VALUE(content)%%></p> -->
+			<!-- <p id="blogs-date-<%%VALUE(id)%%>">Ngày tạo: <%%VALUE(date)%%> </p>  -->
+			<!-- <p id="blogs-ngayhethan-<%%VALUE(id)%%>"> Ngày hết hạn: <%%VALUE(ngayhethan)%%> </p> -->
 			<p id="thoigian<%%VALUE(id)%%>">TIME</p>
 		</div>
 	</div>
 </article>
+<script type="text/javascript">
+	function chitiet<%%VALUE(id)%%>() {
+		Swal.fire({
+			title: '<%%VALUE(title)%%>',
+			html: '<%%VALUE(content)%%><p id="blogs-star-<%%VALUE(id)%%>">Độ quan trọng <%%VALUE(star)%%> SAO </p> <p id="blogs-star-<%%VALUE(id)%%>" >Nội dung: <%%VALUE(content)%%></p><p id="blogs-date-<%%VALUE(id)%%>">Ngày tạo: <%%VALUE(date)%%></p><p id="blogs-ngayhethan-<%%VALUE(id)%%>"> Ngày hết hạn: <%%VALUE(ngayhethan)%%> </p>',
+			imageUrl: 'images/<%%VALUE(photo)%%>',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Chỉnh sửa'
+		}).then((result) => {
+			if (result.isConfirmed) {
+				window.location.href = "vieccanlam.php?SelectedID=<%%VALUE(id)%%>";
+			}
+		})
+	}
+</script>
+
 
 
 	<!-- 	<td id="blogs-title-<%%VALUE(id)%%>" class="blogs-title js-tooltip" data-tippy-content="x"><%%SELECT%%><%%VALUE(title)%%><%%ENDSELECT%%></td>

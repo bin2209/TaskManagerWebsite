@@ -15,10 +15,12 @@ $xam = "#6c757d";
 
 
 //---------------------
+
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
 	echo("<style> .thongbaothoigian{color:black;}</style>");
 	$now= time();
+	
 	while($row = mysqli_fetch_assoc($result)) {
 		if ($row["author"] == $currentuser){
 			$firsttime = false;
@@ -146,17 +148,13 @@ if (mysqli_num_rows($result) > 0) {
 
 
 		}
-
 	}
-
-
 	echo "<script>".$thongbao."</script>";
 	echo "<script>".$returncolor."</script>";
-
 }
+
+
 } else {
 	echo "Lỗi rồi :(( ";
 }
-
-
 ?>

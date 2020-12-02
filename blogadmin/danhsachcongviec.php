@@ -18,5 +18,5 @@
 		if(!headers_sent() && isset($_GET['loginFailed'])) header('HTTP/1.0 403 Forbidden');
 		include("{$currDir}/login.php");
 	}else{
-		include("{$currDir}/giaodienvieccanlam.php");
+		include("{$currDir}/vieccanlam.php");
 	}

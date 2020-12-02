@@ -4,11 +4,12 @@
 			<div class="container true">
 				<div class="fonos-root-navbar--brand">
 					<div>
+						<a class="nav-link" href="index.php">
 						<h2 style="font-family: Muli;
 						font-weight: 600;
 						color: white;
 						font-size: 26px;">TaskVN</h2>
-
+					</a>
 					</div>
 					<div class="d-md-none d-flex align-items-center"></div>
 				</div>
@@ -22,7 +23,7 @@
 						</div>
 						<ul class="navbar-nav">
 							<li class="nav-item ">
-								<a class="nav-link" href="https://taskvn.com">
+								<a class="nav-link" href="index.php">
 									<div style="color:#557fa7" class="fonos-text mb-0  fonos-light ">
 									Trang chủ</div>
 								</a>

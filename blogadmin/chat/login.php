@@ -5,10 +5,7 @@ include('database_connection.php');
 session_start();
 include("../../blogadmin/lib.php");
 $message = '';
-
-
 // register.php
-
 require("../../libs/fetch_data.php");
 include("../libs/db_connect.php");
 $currentuser=getLoggedMemberID();
@@ -117,9 +114,7 @@ if(isset($_POST['login']))
 }
 ?>
 <?php include_once("{$currDir}/header-user.php"); ?>
-
 <!--cards-->
-
 <div class="panel panel-default" style="text-align: center;">
 	<div class="panel-body">
 		<form method="post">
