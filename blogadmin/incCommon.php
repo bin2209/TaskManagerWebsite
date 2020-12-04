@@ -1178,10 +1178,18 @@ EOT;
 
 		$html = <<<EOT
 		<div class="input-group" id="quick-search">
-			<input type="text" id="SearchString" name="SearchString" value="{$safe_search}" class="form-control" placeholder="{$safe_label}">
+			<input type="text" id="SearchString" name="SearchString" value="{$safe_search}" class="form-control" placeholder="{$safe_label}" style="    border-radius: 3em;
+    padding: 8px 14px;
+    font-size: 14px;">
 			<span class="input-group-btn">
-				<button name="Search_x" value="1" id="Search" type="submit" onClick="{$reset_selection}" class="btn btn-default" title="{$safe_label}"><i class="glyphicon glyphicon-search"></i></button>
-				<button name="ClearQuickSearch" value="1" id="ClearQuickSearch" type="submit" onClick="\$j('#SearchString').val(''); {$reset_selection}" class="btn btn-default" title="{$safe_clear_label}"><i class="glyphicon glyphicon-remove-circle"></i></button>
+				<button style="    border: 0px solid;
+    border-radius: 3em;
+    padding: 8px 14px;
+    font-size: 14px; margin-left: 5px;" name="Search_x" value="1" id="Search" type="submit" onClick="{$reset_selection}" class="btn btn-default" title="{$safe_label}"><i class="glyphicon glyphicon-search"></i></button>
+				<button style="    border: 0px solid;
+    border-radius: 3em;
+    padding: 8px 14px;
+    font-size: 14px; margin-left: 5px;" name="ClearQuickSearch" value="1" id="ClearQuickSearch" type="submit" onClick="\$j('#SearchString').val(''); {$reset_selection}" class="btn btn-default" title="{$safe_clear_label}"><i class="glyphicon glyphicon-remove-circle"></i></button>
 			</span>
 		</div>
 EOT;

@@ -91,6 +91,10 @@ text-align: center; padding: 20px; margin-bottom: 20px; margin-bottom: 40px;
     width: 250px !important;
     height: 250px !important;
   }
+  .m-article-card__info{
+    border-bottom-left-radius: 3em !important;
+    border-bottom-right-radius: 3em !important;
+  }
 </style>
 </div>
 </div>

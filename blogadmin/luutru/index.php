@@ -18,7 +18,7 @@
 		<body ng-app="app" ng-controller="uploader" ng-init="fetch()">
 			<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
 			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>  
-			<div class="container">
+			<div class="container" style="width: 100%;">
 				<div class="row">
 					<div class="col-md-3">
 						<?php 
@@ -29,7 +29,7 @@
 						<input type="file" file-input="files" multiple>
 						<hr>
 
-						<button class="btn btn-primary" ng-click="upload()"><span class="glyphicon glyphicon-download-alt"></span> Tải hình lên</button>
+						<button class="btn btn-primary" ng-click="upload()"><span class="glyphicon glyphicon-download-alt"></span> Tải tệp lên</button>
 						<div ng-show="error" class="alert alert-danger text-center" style="margin-top:30px;">
 							<button type="button" class="close" ng-click="clearMessage()"><span aria-hidden="true">&times;</span></button>
 							<span class="glyphicon glyphicon-remove"></span> {{ errorMessage }}
@@ -63,8 +63,6 @@
 		</div>
 
 		<style type="text/css">
-		
-			
 			.m-article-card {
 				width: calc(33.33333% - 40px);
 				/* margin-left: 20px; */
@@ -72,7 +70,10 @@
 				padding: 14px;
 				margin-bottom: 45px;
 			}
-	
+			.m-article-card:before{
+				border-radius: 10px !important;
+			}
+
 			.thumbnail{
 
 				width: 100%;
@@ -85,6 +86,7 @@
 			}
 			@media only screen and (min-width: 64rem){
 				.m-article-card{
+					border-radius: 10px !important;
 					height: 10em !important;
 					margin-left: 20px;
 					float: left;

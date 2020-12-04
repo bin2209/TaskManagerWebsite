@@ -32,8 +32,10 @@ if (mysqli_num_rows($result) > 0) {
 			$quathoigian = false;
 			$returncolor = "";
 			if ($date1-$date2<=0){
-				$thongbao = 'document.getElementById("thoigian'.$row["id"].'").innerHTML = " Đã quá thời gian"; 
+				$thongbao = 'document.getElementById("thoigian'.$row["id"].'").innerHTML = " Quá hạn"; 
 				document.getElementById("trangthai-'.$row["id"].'").style.borderTop = "3em solid '.$xam.'";
+				document.getElementById("article'.$row["id"].'").style.filter = "grayscale(100%)";
+
 				';
 
 			} else{
@@ -88,6 +90,7 @@ if (mysqli_num_rows($result) > 0) {
 				} else if ($sumday < 7 ){
 					$returncolor = 'document.getElementById("trangthai-'.$row["id"].'").style.borderTop = "3em solid '.$do.'";';
 				}
+			
 			}
 
 

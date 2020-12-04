@@ -67,7 +67,7 @@
 	$Translation['yes'] = 'Đồng ý';
 	$Translation['no'] = 'Không';
 	$Translation['pkfield empty'] = ' field is a primary key field and cannot be empty.';
-	$Translation['upload image'] = 'Upload new file ';
+	$Translation['upload image'] = 'Tải ảnh lên ';
 	$Translation['select image'] = 'Select an image ';
 	$Translation['remove image'] = 'Remove file';
 	$Translation['month names'] = 'January,February,March,April,May,June,July,August,September,October,November,December';

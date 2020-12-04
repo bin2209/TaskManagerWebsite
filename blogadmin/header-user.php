@@ -228,7 +228,7 @@ if ($usernow=="admin") {
  }
 
  else if ((strpos($path, $keychat) == false) && $ketqua=="index.php"){ //index
-   echo '<h1 class="m-hero-title bigger">Khu vực quản lý công việc</h1>
+   echo '<h1 class="m-hero-title bigger">HOME</h1>
    <p class="m-hero-description bigger">Hãy bắt đầu ngày mới bằng cách hoàn thành các công việc</p>';
  }
 
@@ -250,3 +250,8 @@ if ($usernow=="admin") {
     <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
       <div class="l-grid centered">
         <!-- THIS -->
+        <style type="text/css">
+          .m-hero__picture{
+            border-radius: 2em !important;
+          }
+        </style>

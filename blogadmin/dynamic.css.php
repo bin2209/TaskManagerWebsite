@@ -97,8 +97,11 @@ img[src="blank.gif"] { max-height: 10px !important; }
 .container.theme-compact{ font-size: 0.857em; }
 
 .theme-compact .btn {
-	font-size: 12px;
-	padding: 4px 10px;
+    padding: 4px 10px;
+    border: 0px solid;
+    border-radius: 3em;
+    padding: 8px 14px;
+    font-size: 14px;
 }
 
 .theme-compact .btn-lg, .theme-compact .btn-group-lg > .btn {

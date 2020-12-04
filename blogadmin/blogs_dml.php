@@ -300,7 +300,7 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 	// unique random identifier
 	$rnd1 = ($dvprint ? rand(1000000, 9999999) : '');
 	// combobox: category
-	$combo_category = new DataCombo;
+	// $combo_category = new DataCombo;
 	// combobox: date
 	$combo_date = new DateCombo;
 	$combo_date->DateFormat = "dmy";
@@ -367,18 +367,20 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 		$urow = $row; /* unsanitized data */
 		$hc = new CI_Input();
 		$row = $hc->xss_clean($row); /* sanitize data */
-		$combo_category->SelectedData = $row['category'];
+		// $combo_category->SelectedData = $row['category'];
 		$combo_date->DefaultDate = $row['date'];
 		// $combo_ngayhethan->DefaultDate = $row['ngayhethan'];
 		$combo_posted->SelectedData = $row['posted'];
 		$combo_star->SelectedData = $row['star'];
 	}else{
-		$combo_category->SelectedData = $filterer_category;
+		// $combo_category->SelectedData = $filterer_category;
 		$combo_posted->SelectedText = ( $_REQUEST['FilterField'][1]=='9' && $_REQUEST['FilterOperator'][1]=='<=>' ? (get_magic_quotes_gpc() ? stripslashes($_REQUEST['FilterValue'][1]) : $_REQUEST['FilterValue'][1]) : "");
 	}
 
-	$combo_category->HTML = '<span id="category-container' . $rnd1 . '"></span><input type="hidden" name="category" id="category' . $rnd1 . '" value="' . html_attr($combo_category->SelectedData) . '">';
-	$combo_category->MatchText = '<span id="category-container-readonly' . $rnd1 . '"></span><input type="hidden" name="category" id="category' . $rnd1 . '" value="' . html_attr($combo_category->SelectedData) . '">';
+	// $combo_category->HTML = '<span id="category-container' . $rnd1 . '"></span><input type="hidden" name="category" id="category' . $rnd1 . '" value="' . html_attr($combo_category->SelectedData) . '">';
+		// $combo_category->HTML = '<span id="category-container' . $rnd1 . '"></span><input type="hidden" name="category" id="category' . $rnd1 . '" value="1">';
+	// $combo_category->MatchText = '<span id="category-container-readonly' . $rnd1 . '"></span><input type="hidden" name="category" id="category' . $rnd1 . '" value="' . html_attr($combo_category->SelectedData) . '">';
+		// $combo_category->MatchText = '<span id="category-container-readonly' . $rnd1 . '"></span><input type="hidden" name="category" id="category' . $rnd1 . '" value="1">';
 	//combo_star -> lưu thông tin của id => back lên database = > thêm mới
 
 	$combo_star->HTML = '<span id="star-container' . $rnd1 . '"></span><input type="hidden" name="star" id="star' . $rnd1 . '" value="' . html_attr($combo_star->SelectedData) . '">';
@@ -450,20 +452,20 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 				if(typeof(category_update_autofills__RAND__) == 'function') category_update_autofills__RAND__();
 			});
 
-			if(!$j("#category-container__RAND__").length){
-				$j.ajax({
-					url: 'ajax_combo.php',
-					dataType: 'json',
-					data: { id: AppGini.current_category__RAND__.value, t: 'blogs', f: 'category' },
-					success: function(resp){
-						$j('[name="category"]').val(resp.results[0].id);
-						$j('[id=category-container-readonly__RAND__]').html('<span id="category-match-text">' + resp.results[0].text + '</span>');
-						if(resp.results[0].id == '<?php echo empty_lookup_value; ?>'){ $j('.btn[id=blog_categories_view_parent]').hide(); }else{ $j('.btn[id=blog_categories_view_parent]').show(); }
+			// if(!$j("#category-container__RAND__").length){
+			// 	$j.ajax({
+			// 		url: 'ajax_combo.php',
+			// 		dataType: 'json',
+			// 		data: { id: AppGini.current_category__RAND__.value, t: 'blogs', f: 'category' },
+			// 		success: function(resp){
+			// 			$j('[name="category"]').val(resp.results[0].id);
+			// 			$j('[id=category-container-readonly__RAND__]').html('<span id="category-match-text">' + resp.results[0].text + '</span>');
+			// 			if(resp.results[0].id == '<?php echo empty_lookup_value; ?>'){ $j('.btn[id=blog_categories_view_parent]').hide(); }else{ $j('.btn[id=blog_categories_view_parent]').show(); }
 
-						if(typeof(category_update_autofills__RAND__) == 'function') category_update_autofills__RAND__();
-					}
-				});
-			}
+			// 			if(typeof(category_update_autofills__RAND__) == 'function') category_update_autofills__RAND__();
+			// 		}
+			// 	});
+			// }
 
 		<?php }else{ ?>
 
@@ -554,9 +556,9 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 	}
 
 	// process combos
-	$templateCode = str_replace('<%%COMBO(category)%%>', $combo_category->HTML, $templateCode);
-	$templateCode = str_replace('<%%COMBOTEXT(category)%%>', $combo_category->MatchText, $templateCode);
-	$templateCode = str_replace('<%%URLCOMBOTEXT(category)%%>', urlencode($combo_category->MatchText), $templateCode);
+	// $templateCode = str_replace('<%%COMBO(category)%%>', $combo_category->HTML, $templateCode);
+	// $templateCode = str_replace('<%%COMBOTEXT(category)%%>', $combo_category->MatchText, $templateCode);
+	// $templateCode = str_replace('<%%URLCOMBOTEXT(category)%%>', urlencode($combo_category->MatchText), $templateCode);
 	$templateCode = str_replace('<%%COMBO(date)%%>', ($selected_id && !$arrPerm[3] ? '<div class="form-control-static">' . $combo_date->GetHTML(true) . '</div>' : $combo_date->GetHTML()), $templateCode);
 	$templateCode = str_replace('<%%COMBOTEXT(date)%%>', $combo_date->GetHTML(true), $templateCode);
 

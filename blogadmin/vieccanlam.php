@@ -5,7 +5,7 @@
 <head>
 </head>
 <html>
-<center>
+<!-- <center> -->
   <?php
 
   $currDir=dirname(__FILE__);
@@ -123,7 +123,7 @@
   $x->QuickSearchText = $Translation["quick search"];
   $x->ScriptFileName = "vieccanlam.php";
   $x->RedirectAfterInsert = "vieccanlam.php?SelectedID=#ID#";
-  $x->TableTitle = "Danh sách công việc";
+  $x->TableTitle = "<x class='chedobang'>Chuyển sang bảng</x>";
   // $x->TableIcon = "resources/table_icons/feed.png";
   $x->PrimaryKey = "`blogs`.`id`";
 
@@ -186,17 +186,39 @@
   include("tiendocongviec.php");
 
   ?>
-</center>
-<style type="text/css">
-  .m-site-name{
-    font-size: 18px;
-  }
-  .m-submenu{
-    font-size: 1.47rem;
-  }
-  .col-sm-8 a {
-    float: left;
-  }
+  <!-- </center> -->
+  <style type="text/css">
+    .m-site-name{
+      font-size: 18px;
+    }
+    .m-submenu{
+      font-size: 1.47rem;
+    }
+    .col-sm-8 a {
+      float: left;
+    }
+    .swal2-popup{
+      border-radius: 3em;
+      background: #ffffffe6 !important;
+    }
+    .swal2-title{
+      font-family: 'Muli', sans-serif !important;
+    }
+    .swal2-styled{
+      border-radius: 2em !important;
+      padding-right: 12px !important;
+      padding-left: 12px !important;
+      font-size: 14px !important;
+    }
+    .chedobang { border: 0px solid;
+      border-radius: 3em;
+      padding: 8px 14px;
+      font-size: 14px; margin-left: 5px;   
+      background-color: #e7e7e7;
+    }
+    .chedobang:hover{
+      background-color: #ccc;
+    }
 /*  @media (min-width: 768px){
     .container {
       width: 100% !important;
@@ -214,12 +236,12 @@
     .m-article-card {
       width: calc(100% - 40px) !important;
     }
-  }*/
-  h1{
-    font-family: Muli !important;
-    font-weight: 500 !important;
-  }
-</style>
+    }*/
+    h1{
+      font-family: Muli !important;
+      font-weight: 500 !important;
+    }
+  </style>
 </div>
 </div>
 </div>

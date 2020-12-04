@@ -6,7 +6,7 @@
 <!--     $options->ShowTableHeader = 0;     -->
 <!-- 	VIEW TABLE  blogs_view.php-->
 		<td id="blogs-title-<%%VALUE(id)%%>" class="blogs-title js-tooltip" data-tippy-content="x"><%%SELECT%%><%%VALUE(title)%%><%%ENDSELECT%%></td>
-		<td id="blogs-category-<%%VALUE(id)%%>" class="blogs-category"><%%SELECT%%><%%VALUE(category)%%><%%ENDSELECT%%></td>
+		<!-- <td id="blogs-category-<%%VALUE(id)%%>" class="blogs-category"><%%SELECT%%><%%VALUE(category)%%><%%ENDSELECT%%></td> -->
 		<td id="blogs-tags-<%%VALUE(id)%%>" class="blogs-tags"><%%SELECT%%><%%VALUE(tags)%%><%%ENDSELECT%%></td>
 		<td id="blogs-content-<%%VALUE(id)%%>" class="blogs-content"><%%SELECT%%><%%VALUE(content)%%><%%ENDSELECT%%></td>
 		<td id="blogs-photo-<%%VALUE(id)%%>" class="blogs-photo"><a href="<%%TRANSLATION(ImageFolder)%%><%%VALUE(photo)%%>" data-lightbox="blogs-photo"><img src="thumbnail.php?i=<%%VALUE(photo)%%>&t=blogs&f=photo&v=tv" class="img-thumbnail"></a></td>

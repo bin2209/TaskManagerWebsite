@@ -125,14 +125,14 @@
 
 	$x->ColWidth   = array(  150, 150, 150, 150, 150, 150, 150, 150,150,150);
 	//TRUONG2 - Thêm database cột star/ blog + recode
-	$x->ColCaption = array("Tiêu đề công việc", "Phân loại", "Tags", "Nội dung", "Ảnh", "Ngày tạo","Ngày hết hạn", "Thành viên tạo	", "Trạng thái","Độ ưu tiên");
+	$x->ColCaption = array("Tiêu đề công việc",  "Tags", "Nội dung", "Ảnh", "Ngày tạo","Ngày hết hạn", "Thành viên tạo	", "Trạng thái","Độ ưu tiên");
 	$x->ColFieldName = array('title', 'category', 'tags', 'content', 'photo', 'date',' ngayhethan', 'author', 'posted','star');
 	$x->ColNumber  = array(2, 3, 4, 5, 6, 7, 8, 9, 10,11);
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/blogs_templateTV.html';
 	$x->SelectedTemplate = 'templates/blogs_templateTVS.html';
-	$x->TemplateDV = 'templates/blogs_templateDV.html';
+	$x->TemplateDV = 'templates/blogs_templateDV.php';
 	$x->TemplateDVP = 'templates/blogs_templateDVP.html';
 
 	$x->ShowTableHeader = 1;

@@ -1,7 +1,7 @@
 <!-- Edit this file to change the layout of the detail view form -->
-
+<?php 	include("../lib.php"); ?>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Muli" />
 <a name="detail-view"></a>
-<div class="panel-heading"><h3 class="panel-title"><strong>Chi tiết công việc</strong></h3></div>
 
 <div class="panel-body" id="blogs_dv_container">
 	<!-- child links -->
@@ -11,7 +11,6 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<hr class="hidden-xs hidden-md">
 
 	<div class="row">
 		<!-- form inputs -->
@@ -30,27 +29,28 @@
 					<hr class="hidden-md hidden-lg">
 					<label for="title" class="control-label col-lg-3">Tên công việc<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#title-description"></i></label>
 					<div class="col-lg-9">
-						<span class="help-block collapse" id="title-description"><div class="alert alert-info">enetr your blog title</div></span>
+						<span class="help-block collapse" id="title-description"><div class="alert alert-info">Tên công việc</div></span>
 
 						<input maxlength="190" type="text" class="form-control" name="title" id="title" value="<%%VALUE(title)%%>" required>
 					</div>
 				</div>
 
-				<div class="form-group">
+				<div class="form-group" style="display: none;"> 
 					<hr class="hidden-md hidden-lg">
 					<label for="category" class="control-label col-lg-3" data-parent_link="view_parent_modal">Phân loại công việc<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#category-description"></i></label>
 					<div class="col-lg-9">
 						<span class="help-block collapse" id="category-description"><div class="alert alert-info">select blog category</div></span>
-
 						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(category)%%><%%PLINK(category)%%><%%ADDNEW(blog_categories)%%></div>
 					</div>
-				</div>
+					<input type="hidden" name="category" id="category" value="1" style="display: none;">
+				</div> 
+
 
 				<div class="form-group">
 					<hr class="hidden-md hidden-lg">
 					<label for="tags" class="control-label col-lg-3">Tags<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#tags-description"></i></label>
 					<div class="col-lg-9">
-						<span class="help-block collapse" id="tags-description"><div class="alert alert-info">separate tags with a comma eg tech,php,bootstrap</div></span>
+						<span class="help-block collapse" id="tags-description"><div class="alert alert-info">Hãy đặt thêm tag để dễ dàng ghi nhớ và phân loại công việc</div></span>
 
 						<input maxlength="40" type="text" class="form-control" name="tags" id="tags" value="<%%VALUE(tags)%%>" required>
 					</div>
@@ -60,7 +60,7 @@
 					<hr class="hidden-md hidden-lg">
 					<label for="content" class="control-label col-lg-3">Nội dung công việc<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#content-description"></i></label>
 					<div class="col-lg-9">
-						<span class="help-block collapse" id="content-description"><div class="alert alert-info">enter your blog content here</div></span>
+						<span class="help-block collapse" id="content-description"><div class="alert alert-info">Nội dung chi tiết công việc</div></span>
 
 						<%%HTMLAREA(content)%%>
 					</div>
@@ -91,9 +91,9 @@
 				<hr class="hidden-md hidden-lg">
 				<label for="date" class="control-label col-lg-3">Ngày tạo <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#date-description"></i></label>
 				<div class="col-lg-9">
-					<span class="help-block collapse" id="date-description"><div class="alert alert-info">system automatically generates current date</div></span>
+					<span class="help-block collapse" id="date-description"><div class="alert alert-info">Ngày công việc bắt đầu được tạo tự động</div></span>
 
-					<div class="form-control-static" id="date"><%%COMBOTEXT(date)%%></div>
+					<div class="form-control-static" id="date" style="font-size: 13px;"><%%COMBOTEXT(date)%%></div>
 				</div>
 			</div>
 
@@ -102,8 +102,8 @@
 				<hr class="hidden-md hidden-lg">
 				<label for="tags" class="control-label col-lg-3">Ngày hết hạn<span class="text-danger">*</span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#ngayhethan-description"></i></label>
 				<div class="col-lg-9">
-						<span class="help-block collapse" id="ngayhethan-description"><div class="alert alert-info">Ngày hết hạn</div></span>
-						<input maxlength="40" type="text" class="form-control" type="date" id="ngayhethan" value="" name="ngayhethan"  required="" placeholder="YYYY-MM-DD">
+					<span class="help-block collapse" id="ngayhethan-description"><div class="alert alert-info">Ngày hết hạn</div></span>
+					<input maxlength="40" type="text" class="form-control" type="date" id="ngayhethan" value="" name="ngayhethan"  required="" placeholder="YYYY-MM-DD">
 				</div>
 			</div>
 
@@ -132,11 +132,20 @@
 					<span class="help-block collapse" id="star-description"><div class="alert alert-info">Độ ưu tiên công việc.</div></span>
 				</div>
 			</div>
+			<div class="form-group">
+				<hr class="hidden-md hidden-lg">
+				<label class="control-label col-lg-3" data-parent_link="view_parent_modal" for="member">Thành viên <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#member-description"></i></label>
+				<div class="col-lg-9">
+					<span class="help-block collapse" id="member-description"><div class="alert alert-info">Thành viên tham gia công việc</div></span>
+					<div class="form-control-static" id="member" style="font-size: 13px;"><%%VALUE(author)%%> <a class="btn btn-success btn-lg" style="margin-left: 10px; font-size: 13px;
+					padding: 6px 8px !important;" onclick="addthanhvien()">Thêm thành viên</a></div>
+				</div>
+			</div>
 
 
 		</fieldset>
 	</div>
-
+	
 	<!-- DV action buttons -->
 	<hr class="hidden-md hidden-lg">
 	<div class="col-md-4 col-lg-2" id="blogs_dv_action_buttons">
@@ -158,7 +167,6 @@
 
 
 <!-- child records -->
-<hr>
 <div class="row">
 	<div class="col-lg-10 col-lg-offset-1">
 		<div id="blogs-children" class="children-tabs"></div>
@@ -320,3 +328,72 @@
 
 	});
 </script>
+<style type="text/css">
+	.form-control{
+		padding: 8px !important;
+		border-radius: 3em;
+	}
+	.panel-default{
+		border-radius: 3em;
+		font-size: 14px;
+		font-family: Muli;
+	}
+	label.control-label.col-lg-3{
+		font-size: 14px;
+	}
+	.alert-info{
+		border-radius: 3em;
+	}
+	.btn{
+		padding: 10px 8px !important;
+	}
+	.form-control-static{
+		padding-top: 0px !important; 
+	}
+</style>
+<style type="text/css">
+	.swal2-popup{
+		border-radius: 3em;
+		background: #ffffffe6 !important;
+	}
+	.swal2-styled{
+		border-radius: 2em !important;
+		padding-right: 12px !important;
+		padding-left: 12px !important;
+		font-size: 14px !important;
+	}
+	.swal2-title{
+		font-family: 'Muli', sans-serif !important;
+	}
+	.swal2-content{
+		font-family: 'Muli', sans-serif !important;
+		font-size: 14px !important;
+		font-style: normal !important;
+		font-variant: normal !important;
+		font-weight: 400 !important;
+		line-height: 20px !important;
+	}
+	.swal2-close{
+		font-size: 4.5em;
+	}
+	.form-control{
+		background: #ffffff8c;
+	}
+</style>
+<script type="text/javascript">
+	function addthanhvien() {
+		Swal.fire({
+			title: 'Thêm thành viên',
+			html: '<br/><input class="form-control" placeholder="Nhập tên người dùng thêm">',
+			imageUrl: 'images/17273000_1603292718.png',
+			showCloseButton: true,
+			confirmButtonColor: '#3085d6',
+			confirmButtonText: 'Thêm'
+		}).then((result) => {
+			if (result.isConfirmed) {
+
+			}
+		})
+	}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
