@@ -10,10 +10,10 @@ $task = $_POST['task'];
 $noidung = $_POST['noidung'];
 $trangthai = $_POST['trangthai'];
 $user = $_POST['user'];
-
+$ngaytao = date("Y-m-d");
 echo $task;
 //insert data into table
-$sql = 'INSERT INTO todo (task, noidung, trangthai, user,star ,stamp) VALUES ("'.$task.'","'.$noidung.'","'.$trangthai.'","'.$user.'",0,"none")';
+$sql = 'INSERT INTO todo (task, noidung, trangthai, user,star ,stamp, ngaytao) VALUES ("'.$task.'","'.$noidung.'","'.$trangthai.'","'.$user.'",0,"none","'.$ngaytao.'")';
 
 $result = mysqli_query($con, $sql);
 

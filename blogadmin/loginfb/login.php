@@ -6,7 +6,7 @@ if(isset($_SESSION['access_token'])){
 	exit();
 }
 
-$redirectTo = "http://localhost/resblog\blogadmin\loginfb/callback.php";
+$redirectTo = "https://localhost/resblog\blogadmin\loginfb/callback.php";
 $data = ['email'];
 $fullURL = $handler->getLoginUrl($redirectTo, $data);
 ?>

@@ -1,13 +1,11 @@
-
 <?php include_once("header-user.php"); ?>
 <!-- <?php @include("hooks/links-home.php"); ?> -->
 <!DOCTYPE html>
 <head>
 </head>
 <html>
-<!-- <center> -->
+<link rel="stylesheet" type="text/css" href="css/iosdesign.css">
   <?php
-
   $currDir=dirname(__FILE__);
   include("$currDir/defaultLang.php");
   include("$currDir/language.php");
@@ -186,7 +184,6 @@
   include("tiendocongviec.php");
 
   ?>
-  <!-- </center> -->
   <style type="text/css">
     .m-site-name{
       font-size: 18px;
@@ -196,50 +193,6 @@
     }
     .col-sm-8 a {
       float: left;
-    }
-    .swal2-popup{
-      border-radius: 3em;
-      background: #ffffffe6 !important;
-    }
-    .swal2-title{
-      font-family: 'Muli', sans-serif !important;
-    }
-    .swal2-styled{
-      border-radius: 2em !important;
-      padding-right: 12px !important;
-      padding-left: 12px !important;
-      font-size: 14px !important;
-    }
-    .chedobang { border: 0px solid;
-      border-radius: 3em;
-      padding: 8px 14px;
-      font-size: 14px; margin-left: 5px;   
-      background-color: #e7e7e7;
-    }
-    .chedobang:hover{
-      background-color: #ccc;
-    }
-/*  @media (min-width: 768px){
-    .container {
-      width: 100% !important;
-    }
-  }
-  @media screen and (max-width: 767px){
-    .table-responsive {
-      border: 0px solid transparent !important;
-    }
-    .m-article-card {
-      width: calc(50% - 40px) !important;
-    }
-  }
-  @media screen and (max-width: 500px){
-    .m-article-card {
-      width: calc(100% - 40px) !important;
-    }
-    }*/
-    h1{
-      font-family: Muli !important;
-      font-weight: 500 !important;
     }
   </style>
 </div>
