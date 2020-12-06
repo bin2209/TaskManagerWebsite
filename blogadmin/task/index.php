@@ -13,7 +13,7 @@ if (getLoggedMemberID()=="guest"){
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="../css/iosdesign.css">
 <link rel="stylesheet" href="css/menuleft.css">
- <link rel="stylesheet" type="text/css" href="../assets/css/app2daf.css?v=a5dd59f074" media="screen" /> <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700|Montserrat:400,500,600,700|Roboto:400,500,700&amp;display=swap&amp;subset=vietnamese" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="../assets/css/app2daf.css?v=a5dd59f074" media="screen" /> <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700|Montserrat:400,500,600,700|Roboto:400,500,700&amp;display=swap&amp;subset=vietnamese" rel="stylesheet"> 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- STAR -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,28 +22,31 @@ if (getLoggedMemberID()=="guest"){
   <style type="text/css">
     .swal2-popup{
      width: auto !important;
-    }
-  </style>
-  <div class="wrapper" style="width: 100%">
-   <nav id="sidebar">
-    <ul class="list-unstyled components">
-      <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="btnclick('tinhnang/tatca.php')"><i class="fa fa-list"></i> Tất cả</a> </li>
-      <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="btnclick('tinhnang/homnay.php')"><i class="fa fa-calendar"></i> Hôm nay</a> </li>
-      <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/quantrong.php')"><i class="fa fa-star"></i> Quan trọng</a> </li>
-       <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongke.php')"><i class="fa fa-pie-chart"></i> Thống kê</a> </li>
-    </ul>
-    <ul class="list-unstyled CTAs">
-      <h2 id="idname" style="display: none;">idname</h2>
-      <li id="addstep" style="display: none;"></li>
-      <div id="changeganco">
-      </div>
-    </ul>
-  </nav>
-  <div id="content"><!-- <CONTENT -->
-<?php
-include('tinhnang/tatca.php');
-?>
-  </div> <!-- <!content> -->
+   }
+   .fa-calendar:hover{
+    color: #fb5d5d;
+  }
+</style>
+<div class="wrapper" style="width: 100%">
+ <nav id="sidebar">
+  <ul class="list-unstyled components">
+    <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="btnclick('tinhnang/tatca.php')"><i class="fa fa-list"></i> Tất cả</a> </li>
+    <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="btnclick('tinhnang/homnay.php')"><i class="fa fa-calendar"></i> Hôm nay</a> </li>
+    <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/quantrong.php')"><i class="fa fa-star"></i> Quan trọng</a> </li>
+    <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongke.php')"><i class="fa fa-pie-chart"></i> Thống kê</a> </li>
+  </ul>
+  <ul class="list-unstyled CTAs">
+    <h2 id="idname" style="display: none;">idname</h2>
+    <li id="addstep" style="display: none;"></li>
+    <div id="changeganco">
+    </div>
+  </ul>
+</nav>
+<div id="content"><!-- <CONTENT -->
+  <?php
+  include('tinhnang/tatca.php');
+  ?>
+</div> <!-- <!content> -->
 </div>
 <div id="overlay">
   <form method="post" action="trangthai.php" class="form" > 
@@ -81,6 +84,21 @@ include('tinhnang/tatca.php');
      }
    });
   }
+
+  function xoahomnay(id){
+   console.log(id);
+   $.ajax({
+    type : "POST", 
+    url  : "trangthai.php", 
+    data : {id : id},
+    success: function(res){  
+      location.reload();
+    }
+  });
+   
+ }
+
+
 </script>
 </body>
 </html>

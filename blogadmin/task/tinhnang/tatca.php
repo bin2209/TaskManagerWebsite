@@ -14,6 +14,10 @@
         }
       });
      }
+
+
+
+
      $('#tablecontent').load( ' #tablecontent');
      function funtrangthaiclick(clicked_id) {
       id = clicked_id;
@@ -164,7 +168,6 @@
               } else {
                 echo ' <td><span class="fa fa-star checkedstar" onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
               }
-
                 if ($row["stamp"]=="do"){ // danghoatdong
                   echo '<td><img src="img/do.png"></td>';
                 } else if ($row["stamp"]=="vang"){
@@ -175,8 +178,11 @@
                   echo '<td><img src="img/lam.png"></td>';
                 } else if ($row["stamp"]=="im"){
                   echo '<td><img src="img/tim.png"></td>';
+                } 
+                if ($row["ngayhethan"]!=NULL){
+                  echo '<td style="text-align:center;" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i></td>';
                 } else{
-                  echo '<td></td>';
+                  echo "<td></td>";
                 }
                 echo '  </tr> ';
               }

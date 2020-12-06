@@ -1,4 +1,5 @@
 <?php 
+
 include("../../../blogadmin/lib.php");  
 include("../../libs/db_connect.php");
 ?>
@@ -28,13 +29,25 @@ if ($thu == "Sunday"){
 
 echo " " . date("d/m/Y") ;
 $countmyday = 0;
+$counthethan = 0;
 $sql = "SELECT * FROM `todo`";
 $result = mysqli_query($con, $sql);
 $idpost=0;
 if (mysqli_num_rows($result) > 0) {
 	while($row = mysqli_fetch_assoc($result)) {
 		if ($row["user"]== getLoggedMemberID() && $row["ngayhethan"]!=NULL ){
-			$countmyday++;	
+			// $countmyday++;
+
+			date_default_timezone_set('Asia/Ho_Chi_Minh');
+			$your_date = strtotime($row["ngayhethan"]);
+			$now = strtotime(date('Y-m-d H:i:s'));
+			$datediff = $your_date - $now;
+			$day =round($datediff / (60 * 60));	
+			if ($day>0){
+				$countmyday++;
+			}else{
+				$counthethan++;
+			}
 		} 
 	}
 
@@ -64,7 +77,8 @@ if ($countmyday == 0 ){
 					<th scope="col" style="vertical-align: inherit !important;"></th>
 					<th scope="col">Công việc</th>
 					<th scope="col">Nội dung</th>
-					<th scope="col">Quan trọng</th>
+					<th scope="col" style="text-align:center;">Quan trọng</th>
+					<th scope="col" style="text-align:center;">Thời gian còn lại</th>
 				</tr>
 			</thead>
 			<script type="text/javascript">
@@ -135,9 +149,9 @@ if ($countmyday == 0 ){
 						}
                //star
                if ($row["star"]=="0"){ // danghoatdong
-               	echo ' <td><span class="fa fa-star " onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
+               	echo ' <td style="text-align:center;"><span class="fa fa-star " onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
                } else {
-               	echo ' <td><span class="fa fa-star checkedstar" onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
+               	echo ' <td style="text-align:center;"><span class="fa fa-star checkedstar" onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
                }
 
                 if ($row["stamp"]=="do"){ // danghoatdong
@@ -150,26 +164,33 @@ if ($countmyday == 0 ){
                 	echo '<td><img src="img/lam.png"></td>';
                 } else if ($row["stamp"]=="im"){
                 	echo '<td><img src="img/tim.png"></td>';
-                } else{
-                	echo '<td></td>';
+                } 
+                if ($row["ngayhethan"]!=NULL){
+                	date_default_timezone_set('Asia/Ho_Chi_Minh');
+                	$your_date = strtotime($row["ngayhethan"]);
+                	$now = strtotime(date('Y-m-d H:i:s'));
+                	$datediff = $your_date - $now;
+                	$day =round($datediff / (60 * 60));
+                	if ($day<=0){
+                		echo '<td style="text-align:center;" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i> Quá thời gian. </td>';
+                	} else
+                	echo '<td style="text-align:center;" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i> '. $day .'h </td>';
                 }
                 echo '  </tr> ';
             } 
         }
     }
     ?>
-
 </form>
 </tbody>
 </table>
 <br>
-<br>
-<br>
 
 
 
-<button type="submit" class="btn btn-primary" id="add" onclick="themhomnay()">Thêm</button>
+<center><button type="submit" class="btn btn-primary" id="add" onclick="themhomnay()">Thêm</button></center>
 <script type="text/javascript">
+	
 	function clickid(id){
 		console.log(id);
 		$.post("tinhnang/alltomyday.php",
@@ -177,8 +198,7 @@ if ($countmyday == 0 ){
 			id: id,
 		});
 		// $('#content').html(data);
-		  location.reload(true);
-
+		location.reload(true);
 		// $.ajax({  
 		// 	type: "POST",  
 		// 	url: "tinhnang/alltomyday.php", 

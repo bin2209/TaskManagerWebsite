@@ -13,14 +13,25 @@ $id = $_POST['id'];
 // $trangthai = $_POST['trangthai'];
 
 
-
-
 $stringdelete = "delete";
 $stringstar = "star";
+$stringxoahomnay = "xoahomnay";
 // echo $id;
 // echo $stringdelete;
+
 $posdelete = strstr($id, $stringdelete);
 $posstar = strstr($id, $stringstar);
+$posxoahomnay = strstr($id, $stringxoahomnay);
+
+if ($posxoahomnay == true){
+	$id = ltrim($id, 'xoahomnay');
+	$sql = 'UPDATE todo
+	SET ngayhethan = NULL WHERE id='.$id.';
+	';
+	$result = mysqli_query($con, $sql);
+
+} else
+
 if ($posdelete == true){
 	$id = ltrim($id, 'delete');
 	$sql = "DELETE FROM todo WHERE id =".$id."";
