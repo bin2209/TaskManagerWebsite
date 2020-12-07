@@ -1,4 +1,3 @@
-
 <div id="reload" style="display: none">reload</div>
 <script>
   function makestar(clicked_id){
@@ -94,6 +93,7 @@ function xoathongtin() {
             ?>
             <th scope="col"><button type="submit" class="btn btn-primary" id="add">Thêm</button></th></th> 
             <th></th>
+            <th></th>
           </tr>
         </form>
       </thead>
@@ -166,6 +166,54 @@ function xoathongtin() {
               } else {
                 echo ' <td><span class="fa fa-star checkedstar" onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
               }
+
+              if ($row["ngayhethan"]!=NULL){
+                echo '<td class="thongbaotime"  id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i>';
+                date_default_timezone_set('Asia/Ho_Chi_Minh');
+                $your_date = strtotime($row["ngayhethan"]);
+                $now = strtotime(date('Y-m-d H:i:s'));
+                $datediff = $your_date - $now;
+                $gio =round($datediff / (60 * 60));
+                if ($gio<=0){
+                  echo "<span class='thongbaotext'>Quá hạn</span>";
+                }else{
+                  echo "<span class='thongbaotext'>".$gio."h</span>";
+                }
+                echo "</td>";
+              } else{
+                echo "<td></td>";
+              }
+                //THÔNG BÁO
+              if ($row["thongbao"]!=NULL){
+                echo '<td class="thongbaotime" id="xoathongbao'.$row["id"].'" onclick="xoathongbao(this.id)"  style=" min-width: 52px;"><i class="fa fa-bell"></i><i class="fa fa-bell-slash"></i>';
+                date_default_timezone_set('Asia/Ho_Chi_Minh');
+                $your_date = strtotime($row["thongbao"]);
+                $now = strtotime(date('Y-m-d H:i:s'));
+                $datediff = $your_date - $now;
+                $hours =round($datediff / (60 * 60)); 
+                $days =round($datediff / (60 * 60*24)); 
+                if ($days>0){
+                  echo "<span class='thongbaotext'>".$days."d</span>";
+                  echo "</td>";
+                } else if ($days==0&&$hours>0) {
+                  echo "<span class='thongbaotext'>".$hours."h</span>";
+                  echo "</td>";
+                } else{
+                    // tính năng thông báo ra hoặc thông báo về mail tại đây
+                  $requestid = $row["id"];
+                  $sql = 'UPDATE todo
+                  SET thongbao = NULL WHERE id='.$requestid.';
+                  ';
+                  $result = mysqli_query($con, $sql);
+                  if($result)
+                  {
+                    header("Refresh:0");
+                  }
+                }
+                
+              } else{
+                echo "<td></td>";
+              }
                 if ($row["stamp"]=="do"){ // danghoatdong
                   echo '<td><img src="img/do.png"></td>';
                 } else if ($row["stamp"]=="vang"){
@@ -176,56 +224,9 @@ function xoathongtin() {
                   echo '<td><img src="img/lam.png"></td>';
                 } else if ($row["stamp"]=="im"){
                   echo '<td><img src="img/tim.png"></td>';
+                } else{
+                  echo '<td></td>';
                 } 
-                if ($row["ngayhethan"]!=NULL){
-                  echo '<td style="text-align:center;" ><i class="fa fa-calendar" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"></i>';
-                  date_default_timezone_set('Asia/Ho_Chi_Minh');
-                  $your_date = strtotime($row["ngayhethan"]);
-                  $now = strtotime(date('Y-m-d H:i:s'));
-                  $datediff = $your_date - $now;
-                  $gio =round($datediff / (60 * 60));
-                  if ($gio<=0){
-                    echo "<span class='thongbaotext'>Quá thời gian</span>";
-                  }else{
-                    echo "<span class='thongbaotext'>".$gio."h</span>";
-                  }
-                  echo "</td>";
-                } else{
-                  echo "<td></td>";
-                }
-                //THÔNG BÁO
-                if ($row["thongbao"]!=NULL){
-                  echo '<td style="text-align:center;" id="xoathongbao'.$row["id"].'" onclick="xoathongbao(this.id)"><i class="fa fa-bell"></i>';
-                  date_default_timezone_set('Asia/Ho_Chi_Minh');
-                  $your_date = strtotime($row["thongbao"]);
-                  $now = strtotime(date('Y-m-d H:i:s'));
-                  $datediff = $your_date - $now;
-                  $hours =round($datediff / (60 * 60)); 
-                  $days =round($datediff / (60 * 60*24)); 
-                  if ($days>0){
-                    echo "<span class='thongbaotext'>".$days."d</span>";
-                    echo "</td>";
-                  } else if ($days==0&&$hours>0) {
-                    echo "<span class='thongbaotext'>".$hours."h</span>";
-                    echo "</td>";
-                  } else{
-                    // tính năng thông báo ra hoặc thông báo về mail tại đây
-                    $requestid = $row["id"];
-                    $sql = 'UPDATE todo
-                    SET thongbao = NULL WHERE id='.$requestid.';
-                    ';
-                    $result = mysqli_query($con, $sql);
-                    if($result)
-                    {
-                      header("Refresh:0");
-                    }
-                  }
-                } else{
-                  echo "<td></td>";
-                }
-
-
-
                 echo '</tr> ';
               }
             }

@@ -16,13 +16,22 @@ $id = $_POST['id'];
 $stringdelete = "delete";
 $stringstar = "star";
 $stringxoahomnay = "xoahomnay";
+$stringxoathongbao = "xoathongbao";
 // echo $id;
 // echo $stringdelete;
 
 $posdelete = strstr($id, $stringdelete);
 $posstar = strstr($id, $stringstar);
 $posxoahomnay = strstr($id, $stringxoahomnay);
+$posxoathongbao = strstr($id, $stringxoathongbao);
 
+if ($posxoathongbao == true){
+	$id = ltrim($id, 'xoathongbao');
+	$sql = 'UPDATE todo
+	SET thongbao = NULL WHERE id='.$id.';
+	';
+	$result = mysqli_query($con, $sql);
+} else
 if ($posxoahomnay == true){
 	$id = ltrim($id, 'xoahomnay');
 	$sql = 'UPDATE todo
@@ -31,7 +40,6 @@ if ($posxoahomnay == true){
 	$result = mysqli_query($con, $sql);
 
 } else
-
 if ($posdelete == true){
 	$id = ltrim($id, 'delete');
 	$sql = "DELETE FROM todo WHERE id =".$id."";

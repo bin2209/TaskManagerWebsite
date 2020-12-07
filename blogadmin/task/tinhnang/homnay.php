@@ -156,17 +156,7 @@ if ($countmyday == 0 ){
                	echo ' <td style="text-align:center;"><span class="fa fa-star checkedstar" onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
                }
 
-                if ($row["stamp"]=="do"){ // danghoatdong
-                	echo '<td><img src="img/do.png"></td>';
-                } else if ($row["stamp"]=="vang"){
-                	echo '<td><img src="img/vang.png"></td>';
-                } else if ($row["stamp"]=="xanh"){
-                	echo '<td><img src="img/xanh.png"></td>';
-                } else if ($row["stamp"]=="lam"){
-                	echo '<td><img src="img/lam.png"></td>';
-                } else if ($row["stamp"]=="im"){
-                	echo '<td><img src="img/tim.png"></td>';
-                } 
+             
                 if ($row["ngayhethan"]!=NULL){
                 	date_default_timezone_set('Asia/Ho_Chi_Minh');
                 	$your_date = strtotime($row["ngayhethan"]);
@@ -174,11 +164,26 @@ if ($countmyday == 0 ){
                 	$datediff = $your_date - $now;
                 	$day =round($datediff / (60 * 60));
                 	if ($day<=0){
-                		echo '<td style="text-align:center;" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i><span class="thongbaotext">Quá thời gian</span></td>';
+                		echo '<td class="thongbaotime" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i><span class="thongbaotext">Quá thời gian</span></td>';
 
                 	} else
-                	echo '<td style="text-align:center;" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i> <span class="thongbaotext">'. $day .'h </span></td>';
+                	echo '<td class="thongbaotime" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i> <span class="thongbaotext">'. $day .'h </span></td>';
                 }
+
+                  if ($row["stamp"]=="do"){ // danghoatdong
+                  	echo '<td><img src="img/do.png"></td>';
+                  } else if ($row["stamp"]=="vang"){
+                  	echo '<td><img src="img/vang.png"></td>';
+                  } else if ($row["stamp"]=="xanh"){
+                  	echo '<td><img src="img/xanh.png"></td>';
+                  } else if ($row["stamp"]=="lam"){
+                  	echo '<td><img src="img/lam.png"></td>';
+                  } else if ($row["stamp"]=="im"){
+                  	echo '<td><img src="img/tim.png"></td>';
+                  } else{
+                  	echo '<td></td>';
+                  }
+                
                 echo '  </tr> ';
             } 
         }

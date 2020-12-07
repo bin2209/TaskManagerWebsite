@@ -24,21 +24,9 @@ if (getLoggedMemberID()=="guest"){
     .swal2-popup{
      width: auto !important;
    }
-   .fa-calendar:hover{
-    color: #fb5d5d;
+   .fa{
+
   }
-  .thongbaotext{
-   font-size: 11px!important;
-   top: 0!important;
-   right: 0!important;
-   line-height: 12px;
-   opacity: 0.8200000000000001!important;
-   left: 0!important;
-   display: block!important;
-   padding: 0!important;
-   bottom: 0!important;
-   text-align: center;
- }
 </style>
 <div class="wrapper" style="width: 100%">
  <nav id="sidebar">
@@ -46,7 +34,7 @@ if (getLoggedMemberID()=="guest"){
     <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="btnclick('tinhnang/tatca.php')"><i class="fa fa-list"></i> Tất cả</a> </li>
     <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="btnclick('tinhnang/homnay.php')"><i class="fa fa-calendar"></i> Hôm nay</a> </li>
     <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/quantrong.php')"><i class="fa fa-star"></i> Quan trọng</a> </li>
-    <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongbao.php')"><i class="fa fa-bell"></i> Thông báo</a> </li>
+    <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongbao.php')"><i class="fa fa-bell"></i> Nhắc nhở</a> </li>
     <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongke.php')"><i class="fa fa-pie-chart"></i> Thống kê</a> </li>
   </ul>
   <ul class="list-unstyled CTAs">
@@ -58,6 +46,7 @@ if (getLoggedMemberID()=="guest"){
     </div>
   </ul>
 </nav>
+
 <div id="content"><!-- <CONTENT -->
   <?php
   include('tinhnang/tatca.php');
@@ -106,6 +95,29 @@ if (getLoggedMemberID()=="guest"){
     Swal.fire({
       title: 'Xóa khỏi công việc hôm nay?',
       text: "Điều này sẽ mất đi thời gian đếm ngược.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Đồng ý',
+      cancelButtonText: 'Hủy'
+    }).then((result) => {
+      if (result.isConfirmed) {
+       $.ajax({
+        type : "POST", 
+        url  : "trangthai.php", 
+        data : {id : id},
+        success: function(res){  
+          location.reload();
+        }
+      });
+     }
+   })
+  }
+  function xoathongbao(id){
+    Swal.fire({
+      title: 'Tắt nhắc nhở?',
+      text: "Công việc này sẽ không nhận được nhắc nhở nữa.",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -186,6 +198,86 @@ if (getLoggedMemberID()=="guest"){
       controls: ['calendar', 'time'],
       selectMultiple: false
     });});
+  </script>
+  <script>
+  function makestar(clicked_id){
+   id = clicked_id;
+   var element = document.getElementById(id);
+   element.classList.add("checked");
+   $.ajax({
+    type : "POST", 
+    url  : "trangthai.php", 
+    data : {id : id},
+    success: function(res){  
+          // $('#tablecontent').load( ' #tablecontent');
+          location.reload();
+        }
+      });
+ }
+ $('#tablecontent').load( ' #tablecontent');
+ function funtrangthaiclick(clicked_id) {
+  id = clicked_id;
+  $.ajax({
+    type : "POST", 
+    url  : "trangthai.php", 
+    data : {id : id},
+    success: function(res){  
+          // $('#tablecontent').load( ' #tablecontent');
+          location.reload();
+        }
+      });
+}
+function xoathongtin() {
+  var removefirstid = document.getElementsByClassName("remove")[0].id;
+  var id = document.getElementById(removefirstid).value;
+  $.ajax({
+    type : "POST",  
+    url  : "trangthai.php",  
+    data : {id : id},
+    success: function(res){ 
+         // $('#tablecontent').load(document.URL +' #tablecontent');
+         location.reload();
+       }
+     });
+}
+
+</script>
+<script type="text/javascript">
+  function remove() {
+    Swal.fire({
+      title: 'Xóa công việc này ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Xóa'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        xoathongtin();
+        Swal.fire(
+          'Đã xóa!',
+          '',
+          'success'
+          )
+      }
+      location.reload();
+    })
+  }
+  function addstemp(data,name,id){
+      // console.log(data);
+      // console.log(id);  
+      id = id;
+      data= data;
+      $.ajax({
+        type : "POST",  
+        url  : "stamp.php",  
+        data : {id : id, data: data},
+        success: function(res){ 
+         // $('#tablecontent').load(document.URL +' #tablecontent');
+         location.reload();
+       }
+     });
+    }
   </script>
   <div id="lich">
     <label>
