@@ -1,73 +1,70 @@
-    <div id="reload" style="display: none">reload</div>
-    <script>
-      function makestar(clicked_id){
-       id = clicked_id;
-       var element = document.getElementById(id);
-       element.classList.add("checked");
-       $.ajax({
-        type : "POST", 
-        url  : "trangthai.php", 
-        data : {id : id},
-        success: function(res){  
+
+<div id="reload" style="display: none">reload</div>
+<script>
+  function makestar(clicked_id){
+   id = clicked_id;
+   var element = document.getElementById(id);
+   element.classList.add("checked");
+   $.ajax({
+    type : "POST", 
+    url  : "trangthai.php", 
+    data : {id : id},
+    success: function(res){  
           // $('#tablecontent').load( ' #tablecontent');
           location.reload();
         }
       });
-     }
-
-
-
-
-     $('#tablecontent').load( ' #tablecontent');
-     function funtrangthaiclick(clicked_id) {
-      id = clicked_id;
-      $.ajax({
-        type : "POST", 
-        url  : "trangthai.php", 
-        data : {id : id},
-        success: function(res){  
+ }
+ $('#tablecontent').load( ' #tablecontent');
+ function funtrangthaiclick(clicked_id) {
+  id = clicked_id;
+  $.ajax({
+    type : "POST", 
+    url  : "trangthai.php", 
+    data : {id : id},
+    success: function(res){  
           // $('#tablecontent').load( ' #tablecontent');
           location.reload();
         }
       });
-    }
-    function xoathongtin() {
-      var removefirstid = document.getElementsByClassName("remove")[0].id;
-      var id = document.getElementById(removefirstid).value;
-      $.ajax({
-        type : "POST",  
-        url  : "trangthai.php",  
-        data : {id : id},
-        success: function(res){ 
+}
+function xoathongtin() {
+  var removefirstid = document.getElementsByClassName("remove")[0].id;
+  var id = document.getElementById(removefirstid).value;
+  $.ajax({
+    type : "POST",  
+    url  : "trangthai.php",  
+    data : {id : id},
+    success: function(res){ 
          // $('#tablecontent').load(document.URL +' #tablecontent');
          location.reload();
        }
      });
-    }
+}
 
-  </script>
-  <script type="text/javascript">
-    function remove() {
-      Swal.fire({
-        title: 'Xóa công việc này ?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Xóa'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          xoathongtin();
-          Swal.fire(
-            'Đã xóa!',
-            '',
-            'success'
-            )
-        }
-        location.reload();
-      })
-    }
-    function addstemp(data,name,id){
+</script>
+<script type="text/javascript">
+  function remove() {
+    Swal.fire({
+      title: 'Xóa công việc này ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Xóa'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        xoathongtin();
+        Swal.fire(
+          'Đã xóa!',
+          '',
+          'success'
+          )
+      }
+      location.reload();
+    })
+  }
+  function addstemp(data,name,id){
       // console.log(data);
       // console.log(id);  
       id = id;
@@ -96,6 +93,7 @@
             echo ' <input type="text" class="form-control" name="user" id="user" value="'.getLoggedMemberID().'" aria-describedby="emailHelp" style="display: none;">';
             ?>
             <th scope="col"><button type="submit" class="btn btn-primary" id="add">Thêm</button></th></th> 
+            <th></th>
           </tr>
         </form>
       </thead>
@@ -180,11 +178,55 @@
                   echo '<td><img src="img/tim.png"></td>';
                 } 
                 if ($row["ngayhethan"]!=NULL){
-                  echo '<td style="text-align:center;" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i></td>';
+                  echo '<td style="text-align:center;" ><i class="fa fa-calendar" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"></i>';
+                  date_default_timezone_set('Asia/Ho_Chi_Minh');
+                  $your_date = strtotime($row["ngayhethan"]);
+                  $now = strtotime(date('Y-m-d H:i:s'));
+                  $datediff = $your_date - $now;
+                  $gio =round($datediff / (60 * 60));
+                  if ($gio<=0){
+                    echo "<span class='thongbaotext'>Quá thời gian</span>";
+                  }else{
+                    echo "<span class='thongbaotext'>".$gio."h</span>";
+                  }
+                  echo "</td>";
                 } else{
                   echo "<td></td>";
                 }
-                echo '  </tr> ';
+                //THÔNG BÁO
+                if ($row["thongbao"]!=NULL){
+                  echo '<td style="text-align:center;" id="xoathongbao'.$row["id"].'" onclick="xoathongbao(this.id)"><i class="fa fa-bell"></i>';
+                  date_default_timezone_set('Asia/Ho_Chi_Minh');
+                  $your_date = strtotime($row["thongbao"]);
+                  $now = strtotime(date('Y-m-d H:i:s'));
+                  $datediff = $your_date - $now;
+                  $hours =round($datediff / (60 * 60)); 
+                  $days =round($datediff / (60 * 60*24)); 
+                  if ($days>0){
+                    echo "<span class='thongbaotext'>".$days."d</span>";
+                    echo "</td>";
+                  } else if ($days==0&&$hours>0) {
+                    echo "<span class='thongbaotext'>".$hours."h</span>";
+                    echo "</td>";
+                  } else{
+                    // tính năng thông báo ra hoặc thông báo về mail tại đây
+                    $requestid = $row["id"];
+                    $sql = 'UPDATE todo
+                    SET thongbao = NULL WHERE id='.$requestid.';
+                    ';
+                    $result = mysqli_query($con, $sql);
+                    if($result)
+                    {
+                      header("Refresh:0");
+                    }
+                  }
+                } else{
+                  echo "<td></td>";
+                }
+
+
+
+                echo '</tr> ';
               }
             }
           }

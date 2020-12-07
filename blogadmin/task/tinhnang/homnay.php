@@ -1,5 +1,5 @@
 <?php 
-
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 include("../../../blogadmin/lib.php");  
 include("../../libs/db_connect.php");
 ?>
@@ -28,15 +28,16 @@ if ($thu == "Sunday"){
 }
 
 echo " " . date("d/m/Y") ;
-$countmyday = 0;
-$counthethan = 0;
+$countmyday = 0;	// tổng task đếm được dưới 24h
+$counthethan = 0; 	// tổng task đếm được quá 24h
+$countmydaytong = 0;// Tổng task đếm được
 $sql = "SELECT * FROM `todo`";
 $result = mysqli_query($con, $sql);
 $idpost=0;
 if (mysqli_num_rows($result) > 0) {
 	while($row = mysqli_fetch_assoc($result)) {
 		if ($row["user"]== getLoggedMemberID() && $row["ngayhethan"]!=NULL ){
-			// $countmyday++;
+			$countmydaytong++;
 
 			date_default_timezone_set('Asia/Ho_Chi_Minh');
 			$your_date = strtotime($row["ngayhethan"]);
@@ -106,10 +107,11 @@ if ($countmyday == 0 ){
 			$sql = "SELECT * FROM `todo`";
 			$result = mysqli_query($con, $sql);
 			$idpost=0;
-			if ($countmyday==0){
+			if ($countmydaytong==0){
 				echo "<tr><th style='position: absolute; width: 70%;text-align: center;     border-top: 0px solid #dee2e6;'>Hôm nay ko có công việc nào cả, hãy thêm công việc vào danh sách hôm nay.</th></tr>";
 			} else 
-			if (mysqli_num_rows($result) > 0 && $countmyday>0) {
+			if (mysqli_num_rows($result) > 0 && $countmydaytong>0) {
+				// if ($countmyday==0){ echo ""; }
 				while($row = mysqli_fetch_assoc($result)) {
 					if ($row["user"]== getLoggedMemberID() && $row["ngayhethan"]!=NULL){
 						echo '  
@@ -172,9 +174,10 @@ if ($countmyday == 0 ){
                 	$datediff = $your_date - $now;
                 	$day =round($datediff / (60 * 60));
                 	if ($day<=0){
-                		echo '<td style="text-align:center;" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i> Quá thời gian. </td>';
+                		echo '<td style="text-align:center;" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i><span class="thongbaotext">Quá thời gian</span></td>';
+
                 	} else
-                	echo '<td style="text-align:center;" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i> '. $day .'h </td>';
+                	echo '<td style="text-align:center;" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i> <span class="thongbaotext">'. $day .'h </span></td>';
                 }
                 echo '  </tr> ';
             } 
@@ -197,17 +200,7 @@ if ($countmyday == 0 ){
 		{
 			id: id,
 		});
-		// $('#content').html(data);
 		location.reload(true);
-		// $.ajax({  
-		// 	type: "POST",  
-		// 	url: "tinhnang/alltomyday.php", 
-		// 	data: id,
-		// 	// success: function(response) {
-		// 	// 	 $('#content').html(response);
-		// 	// }
-		// });
-
 	}
 
 	function themhomnay() {
@@ -216,12 +209,7 @@ if ($countmyday == 0 ){
 			html: '<?php $countall =0 ; $sql = "SELECT * FROM `todo`"; $result = mysqli_query($con, $sql); if (mysqli_num_rows($result) > 0) { echo "<table><form>"; while($row = mysqli_fetch_assoc($result)) { if ($row["user"]== getLoggedMemberID() && $row["ngayhethan"]== NULL){ $countall++; echo ' <tr style="border-top: 1px solid #ccc;" id="'.$row["id"].'" onclick="clickid(this.id)"> <td >'. $row["task"].'</td><td>'. $row["noidung"] .'</td> </tr>'; } } } if ($countall == 0){ echo "Danh sách thêm cần trống, hãy thêm mới một công việc";} echo "</form></table>"; ?>',
 			showCloseButton: true,
 			showConfirmButton: false,
-			// imageUrl: '',
 			showCancelButton: true,
-			// confirmButtonColor: '#3085d6',
-			// cancelButtonColor: '#d33',
-			// confirmButtonText: 'Thêm',
-			// cancelButtonText: 'Đóng'
 		})
 	}
 </script>

@@ -17,6 +17,7 @@ if (getLoggedMemberID()=="guest"){
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- STAR -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="lich/css/mobiscroll.jquery.min.css" rel="stylesheet" />
 </head>
 <body  ondrop="dropout(event);"  ondragover="allowDrop(event)">
   <style type="text/css">
@@ -26,6 +27,18 @@ if (getLoggedMemberID()=="guest"){
    .fa-calendar:hover{
     color: #fb5d5d;
   }
+  .thongbaotext{
+   font-size: 11px!important;
+   top: 0!important;
+   right: 0!important;
+   line-height: 12px;
+   opacity: 0.8200000000000001!important;
+   left: 0!important;
+   display: block!important;
+   padding: 0!important;
+   bottom: 0!important;
+   text-align: center;
+ }
 </style>
 <div class="wrapper" style="width: 100%">
  <nav id="sidebar">
@@ -33,12 +46,15 @@ if (getLoggedMemberID()=="guest"){
     <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="btnclick('tinhnang/tatca.php')"><i class="fa fa-list"></i> Tất cả</a> </li>
     <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="btnclick('tinhnang/homnay.php')"><i class="fa fa-calendar"></i> Hôm nay</a> </li>
     <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/quantrong.php')"><i class="fa fa-star"></i> Quan trọng</a> </li>
+    <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongbao.php')"><i class="fa fa-bell"></i> Thông báo</a> </li>
     <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongke.php')"><i class="fa fa-pie-chart"></i> Thống kê</a> </li>
   </ul>
   <ul class="list-unstyled CTAs">
     <h2 id="idname" style="display: none;">idname</h2>
     <li id="addstep" style="display: none;"></li>
     <div id="changeganco">
+    </div>
+    <div id="thongbao">
     </div>
   </ul>
 </nav>
@@ -47,6 +63,7 @@ if (getLoggedMemberID()=="guest"){
   include('tinhnang/tatca.php');
   ?>
 </div> <!-- <!content> -->
+
 </div>
 <div id="overlay">
   <form method="post" action="trangthai.php" class="form" > 
@@ -86,19 +103,96 @@ if (getLoggedMemberID()=="guest"){
   }
 
   function xoahomnay(id){
+    Swal.fire({
+      title: 'Xóa khỏi công việc hôm nay?',
+      text: "Điều này sẽ mất đi thời gian đếm ngược.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Đồng ý',
+      cancelButtonText: 'Hủy'
+    }).then((result) => {
+      if (result.isConfirmed) {
+       $.ajax({
+        type : "POST", 
+        url  : "trangthai.php", 
+        data : {id : id},
+        success: function(res){  
+          location.reload();
+        }
+      });
+     }
+   })
+  }
+  function clickid(id){
+    console.log(id);
+    $.post("tinhnang/alltomyday.php",
+    {
+      id: id,
+    });
+    location.reload(true);
+  }
+  function setthongbao(id){
    console.log(id);
-   $.ajax({
-    type : "POST", 
-    url  : "trangthai.php", 
-    data : {id : id},
-    success: function(res){  
-      location.reload();
-    }
+   $.post("tinhnang/nhacnhorequest.php",
+   {
+    id: id,
   });
-   
+   location.reload(true);
  }
-
-
+ function nhacnho(id){
+  Swal.fire({
+    title: 'Nhắc nhở',
+    showCancelButton: false,
+    showConfirmButton: false,
+    showCloseButton: true,
+    confirmButtonColor: '#3085d6',
+    html:'<button id="ngaymai'+id+'" type="button" class="btn btn-outline-primary" onclick="setthongbao(this.id)">Ngày mai</button><br><button id="tuansau'+id+'" type="button" class="btn btn-outline-primary" onclick="setthongbao(this.id)">Tuần sau</button><br><button id="khac'+id+'" type="button" class="btn btn-outline-primary" onclick="setthongbao(this.id)">Chọn ngày & giờ</button>',
+      //onclick trong HTML
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Đồng ý'
+    }).then((result) => {
+      if (result.isConfirmed) {
+       $.ajax({
+        type : "POST", 
+        url  : "nhacnhorequest.php", 
+        data : {
+          id : id,
+          time: time
+        },
+        success: function(res){  
+          // location.reload();
+          alert("Data: " + data + "\nStatus: " + status);
+        }
+      });
+     }
+   })
+  }
 </script>
+<!-- LICK -->
+<script type="text/javascript">
+  $(function () {
+    $('#demo-single-select-date').mobiscroll().datepicker({
+      theme: 'ios',
+      themeVariant: 'light',
+      controls: ['calendar'],
+      selectMultiple: false
+    });
+
+    $('#demo-single-select-datetime').mobiscroll().datepicker({
+      theme: 'ios',
+      themeVariant: 'light',
+      controls: ['calendar', 'time'],
+      selectMultiple: false
+    });});
+  </script>
+  <div id="lich">
+    <label>
+      Chọn ngày giờ
+      <input id="demo-single-select-datetime" mbsc-input data-input-style="box" data-label-style="stacked" placeholder="Please Select..." />
+    </label>
+  </div>
+  <script src="lich/js/mobiscroll.jquery.min.js"></script>
 </body>
 </html>

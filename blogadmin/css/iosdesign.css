@@ -6,6 +6,8 @@
 }
 .swal2-title{
   font-family: 'Muli', sans-serif !important;
+  font-size: 1.4em !important;
+  margin-bottom: 20px;
 }
 .swal2-styled{
   border-radius: 2em !important;
@@ -26,4 +28,21 @@ h1{
 }
 .chedobang:hover{
   background-color: #ccc;
+}
+.swal2-success-circular-line-right{
+  background-color: rgb(245 245 245) !important;
+}
+.swal2-success-circular-line-left{
+  background-color: rgb(245 245 245) !important;
+}
+.swal2-success-fix{
+ background-color: rgb(245 245 245) !important;
+}
+.swal2-icon.swal2-success .swal2-success-ring{
+  border: .25em solid rgb(165 220 134) !important;
+}
+/*bootstrap*/
+.btn-outline-primary{
+  margin-bottom: 10px;
+  width: 100%;
 }

@@ -13,11 +13,11 @@ $user = $_POST['user'];
 $ngaytao = date("Y-m-d H:i:s");
 echo $task;
 //insert data into table
-$sql = 'INSERT INTO todo (task, noidung, trangthai, user,star ,stamp, ngaytao) VALUES ("'.$task.'","'.$noidung.'","'.$trangthai.'","'.$user.'",0,"none","'.$ngaytao.'")';
+$sql = 'INSERT INTO todo (task, noidung, trangthai, user,star ,stamp, ngaytao,ngayhethan,thongbao) VALUES ("'.$task.'","'.$noidung.'","'.$trangthai.'","'.$user.'",0,"none","'.$ngaytao.'",NULL,NULL)';
 
 $result = mysqli_query($con, $sql);
 
-// mysqli_query($con,$sql);
+mysqli_query($con,$sql);
 // 
 if($result)
 {

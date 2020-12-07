@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <script>
+        // Ignore this in your implementation
+        window.isMbscDemo = true;
+    </script>
+
+    <title>Single value selection</title>
+
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <!-- Mobiscroll JS and CSS Includes -->
+    <link rel="stylesheet" href="css/mobiscroll.jquery.min.css">
+    <script src="js/mobiscroll.jquery.min.js"></script>
+
+    <style type="text/css">
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    button {
+        display: inline-block;
+        margin: 5px 5px 0 0;
+        padding: 10px 30px;
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+        background: #5185a8;
+        color: #fff;
+        text-decoration: none;
+        font-family: arial, verdana, sans-serif;
+        font-size: 14px;
+        font-weight: 100;
+    }
+
+    input {
+        width: 100%;
+        margin: 0 0 5px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 0;
+        font-family: arial, verdana, sans-serif;
+        font-size: 14px;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+    }
+
+    .mbsc-page {
+        padding: 1em;
+    }
+
+    </style>
+
+</head>
+<body>
+
+<div mbsc-page class="demo-single-select">
+  <div style="height:100%">
+      <label>
+        Date
+        <input id="demo-single-select-date" mbsc-input data-input-style="box" data-label-style="stacked" placeholder="Please Select..." />
+    </label>
+    <label>
+        Date & time
+        <input id="demo-single-select-datetime" mbsc-input data-input-style="box" data-label-style="stacked" placeholder="Please Select..." />
+    </label>
+  </div>
+</div>
+
+<script>
+    mobiscroll.setOptions({
+        theme: 'ios',
+        locale: mobiscroll.localeEn
+    });
+
+    $(function () {
+    // Mobiscroll Calendar initialization
+    $('#demo-single-select-date').mobiscroll().datepicker({
+        lang: 'en',                      // Specify language like: lang: 'pl' or omit setting to use default
+        theme: 'ios',                    // Specify theme like: theme: 'ios' or omit setting to use default
+            themeVariant: 'light',       // More info about themeVariant: https://docs.mobiscroll.com/5-0-0_beta6/calendar#opt-themeVariant
+        controls: ['calendar'],          // More info about controls: https://docs.mobiscroll.com/5-0-0_beta6/calendar#opt-controls
+        selectMultiple: false
+    });
+    
+    // Mobiscroll Calendar initialization
+    $('#demo-single-select-datetime').mobiscroll().datepicker({
+        lang: 'en',                      // Specify language like: lang: 'pl' or omit setting to use default
+        theme: 'ios',                    // Specify theme like: theme: 'ios' or omit setting to use default
+            themeVariant: 'light',       // More info about themeVariant: https://docs.mobiscroll.com/5-0-0_beta6/calendar#opt-themeVariant
+        controls: ['calendar', 'time'],  // More info about controls: https://docs.mobiscroll.com/5-0-0_beta6/calendar#opt-controls
+        selectMultiple: false
+    });});
+</script>
+
+</body>
+</html>
