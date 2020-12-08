@@ -1,22 +1,17 @@
 <?php 
 include("../libs/db_connect.php");
 
-// $task = $_POST['task'];
-// $noidung = $_POST['noidung'];
-// $trangthai = $_POST['trangthai'];
-// $user = $_POST['user'];
 $id = $_POST['id'];
-// echo $task;
-
-// $id = $_POST['id'];
-//insert data into table
-// $trangthai = $_POST['trangthai'];
+// $id = "batthongbao106";
 
 
 $stringdelete = "delete";
 $stringstar = "star";
 $stringxoahomnay = "xoahomnay";
 $stringxoathongbao = "xoathongbao";
+$stringbatthongbao = "batthongbao";
+$stringtatthongbao = "tatthongbao";
+
 // echo $id;
 // echo $stringdelete;
 
@@ -24,7 +19,24 @@ $posdelete = strstr($id, $stringdelete);
 $posstar = strstr($id, $stringstar);
 $posxoahomnay = strstr($id, $stringxoahomnay);
 $posxoathongbao = strstr($id, $stringxoathongbao);
+$posbatthongbao = strstr($id, $stringbatthongbao);
+$postatthongbao = strstr($id, $stringtatthongbao);
 
+
+if ($postatthongbao == true){
+	$id = ltrim($id, 'tatthongbao');
+	$sql = 'UPDATE todo
+	SET nhanthongbao = "0" WHERE id='.$id.';
+	';
+	$result = mysqli_query($con, $sql);
+} else
+if ($posbatthongbao == true){
+	$id = ltrim($id, 'batthongbao');
+	$sql = 'UPDATE todo
+	SET nhanthongbao = "1" WHERE id='.$id.';
+	';
+	$result = mysqli_query($con, $sql);
+} else
 if ($posxoathongbao == true){
 	$id = ltrim($id, 'xoathongbao');
 	$sql = 'UPDATE todo

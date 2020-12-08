@@ -1,5 +1,3 @@
-<?php include("../../../blogadmin/lib.php");  
-include("../../libs/db_connect.php"); ?>
 <div id="reload" style="display: none">reload</div>
 <div id="tablecontent">
   <table id="table_one" class="table" cellspacing="1" cellpadding="1">
@@ -27,6 +25,7 @@ include("../../libs/db_connect.php"); ?>
         function dragstemp(ev){
          ev.dataTransfer.setData("text", ev.target.id);
          x= ev.dataTransfer.getData("text"); 
+
        }
        function dropstamp(ev){
         ev.preventDefault();
@@ -168,6 +167,7 @@ include("../../libs/db_connect.php"); ?>
     url  : "trangthai.php", 
     data : {id : id},
     success: function(res){  
+          // $('#tablecontent').load( ' #tablecontent');
           location.reload();
         }
       });
@@ -179,6 +179,7 @@ include("../../libs/db_connect.php"); ?>
     url  : "trangthai.php", 
     data : {id : id},
     success: function(res){  
+          // $('#tablecontent').load( ' #tablecontent');
           location.reload();
         }
       });
@@ -191,6 +192,7 @@ function xoathongtin() {
     url  : "trangthai.php",  
     data : {id : id},
     success: function(res){ 
+         // $('#tablecontent').load(document.URL +' #tablecontent');
          location.reload();
        }
      });
@@ -219,6 +221,8 @@ function xoathongtin() {
     })
   }
   function addstemp(data,name,id){
+      // console.log(data);
+      // console.log(id);  
       id = id;
       data= data;
       $.ajax({
@@ -226,6 +230,7 @@ function xoathongtin() {
         url  : "stamp.php",  
         data : {id : id, data: data},
         success: function(res){ 
+         // $('#tablecontent').load(document.URL +' #tablecontent');
          location.reload();
        }
      });

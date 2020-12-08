@@ -24,14 +24,11 @@ if (getLoggedMemberID()=="guest"){
     .swal2-popup{
      width: auto !important;
    }
-   .fa{
-
-  }
 </style>
 <div class="wrapper" style="width: 100%">
  <nav id="sidebar">
   <ul class="list-unstyled components">
-    <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="btnclick('tinhnang/tatca.php')"><i class="fa fa-list"></i> Tất cả</a> </li>
+    <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="location.href='index.php'"><i class="fa fa-list"></i> Tất cả</a> </li>
     <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="btnclick('tinhnang/homnay.php')"><i class="fa fa-calendar"></i> Hôm nay</a> </li>
     <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/quantrong.php')"><i class="fa fa-star"></i> Quan trọng</a> </li>
     <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongbao.php')"><i class="fa fa-bell"></i> Nhắc nhở</a> </li>
@@ -46,13 +43,11 @@ if (getLoggedMemberID()=="guest"){
     </div>
   </ul>
 </nav>
-
 <div id="content"><!-- <CONTENT -->
   <?php
-  include('tinhnang/tatca.php');
+  include('tinhnang/index.php');
   ?>
 </div> <!-- <!content> -->
-
 </div>
 <div id="overlay">
   <form method="post" action="trangthai.php" class="form" > 
@@ -61,7 +56,7 @@ if (getLoggedMemberID()=="guest"){
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> -->
 <script defer src="../assets/js/vendor/content-api.min2daf.js?v=a5dd59f074"></script>
 <script defer src="../assets/js/manifest2daf.js?v=a5dd59f074"></script>
 <script defer src="../assets/js/vendor2daf.js?v=a5dd59f074"></script>
@@ -75,7 +70,7 @@ if (getLoggedMemberID()=="guest"){
 <script src="js/clicktable.js"></script>
 <script src="js/function.js"></script>
 <script src="js/autoload.js"></script>
-<script src="js/loading.js"></script>
+<!-- <script src="js/loading.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
   function btnclick(_url){
@@ -181,6 +176,7 @@ if (getLoggedMemberID()=="guest"){
      }
    })
   }
+
 </script>
 <!-- LICK -->
 <script type="text/javascript">
@@ -214,7 +210,6 @@ if (getLoggedMemberID()=="guest"){
         }
       });
  }
- $('#tablecontent').load( ' #tablecontent');
  function funtrangthaiclick(clicked_id) {
   id = clicked_id;
   $.ajax({

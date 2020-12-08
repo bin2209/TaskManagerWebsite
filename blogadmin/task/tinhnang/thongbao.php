@@ -11,15 +11,15 @@ include("../../libs/db_connect.php");
 			<th scope="col">Công việc</th>
 			<th scope="col">Nội dung</th>
 			<th scope="col" style="text-align:center;">Quan trọng</th>
-			<th scope="col" style="text-align:center;">Thời gian báo tiếp theo</th>
+			<th scope="col" style="text-align:center;">Thông báo tiếp theo</th>
 			<th scope="col" style="text-align:center;">Định kỳ</th>
+			<th scope="col" style="text-align:center;">Thông báo</th>
 		</tr>
 	</thead>
 	<script type="text/javascript">
 		function dragstemp(ev){
 			ev.dataTransfer.setData("text", ev.target.id);
 			x= ev.dataTransfer.getData("text"); 
-
 		}
 		function dropstamp(ev){
 			ev.preventDefault();
@@ -42,42 +42,51 @@ include("../../libs/db_connect.php");
 			if (mysqli_num_rows($result)) {
 				// if ($countmyday==0){ echo ""; }
 				while($row = mysqli_fetch_assoc($result)) {
-					if ($row["user"]== getLoggedMemberID() && $row["thongbao"]!=NULL){
-						echo '  
-						';
-						if ($row["trangthai"]=="doing"){
-							echo ' 
-							<tr id="drag'.$row["id"].'"onclick="chitiet(this.id)" draggable="true" ondragstart="drag(event)" >
-							<input  id="drag'.$row["id"].'value" value="'.$row["task"].'" style="display:none;" />
-							<td scope="row"   class="taskcon" >
-							<input type="radio" onclick="funtrangthaiclick(this.id)" id="'.$row["id"].'" name="id'.$row["id"].'" class="" value="'.$row["id"].'"/>
-							<span class="checkmark"></span>
-							</td>
-							<td>'.$row["task"].'</td>
-							<td>'.$row["noidung"].'</td>
-							<td style="display:none;">
-							<button  style="display:none;" id="remove'.$row["id"].'" name="'.$row["id"].'" class="btn btn-primary btn-sm remove" value="delete'.$row["id"].'">Xóa</button></td>
+					if ($row["user"]== getLoggedMemberID()){
+						  if ($row["stamp"]=="do"){ // danghoatdong
+						  	echo '<tr style="border-left: 5px solid #fc636b;"';
+						  } else if ($row["stamp"]=="vang"){
+						  	echo '<tr style="border-left: 5px solid #ffb900;"';
+						  } else if ($row["stamp"]=="xanh"){
+						  	echo '<tr style="border-left: 5px solid #3be8b0;"';
+						  } else if ($row["stamp"]=="lam"){
+						  	echo '<tr style="border-left: 5px solid #1aafd0;"';
+						  } else if ($row["stamp"]=="im"){
+						  	echo '<tr style="border-left: 5px solid #6a67ce;"';
+						  } else{
+						  	echo '<tr ';
+						  } 
+						  if ($row["trangthai"]=="doing"){
+						  	echo 'id="drag'.$row["id"].'"onclick="chitiet(this.id)" draggable="true" ondragstart="drag(event)" >
+						  	<input  id="drag'.$row["id"].'value" value="'.$row["task"].'" style="display:none;" />
+						  	<td scope="row"   class="taskcon" >
+						  	<input type="radio" onclick="funtrangthaiclick(this.id)" id="'.$row["id"].'" name="id'.$row["id"].'" class="" value="'.$row["id"].'"/>
+						  	<span class="checkmark"></span>
+						  	</td>
+						  	<td>'.$row["task"].'</td>
+						  	<td>'.$row["noidung"].'</td>
+						  	<td style="display:none;">
+						  	<button  style="display:none;" id="remove'.$row["id"].'" name="'.$row["id"].'" class="btn btn-primary btn-sm remove" value="delete'.$row["id"].'">Xóa</button></td>
 
-							';
-						}else if ($row["trangthai"]=="done"){
-							echo ' 
-							<tr id="drag'.$row["id"].'" value="'.$row["task"].'" onclick="chitiet(this.id)"   draggable="true" ondragstart="drag(event)"  style="background-color: #e7e7e7; color: black;">
+						  	';
+						  }else if ($row["trangthai"]=="done"){
+						  	echo 'id="drag'.$row["id"].'" value="'.$row["task"].'" onclick="chitiet(this.id)"   draggable="true" ondragstart="drag(event)"  style="background-color: #e7e7e7; color: black;">
 
-							<input  id="drag'.$row["id"].'value" value="'.$row["task"].'" style="display:none;" />
+						  	<input  id="drag'.$row["id"].'value" value="'.$row["task"].'" style="display:none;" />
 
-							<td scope="row"  class="taskcon" >
+						  	<td scope="row"  class="taskcon" >
 
-							<input type="radio" checked="checked"  type="radio" onclick="funtrangthaiclick(this.id)" id="'.$row["id"].'" class="" name="'.$row["id"].'" value="'.$row["id"].'"/>
-							<span class="checkmark"></span>
+						  	<input type="radio" checked="checked"  type="radio" onclick="funtrangthaiclick(this.id)" id="'.$row["id"].'" class="" name="'.$row["id"].'" value="'.$row["id"].'"/>
+						  	<span class="checkmark"></span>
 
-							</td>
-							<td style=" text-decoration: line-through;">'.$row["task"].'</td>
-							<td style=" text-decoration: line-through;">'.$row["noidung"].'</td>
-							<td style="display:none;">
-							<button style="display:none;" id="remove'.$row["id"].'" class="btn btn-primary btn-sm remove" name="id" value="delete'.$row["id"].'">Xóa</button></td>
+						  	</td>
+						  	<td style=" text-decoration: line-through;">'.$row["task"].'</td>
+						  	<td style=" text-decoration: line-through;">'.$row["noidung"].'</td>
+						  	<td style="display:none;">
+						  	<button style="display:none;" id="remove'.$row["id"].'" class="btn btn-primary btn-sm remove" name="id" value="delete'.$row["id"].'">Xóa</button></td>
 
-							';
-						}
+						  	';
+						  }
                //star
                if ($row["star"]=="0"){ // danghoatdong
                	echo ' <td style="text-align:center;"><span class="fa fa-star " onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
@@ -94,10 +103,10 @@ include("../../libs/db_connect.php");
                	$hours =round($datediff / (60 * 60)); 
                	$days =round($datediff / (60 * 60*24)); 
                	if ($days>0){
-               		echo "<span class='thongbaotext'>".$days."d</span>";
+               		echo "<span class=''> " .$days." ngày nữa</span>";
                		echo "</td>";
                	} else if ($days==0&&$hours>0) {
-               		echo "<span class='thongbaotext'>".$hours."h</span>";
+               		echo "<span class=''> " .$hours." giờ nữa</span>";
                		echo "</td>";
                	} else{
                     // tính năng thông báo ra hoặc thông báo về mail tại đây
@@ -116,30 +125,39 @@ include("../../libs/db_connect.php");
                	echo "<td></td>";
                }
 
+               if ($row["timedinhky"]!=""){
+               	echo '<td>'.$row["timedinhky"].'</td>';
+               } else{
+               	echo '<td></td>';
+               }
+
+               if ($row["nhanthongbao"]!=0){
+               	echo '<td><center><label class="form-switch"> <input id="tatthongbao'.$row["id"].'" type="checkbox" checked onclick="nhanthongbao(this.id)"> <i></i> </label></center></td>';
+               } else{
+               	echo '<td><center><label class="form-switch"> <input id="batthongbao'.$row["id"].'" type="checkbox" onclick="nhanthongbao(this.id)"> <i></i> </label></center></td>';
+               }
+
+               echo '  </tr> ';
+           } 
 
 
-                  if ($row["stamp"]=="do"){ // danghoatdong
-                  	echo '<td><img src="img/do.png"></td>';
-                  } else if ($row["stamp"]=="vang"){
-                  	echo '<td><img src="img/vang.png"></td>';
-                  } else if ($row["stamp"]=="xanh"){
-                  	echo '<td><img src="img/xanh.png"></td>';
-                  } else if ($row["stamp"]=="lam"){
-                  	echo '<td><img src="img/lam.png"></td>';
-                  } else if ($row["stamp"]=="im"){
-                  	echo '<td><img src="img/tim.png"></td>';
-                  } else{
-                  	echo '<td></td>';
-                  }
+       }
+   }
+   ?>
+</form>
+<script type="text/javascript">
+	function nhanthongbao(id){
+		console.log(id);
+		$.ajax({
+			type : "POST",  
+			url  : "./trangthai.php",  
+			data : {id : id},
+			success: function(res){ 
+			}
+		});
+	}
+</script>
 
-                  
-                  echo '  </tr> ';
-              } 
-
-          }
-      }
-      ?>
-  </form>
 </tbody>
 </table>
 <br>
