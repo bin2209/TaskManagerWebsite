@@ -20,21 +20,26 @@
 		</div>
 	</div>
 </article>
-
 <script type="text/javascript">
 	function chitiet<%%VALUE(id)%%>() {
 		Swal.fire({
 			title: '<%%VALUE(title)%%>',
-			html: '<br><div style="text-align:left;"><p>Nội dung: <%%VALUE(content)%%></p><p id="blogs-star-<%%VALUE(id)%%>">Độ quan trọng <%%VALUE(star)%%> <i class="fa fa-star"></i> </p><p id="blogs-date-<%%VALUE(id)%%>">Ngày tạo: <%%VALUE(date)%%></p><p id="blogs-ngayhethan-<%%VALUE(id)%%>"> Ngày hết hạn: <%%VALUE(ngayhethan)%%> </p><p> Tag: <%%VALUE(tags)%%> </p><p> Thành viên: <%%VALUE(author)%%> </p></div><br>	',
+			html: '<br><div style="text-align:left;"><p>Nội dung: <%%VALUE(content)%%></p><p id="blogs-star-<%%VALUE(id)%%>">Độ quan trọng <%%VALUE(star)%%> <i class="fa fa-star"></i> </p><p id="blogs-date-<%%VALUE(id)%%>">Ngày tạo: <%%VALUE(date)%%></p><p id="blogs-ngayhethan-<%%VALUE(id)%%>"> Ngày hết hạn: <%%VALUE(ngayhethan)%%> </p><p> Tag: <%%VALUE(tags)%%> </p><p> Thành viên: <%%VALUE(author)%%> <%%VALUE(member)%%> </p></div><br>	',
 			imageUrl: 'images/<%%VALUE(photo)%%>',
-			showCancelButton: true,
+			showCancelButton: false,
+			showDenyButton: true,
+			denyButtonText: 'Chỉnh sửa',
 			confirmButtonColor: '#3085d6',
 			cancelButtonColor: '#d33',
-			confirmButtonText: 'Chỉnh sửa',
-			cancelButtonText: 'Đóng'
+			confirmButtonText: 'Tham gia công việc',
+			cancelButtonText: 'Đóng',
+			showCloseButton: true,
 		}).then((result) => {
 			if (result.isConfirmed) {
-				window.location.href = "vieccanlam.php?SelectedID=<%%VALUE(id)%%>";
+				window.location.href = "localhost";
+			}
+			if (result.isDenied){
+				window.location.href ="vieccanlam.php?SelectedID=<%%VALUE(id)%%>";
 			}
 		})
 	}

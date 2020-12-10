@@ -3,7 +3,7 @@
  .swal2-popup{
   border-radius: 3em;
   background: #ffffffe6 !important;
-  width: 23em !important;
+  width: auto !important;
 }
 .swal2-title{
   font-family: 'Muli', sans-serif !important;

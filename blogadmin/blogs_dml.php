@@ -15,24 +15,27 @@ function blogs_insert(){
 	}
 
 	$data['title'] = makeSafe($_REQUEST['title']);
-		if($data['title'] == empty_lookup_value){ $data['title'] = ''; }
+	if($data['title'] == empty_lookup_value){ $data['title'] = ''; }
 	$data['category'] = makeSafe($_REQUEST['category']);
-		if($data['category'] == empty_lookup_value){ $data['category'] = ''; }
+	if($data['category'] == empty_lookup_value){ $data['category'] = ''; }
 	$data['tags'] = makeSafe($_REQUEST['tags']);
-		if($data['tags'] == empty_lookup_value){ $data['tags'] = ''; }
+	if($data['tags'] == empty_lookup_value){ $data['tags'] = ''; }
 	$data['content'] = makeSafe($_REQUEST['content']);
-		if($data['content'] == empty_lookup_value){ $data['content'] = ''; }
+	if($data['content'] == empty_lookup_value){ $data['content'] = ''; }
 	$data['date'] = parseCode('<%%creationDate%%>', true, true);
 
 	$data['ngayhethan'] = makeSafe($_REQUEST['ngayhethan']);
-		if($data['ngayhethan'] == empty_lookup_value){ $data['ngayhethan'] = ''; }
+	if($data['ngayhethan'] == empty_lookup_value){ $data['ngayhethan'] = ''; }
 
 	$data['author'] = parseCode('<%%creatorUsername%%>', true);
 	$data['posted'] = makeSafe($_REQUEST['posted']);
-		if($data['posted'] == empty_lookup_value){ $data['posted'] = ''; }
+	if($data['posted'] == empty_lookup_value){ $data['posted'] = ''; }
 
 	$data['star'] = makeSafe($_REQUEST['star']);
-		if($data['star'] == empty_lookup_value){ $data['star'] = ''; }
+	if($data['star'] == empty_lookup_value){ $data['star'] = ''; }
+
+	$data['member'] = makeSafe($_REQUEST['member']);
+	if($data['member'] == empty_lookup_value){ $data['member'] = ''; }
 
 	$data['photo'] = PrepareUploadedFile('photo', 5120000,'jpg|jpeg|gif|png', false, '');
 	if($data['photo']) createThumbnail($data['photo'], getThumbnailSpecs('blogs', 'photo', 'tv'));
@@ -84,15 +87,15 @@ function blogs_insert(){
 
 	$o = array('silentErrors' => true);
 	sql('insert into `blogs` set `title`=' . (($data['title'] !== '' && $data['title'] !== NULL) ? "'{$data['title']}'" : 'NULL') . ',
-								 `category`=' . (($data['category'] !== '' && $data['category'] !== NULL) ? "'{$data['category']}'" : 'NULL') . ', 
-								 `tags`=' . (($data['tags'] !== '' && $data['tags'] !== NULL) ? "'{$data['tags']}'" : 'NULL') . ', 
-								 `content`=' . (($data['content'] !== '' && $data['content'] !== NULL) ? "'{$data['content']}'" : 'NULL') . ', 
-								 ' . ($data['photo'] != '' ? "`photo`='{$data['photo']}'" : '`photo`=NULL') . ', 
-								 `date`=' . "'{$data['date']}'" . ', 
-								 `ngayhethan`=' . "'{$data['ngayhethan']}'" . ', 
-								 `author`=' . "'{$data['author']}'" . ', 
-								 `posted`=' . (($data['posted'] !== '' && $data['posted'] !== NULL) ? "'{$data['posted']}'" : 'NULL') .',
-								 `star`=' . (($data['star'] !== '' && $data['star'] !== NULL) ? "'{$data['star']}'" : '1'), $o);
+		`category`=' . (($data['category'] !== '' && $data['category'] !== NULL) ? "'{$data['category']}'" : 'NULL') . ', 
+		`tags`=' . (($data['tags'] !== '' && $data['tags'] !== NULL) ? "'{$data['tags']}'" : 'NULL') . ', 
+		`content`=' . (($data['content'] !== '' && $data['content'] !== NULL) ? "'{$data['content']}'" : 'NULL') . ', 
+		' . ($data['photo'] != '' ? "`photo`='{$data['photo']}'" : '`photo`=NULL') . ', 
+		`date`=' . "'{$data['date']}'" . ', 
+		`ngayhethan`=' . "'{$data['ngayhethan']}'" . ', 
+		`author`=' . "'{$data['author']}'" . ', 
+		`posted`=' . (($data['posted'] !== '' && $data['posted'] !== NULL) ? "'{$data['posted']}'" : 'NULL') .',
+		`star`=' . (($data['star'] !== '' && $data['star'] !== NULL) ? "'{$data['star']}'" : '1'), $o);
 	if($o['error']!=''){
 		echo $o['error'];
 		echo "<a href=\"blogs_view.php?addNew_x=1\">{$Translation['< back']}</a>";
@@ -185,28 +188,28 @@ function blogs_update($selected_id){
 	}
 
 	$data['title'] = makeSafe($_REQUEST['title']);
-		if($data['title'] == empty_lookup_value){ $data['title'] = ''; }
+	if($data['title'] == empty_lookup_value){ $data['title'] = ''; }
 	if($data['title']==''){
 		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Title': {$Translation['field not null']}<br><br>";
 		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
 		exit;
 	}
 	$data['category'] = makeSafe($_REQUEST['category']);
-		if($data['category'] == empty_lookup_value){ $data['category'] = ''; }
+	if($data['category'] == empty_lookup_value){ $data['category'] = ''; }
 	if($data['category']==''){
 		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Category': {$Translation['field not null']}<br><br>";
 		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
 		exit;
 	}
 	$data['tags'] = makeSafe($_REQUEST['tags']);
-		if($data['tags'] == empty_lookup_value){ $data['tags'] = ''; }
+	if($data['tags'] == empty_lookup_value){ $data['tags'] = ''; }
 	if($data['tags']==''){
 		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Tags': {$Translation['field not null']}<br><br>";
 		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
 		exit;
 	}
 	$data['content'] = makeSafe($_REQUEST['content']);
-		if($data['content'] == empty_lookup_value){ $data['content'] = ''; }
+	if($data['content'] == empty_lookup_value){ $data['content'] = ''; }
 	if($data['content']==''){
 		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Content': {$Translation['field not null']}<br><br>";
 		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
@@ -223,7 +226,7 @@ function blogs_update($selected_id){
 
 
 	$data['ngayhethan'] = makeSafe($_REQUEST['ngayhethan']);
-		if($data['ngayhethan'] == empty_lookup_value){ $data['ngayhethan'] = ''; }
+	if($data['ngayhethan'] == empty_lookup_value){ $data['ngayhethan'] = ''; }
 	if($data['ngayhethan']==''){
 		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Content': {$Translation['field not null']}<br><br>";
 		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
@@ -233,15 +236,15 @@ function blogs_update($selected_id){
 
 
 	$data['posted'] = makeSafe($_REQUEST['posted']);
-		if($data['posted'] == empty_lookup_value){ $data['posted'] = ''; }
+	if($data['posted'] == empty_lookup_value){ $data['posted'] = ''; }
 	if($data['posted']==''){
 		echo StyleSheet() . "\n\n<div class=\"alert alert-danger\">{$Translation['error:']} 'Status': {$Translation['field not null']}<br><br>";
 		echo '<a href="" onclick="history.go(-1); return false;">'.$Translation['< back'].'</a></div>';
 		exit;
 	}
 	$data['selectedID']=makeSafe($selected_id);
-		if($data['photo']) createThumbnail($data['photo'], getThumbnailSpecs('blogs', 'photo', 'tv'));
-		if($data['photo']) createThumbnail($data['photo'], getThumbnailSpecs('blogs', 'photo', 'dv'));
+	if($data['photo']) createThumbnail($data['photo'], getThumbnailSpecs('blogs', 'photo', 'tv'));
+	if($data['photo']) createThumbnail($data['photo'], getThumbnailSpecs('blogs', 'photo', 'dv'));
 
 	// hook: blogs_before_update
 	if(function_exists('blogs_before_update')){
@@ -326,6 +329,7 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 
 	// combobox: star
 	$combo_star = new DataCombo;
+	$combo_member = new DataCombo;
 
 	if(is_file(dirname(__FILE__).'/hooks/blogs.posted.csv')){
 		$posted_data = addslashes(implode('', @file(dirname(__FILE__).'/hooks/blogs.posted.csv')));
@@ -372,6 +376,7 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 		// $combo_ngayhethan->DefaultDate = $row['ngayhethan'];
 		$combo_posted->SelectedData = $row['posted'];
 		$combo_star->SelectedData = $row['star'];
+		$combo_member->SelectedData = $row['member'];
 	}else{
 		// $combo_category->SelectedData = $filterer_category;
 		$combo_posted->SelectedText = ( $_REQUEST['FilterField'][1]=='9' && $_REQUEST['FilterOperator'][1]=='<=>' ? (get_magic_quotes_gpc() ? stripslashes($_REQUEST['FilterValue'][1]) : $_REQUEST['FilterValue'][1]) : "");
@@ -385,6 +390,10 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 
 	$combo_star->HTML = '<span id="star-container' . $rnd1 . '"></span><input type="hidden" name="star" id="star' . $rnd1 . '" value="' . html_attr($combo_star->SelectedData) . '">';
 	$combo_star->MatchText = '<span id="star-container-readonly' . $rnd1 . '"></span><input type="hidden" name="star" id="star' . $rnd1 . '" value="' . html_attr($combo_star->SelectedData) . '">';
+
+	$combo_member->HTML = '<span id="member-container' . $rnd1 . '"></span><input type="hidden" name="member" id="member' . $rnd1 . '" value="' . html_attr($combo_member->SelectedData) . '">';
+	$combo_member->MatchText = '<span id="member-container-readonly' . $rnd1 . '"></span><input type="hidden" name="member" id="member' . $rnd1 . '" value="' . html_attr($combo_member->SelectedData) . '">';
+
 
 
 
@@ -407,50 +416,50 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 			}, 10); /* we need to slightly delay client-side execution of the above code to allow AppGini.ajaxCache to work */
 		});
 		function category_reload__RAND__(){
-		<?php if(($AllowUpdate || $AllowInsert) && !$dvprint){ ?>
+			<?php if(($AllowUpdate || $AllowInsert) && !$dvprint){ ?>
 
-			$j("#category-container__RAND__").select2({
-				/* initial default value */
-				initSelection: function(e, c){
-					$j.ajax({
+				$j("#category-container__RAND__").select2({
+					/* initial default value */
+					initSelection: function(e, c){
+						$j.ajax({
+							url: 'ajax_combo.php',
+							dataType: 'json',
+							data: { id: AppGini.current_category__RAND__.value, t: 'blogs', f: 'category' },
+							success: function(resp){
+								c({
+									id: resp.results[0].id,
+									text: resp.results[0].text
+								});
+								$j('[name="category"]').val(resp.results[0].id);
+								$j('[id=category-container-readonly__RAND__]').html('<span id="category-match-text">' + resp.results[0].text + '</span>');
+								if(resp.results[0].id == '<?php echo empty_lookup_value; ?>'){ $j('.btn[id=blog_categories_view_parent]').hide(); }else{ $j('.btn[id=blog_categories_view_parent]').show(); }
+
+
+								if(typeof(category_update_autofills__RAND__) == 'function') category_update_autofills__RAND__();
+							}
+						});
+					},
+					width: '100%',
+					formatNoMatches: function(term){ return '<?php echo addslashes($Translation['No matches found!']); ?>'; },
+					minimumResultsForSearch: 10,
+					loadMorePadding: 200,
+					ajax: {
 						url: 'ajax_combo.php',
 						dataType: 'json',
-						data: { id: AppGini.current_category__RAND__.value, t: 'blogs', f: 'category' },
-						success: function(resp){
-							c({
-								id: resp.results[0].id,
-								text: resp.results[0].text
-							});
-							$j('[name="category"]').val(resp.results[0].id);
-							$j('[id=category-container-readonly__RAND__]').html('<span id="category-match-text">' + resp.results[0].text + '</span>');
-							if(resp.results[0].id == '<?php echo empty_lookup_value; ?>'){ $j('.btn[id=blog_categories_view_parent]').hide(); }else{ $j('.btn[id=blog_categories_view_parent]').show(); }
+						cache: true,
+						data: function(term, page){ return { s: term, p: page, t: 'blogs', f: 'category' }; },
+						results: function(resp, page){ return resp; }
+					},
+					escapeMarkup: function(str){ return str; }
+				}).on('change', function(e){
+					AppGini.current_category__RAND__.value = e.added.id;
+					AppGini.current_category__RAND__.text = e.added.text;
+					$j('[name="category"]').val(e.added.id);
+					if(e.added.id == '<?php echo empty_lookup_value; ?>'){ $j('.btn[id=blog_categories_view_parent]').hide(); }else{ $j('.btn[id=blog_categories_view_parent]').show(); }
 
 
-							if(typeof(category_update_autofills__RAND__) == 'function') category_update_autofills__RAND__();
-						}
-					});
-				},
-				width: '100%',
-				formatNoMatches: function(term){ return '<?php echo addslashes($Translation['No matches found!']); ?>'; },
-				minimumResultsForSearch: 10,
-				loadMorePadding: 200,
-				ajax: {
-					url: 'ajax_combo.php',
-					dataType: 'json',
-					cache: true,
-					data: function(term, page){ return { s: term, p: page, t: 'blogs', f: 'category' }; },
-					results: function(resp, page){ return resp; }
-				},
-				escapeMarkup: function(str){ return str; }
-			}).on('change', function(e){
-				AppGini.current_category__RAND__.value = e.added.id;
-				AppGini.current_category__RAND__.text = e.added.text;
-				$j('[name="category"]').val(e.added.id);
-				if(e.added.id == '<?php echo empty_lookup_value; ?>'){ $j('.btn[id=blog_categories_view_parent]').hide(); }else{ $j('.btn[id=blog_categories_view_parent]').show(); }
-
-
-				if(typeof(category_update_autofills__RAND__) == 'function') category_update_autofills__RAND__();
-			});
+					if(typeof(category_update_autofills__RAND__) == 'function') category_update_autofills__RAND__();
+				});
 
 			// if(!$j("#category-container__RAND__").length){
 			// 	$j.ajax({
@@ -482,51 +491,51 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 			});
 		<?php } ?>
 
-		}
-	</script>
-	<?php
+	}
+</script>
+<?php
 
-	$lookups = str_replace('__RAND__', $rnd1, ob_get_contents());
-	ob_end_clean();
+$lookups = str_replace('__RAND__', $rnd1, ob_get_contents());
+ob_end_clean();
 
 
 	// code for template based detail view forms
 
 	// open the detail view template
-	if($dvprint){
-		$template_file = is_file("./{$TemplateDVP}") ? "./{$TemplateDVP}" : './templates/blogs_templateDVP.html';
-		$templateCode = @file_get_contents($template_file);
-	}else{
-		$template_file = is_file("./{$TemplateDV}") ? "./{$TemplateDV}" : './templates/blogs_templateDV.html';
-		$templateCode = @file_get_contents($template_file);
-	}
+if($dvprint){
+	$template_file = is_file("./{$TemplateDVP}") ? "./{$TemplateDVP}" : './templates/blogs_templateDVP.html';
+	$templateCode = @file_get_contents($template_file);
+}else{
+	$template_file = is_file("./{$TemplateDV}") ? "./{$TemplateDV}" : './templates/blogs_templateDV.html';
+	$templateCode = @file_get_contents($template_file);
+}
 
 	// process form title
-	$templateCode = str_replace('<%%DETAIL_VIEW_TITLE%%>', 'Blog details', $templateCode);
-	$templateCode = str_replace('<%%RND1%%>', $rnd1, $templateCode);
-	$templateCode = str_replace('<%%EMBEDDED%%>', ($_REQUEST['Embedded'] ? 'Embedded=1' : ''), $templateCode);
+$templateCode = str_replace('<%%DETAIL_VIEW_TITLE%%>', 'Blog details', $templateCode);
+$templateCode = str_replace('<%%RND1%%>', $rnd1, $templateCode);
+$templateCode = str_replace('<%%EMBEDDED%%>', ($_REQUEST['Embedded'] ? 'Embedded=1' : ''), $templateCode);
 	// process buttons
-	if($AllowInsert){
-		if(!$selected_id) $templateCode = str_replace('<%%INSERT_BUTTON%%>', '<button type="submit" class="btn btn-success" id="insert" name="insert_x" value="1" onclick="return blogs_validateData();"><i class="glyphicon glyphicon-plus-sign"></i> ' . $Translation['Save New'] . '</button>', $templateCode);
-		$templateCode = str_replace('<%%INSERT_BUTTON%%>', '<button type="submit" class="btn btn-default" id="insert" name="insert_x" value="1" onclick="return blogs_validateData();"><i class="glyphicon glyphicon-plus-sign"></i> ' . $Translation['Save As Copy'] . '</button>', $templateCode);
-	}else{
-		$templateCode = str_replace('<%%INSERT_BUTTON%%>', '', $templateCode);
-	}
+if($AllowInsert){
+	if(!$selected_id) $templateCode = str_replace('<%%INSERT_BUTTON%%>', '<button type="submit" class="btn btn-success" id="insert" name="insert_x" value="1" onclick="return blogs_validateData();"><i class="glyphicon glyphicon-plus-sign"></i> ' . $Translation['Save New'] . '</button>', $templateCode);
+	$templateCode = str_replace('<%%INSERT_BUTTON%%>', '<button type="submit" class="btn btn-default" id="insert" name="insert_x" value="1" onclick="return blogs_validateData();"><i class="glyphicon glyphicon-plus-sign"></i> ' . $Translation['Save As Copy'] . '</button>', $templateCode);
+}else{
+	$templateCode = str_replace('<%%INSERT_BUTTON%%>', '', $templateCode);
+}
 
 	// 'Back' button action
-	if($_REQUEST['Embedded']){
-		$backAction = 'AppGini.closeParentModal(); return false;';
-	}else{
-		$backAction = '$j(\'form\').eq(0).attr(\'novalidate\', \'novalidate\'); document.myform.reset(); return true;';
-	}
+if($_REQUEST['Embedded']){
+	$backAction = 'AppGini.closeParentModal(); return false;';
+}else{
+	$backAction = '$j(\'form\').eq(0).attr(\'novalidate\', \'novalidate\'); document.myform.reset(); return true;';
+}
 
-	if($selected_id){
-		if(!$_REQUEST['Embedded']) $templateCode = str_replace('<%%DVPRINT_BUTTON%%>', '<button type="submit" class="btn btn-default" id="dvprint" name="dvprint_x" value="1" onclick="$$(\'form\')[0].writeAttribute(\'novalidate\', \'novalidate\'); document.myform.reset(); return true;" title="' . html_attr($Translation['Print Preview']) . '"><i class="glyphicon glyphicon-print"></i> ' . $Translation['Print Preview'] . '</button>', $templateCode);
-		if($AllowUpdate){
-			$templateCode = str_replace('<%%UPDATE_BUTTON%%>', '<button type="submit" class="btn btn-success btn-lg" id="update" name="update_x" value="1" onclick="return blogs_validateData();" title="' . html_attr($Translation['Save Changes']) . '"><i class="glyphicon glyphicon-ok"></i> ' . $Translation['Save Changes'] . '</button>', $templateCode);
-		}else{
-			$templateCode = str_replace('<%%UPDATE_BUTTON%%>', '', $templateCode);
-		}
+if($selected_id){
+	if(!$_REQUEST['Embedded']) $templateCode = str_replace('<%%DVPRINT_BUTTON%%>', '<button type="submit" class="btn btn-default" id="dvprint" name="dvprint_x" value="1" onclick="$$(\'form\')[0].writeAttribute(\'novalidate\', \'novalidate\'); document.myform.reset(); return true;" title="' . html_attr($Translation['Print Preview']) . '"><i class="glyphicon glyphicon-print"></i> ' . $Translation['Print Preview'] . '</button>', $templateCode);
+	if($AllowUpdate){
+		$templateCode = str_replace('<%%UPDATE_BUTTON%%>', '<button type="submit" class="btn btn-success btn-lg" id="update" name="update_x" value="1" onclick="return blogs_validateData();" title="' . html_attr($Translation['Save Changes']) . '"><i class="glyphicon glyphicon-ok"></i> ' . $Translation['Save Changes'] . '</button>', $templateCode);
+	}else{
+		$templateCode = str_replace('<%%UPDATE_BUTTON%%>', '', $templateCode);
+	}
 		if(($arrPerm[4]==1 && $ownerMemberID==getLoggedMemberID()) || ($arrPerm[4]==2 && $ownerGroupID==getLoggedGroupID()) || $arrPerm[4]==3){ // allow delete?
 			$templateCode = str_replace('<%%DELETE_BUTTON%%>', '<button type="submit" class="btn btn-danger" id="delete" name="delete_x" value="1" onclick="return confirm(\'' . $Translation['are you sure?'] . '\');" title="' . html_attr($Translation['Delete']) . '"><i class="glyphicon glyphicon-trash"></i> ' . $Translation['Delete'] . '</button>', $templateCode);
 		}else{
@@ -553,14 +562,14 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 	}elseif($AllowInsert){
 		$jsEditable .= "\tjQuery('form').eq(0).data('already_changed', true);"; // temporarily disable form change handler
 			$jsEditable .= "\tjQuery('form').eq(0).data('already_changed', false);"; // re-enable form change handler
-	}
+		}
 
 	// process combos
 	// $templateCode = str_replace('<%%COMBO(category)%%>', $combo_category->HTML, $templateCode);
 	// $templateCode = str_replace('<%%COMBOTEXT(category)%%>', $combo_category->MatchText, $templateCode);
 	// $templateCode = str_replace('<%%URLCOMBOTEXT(category)%%>', urlencode($combo_category->MatchText), $templateCode);
-	$templateCode = str_replace('<%%COMBO(date)%%>', ($selected_id && !$arrPerm[3] ? '<div class="form-control-static">' . $combo_date->GetHTML(true) . '</div>' : $combo_date->GetHTML()), $templateCode);
-	$templateCode = str_replace('<%%COMBOTEXT(date)%%>', $combo_date->GetHTML(true), $templateCode);
+		$templateCode = str_replace('<%%COMBO(date)%%>', ($selected_id && !$arrPerm[3] ? '<div class="form-control-static">' . $combo_date->GetHTML(true) . '</div>' : $combo_date->GetHTML()), $templateCode);
+		$templateCode = str_replace('<%%COMBOTEXT(date)%%>', $combo_date->GetHTML(true), $templateCode);
 
 
 
@@ -571,160 +580,171 @@ function blogs_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 
 
 
-	$templateCode = str_replace('<%%COMBO(posted)%%>', $combo_posted->HTML, $templateCode);
-	$templateCode = str_replace('<%%COMBOTEXT(posted)%%>', $combo_posted->SelectedData, $templateCode);
+		$templateCode = str_replace('<%%COMBO(posted)%%>', $combo_posted->HTML, $templateCode);
+		$templateCode = str_replace('<%%COMBOTEXT(posted)%%>', $combo_posted->SelectedData, $templateCode);
 
-	/* lookup fields array: 'lookup field name' => array('parent table name', 'lookup field caption') */
-	$lookup_fields = array(  'category' => array('blog_categories', 'Category'));
-	foreach($lookup_fields as $luf => $ptfc){
-		$pt_perm = getTablePermissions($ptfc[0]);
+
+		$templateCode = str_replace('<%%COMBO(member)%%>', $combo_posted->HTML, $templateCode);
+		$templateCode = str_replace('<%%COMBOTEXT(member)%%>', $combo_posted->SelectedData, $templateCode);
+
+		/* lookup fields array: 'lookup field name' => array('parent table name', 'lookup field caption') */
+		$lookup_fields = array(  'category' => array('blog_categories', 'Category'));
+		foreach($lookup_fields as $luf => $ptfc){
+			$pt_perm = getTablePermissions($ptfc[0]);
 
 		// process foreign key links
-		if($pt_perm['view'] || $pt_perm['edit']){
-			$templateCode = str_replace("<%%PLINK({$luf})%%>", '<button type="button" class="btn btn-default view_parent hspacer-md" id="' . $ptfc[0] . '_view_parent" title="' . html_attr($Translation['View'] . ' ' . $ptfc[1]) . '"><i class="glyphicon glyphicon-eye-open"></i></button>', $templateCode);
-		}
+			if($pt_perm['view'] || $pt_perm['edit']){
+				$templateCode = str_replace("<%%PLINK({$luf})%%>", '<button type="button" class="btn btn-default view_parent hspacer-md" id="' . $ptfc[0] . '_view_parent" title="' . html_attr($Translation['View'] . ' ' . $ptfc[1]) . '"><i class="glyphicon glyphicon-eye-open"></i></button>', $templateCode);
+			}
 
 		// if user has insert permission to parent table of a lookup field, put an add new button
-		if($pt_perm['insert'] && !$_REQUEST['Embedded']){
-			$templateCode = str_replace("<%%ADDNEW({$ptfc[0]})%%>", '<button type="button" class="btn btn-success add_new_parent hspacer-md" id="' . $ptfc[0] . '_add_new" title="' . html_attr($Translation['Add New'] . ' ' . $ptfc[1]) . '"><i class="glyphicon glyphicon-plus-sign"></i></button>', $templateCode);
+			if($pt_perm['insert'] && !$_REQUEST['Embedded']){
+				$templateCode = str_replace("<%%ADDNEW({$ptfc[0]})%%>", '<button type="button" class="btn btn-success add_new_parent hspacer-md" id="' . $ptfc[0] . '_add_new" title="' . html_attr($Translation['Add New'] . ' ' . $ptfc[1]) . '"><i class="glyphicon glyphicon-plus-sign"></i></button>', $templateCode);
+			}
 		}
-	}
 
 	// process images
-	$templateCode = str_replace('<%%UPLOADFILE(id)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(title)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(category)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(tags)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(content)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(photo)%%>', ($noUploads ? '' : '<input type=hidden name=MAX_FILE_SIZE value=5120000>'.$Translation['upload image'].' <input type="file" name="photo" id="photo">'), $templateCode);
-	if($AllowUpdate && $row['photo'] != ''){
-		$templateCode = str_replace('<%%REMOVEFILE(photo)%%>', '<br><input type="checkbox" name="photo_remove" id="photo_remove" value="1"> <label for="photo_remove" style="color: red; font-weight: bold;">'.$Translation['remove image'].'</label>', $templateCode);
-	}else{
-		$templateCode = str_replace('<%%REMOVEFILE(photo)%%>', '', $templateCode);
-	}
-	$templateCode = str_replace('<%%UPLOADFILE(date)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%UPLOADFILE(id)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%UPLOADFILE(title)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%UPLOADFILE(category)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%UPLOADFILE(tags)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%UPLOADFILE(content)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%UPLOADFILE(photo)%%>', ($noUploads ? '' : '<input type=hidden name=MAX_FILE_SIZE value=5120000>'.$Translation['upload image'].' <input type="file" name="photo" id="photo">'), $templateCode);
+		if($AllowUpdate && $row['photo'] != ''){
+			$templateCode = str_replace('<%%REMOVEFILE(photo)%%>', '<br><input type="checkbox" name="photo_remove" id="photo_remove" value="1"> <label for="photo_remove" style="color: red; font-weight: bold;">'.$Translation['remove image'].'</label>', $templateCode);
+		}else{
+			$templateCode = str_replace('<%%REMOVEFILE(photo)%%>', '', $templateCode);
+		}
+		$templateCode = str_replace('<%%UPLOADFILE(date)%%>', '', $templateCode);
 	// $templateCode = str_replace('<%%UPLOADFILE(ngayhethan)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(author)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(posted)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%UPLOADFILE(author)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%UPLOADFILE(posted)%%>', '', $templateCode);
+		
 
 	// process values
-	if($selected_id){
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(id)%%>', safe_html($urow['id']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(id)%%>', html_attr($row['id']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(id)%%>', urlencode($urow['id']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(title)%%>', safe_html($urow['title']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(title)%%>', html_attr($row['title']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(title)%%>', urlencode($urow['title']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(category)%%>', safe_html($urow['category']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(category)%%>', html_attr($row['category']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(category)%%>', urlencode($urow['category']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(tags)%%>', safe_html($urow['tags']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(tags)%%>', html_attr($row['tags']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(tags)%%>', urlencode($urow['tags']), $templateCode);
-		if($AllowUpdate || $AllowInsert){
-			$templateCode = str_replace('<%%HTMLAREA(content)%%>', '<textarea name="content" id="content" rows="5">' . html_attr($row['content']) . '</textarea>', $templateCode);
+		if($selected_id){
+			if( $dvprint) $templateCode = str_replace('<%%VALUE(id)%%>', safe_html($urow['id']), $templateCode);
+			if(!$dvprint) $templateCode = str_replace('<%%VALUE(id)%%>', html_attr($row['id']), $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(id)%%>', urlencode($urow['id']), $templateCode);
+			if( $dvprint) $templateCode = str_replace('<%%VALUE(title)%%>', safe_html($urow['title']), $templateCode);
+			if(!$dvprint) $templateCode = str_replace('<%%VALUE(title)%%>', html_attr($row['title']), $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(title)%%>', urlencode($urow['title']), $templateCode);
+			if( $dvprint) $templateCode = str_replace('<%%VALUE(category)%%>', safe_html($urow['category']), $templateCode);
+			if(!$dvprint) $templateCode = str_replace('<%%VALUE(category)%%>', html_attr($row['category']), $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(category)%%>', urlencode($urow['category']), $templateCode);
+			if( $dvprint) $templateCode = str_replace('<%%VALUE(tags)%%>', safe_html($urow['tags']), $templateCode);
+			if(!$dvprint) $templateCode = str_replace('<%%VALUE(tags)%%>', html_attr($row['tags']), $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(tags)%%>', urlencode($urow['tags']), $templateCode);
+			if($AllowUpdate || $AllowInsert){
+				$templateCode = str_replace('<%%HTMLAREA(content)%%>', '<textarea name="content" id="content" rows="5">' . html_attr($row['content']) . '</textarea>', $templateCode);
+			}else{
+				$templateCode = str_replace('<%%HTMLAREA(content)%%>', '<div id="content" class="form-control-static">' . $row['content'] . '</div>', $templateCode);
+			}
+			$templateCode = str_replace('<%%VALUE(content)%%>', nl2br($row['content']), $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(content)%%>', urlencode($urow['content']), $templateCode);
+			$row['photo'] = ($row['photo'] != '' ? $row['photo'] : 'blank.gif');
+			if( $dvprint) $templateCode = str_replace('<%%VALUE(photo)%%>', safe_html($urow['photo']), $templateCode);
+			if(!$dvprint) $templateCode = str_replace('<%%VALUE(photo)%%>', html_attr($row['photo']), $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(photo)%%>', urlencode($urow['photo']), $templateCode);
+			$templateCode = str_replace('<%%VALUE(date)%%>', @date('m/d/Y', @strtotime(html_attr($row['date']))), $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(date)%%>', urlencode(@date('m/d/Y', @strtotime(html_attr($urow['date'])))), $templateCode);
+			$templateCode = str_replace('<%%VALUE(author)%%>', safe_html($urow['author']), $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(author)%%>', urlencode($urow['author']), $templateCode);
+			$templateCode = str_replace('<%%VALUE(member)%%>', safe_html($urow['member']), $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(member)%%>', urlencode($urow['member']), $templateCode);
+			if( $dvprint) $templateCode = str_replace('<%%VALUE(posted)%%>', safe_html($urow['posted']), $templateCode);
+			if(!$dvprint) $templateCode = str_replace('<%%VALUE(posted)%%>', html_attr($row['posted']), $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(posted)%%>', urlencode($urow['posted']), $templateCode);
 		}else{
-			$templateCode = str_replace('<%%HTMLAREA(content)%%>', '<div id="content" class="form-control-static">' . $row['content'] . '</div>', $templateCode);
+			$templateCode = str_replace('<%%VALUE(id)%%>', '', $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(id)%%>', urlencode(''), $templateCode);
+			$templateCode = str_replace('<%%VALUE(title)%%>', '', $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(title)%%>', urlencode(''), $templateCode);
+			$templateCode = str_replace('<%%VALUE(category)%%>', '', $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(category)%%>', urlencode(''), $templateCode);
+			$templateCode = str_replace('<%%VALUE(tags)%%>', '', $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(tags)%%>', urlencode(''), $templateCode);
+			$templateCode = str_replace('<%%HTMLAREA(content)%%>', '<textarea name="content" id="content" rows="5"></textarea>', $templateCode);
+			$templateCode = str_replace('<%%VALUE(photo)%%>', 'blank.gif', $templateCode);
+			$templateCode = str_replace('<%%VALUE(date)%%>', '<%%creationDate%%>', $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(date)%%>', urlencode('<%%creationDate%%>'), $templateCode);
+
+			$templateCode = str_replace('<%%VALUE(ngayhethan)%%>', '', $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(ngayhethan)%%>', urlencode(''), $templateCode);
+
+			$templateCode = str_replace('<%%VALUE(author)%%>', '<%%creatorUsername%%>', $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(author)%%>', urlencode('<%%creatorUsername%%>'), $templateCode);
+
+			$templateCode = str_replace('<%%VALUE(posted)%%>', '', $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(posted)%%>', urlencode(''), $templateCode);
+
+			$templateCode = str_replace('<%%VALUE(member)%%>', '', $templateCode);
+			$templateCode = str_replace('<%%URLVALUE(member)%%>', urlencode(''), $templateCode);
 		}
-		$templateCode = str_replace('<%%VALUE(content)%%>', nl2br($row['content']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(content)%%>', urlencode($urow['content']), $templateCode);
-		$row['photo'] = ($row['photo'] != '' ? $row['photo'] : 'blank.gif');
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(photo)%%>', safe_html($urow['photo']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(photo)%%>', html_attr($row['photo']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(photo)%%>', urlencode($urow['photo']), $templateCode);
-		$templateCode = str_replace('<%%VALUE(date)%%>', @date('m/d/Y', @strtotime(html_attr($row['date']))), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(date)%%>', urlencode(@date('m/d/Y', @strtotime(html_attr($urow['date'])))), $templateCode);
-		$templateCode = str_replace('<%%VALUE(author)%%>', safe_html($urow['author']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(author)%%>', urlencode($urow['author']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(posted)%%>', safe_html($urow['posted']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(posted)%%>', html_attr($row['posted']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(posted)%%>', urlencode($urow['posted']), $templateCode);
-	}else{
-		$templateCode = str_replace('<%%VALUE(id)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(id)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(title)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(title)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(category)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(category)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(tags)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(tags)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%HTMLAREA(content)%%>', '<textarea name="content" id="content" rows="5"></textarea>', $templateCode);
-		$templateCode = str_replace('<%%VALUE(photo)%%>', 'blank.gif', $templateCode);
-		$templateCode = str_replace('<%%VALUE(date)%%>', '<%%creationDate%%>', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(date)%%>', urlencode('<%%creationDate%%>'), $templateCode);
-
-		$templateCode = str_replace('<%%VALUE(ngayhethan)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(ngayhethan)%%>', urlencode(''), $templateCode);
-
-		$templateCode = str_replace('<%%VALUE(author)%%>', '<%%creatorUsername%%>', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(author)%%>', urlencode('<%%creatorUsername%%>'), $templateCode);
-		$templateCode = str_replace('<%%VALUE(posted)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(posted)%%>', urlencode(''), $templateCode);
-	}
 
 	// process translations
-	foreach($Translation as $symbol=>$trans){
-		$templateCode = str_replace("<%%TRANSLATION($symbol)%%>", $trans, $templateCode);
-	}
+		foreach($Translation as $symbol=>$trans){
+			$templateCode = str_replace("<%%TRANSLATION($symbol)%%>", $trans, $templateCode);
+		}
 
 	// clear scrap
-	$templateCode = str_replace('<%%', '<!-- ', $templateCode);
-	$templateCode = str_replace('%%>', ' -->', $templateCode);
+		$templateCode = str_replace('<%%', '<!-- ', $templateCode);
+		$templateCode = str_replace('%%>', ' -->', $templateCode);
 
 	// hide links to inaccessible tables
-	if($_REQUEST['dvprint_x'] == ''){
-		$templateCode .= "\n\n<script>\$j(function(){\n";
-		$arrTables = getTableList();
-		foreach($arrTables as $name => $caption){
-			$templateCode .= "\t\$j('#{$name}_link').removeClass('hidden');\n";
-			$templateCode .= "\t\$j('#xs_{$name}_link').removeClass('hidden');\n";
+		if($_REQUEST['dvprint_x'] == ''){
+			$templateCode .= "\n\n<script>\$j(function(){\n";
+			$arrTables = getTableList();
+			foreach($arrTables as $name => $caption){
+				$templateCode .= "\t\$j('#{$name}_link').removeClass('hidden');\n";
+				$templateCode .= "\t\$j('#xs_{$name}_link').removeClass('hidden');\n";
+			}
+
+			$templateCode .= $jsReadOnly;
+			$templateCode .= $jsEditable;
+
+			if(!$selected_id){
+			}
+
+			$templateCode.="\n});</script>\n";
 		}
-
-		$templateCode .= $jsReadOnly;
-		$templateCode .= $jsEditable;
-
-		if(!$selected_id){
-		}
-
-		$templateCode.="\n});</script>\n";
-	}
 
 	// ajaxed auto-fill fields
-	$templateCode .= '<script>';
-	$templateCode .= '$j(function() {';
+		$templateCode .= '<script>';
+		$templateCode .= '$j(function() {';
 
 
-	$templateCode.="});";
-	$templateCode.="</script>";
-	$templateCode .= $lookups;
+		$templateCode.="});";
+		$templateCode.="</script>";
+		$templateCode .= $lookups;
 
 	// handle enforced parent values for read-only lookup fields
 
 	// don't include blank images in lightbox gallery
-	$templateCode = preg_replace('/blank.gif" data-lightbox=".*?"/', 'blank.gif"', $templateCode);
+		$templateCode = preg_replace('/blank.gif" data-lightbox=".*?"/', 'blank.gif"', $templateCode);
 
 	// don't display empty email links
-	$templateCode=preg_replace('/<a .*?href="mailto:".*?<\/a>/', '', $templateCode);
+		$templateCode=preg_replace('/<a .*?href="mailto:".*?<\/a>/', '', $templateCode);
 
-	/* default field values */
-	$rdata = $jdata = get_defaults('blogs');
-	if($selected_id){
-		$jdata = get_joined_record('blogs', $selected_id);
-		if($jdata === false) $jdata = get_defaults('blogs');
-		$rdata = $row;
-	}
-	$cache_data = array(
-		'rdata' => array_map('nl2br', array_map('addslashes', $rdata)),
-		'jdata' => array_map('nl2br', array_map('addslashes', $jdata))
-	);
-	$templateCode .= loadView('blogs-ajax-cache', $cache_data);
+		/* default field values */
+		$rdata = $jdata = get_defaults('blogs');
+		if($selected_id){
+			$jdata = get_joined_record('blogs', $selected_id);
+			if($jdata === false) $jdata = get_defaults('blogs');
+			$rdata = $row;
+		}
+		$cache_data = array(
+			'rdata' => array_map('nl2br', array_map('addslashes', $rdata)),
+			'jdata' => array_map('nl2br', array_map('addslashes', $jdata))
+		);
+		$templateCode .= loadView('blogs-ajax-cache', $cache_data);
 
 	// hook: blogs_dv
-	if(function_exists('blogs_dv')){
-		$args=array();
-		blogs_dv(($selected_id ? $selected_id : FALSE), getMemberInfo(), $templateCode, $args);
-	}
+		if(function_exists('blogs_dv')){
+			$args=array();
+			blogs_dv(($selected_id ? $selected_id : FALSE), getMemberInfo(), $templateCode, $args);
+		}
 
-	return $templateCode;
-}
-?>
+		return $templateCode;
+	}
+	?>
