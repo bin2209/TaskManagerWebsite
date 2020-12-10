@@ -10,7 +10,7 @@ $ngaytao = date("Y-m-d H:i:s");
 if ($user==""){
 	header('Location: index.php');
 } else{
-	$sql = 'INSERT INTO todo (task, noidung, trangthai, user,star ,stamp, ngaytao,ngayhethan,thongbao,timedinhky,nhanthongbao) VALUES ("'.$task.'","'.$noidung.'","'.$trangthai.'","'.$user.'",0,"none","'.$ngaytao.'",NULL,NULL,NULL,"0")';
+	$sql = 'INSERT INTO todo (task, noidung, trangthai, user,star ,stamp, ngaytao,ngayhethan,thongbao,timedinhky,nhanthongbao) VALUES ("'.$task.'","'.$noidung.'","'.$trangthai.'","'.$user.'",0,"none","'.$ngaytao.'",NULL,NULL,NULL,"1")';
 	$result = mysqli_query($con, $sql);
 
 } 

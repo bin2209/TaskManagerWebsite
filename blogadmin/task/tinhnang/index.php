@@ -16,9 +16,9 @@
             <?php 
             echo ' <input type="text" class="form-control" name="user" id="user" value="'.getLoggedMemberID().'" aria-describedby="emailHelp" style="display: none;">';
             ?>
-            <th scope="col"><input type="submit" class="btn btn-primary" id="add" ></th></th> 
+            <th scope="col"><input type="submit" class="btn btn-primary" id="add" value="Thêm"></th></th> 
           </tr>
-          
+
         </thead>
       </form>
       <script type="text/javascript">

@@ -42,7 +42,7 @@ include("../../libs/db_connect.php");
 			if (mysqli_num_rows($result)) {
 				// if ($countmyday==0){ echo ""; }
 				while($row = mysqli_fetch_assoc($result)) {
-					if ($row["user"]== getLoggedMemberID()){
+					if ($row["user"]== getLoggedMemberID()  && (($row["thongbao"]!=NULL)||$row["timedinhky"]!=NULL) ){
 						  if ($row["stamp"]=="do"){ // danghoatdong
 						  	echo '<tr style="border-left: 5px solid #fc636b;"';
 						  } else if ($row["stamp"]=="vang"){

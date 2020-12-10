@@ -17,61 +17,53 @@ if (getLoggedMemberID()=="guest"){
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- STAR -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="lich/css/mobiscroll.jquery.min.css" rel="stylesheet" />
+<!-- <link href="lich/css/mobiscroll.jquery.min.css" rel="stylesheet" /> -->
+
+<!-- DATE -->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body  ondrop="dropout(event);"  ondragover="allowDrop(event)">
   <style type="text/css">
-    .swal2-popup{
-     width: auto !important;
+
+    .swal2-range{
+     background: transparent !important;
    }
-</style>
-<div class="wrapper" style="width: 100%">
- <nav id="sidebar">
-  <ul class="list-unstyled components">
-    <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="location.href='index.php'"><i class="fa fa-list"></i> Tất cả</a> </li>
-    <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="btnclick('tinhnang/homnay.php')"><i class="fa fa-calendar"></i> Hôm nay</a> </li>
-    <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/quantrong.php')"><i class="fa fa-star"></i> Quan trọng</a> </li>
-    <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongbao.php')"><i class="fa fa-bell"></i> Nhắc nhở</a> </li>
-    <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongke.php')"><i class="fa fa-pie-chart"></i> Thống kê</a> </li>
-  </ul>
-  <ul class="list-unstyled CTAs">
-    <h2 id="idname" style="display: none;">idname</h2>
-    <li id="addstep" style="display: none;"></li>
-    <div id="changeganco">
-    </div>
-    <div id="thongbao">
-    </div>
-  </ul>
-</nav>
-<div id="content"><!-- <CONTENT -->
-  <?php
-  include('tinhnang/index.php');
-  ?>
-</div> <!-- <!content> -->
+ </style>
+ <div class="wrapper" style="width: 100%">
+   <nav id="sidebar">
+    <ul class="list-unstyled components">
+      <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="location.href='index.php'"><i class="fa fa-list"></i> Tất cả</a> </li>
+      <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="btnclick('tinhnang/homnay.php')"><i class="fa fa-calendar"></i> Hôm nay</a> </li>
+      <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/quantrong.php')"><i class="fa fa-star"></i> Quan trọng</a> </li>
+      <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongbao.php')"><i class="fa fa-bell"></i> Nhắc nhở</a> </li>
+      <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongke.php')"><i class="fa fa-pie-chart"></i> Thống kê</a> </li>
+    </ul>
+    <ul class="list-unstyled CTAs">
+      <h2 id="idname" style="display: none;">idname</h2>
+      <li id="addstep" style="display: none;"></li>
+      <div id="changeganco">
+      </div>
+      <div id="thongbao">
+      </div>
+    </ul>
+  </nav>
+
+  <div id="content"><!-- <CONTENT -->
+    <?php
+    include('tinhnang/index.php');
+    ?>
+  </div> <!-- <!content> -->
 </div>
 <div id="overlay">
   <form method="post" action="trangthai.php" class="form" > 
     <div id="trash"  ondrop="drop(event)" ondragover="allowDrop(event)" style="height:100em; background: transparent;"></div>
   </form>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> -->
-<script defer src="../assets/js/vendor/content-api.min2daf.js?v=a5dd59f074"></script>
-<script defer src="../assets/js/manifest2daf.js?v=a5dd59f074"></script>
-<script defer src="../assets/js/vendor2daf.js?v=a5dd59f074"></script>
-<script defer src="../assets/js/app2daf.js?v=a5dd59f074"></script>
-<script defer src="../assets/js/home2daf.js?v=a5dd59f074"></script>
-<script src="../js/bootstrap.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js" ></script>
-<script src="js/clicktable.js"></script>
-<script src="js/function.js"></script>
-<script src="js/autoload.js"></script>
-<!-- <script src="js/loading.js"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 <script type="text/javascript">
   function btnclick(_url){
     $.ajax({
@@ -148,14 +140,34 @@ if (getLoggedMemberID()=="guest"){
   });
    location.reload(true);
  }
- function nhacnho(id){
+ //LICH
+ function showcalendar(){
+  $("#datepicker").datepicker(); 
+}
+function updateTextInput(val) {
+  document.getElementById('textInput').value=val; 
+}
+ //LICH
+function nhacnho(id){
   Swal.fire({
     title: 'Nhắc nhở',
+    text: "Chọn loại nhắc nhở",
+    icon: 'question',
     showCancelButton: false,
-    showConfirmButton: false,
-    showCloseButton: true,
+    showDenyButton: true,
     confirmButtonColor: '#3085d6',
-    html:'<button id="ngaymai'+id+'" type="button" class="btn btn-outline-primary" onclick="setthongbao(this.id)">Ngày mai</button><br><button id="tuansau'+id+'" type="button" class="btn btn-outline-primary" onclick="setthongbao(this.id)">Tuần sau</button><br><button id="khac'+id+'" type="button" class="btn btn-outline-primary" onclick="setthongbao(this.id)">Chọn ngày & giờ</button>',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Một lần',
+    denyButtonText: 'Định kỳ'
+  }).then((result) => {
+    if (result.isConfirmed) {
+     Swal.fire({
+      title: 'Nhắc nhở',
+      showCancelButton: false,
+      showConfirmButton: false,
+      showCloseButton: true,
+      confirmButtonColor: '#3085d6',
+      html:'<button id="ngaymai'+id+'" type="button" class="btn btn-outline-primary" onclick="setthongbao(this.id)">Ngày mai</button><br><button id="tuansau'+id+'" type="button" class="btn btn-outline-primary" onclick="setthongbao(this.id)">Tuần sau</button><br><button id="khac'+id+'" type="button" class="btn btn-outline-primary" onclick="setthongbao(this.id)">Chọn ngày & giờ</button>',
       //onclick trong HTML
       cancelButtonColor: '#d33',
       confirmButtonText: 'Đồng ý'
@@ -169,33 +181,46 @@ if (getLoggedMemberID()=="guest"){
           time: time
         },
         success: function(res){  
-          // location.reload();
           alert("Data: " + data + "\nStatus: " + status);
         }
       });
      }
    })
   }
+  if (result.isDenied){
+    Swal.fire({
+      title: 'Nhắc nhở định kì',
+      html:'<label>Chọn ngày bắt đầu</label> <center><input id="datepicker" width="276" onclick="showcalendar()" /></center>'
+      +'<label>Khoảng thời gian thông báo</label> <center><input type="number" id="textInput" value="" ><center>',
+      showCloseButton: true,
+      showCancelButton: false,
+      focusConfirm: false,
+      confirmButtonText:  'Đặt định kỳ',
+    }).then((result) => {
+      if (result.isConfirmed) {
+      //  $.ajax({
+      //   type : "POST", 
+      //   url  : "nhacnhorequest.php", 
+      //   data : {
+      //     id : id,
+      //     time: time
+      //   },
+      //   success: function(res){  
+      //     alert("Data: " + data + "\nStatus: " + status);
+      //   }
+      // });
+      console.log("done");
+     }
+   })
+
+
+
+  } 
+})
+}
 
 </script>
-<!-- LICK -->
-<script type="text/javascript">
-  $(function () {
-    $('#demo-single-select-date').mobiscroll().datepicker({
-      theme: 'ios',
-      themeVariant: 'light',
-      controls: ['calendar'],
-      selectMultiple: false
-    });
-
-    $('#demo-single-select-datetime').mobiscroll().datepicker({
-      theme: 'ios',
-      themeVariant: 'light',
-      controls: ['calendar', 'time'],
-      selectMultiple: false
-    });});
-  </script>
-  <script>
+<script>
   function makestar(clicked_id){
    id = clicked_id;
    var element = document.getElementById(id);
@@ -274,12 +299,33 @@ function xoathongtin() {
      });
     }
   </script>
-  <div id="lich">
-    <label>
-      Chọn ngày giờ
-      <input id="demo-single-select-datetime" mbsc-input data-input-style="box" data-label-style="stacked" placeholder="Please Select..." />
-    </label>
-  </div>
-  <script src="lich/js/mobiscroll.jquery.min.js"></script>
+
+</div>
+<!-- <script src="lich/js/mobiscroll.jquery.min.js"></script> -->
+<!-- <div id="lich">
+ <input id="datepicker" width="276" />
+</div>
+-->
+
+
+<script>
+  $('#datepicker').datepicker();
+</script>
+
+
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+<script defer src="../assets/js/manifest2daf.js?v=a5dd59f074"></script>
+<script defer src="../assets/js/vendor2daf.js?v=a5dd59f074"></script>
+<script defer src="../assets/js/app2daf.js?v=a5dd59f074"></script>
+<!-- <script src="../js/bootstrap.js"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js" ></script>
+
+<script src="js/clicktable.js"></script>
+<script src="js/function.js"></script>
+<script src="js/autoload.js"></script>
+
 </body>
 </html>
