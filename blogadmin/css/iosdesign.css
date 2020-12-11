@@ -133,3 +133,16 @@ h1{
 .form-switch input:checked + i::before { transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0); }
 
 .form-switch input:checked + i::after { transform: translate3d(22px, 2px, 0); }
+
+
+
+.btn {
+    padding: 4px 10px;
+    border: 0px solid;
+    border-radius: 3em;
+    padding: 8px 14px;
+    font-size: 14px;
+}
+.btn:hover {
+    background-color: #ccc;
+}

@@ -36,7 +36,7 @@
 			showCloseButton: true,
 		}).then((result) => {
 			if (result.isConfirmed) {
-				window.location.href = "localhost";
+				window.location.href = "duan/index.php?run=<%%VALUE(id)%%>&key=<%%VALUE(author)%%>&code=<%%VALUE(member)%%>";
 			}
 			if (result.isDenied){
 				window.location.href ="vieccanlam.php?SelectedID=<%%VALUE(id)%%>";

@@ -6,7 +6,8 @@ $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 $chat = '/chat/';
 $luutru = '/luutru/';
 $task = '/task/';
-if ((strpos($path, $chat) == true)||(strpos($path, $luutru) == true ||(strpos($path, $task) == true))) { 
+$duan = '/duan/';
+if ((strpos($path, $chat) == true)||(strpos($path, $luutru) == true ||(strpos($path, $task) == true)||(strpos($path, $duan) == true))) { 
   $returnfolder = 1 ; // ở trong chat
 } 
 else { 
@@ -206,7 +207,7 @@ if ($usernow=="admin") {
 }
 ?>
 <section class="m-hero with-picture" data-aos="fade">
-  <div class="m-hero__picture "></div>
+  <div  class="m-hero__picture "></div>
   <div class="m-hero__content" data-aos="fade-down">
 
     <?php 
@@ -228,8 +229,8 @@ if ($usernow=="admin") {
  }
 
  else if ((strpos($path, $keychat) == false) && $ketqua=="index.php"){ //index
-   echo '<h1 class="m-hero-title bigger">HOME</h1>
-   <p class="m-hero-description bigger">Hãy bắt đầu ngày mới bằng cách hoàn thành các công việc</p>';
+   echo '<h1 id="m-hero-title" class="m-hero-title bigger">HOME</h1>
+   <p id="m-hero-description"  class="m-hero-description bigger">Hãy bắt đầu ngày mới bằng cách hoàn thành các công việc</p>';
  }
 
  ?>
