@@ -62,11 +62,16 @@ $fullURL = $handler->getLoginUrl($redirectTo, $data);
 						" class="login100-form-btn" name="signIn" type="submit" id="submit" value="signIn" ><i class="fa fa-sign-in" aria-hidden="true" style="position: relative; right: 10px;"></i>Đăng nhập
 					</button>
 				</div>
-				<div class="container-login100-form-btn facebook-btn">
+			<!-- 	<div class="container-login100-form-btn facebook-btn">
 					<button style="background: #1877f2;
 					background: -webkit-linear-gradient(to right, #ff4b1f, #ff9068); 
 					background: linear-gradient(to right, #007bff, rgb(0 123 255 / 75%));
 					" class="login100-form-btn" onclick="window.location = '<?php echo $fullURL ?>'" ><i class="fa fa-facebook" style="position: relative; right: 10px;"></i> Tiếp tục bằng facebook
+				</button>
+			</div> -->
+			<div class="container-login100-form-btn facebook-btn">
+					<button style="background: linear-gradient(to right, #eee, #fff7f7); color: #615c5c;
+					" class="login100-form-btn" onclick="window.location = 'logingg/index.php'" ><img src="logingg/google.png" style="position: relative; right: 10px; width: 20px;"></i> Tiếp tục bằng Google
 				</button>
 			</div>
 			<br>

@@ -101,14 +101,8 @@ if (getLoggedMemberID()=='guest'){
                 if ($result) {
                   if (mysqli_num_rows($result) > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
-                      if ($row["comments"]=='facebook'){
-                        $pass = $row["custom1"];
-                        $picture = $row["custom2"];
-                        echo $pass;
-                        echo '<img src="'.$picture.'" style="width:40px; margin-left:20px; border:2px solid #ccc; border-radius: 50%;" >';
-                      } else{
-                        echo getLoggedMemberID();
-                      }
+                        echo $row["custom1"];
+                        echo '<img src="'.$row["custom2"].'" style="width:40px; margin-left:20px; border:2px solid #ccc; border-radius: 50%;" >';
                     }
                   }
                 }

@@ -5,11 +5,11 @@
 				<div class="fonos-root-navbar--brand">
 					<div>
 						<a class="nav-link" href="index.php">
-						<h2 style="font-family: Muli;
-						font-weight: 600;
-						color: white;
-						font-size: 26px;">TaskVN</h2>
-					</a>
+							<h2 style="font-family: Muli;
+							font-weight: 600;
+							color: white;
+							font-size: 26px;">TaskVN</h2>
+						</a>
 					</div>
 					<div class="d-md-none d-flex align-items-center"></div>
 				</div>
@@ -51,13 +51,8 @@
 										if ($result) {
 											if (mysqli_num_rows($result) > 0) {
 												while($row = mysqli_fetch_assoc($result)) {
-													if ($row["comments"]=='facebook'){
-														echo $row["custom1"];
-														echo '<img src="'.$row["custom2"].'" style="position: fixed; top:23px; width:40px; margin-left:20px;  border:2px solid #ccc; border-radius: 50%;" >';
-													} else{
-														echo getLoggedMemberID();
-													}
-
+													echo $row["custom1"];
+													echo '<img src="'.$row["custom2"].'" style="position: fixed; top:23px; width:40px; margin-left:20px;  border:2px solid #ccc; border-radius: 50%;" >';
 												}
 											}
 										}
