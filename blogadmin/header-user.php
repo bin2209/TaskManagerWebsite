@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php 
 
+header('Content-type: text/html; charset=utf-8');
+
 if(!defined('PREPEND_PATH')) define('PREPEND_PATH', ''); 
 $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 $chat = '/chat/';
@@ -31,14 +33,12 @@ if (getLoggedMemberID()=='guest'){
   } 
 }
 
-
-
 ?>
 <?php if(!defined('datalist_db_encoding')) define('datalist_db_encoding', 'UTF-8'); ?>
 <?php require_once("libs/count_records.php");?>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../images/logo.png" type="image/x-icon"/>
   <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon"/>
@@ -92,22 +92,26 @@ if (getLoggedMemberID()=='guest'){
             </ul>
           </nav>
           <div class="m-nav__right">
-            <button class="m-icon-button in-menu-main more js-toggle-submenu" aria-label="Toggle submenu">
-              <span class="icon-more">
-              </button><p class="in-menu-main more js-toggle-submenu m-icon-button" style="padding-left: 10px;   cursor: pointer; width: 100%; font-size: 15px;" >  
-                <?php
-                $sql = "SELECT * FROM membership_users WHERE memberID = '".getLoggedMemberID()."'";
-                $result = mysqli_query($con, $sql);
-                if ($result) {
-                  if (mysqli_num_rows($result) > 0) {
-                    while($row = mysqli_fetch_assoc($result)) {
-                        echo $row["custom1"];
-                        echo '<img src="'.$row["custom2"].'" style="width:40px; margin-left:20px; border:2px solid #ccc; border-radius: 50%;" >';
-                    }
+            <p class="in-menu-main more js-toggle-submenu m-icon-button" style="padding-left: 10px;   cursor: pointer; width: 100%; font-size: 15px;" >  
+              <?php
+              header('Content-type: text/html; charset=utf-8');
+              $sql = "SELECT * FROM membership_users WHERE memberID = '".getLoggedMemberID()."'";
+              $result = mysqli_query($con, $sql);
+              if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                  while($row = mysqli_fetch_assoc($result)) {
+
+                    echo $row["custom1"];
+                    echo '<img src="'.$row["custom2"].'" style="width:40px; margin-left:20px; border:2px solid #ccc; border-radius: 50%;" >';
                   }
                 }
-                ?>
-                <p>
+              }
+              ?>
+              <p>
+                <button class="m-icon-button in-menu-main more js-toggle-submenu  js-tooltip" aria-label="Toggle submenu"  data-tippy-content="Menu">
+                  <i class="fa fa-bars" aria-hidden="true" style="font-size:30px;"></i>
+                  <!-- <span class="">  -->
+                  </button>
                   <style type="text/css">
                     .menulink{
                       padding: 4px;
@@ -118,8 +122,8 @@ if (getLoggedMemberID()=='guest'){
                       <section class="m-recent-articles">
                         <li class="menulink"><i class="fa fa-user"></i> <strong>
                          <?php 
-                         if ($returnfolder==1)  echo ' <a href="../task">Việc cần làm</a>';
-                         else echo '<a href="task/">Việc cần làm</a>';
+                         if ($returnfolder==1)  echo ' <a href="../task">Công việc thường xuyên</a>';
+                         else echo '<a href="task/">Công việc thường xuyên</a>';
                          ?>
                        </strong></li>
 
@@ -161,34 +165,34 @@ if (getLoggedMemberID()=='guest'){
                     </li>
 
                     <?php if(getLoggedAdmin()){ ?>
-                       <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm hidden-xs"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
-                       <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm visible-xs btn-sm"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
+                     <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm hidden-xs"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
+                     <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm visible-xs btn-sm"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
+                   <?php } ?>
+                   <?php if(!$_GET['signIn'] && !$_GET['loginFailed']){ ?>
+                     <?php if(getLoggedMemberID() == $adminConfig['anonymousMember']){ ?>
+                       <p class="navbar-text navbar-right">&nbsp;</p>
+                       <ul class="nav navbar-nav navbar-right hidden-xs" style="min-width: 330px;">
+                       </ul>
+                       <ul class="nav navbar-nav visible-xs">
+                       </ul>
                      <?php } ?>
-                     <?php if(!$_GET['signIn'] && !$_GET['loginFailed']){ ?>
-                       <?php if(getLoggedMemberID() == $adminConfig['anonymousMember']){ ?>
-                         <p class="navbar-text navbar-right">&nbsp;</p>
-                         <ul class="nav navbar-nav navbar-right hidden-xs" style="min-width: 330px;">
-                         </ul>
-                         <ul class="nav navbar-nav visible-xs">
-                         </ul>
-                       <?php } ?>
-                     <?php } ?>
-                  </section>
-                </div>
-              </div>
-            </li>
-            <button class="m-icon-button in-menu-main js-open-search" aria-label="Open search">
-              <span class="icon-search"></span>
-            </button>
-            <div class="m-toggle-darkmode js-tooltip" data-tippy-content="Bật chế độ tối">
-              <input type="checkbox" class="js-toggle-darkmode">
-              <div></div>
-            </div>
+                   <?php } ?>
+                 </section>
+               </div>
+             </div>
+           </li>
+           <button class="m-icon-button in-menu-main js-open-search" aria-label="Open search">
+            <span class="icon-search"></span>
+          </button>
+          <div class="m-toggle-darkmode js-tooltip" data-tippy-content="Bật chế độ tối" style="margin-left: 0px !important;">
+            <input type="checkbox" class="js-toggle-darkmode">
+            <div></div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </header>
 
 <?php
@@ -231,7 +235,7 @@ if ($usernow=="admin") {
 
 </div>
 </section>
-<div  class="l-grid centered" style="padding:20px">
+<div  class="l-grid centered" style="padding:0px">
  <?php 
  $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
  $ketqua = basename($path);

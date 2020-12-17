@@ -17,6 +17,7 @@ $google_client->setClientSecret('zKMQkhzBmU95XSNZ-N0bUkTF');
 //Set the OAuth 2.0 Redirect URI
 // $google_client->setRedirectUri('http://localhost/resblog/blogadmin/logingg/index.php');
 $google_client->setRedirectUri('http://localhost/resblog/blogadmin/logingg/index.php');
+// $google_client->setRedirectUri('https://taskvn.com/blogadmin/logingg/index.php');
 
 
 //

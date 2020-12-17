@@ -172,6 +172,7 @@
 		$args=array();
 		$headerCode=blogs_header($x->ContentType, getMemberInfo(), $args);
 	}  
+
 	if(!$headerCode){
 		include_once("$currDir/header.php"); 
 	}else{
@@ -179,7 +180,7 @@
 		echo str_replace('<%%HEADER%%>', $dHeader, $headerCode);
 	}
 
-
+	
 include 'tiendocongviec.php';
 	echo $x->HTML;
 
@@ -195,4 +196,5 @@ include 'tiendocongviec.php';
 	// 	ob_start(); include_once("$currDir/footer.php"); $dFooter=ob_get_contents(); ob_end_clean();
 	// 	echo str_replace('<%%FOOTER%%>', $dFooter, $footerCode);
 	// }
+
 ?>

@@ -5,147 +5,147 @@
 </head>
 <html>
 <link rel="stylesheet" type="text/css" href="css/iosdesign.css">
-  <?php
-  $currDir=dirname(__FILE__);
-  include("$currDir/defaultLang.php");
-  include("$currDir/language.php");
+<?php
+$currDir=dirname(__FILE__);
+include("$currDir/defaultLang.php");
+include("$currDir/language.php");
   // @include("$currDir/hooks/blogs.php");
-  include("$currDir/blogs_dml.php");
+include("$currDir/blogs_dml.php");
 
   // mm: can the current member access this page?
-  $perm=getTablePermissions('blogs');
-  if(!$perm[0]){
-    echo error_message($Translation['tableAccessDenied'], false);
-    echo '<script>setTimeout("window.location=\'index.php?signOut=1\'", 2000);</script>';
-    exit;
-  }
+$perm=getTablePermissions('blogs');
+if(!$perm[0]){
+  echo error_message($Translation['tableAccessDenied'], false);
+  echo '<script>setTimeout("window.location=\'index.php?signOut=1\'", 2000);</script>';
+  exit;
+}
 
-  $x = new DataList;
-  $x->TableName = "blogs";
+$x = new DataList;
+$x->TableName = "blogs";
 
   // Fields that can be displayed in the table view
-  $x->QueryFieldsTV = array(   
-    "`blogs`.`id`" => "id",
-    "`blogs`.`title`" => "title",
-    "IF(    CHAR_LENGTH(`blog_categories1`.`name`), CONCAT_WS('',   `blog_categories1`.`name`), '') /* Category */" => "category",
-    "`blogs`.`tags`" => "tags",
-    "`blogs`.`content`" => "content",
-    "`blogs`.`photo`" => "photo",
-    "if(`blogs`.`date`,date_format(`blogs`.`date`,'%d/%m/%Y'),'')" => "date",
-    "if(`blogs`.`ngayhethan`,date_format(`blogs`.`ngayhethan`,'%d/%m/%Y'),'')" => "ngayhethan",
-    "`blogs`.`author`" => "author",
-    "`blogs`.`posted`" => "posted",
-    "`blogs`.`star`" => "star"  
-  );
+$x->QueryFieldsTV = array(   
+  "`blogs`.`id`" => "id",
+  "`blogs`.`title`" => "title",
+  "IF(    CHAR_LENGTH(`blog_categories1`.`name`), CONCAT_WS('',   `blog_categories1`.`name`), '') /* Category */" => "category",
+  "`blogs`.`tags`" => "tags",
+  "`blogs`.`content`" => "content",
+  "`blogs`.`photo`" => "photo",
+  "if(`blogs`.`date`,date_format(`blogs`.`date`,'%d/%m/%Y'),'')" => "date",
+  "if(`blogs`.`ngayhethan`,date_format(`blogs`.`ngayhethan`,'%d/%m/%Y'),'')" => "ngayhethan",
+  "`blogs`.`author`" => "author",
+  "`blogs`.`posted`" => "posted",
+  "`blogs`.`star`" => "star"  
+);
   // mapping incoming sort by requests to actual query fields
-  $x->SortFields = array(   
-    1 => '`blogs`.`id`',
-    2 => 2,
-    3 => '`blog_categories1`.`name`',
-    4 => 4,
-    5 => 5,
-    6 => 6,
-    7 => '`blogs`.`date`',
-    8 => '`blogs`.`ngayhethan`',
-    9 => 9,
-    10 => 10,
-    11 => 11
-  );
+$x->SortFields = array(   
+  1 => '`blogs`.`id`',
+  2 => 2,
+  3 => '`blog_categories1`.`name`',
+  4 => 4,
+  5 => 5,
+  6 => 6,
+  7 => '`blogs`.`date`',
+  8 => '`blogs`.`ngayhethan`',
+  9 => 9,
+  10 => 10,
+  11 => 11
+);
 
   // Fields that can be displayed in the csv file
-  $x->QueryFieldsCSV = array(   
-    "`blogs`.`id`" => "id",
-    "`blogs`.`title`" => "title",
-    "IF(    CHAR_LENGTH(`blog_categories1`.`name`), CONCAT_WS('',   `blog_categories1`.`name`), '') /* Category */" => "category",
-    "`blogs`.`tags`" => "tags",
-    "`blogs`.`content`" => "content",
-    "`blogs`.`photo`" => "photo",
-    "if(`blogs`.`date`,date_format(`blogs`.`date`,'%d/%m/%Y'),'')" => "date",
+$x->QueryFieldsCSV = array(   
+  "`blogs`.`id`" => "id",
+  "`blogs`.`title`" => "title",
+  "IF(    CHAR_LENGTH(`blog_categories1`.`name`), CONCAT_WS('',   `blog_categories1`.`name`), '') /* Category */" => "category",
+  "`blogs`.`tags`" => "tags",
+  "`blogs`.`content`" => "content",
+  "`blogs`.`photo`" => "photo",
+  "if(`blogs`.`date`,date_format(`blogs`.`date`,'%d/%m/%Y'),'')" => "date",
     //TRUONG004 - TABLE NGÀY HẾT HẠN
-    "if(`blogs`.`ngayhethan`,date_format(`blogs`.`ngayhethan`,'%d/%m/%Y'),'')" => "ngayhethan",
-    "`blogs`.`author`" => "author",
-    "`blogs`.`posted`" => "posted",
-    "`blogs`.`star`" => "star"
-  );
+  "if(`blogs`.`ngayhethan`,date_format(`blogs`.`ngayhethan`,'%d/%m/%Y'),'')" => "ngayhethan",
+  "`blogs`.`author`" => "author",
+  "`blogs`.`posted`" => "posted",
+  "`blogs`.`star`" => "star"
+);
   // Fields that can be filtered
-  $x->QueryFieldsFilters = array(   
-    "`blogs`.`id`" => "ID",
-    "`blogs`.`title`" => "Title",
-    "IF(    CHAR_LENGTH(`blog_categories1`.`name`), CONCAT_WS('',   `blog_categories1`.`name`), '') /* Category */" => "Category",
-    "`blogs`.`tags`" => "Tags",
-    "`blogs`.`content`" => "Content",
-    "`blogs`.`date`" => "Date",
-    "`blogs`.`ngayhethan`" => "NgayHetHan",
-    "`blogs`.`author`" => "Author",
-    "`blogs`.`posted`" => "Status",
-    "`blogs`.`star`" => "star"
-  );
+$x->QueryFieldsFilters = array(   
+  "`blogs`.`id`" => "ID",
+  "`blogs`.`title`" => "Title",
+  "IF(    CHAR_LENGTH(`blog_categories1`.`name`), CONCAT_WS('',   `blog_categories1`.`name`), '') /* Category */" => "Category",
+  "`blogs`.`tags`" => "Tags",
+  "`blogs`.`content`" => "Content",
+  "`blogs`.`date`" => "Date",
+  "`blogs`.`ngayhethan`" => "NgayHetHan",
+  "`blogs`.`author`" => "Author",
+  "`blogs`.`posted`" => "Status",
+  "`blogs`.`star`" => "star"
+);
 
   // Fields that can be quick searched
-  $x->QueryFieldsQS = array(   
-    "`blogs`.`id`" => "id",
-    "`blogs`.`title`" => "title",
-    "IF(    CHAR_LENGTH(`blog_categories1`.`name`), CONCAT_WS('',   `blog_categories1`.`name`), '') /* Category */" => "category",
-    "`blogs`.`tags`" => "tags",
-    "`blogs`.`content`" => "content",
-    "if(`blogs`.`date`,date_format(`blogs`.`date`,'%d/%m/%Y'),'')" => "date",
-    "if(`blogs`.`ngayhethan`,date_format(`blogs`.`ngayhethan`,'%d/%m/%Y'),'')" => "ngayhethan",
-    "`blogs`.`author`" => "author",
-    "`blogs`.`posted`" => "posted",
-    "`blogs`.`star`" => "star"
-  );
+$x->QueryFieldsQS = array(   
+  "`blogs`.`id`" => "id",
+  "`blogs`.`title`" => "title",
+  "IF(    CHAR_LENGTH(`blog_categories1`.`name`), CONCAT_WS('',   `blog_categories1`.`name`), '') /* Category */" => "category",
+  "`blogs`.`tags`" => "tags",
+  "`blogs`.`content`" => "content",
+  "if(`blogs`.`date`,date_format(`blogs`.`date`,'%d/%m/%Y'),'')" => "date",
+  "if(`blogs`.`ngayhethan`,date_format(`blogs`.`ngayhethan`,'%d/%m/%Y'),'')" => "ngayhethan",
+  "`blogs`.`author`" => "author",
+  "`blogs`.`posted`" => "posted",
+  "`blogs`.`star`" => "star"
+);
 
 
   // Lookup fields that can be used as filterers
-  $x->filterers = array(  'category' => 'Category');
-  $x->QueryFrom = "`blogs` LEFT JOIN `blog_categories` as blog_categories1 ON `blog_categories1`.`id`=`blogs`.`category` ";
-  $x->QueryWhere = '';
-  $x->QueryOrder = '';
+$x->filterers = array(  'category' => 'Category');
+$x->QueryFrom = "`blogs` LEFT JOIN `blog_categories` as blog_categories1 ON `blog_categories1`.`id`=`blogs`.`category` ";
+$x->QueryWhere = '';
+$x->QueryOrder = '';
 
-  $x->AllowSelection = 1;
-  $x->HideTableView = ($perm[2]==0 ? 1 : 0);
-  $x->AllowDelete = $perm[4];
-  $x->AllowMassDelete = true;
-  $x->AllowInsert = $perm[1];
-  $x->AllowUpdate = $perm[3];
-  $x->SeparateDV = 1;
-  $x->AllowDeleteOfParents = 1;
-  $x->AllowFilters = 1;
-  $x->AllowSavingFilters = 1;
-  $x->AllowSorting = 1;
-  $x->AllowNavigation = 1;
-  $x->AllowPrinting = 1;
-  $x->AllowCSV = 1;
-  $x->RecordsPerPage = 10;
-  $x->QuickSearch = 1;
-  $x->QuickSearchText = $Translation["quick search"];
-  $x->ScriptFileName = "vieccanlam.php";
-  $x->RedirectAfterInsert = "vieccanlam.php?SelectedID=#ID#";
-  $x->TableTitle = "<x class='chedobang'>Chuyển sang bảng</x>";
+$x->AllowSelection = 1;
+$x->HideTableView = ($perm[2]==0 ? 1 : 0);
+$x->AllowDelete = $perm[4];
+$x->AllowMassDelete = true;
+$x->AllowInsert = $perm[1];
+$x->AllowUpdate = $perm[3];
+$x->SeparateDV = 1;
+$x->AllowDeleteOfParents = 1;
+$x->AllowFilters = 1;
+$x->AllowSavingFilters = 1;
+$x->AllowSorting = 1;
+$x->AllowNavigation = 1;
+$x->AllowPrinting = 1;
+$x->AllowCSV = 1;
+$x->RecordsPerPage = 10;
+$x->QuickSearch = 1;
+$x->QuickSearchText = $Translation["quick search"];
+$x->ScriptFileName = "vieccanlam.php";
+$x->RedirectAfterInsert = "vieccanlam.php?SelectedID=#ID#";
+$x->TableTitle = "<x class='chedobang'><i class='glyphicon glyphicon-list'></i> Chuyển sang bảng</x>";
   // $x->TableIcon = "resources/table_icons/feed.png";
-  $x->PrimaryKey = "`blogs`.`id`";
+$x->PrimaryKey = "`blogs`.`id`";
 
-  $x->ColWidth   = array(  150, 150, 150, 150, 150, 150, 150, 150,150,150);
+$x->ColWidth   = array(  150, 150, 150, 150, 150, 150, 150, 150,150,150);
   //TRUONG2 - Thêm database cột star/ blog + recode
-  $x->ColCaption = array("Tiêu đề công việc", "Phân loại", "Tags", "Nội dung", "Ảnh", "Ngày tạo","Ngày hết hạn", "Thành viên tạo  ", "Trạng thái","Độ ưu tiên");
-  $x->ColFieldName = array('title', 'category', 'tags', 'content', 'photo', 'date',' ngayhethan', 'author', 'posted','star');
-  $x->ColNumber  = array(2, 3, 4, 5, 6, 7, 8, 9, 10,11);
+$x->ColCaption = array("Tiêu đề công việc", "Phân loại", "Tags", "Nội dung", "Ảnh", "Ngày tạo","Ngày hết hạn", "Thành viên tạo  ", "Trạng thái","Độ ưu tiên");
+$x->ColFieldName = array('title', 'category', 'tags', 'content', 'photo', 'date',' ngayhethan', 'author', 'posted','star');
+$x->ColNumber  = array(2, 3, 4, 5, 6, 7, 8, 9, 10,11);
 
   // template paths below are based on the app main directory
 // $x->Template = 'templates/blogs_templateTV.html';
-  $x->Template = 'templates/giaodienTV.php';
-  $x->SelectedTemplate = 'templates/blogs_templateTVS.html';
-  $x->TemplateDV = 'templates/blogs_templateDV.html';
-  $x->TemplateDVP = 'templates/blogs_templateDVP.html';
+$x->Template = 'templates/giaodienTV.php';
+$x->SelectedTemplate = 'templates/blogs_templateTVS.html';
+$x->TemplateDV = 'templates/blogs_templateDV.php';
+$x->TemplateDVP = 'templates/blogs_templateDVP.html';
 
-  $x->ShowTableHeader = 1;
-  $x->ShowRecordSlots = 0;
-  $x->TVClasses = "";
-  $x->DVClasses = "";
-  $x->HighlightColor = '#FFF0C2';
+$x->ShowTableHeader = 1;
+$x->ShowRecordSlots = 0;
+$x->TVClasses = "";
+$x->DVClasses = "";
+$x->HighlightColor = '#FFF0C2';
   // mm: build the query based on current member's permissions
-  $DisplayRecords = $_REQUEST['DisplayRecords'];
-  if(!in_array($DisplayRecords, array('user', 'group'))){ $DisplayRecords = 'all'; }
+$DisplayRecords = $_REQUEST['DisplayRecords'];
+if(!in_array($DisplayRecords, array('user', 'group'))){ $DisplayRecords = 'all'; }
   if($perm[2]==1 || ($perm[2]>1 && $DisplayRecords=='user' && !$_REQUEST['NoFilter_x'])){ // view owner only
     $x->QueryFrom.=', membership_userrecords';
     $x->QueryWhere="where `blogs`.`id`=membership_userrecords.pkValue and membership_userrecords.tableName='blogs' and lcase(membership_userrecords.memberID)='".getLoggedMemberID()."'";
@@ -185,6 +185,13 @@
 
   ?>
   <style type="text/css">
+    .m-hero  {
+      display: none;
+    }
+
+    .m-hero__picture {
+      display: none;
+    }
     .m-site-name{
       font-size: 18px;
     }
@@ -194,6 +201,11 @@
     .col-sm-8 a {
       float: left;
     }
+    .l-content{
+      position: relative;
+      top: -8em;
+    }
+    
   </style>
 </div>
 </div>

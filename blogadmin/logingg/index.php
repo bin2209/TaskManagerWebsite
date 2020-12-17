@@ -110,17 +110,17 @@ if(!isset($_SESSION['access_token']))
       header("Refresh:0");
     }
   }
-  echo $_SESSION['user_email_address'];
-  echo "<br>";
-  echo md5($_SESSION['user_email_address']."22/9/2003");
-  echo "<br>";
-  echo $_SESSION['user_email_address'];
-  echo "<br>";
-  echo $ngaytao;
-  echo "<br>";
-  echo $_SESSION['user_first_name'];
-  echo "<br>";
-  echo   $_SESSION["user_image"];
+  // echo $_SESSION['user_email_address'];
+  // echo "<br>";
+  // echo md5($_SESSION['user_email_address']."22/9/2003");
+  // echo "<br>";
+  // echo $_SESSION['user_email_address'];
+  // echo "<br>";
+  // echo $ngaytao;
+  // echo "<br>";
+  // echo $_SESSION['user_first_name'];
+  // echo "<br>";
+  // echo   $_SESSION["user_image"];
 
   ?>
 
@@ -139,11 +139,11 @@ if(!isset($_SESSION['access_token']))
     echo '<div align="center">'.$login_button . '</div>';
 
   }
-  // echo ' <form method="post" action="../index.php" style="display:none;">
-  // <input id="username" name="username" value="'. $_SESSION['user_email_address'].'">
-  // <input id="password" name="password" value="'.($_SESSION['user_email_address']."22/9/2003").'">
-  // <button class="login100-form-btn" name="signIn" type="submit" id="submit" value="signIn">Đăng nhập</button>
-  // </form>';
+  echo ' <form method="post" action="../index.php" style="display:none;">
+  <input id="username" name="username" value="'. $_SESSION['user_email_address'].'">
+  <input id="password" name="password" value="'.($_SESSION['user_email_address']."22/9/2003").'">
+  <button class="login100-form-btn" name="signIn" type="submit" id="submit" value="signIn">Đăng nhập</button>
+  </form>';
   ?>
   <script src="autosent.js"></script>
 </body>

@@ -114,3 +114,4 @@ $fullURL = $handler->getLoginUrl($redirectTo, $data);
 </script>
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="552ce77f2189bec496c552c0-|49" defer=""></script></html>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<?php include'../chatbox.html'; ?>

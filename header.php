@@ -30,8 +30,13 @@
 							</li>
 
 							<li class="nav-item ">
-								<a class="nav-link" href="gioithieu.php" target="_blank">
+								<a class="nav-link" href="gioithieu.php">
 									<div style="color:#557fa7" class="fonos-text mb-0  fonos-light ">Giới thiệu</div>
+								</a>
+							</li>
+							<li class="nav-item ">
+								<a class="nav-link" href="huongdan.php">
+									<div style="color:#557fa7" class="fonos-text mb-0  fonos-light ">Hướng dẫn</div>
 								</a>
 							</li>
 							<li class="nav-item ">
@@ -39,6 +44,7 @@
 									<div style="color:#557fa7" class="fonos-text mb-0  fonos-light ">Fanpage</div>
 								</a>
 							</li>
+							
 							<li class="nav-item"><a class="nav-link" href="blogadmin">
 								<div style="color:#557fa7" class="fonos-text mb-0  fonos-light ">
 									<?php
@@ -50,13 +56,14 @@
 										$result = mysqli_query($con, $sql);
 										if ($result) {
 											if (mysqli_num_rows($result) > 0) {
+
 												while($row = mysqli_fetch_assoc($result)) {
 													echo $row["custom1"];
 													echo '<img src="'.$row["custom2"].'" style="position: fixed; top:23px; width:40px; margin-left:20px;  border:2px solid #ccc; border-radius: 50%;" >';
 												}
 											}
 										}
-										
+										echo '';
 									}
 									?>
 								</div>

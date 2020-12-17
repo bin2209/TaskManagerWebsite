@@ -5,7 +5,7 @@ $id = $_POST['id'];
 // $id = "batthongbao106";
 
 
-$stringdelete = "delete";
+$stringdelete = "drag";
 $stringstar = "star";
 $stringxoahomnay = "xoahomnay";
 $stringxoathongbao = "xoathongbao";
@@ -53,7 +53,7 @@ if ($posxoahomnay == true){
 
 } else
 if ($posdelete == true){
-	$id = ltrim($id, 'delete');
+	$id = ltrim($id, 'drag');
 	$sql = "DELETE FROM todo WHERE id =".$id."";
 	$result = mysqli_query($con, $sql);
 	if($result)

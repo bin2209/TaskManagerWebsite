@@ -28,19 +28,18 @@ if (getLoggedMemberID()=="guest"){
 </head>
 <body  ondrop="dropout(event);"  ondragover="allowDrop(event)">
   <style type="text/css">
-
     .swal2-range{
      background: transparent !important;
    }
  </style>
- <div class="wrapper" style="width: 100%">
+ <div class="wrapper" style="width: 100%; margin-top: 3%;">
    <nav id="sidebar">
     <ul class="list-unstyled components">
-      <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="location.href='index.php'"><i class="fa fa-list"></i> Tất cả</a> </li>
-      <li class=""><a data-toggle="collapse" aria-expanded="false" onclick="btnclick('tinhnang/homnay.php')"><i class="fa fa-calendar"></i> Hôm nay</a> </li>
-      <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/quantrong.php')"><i class="fa fa-star"></i> Quan trọng</a> </li>
-      <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongbao.php')"><i class="fa fa-bell"></i> Nhắc nhở</a> </li>
-      <li class=""><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongke.php')"><i class="fa fa-pie-chart"></i> Thống kê</a> </li>
+      <li class="js-tooltip" data-tippy-content="Xem tất cả công việc"><a data-toggle="collapse" aria-expanded="false" onclick="location.href='index.php'"><i class="fa fa-list"></i> Tất cả</a> </li>
+      <li class="js-tooltip" data-tippy-content="Công việc làm trong hôm nay"><a data-toggle="collapse" aria-expanded="false" onclick="btnclick('tinhnang/homnay.php')"><i class="fa fa-calendar"></i> Hôm nay</a> </li>
+      <li class="js-tooltip" data-tippy-content="Công việc được đánh dấu quan trọng"><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/quantrong.php')"><i class="fa fa-star"></i> Quan trọng</a> </li>
+      <li class="js-tooltip" data-tippy-content="Các công việc đã được bật thông báo"><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongbao.php')"><i class="fa fa-bell"></i> Nhắc nhở</a> </li>
+      <li class="js-tooltip" data-tippy-content="Thống kê hiệu suất làm việc"><a data-toggle="collapse" aria-expanded="false"  onclick="btnclick('tinhnang/thongke.php')"><i class="fa fa-pie-chart"></i> Thống kê</a> </li>
     </ul>
     <ul class="list-unstyled CTAs">
       <h2 id="idname" style="display: none;">idname</h2>
@@ -148,7 +147,7 @@ function updateTextInput(val) {
   document.getElementById('textInput').value=val; 
 }
  //LICH
-function nhacnho(id){
+ function nhacnho(id){
   Swal.fire({
     title: 'Nhắc nhở',
     text: "Chọn loại nhắc nhở",
@@ -210,8 +209,8 @@ function nhacnho(id){
       //   }
       // });
       console.log("done");
-     }
-   })
+    }
+  })
 
 
 
@@ -247,9 +246,14 @@ function nhacnho(id){
         }
       });
 }
-function xoathongtin() {
-  var removefirstid = document.getElementsByClassName("remove")[0].id;
-  var id = document.getElementById(removefirstid).value;
+
+
+</script>
+<script type="text/javascript">
+  function xoathongtin(id) {
+      console.log(id);
+  // var removefirstid = document.getElementsByClassName("remove")[0].id;
+  // var id = document.getElementById(removefirstid).value;
   $.ajax({
     type : "POST",  
     url  : "trangthai.php",  
@@ -260,30 +264,27 @@ function xoathongtin() {
        }
      });
 }
+function remove(data) {
 
-</script>
-<script type="text/javascript">
-  function remove() {
-    Swal.fire({
-      title: 'Xóa công việc này ?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Xóa'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        xoathongtin();
-        Swal.fire(
-          'Đã xóa!',
-          '',
-          'success'
-          )
-      }
-      location.reload();
-    })
-  }
-  function addstemp(data,name,id){
+  Swal.fire({
+    title: 'Xóa công việc này ?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Xóa'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      xoathongtin(data);
+      Swal.fire(
+        'Đã xóa!',
+        '',
+        'success'
+        )
+    }
+  })
+}
+function addstemp(data,name,id){
       // console.log(data);
       // console.log(id);  
       id = id;

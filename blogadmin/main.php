@@ -11,81 +11,123 @@ $result = mysqli_query($con, $sql);
 <!DOCTYPE html>
 <html>
 <head>
-  <meta  charset=UTF-8>
-  <title></title>
+  <meta charset=UTF-8>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css" integrity="sha512-C7hOmCgGzihKXzyPU/z4nv97W0d9bv4ALuuEbSf6hm93myico9qa0hv4dODThvCsqQUmKmLcJmlpRmCaApr83g==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <!--cards-->
+<style type="text/css">
+  .list-inline{
+    display: inline;
+  }
+  .list-inline img{
+   transition: transform .2s;
+ }
+ .list-inline img:hover{
+  transform: scale(1.2);
+}
+</style>
 
+<div style="text-align: center;width: 100%; display: inline;">
+  <ul class="nav navbar-nav list-inline" >
+    <li id="tool1" class="list-inline-item  js-tooltip" data-tippy-content=" Công việc thường xuyên" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="task/"> <img src="../images/giaodien/1.png"></a></li>
+    <li class="list-inline-item js-tooltip" data-tippy-content=" Công việc dài hạn" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="danhsachcongviec.php"> <img src="../images/giaodien/4t.png"></a></li>
+    <li class="list-inline-item js-tooltip" data-tippy-content="Lưu trữ tài liệu" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="luutru/"> <img src="../images/giaodien/2t.png"></li>
+      <li class="list-inline-item js-tooltip" data-tippy-content="Thảo luận" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="chat/"> <img src="../images/giaodien/3t.png"></adàli>
+      </ul>
+    </div>
 
-<article class="m-article-card post tag-a-better-you">
-  <div class="m-article-card__picture lozad" data-background-image="content/images/system/1.jpg">
-    <a href="danhsachcongviec.php" class="m-article-card__picture-link" aria-label="Article"></a>
-  </div>
-  <div class="m-article-card__info">
-    <a href="danhsachcongviec.php" class="m-article-card__tag"><?php 
-    if (mysqli_num_rows($result) > 0) {
-      $count=0;
-      while($row = mysqli_fetch_assoc($result)) if ($row["author"] == $currentuser) $count++;    
-    }
-    echo $count;
-    ?></a>
-    <a href="danhsachcongviec.php" class="m-article-card__info-link">
-      <div>
-        <h2 class="m-article-card__title js-article-card-title ">
-         Số công việc dài hạn.
-       </h2>
-     </div>
-   </a>
- </div>
-</article>
-<article class="m-article-card post tag-nhung-cuon-sach-hay-nhat">
-  <div class="m-article-card__picture lozad" data-background-image="content/images/system/2.jpg">
-    <a href="task/" class="m-article-card__picture-link" aria-label="Article"></a>
-  </div>
-  <div class="m-article-card__info">
-    <a href="task/" class="m-article-card__tag">
-      <?php 
-      $sqlx = "SELECT  user FROM todo";
-      $resultx = mysqli_query($con, $sqlx);
-      if (mysqli_num_rows($resultx) > 0) {
-        $count=0;
-        while($row = mysqli_fetch_assoc($resultx)) if ($row["user"] == $currentuser) $count++;    
-      }
-      echo $count;
-      ?>
-    </a>
-    <a href="blog_categories_view.php" class="m-article-card__info-link">
-      <div>
-        <h2 class="m-article-card__title js-article-card-title " >
-          Số công việc ngắn hạn.
-        </h2>
+    <article class="m-article-card post tag-a-better-you">
+      <div class="m-article-card__picture lozad" data-background-image="content/images/system/1.jpg">
+
       </div>
-    </a>
-  </div>
+      <div class="m-article-card__info">
+        <a href="task/" class="m-article-card__info-link">
+          <div>
+            <h2 class="m-article-card__title js-article-card-title ">
+             Số công việc thường xuyên.
+           </h2>
+           <h2 >
+            <?php 
+            $sqlx = "SELECT  user FROM todo";
+            $resultx = mysqli_query($con, $sqlx);
+            if (mysqli_num_rows($resultx) > 0) {
+              $count=0;
+              while($row = mysqli_fetch_assoc($resultx)) if ($row["user"] == $currentuser) $count++;    
+            }
+            echo $count;
+            ?>
+          </h2>
+        </div>
+      </a>
+    </div>
+  </article>
+  <article class="m-article-card post tag-nhung-cuon-sach-hay-nhat">
+    <div class="m-article-card__picture lozad" data-background-image="content/images/system/2.jpg">
+      <a href="danhsachcongviec" class="m-article-card__picture-link" aria-label="Article"></a>
+    </div>
+
+    <div class="m-article-card__info">
+  <a href="vieccanlam.php" class="m-article-card__info-link">
+    <div>
+      <h2 class="m-article-card__title js-article-card-title " >
+        Số công việc dài hạn.
+      </h2>
+      <h2 >
+        <?php 
+        if (mysqli_num_rows($result) > 0) {
+          $count=0;
+          while($row = mysqli_fetch_assoc($result)) if ($row["author"] == $currentuser) $count++;    
+        }
+        echo $count;
+        ?>
+      </h2>
+    </div>
+  </a>
+</div>
 </article>
+
 <article class="m-article-card post tag-thai-van-linh-book-club">
   <div class="m-article-card__picture lozad" data-background-image="content/images/system/3.jpg">
-    <a href="danhsachcongviec.php" class="m-article-card__picture-link" aria-label="Article"></a>
   </div>
   <div class="m-article-card__info">
-    <a href="danhsachcongviec.php" class="m-article-card__tag"> 0</a>
-    <a href="danhsachcongviec.php" class="m-article-card__info-link">
+    <a href="" class="m-article-card__info-link">
       <div>
         <h2 class="m-article-card__title js-article-card-title ">
          Thông báo & thư hệ thống.
        </h2>
+       <h2>
+         0
+       </h2>
      </div>
    </a>
  </div>
 </article>
+<article class="m-article-card post tag-thai-van-linh-book-club">
+  <div class="m-article-card__picture lozad" data-background-image="content/images/system/4.jpg">
+  </div>
+  <div class="m-article-card__info">
+    <a href="" class="m-article-card__info-link">
+      <div>
+        <h2 class="m-article-card__title js-article-card-title ">
+         Thống kê hiệu suất làm việc
+       </h2>
+        <h2 class="m-article-card__title js-article-card-title ">
+         $Biến số hiển thị cho % hiệu suất tổng quát (mô tả)
+       </h2>
+     </div>
+   </a>
+ </div>
+</article>
+
+
 <div class="l-wrapper aos-init aos-animate" style="
 text-align: center; padding: 20px; margin-bottom: 20px; margin-bottom: 40px;
 ">
-<div class="chart-container" style="position: relative; height:400px; width:400px;">
+<!--  <div class="chart-container" style="position: relative; height:400px; width:400px;">
   <canvas id="myChart" width="250" height="250" style="width: 250px !important; height: 250px !important; "></canvas>
-</div>
+</div> -->
 <style type="text/css">
   .myChart{
     width: 250px !important;
@@ -95,6 +137,7 @@ text-align: center; padding: 20px; margin-bottom: 20px; margin-bottom: 40px;
     border-bottom-left-radius: 3em !important;
     border-bottom-right-radius: 3em !important;
   }
+
 </style>
 </div>
 </div>
@@ -126,17 +169,18 @@ if ($usernow=="admin") {
 
 </div>
 </div>
-<script>
 
-</script>
+
+
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js" ></script>
 <script src="js/loading.js"></script>
 <script src="js/thongke.js"></script>
+<script src="js/tooltipbs4.js"></script>
 <!-- THỐNG KÊ -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.js" integrity="sha512-zO8oeHCxetPn1Hd9PdDleg5Tw1bAaP0YmNvPY8CwcRyUk7d7/+nyElmFrB6f7vg4f7Fv4sui1mcep8RIEShczg==" crossorigin="anonymous"></script>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
