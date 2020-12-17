@@ -17,7 +17,6 @@
     on();
   }
   function drop(ev) {
-
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text"); // data  là id di chuyển 
     remove(data);

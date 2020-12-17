@@ -54,14 +54,19 @@ if ($posxoahomnay == true){
 } else
 if ($posdelete == true){
 	$id = ltrim($id, 'drag');
+	
+
+		// XÓA TASK
 	$sql = "DELETE FROM todo WHERE id =".$id."";
 	$result = mysqli_query($con, $sql);
-	if($result)
-	{
-		header('Location: index.php');
-	}else{
-		echo 'Data insertion failed: ';
-	}
+
+
+	// if($result)
+	// {
+	// 	header('Location: index.php');
+	// }else{
+	// 	echo 'Data insertion failed: ';
+	// }
 } else if($posstar == true){ // check star
 	$id = ltrim($id, 'star');
 

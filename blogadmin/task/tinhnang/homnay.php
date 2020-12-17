@@ -129,7 +129,7 @@ if ($countmyday == 0 ){
 
 						  	';
 						  }else if ($row["trangthai"]=="done"){
-						  	echo 'id="drag'.$row["id"].'" value="'.$row["task"].'" onclick="chitiet(this.id)"   draggable="true" ondragstart="drag(event)"  style="background-color: #e7e7e7; color: black;">
+						  	echo 'id="drag'.$row["id"].'" class="hoanthanh" value="'.$row["task"].'" onclick="chitiet(this.id)"   draggable="true" ondragstart="drag(event)">
 
 						  	<input  id="drag'.$row["id"].'value" value="'.$row["task"].'" style="display:none;" />
 
@@ -148,9 +148,9 @@ if ($countmyday == 0 ){
 						  }
                //star
                if ($row["star"]=="0"){ // danghoatdong
-               	echo ' <td style="text-align:center;"><span class="fa fa-star " onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
+               	echo ' <td style="text-align:center;"><span class="fa fa-star" onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
                } else {
-               	echo ' <td style="text-align:center;"><span class="fa fa-star checkedstar" onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
+               	echo ' <td style="text-align:center;" class="js-tooltip" data-tippy-content="Gắn sao để ưu tiên làm trước việc này"><span class="fa fa-star checkedstar" onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
                }
 
 

@@ -90,7 +90,7 @@ include("../../libs/db_connect.php");
 
 							  	';
 							  }else if ($row["trangthai"]=="done"){
-							  	echo 'id="drag'.$row["id"].'" value="'.$row["task"].'" onclick="chitiet(this.id)"   draggable="true" ondragstart="drag(event)"  style="background-color: #e7e7e7; color: black;">
+							  	echo 'id="drag'.$row["id"].'" class="hoanthanh" value="'.$row["task"].'" onclick="chitiet(this.id)"   draggable="true" ondragstart="drag(event)">
 
 							  	<input  id="drag'.$row["id"].'value" value="'.$row["task"].'" style="display:none;" />
 

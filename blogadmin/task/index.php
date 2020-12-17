@@ -8,6 +8,22 @@ if (getLoggedMemberID()=="guest"){
 }else{
   include("../header-user.php");
 }
+// TẠO MỚI USER Ở BẢNG THỐNG KÊ 
+$found = false;
+$sql = "SELECT * FROM `thongke`";
+$result = mysqli_query($con, $sql);
+if (mysqli_num_rows($result) > 0) {
+  while($row = mysqli_fetch_assoc($result)) {
+    if ($row["user"]== getLoggedMemberID()){
+      $found= true;
+    }
+  }
+}
+if($found == false){
+  $sql = 'INSERT INTO thongke (id,user,taskhoanthanh,taskxoa,taskhethan) VALUES (0,"'.getLoggedMemberID().'",0,0,0)';
+  $result = mysqli_query($con, $sql);
+}
+
 ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <link rel="stylesheet" href="css/style.css">
@@ -24,6 +40,7 @@ if (getLoggedMemberID()=="guest"){
 <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
 
 </head>
 <body  ondrop="dropout(event);"  ondragover="allowDrop(event)">
@@ -211,9 +228,6 @@ function updateTextInput(val) {
       console.log("done");
     }
   })
-
-
-
   } 
 })
 }
@@ -229,10 +243,9 @@ function updateTextInput(val) {
     url  : "trangthai.php", 
     data : {id : id},
     success: function(res){  
-          // $('#tablecontent').load( ' #tablecontent');
-          location.reload();
-        }
-      });
+      location.reload();
+    }
+  });
  }
  function funtrangthaiclick(clicked_id) {
   id = clicked_id;
@@ -241,31 +254,37 @@ function updateTextInput(val) {
     url  : "trangthai.php", 
     data : {id : id},
     success: function(res){  
-          // $('#tablecontent').load( ' #tablecontent');
-          location.reload();
-        }
-      });
+      location.reload();
+    }
+  });
 }
-
-
 </script>
 <script type="text/javascript">
   function xoathongtin(id) {
-      console.log(id);
-  // var removefirstid = document.getElementsByClassName("remove")[0].id;
-  // var id = document.getElementById(removefirstid).value;
-  $.ajax({
+    $.ajax({
+      type : "POST",  
+      url  : "trangthai.php",  
+      data : {id : id},
+      success: function(res){   // UPDATE THỐNG KÊ 
+         location.reload();
+      }
+    });
+  }
+  
+  function updatethongke(id){
+   $.ajax({
     type : "POST",  
-    url  : "trangthai.php",  
+    url  : "tinhnang/fxthongke.php",  
     data : {id : id},
     success: function(res){ 
-         // $('#tablecontent').load(document.URL +' #tablecontent');
-         location.reload();
-       }
-     });
-}
-function remove(data) {
+      xoathongtin(id);
+    }
+  });
+ }
 
+
+
+ function remove(data) {
   Swal.fire({
     title: 'Xóa công việc này ?',
     icon: 'warning',
@@ -275,7 +294,7 @@ function remove(data) {
     confirmButtonText: 'Xóa'
   }).then((result) => {
     if (result.isConfirmed) {
-      xoathongtin(data);
+      updatethongke(data);
       Swal.fire(
         'Đã xóa!',
         '',
