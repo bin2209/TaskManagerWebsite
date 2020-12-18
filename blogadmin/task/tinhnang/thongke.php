@@ -4,20 +4,17 @@
 include("../../../blogadmin/lib.php");  
 include("../../libs/db_connect.php");
 ?>
-<canvas id="myChart" width="200" height="200"></canvas>
+<canvas id="ThongKeTongCongViec" width="200" height="200"></canvas>
+<canvas id="ThongKeTongCongViec" width="200" height="200"></canvas>
 <script>
 	function getChart(){
-		var ctx = document.getElementById('myChart').getContext('2d');
-		var myChart = new Chart(ctx, {
+		var ctx = document.getElementById('ThongKeTongCongViec').getContext('2d');
+		var ThongKeTongCongViec = new Chart(ctx, {
 			type: 'polarArea',
 			data: {
 				labels: ['Công việc hết hạn', 'Công việc đã hoàn thành', 'Công việc đã hủy'],
-				//RED: hết hạn
-				//GREEN: hoàn thành 
-				//Orange: task xóa
 				datasets: [{
 					label: 'Số công việc',
-
 					data: [	<?php $sql = "SELECT * FROM `thongke`";
 					$result = mysqli_query($con, $sql);
 					if (mysqli_num_rows($result) > 0) {

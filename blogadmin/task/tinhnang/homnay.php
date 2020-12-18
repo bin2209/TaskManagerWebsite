@@ -162,7 +162,6 @@ if ($countmyday == 0 ){
                	$day =round($datediff / (60 * 60));
                	if ($day<=0){
                		echo '<td class="thongbaotime" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i><span class="thongbaotext">Quá thời gian</span></td>';
-
                	} else
                	echo '<td class="thongbaotime" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i> <span class="thongbaotext">'. $day .'h </span></td>';
                }

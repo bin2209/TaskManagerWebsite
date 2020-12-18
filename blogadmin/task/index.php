@@ -1,5 +1,4 @@
 <?php 
-// include("libs/db_connect.php");
 include("../../blogadmin/lib.php"); 
 include("../libs/db_connect.php");
 $currentuser= getLoggedMemberID();
@@ -8,6 +7,7 @@ if (getLoggedMemberID()=="guest"){
 }else{
   include("../header-user.php");
 }
+//------------------------------------------------------------------------------------------------
 // TẠO MỚI USER Ở BẢNG THỐNG KÊ 
 $found = false;
 $sql = "SELECT * FROM `thongke`";
@@ -23,6 +23,40 @@ if($found == false){
   $sql = 'INSERT INTO thongke (id,user,taskhoanthanh,taskxoa,taskhethan) VALUES (0,"'.getLoggedMemberID().'",0,0,0)';
   $result = mysqli_query($con, $sql);
 }
+//------------------------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------------------------
+// CHECK BẢNG TODO XEM CÁI NÀO QUÁ HẠN -> SET LẠI TIME: '1999-09-09 19:59:59': VÀ THỐNG KÊ ++;
+// KHÁC TIME 1999 THÌ SET LẠI VÀ ++ Ở BẢNG THONGKE;
+$sql = "SELECT * FROM `todo`";
+$result = mysqli_query($con, $sql);
+if (mysqli_num_rows($result) > 0) {
+  while($row = mysqli_fetch_assoc($result)) {
+    if ($row["user"]== getLoggedMemberID() && ($row["ngayhethan"]!= NULL)  &&  $row["ngayhethan"] != '1999-09-09 19:59:59' ){
+      date_default_timezone_set('Asia/Ho_Chi_Minh');
+      $your_date = strtotime($row["ngayhethan"]);
+      $now = strtotime(date('Y-m-d H:i:s'));
+      $datediff = $your_date - $now;
+      $day =round($datediff / (60 * 60));
+      if ($day<=0){
+        // QUÁ THỜI GIAN -> SET LÊN DATABASE THONGKE;
+        $sql_thongke = "UPDATE thongke SET taskhethan = taskhethan + 1 WHERE user='".getLoggedMemberID()."'";
+        $result_thongke = mysqli_query($con, $sql_thongke);
+        // LÍNH CANH: CHỈNH VỀ 1999;
+        $id = $row["id"];
+        $_sql_linhcanh = 'UPDATE todo SET ngayhethan = "1999-09-09 19:59:59" WHERE id='.$id.'';
+        $result_linhcanh = mysqli_query($con, $_sql_linhcanh);
+      }
+      // echo $row["ngayhethan"];
+    }
+  }
+}
+//------------------------------------------------------------------------------------------------
+
+
+
+
+
 
 ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -266,11 +300,11 @@ function updateTextInput(val) {
       url  : "trangthai.php",  
       data : {id : id},
       success: function(res){   // UPDATE THỐNG KÊ 
-         location.reload();
-      }
-    });
+       location.reload();
+     }
+   });
   }
-  
+
   function updatethongke(id){
    $.ajax({
     type : "POST",  
