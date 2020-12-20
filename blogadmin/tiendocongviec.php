@@ -2,8 +2,9 @@
 
 include("libs/db_connect.php");
 $currentuser=getLoggedMemberID();
-$sql = "SELECT id, star,ngayhethan, date,author FROM blogs";
-
+// $currentuser = 'binazure';
+$sql = "SELECT * FROM blogs";
+mysqli_query($con, "SET NAMES 'utf8'");
 $result = mysqli_query($con, $sql);
 
 //KHAI BÁO MÃ MÀU
@@ -31,12 +32,28 @@ if (mysqli_num_rows($result) > 0) {
 			$date2 = strtotime(date( "Y-m-d",$date2));
 			$quathoigian = false;
 			$returncolor = "";
+
+			
 			if ($date1-$date2<=0){
 				$thongbao = 'document.getElementById("thoigian'.$row["id"].'").innerHTML = " Quá hạn"; 
 				document.getElementById("trangthai-'.$row["id"].'").style.borderTop = "3em solid '.$xam.'";
 				document.getElementById("article'.$row["id"].'").style.filter = "grayscale(100%)";
-
 				';
+			
+				// CHECK XEM ĐÃ THÔNG BÁO CHƯA == NULL | NẾU CHƯA THÌ SENT LÊN checkthongbao = 1 |
+				// LÀM 2 VIỆC | 1 INSERT THÔNG BÁO | 2 INSERT LÍNH CANH
+				if ($row["checkthongbao"] == NULL){
+					// echo $row["id"]."<br>";
+					
+					// THÔNG BÁO -> SET LÊN DATABASE THONGBAO;
+					$sql_thongbao = 'INSERT INTO thongbao (id,user,title,noidung,link,theloai) VALUES (0,"'.$currentuser.'","'.$row["title"].'","'.$row["content"].'","cv'.$row["id"].'","cvhethan")';
+					$result_thongbao = mysqli_query($con, $sql_thongbao);	
+					// INSERT LÍNH CANH
+					$_sql_linhcanh = 'UPDATE blogs SET checkthongbao = "1" WHERE id='.$row["id"].'';
+					$result_linhcanh = mysqli_query($con, $_sql_linhcanh);	
+					
+				}
+				//////////////////////////////////////////////////
 
 			} else{
 
@@ -90,7 +107,7 @@ if (mysqli_num_rows($result) > 0) {
 				} else if ($sumday < 7 ){
 					$returncolor = 'document.getElementById("trangthai-'.$row["id"].'").style.borderTop = "3em solid '.$do.'";';
 				}
-			
+
 			}
 
 

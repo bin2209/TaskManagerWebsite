@@ -63,8 +63,9 @@ session_start();
 			if ($user != getLoggedMemberID()){
 				header('Location: ../');
 			}
-
+			mysqli_query($con,"SET NAMES 'utf8'");
 			$sql = "SELECT * FROM blogs WHERE id='".$idblogs."'";
+
 			$result = mysqli_query($con, $sql);
 
 			while($row = mysqli_fetch_assoc($result)) {

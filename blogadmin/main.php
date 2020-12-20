@@ -36,6 +36,7 @@ $result = mysqli_query($con, $sql);
     <li class="list-inline-item js-tooltip" data-tippy-content=" Công việc dài hạn" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="danhsachcongviec.php"> <img src="../images/giaodien/4t.png"></a></li>
     <li class="list-inline-item js-tooltip" data-tippy-content="Lưu trữ tài liệu" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="luutru/"> <img src="../images/giaodien/2t.png"></a></li>
     <li class="list-inline-item js-tooltip" data-tippy-content="Thảo luận" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="chat/"> <img src="../images/giaodien/3t.png"></a></li>
+    <li class="list-inline-item js-tooltip" data-tippy-content="Thống kê" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="thongke.php"> <img src="../images/giaodien/5t.png"></a></li>
   </ul>
 </div>
 
@@ -123,10 +124,22 @@ $result = mysqli_query($con, $sql);
       <h2 class="m-article-card__title js-article-card-title ">
        Thống kê hiệu suất làm việc
      </h2>
-     <h2 class="m-article-card__title js-article-card-title ">
-     </h2>
-   </div>
- </a>
+     <h2>
+      <?php $sql = "SELECT * FROM `thongke`";
+      $result = mysqli_query($con, $sql);
+      if (mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_assoc($result)) {
+          if ($row["user"]== getLoggedMemberID()){
+
+            if ($row["taskhoanthanh"]!=0 || $row["taskxoa"]!=0){
+              echo round(($row["taskhoanthanh"]/($row["taskhoanthanh"]+$row["taskxoa"]))*100)."%";
+            }
+          }
+        }
+      }?>
+    </h2>
+  </div>
+</a>
 </div>
 </article>
 

@@ -50,28 +50,40 @@ if (getLoggedMemberID()=="guest"){
     <div id="thongbao" style="padding: 1em;     height: 40em;">
       <?php 
       $sql = "SELECT * FROM thongbao";
+      mysqli_query($con, "SET NAMES 'utf8'");
       $result = mysqli_query($con, $sql);
       if (mysqli_num_rows($result) > 0) {
         $count=0;
         while($row = mysqli_fetch_assoc($result)) if ($row["user"] == $currentuser){
           if ($row["theloai"]=='taskhethan'){
-             $count++;
-            echo '
-            <nav class="navbar navbar-light bg-light tagthongbao">
-            <a class="navbar-brand" href="task/">
-            <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt=""> Công việc '.$row["title"].' tại công việc thường xuyên đã hết hạn
-            </a>
-            </nav>
-            ';
-          }
-        }
-        if ($count == 0){
-          echo "Không có thông báo.";
-        }
+           $count++;
+           echo '
+           <nav id="thongbao'.$row["id"].'" class="navbar navbar-light bg-light tagthongbao">
+           <a class="navbar-brand" href="task/">
+           <img src="assets/thuongxuyen.png" width="30" height="30" alt=""> Công việc thường xuyên "'.$row["title"].'" đã quá 24h.
+           </a>
+           <button id="'.$row["id"].'" class="js-tooltip" data-tippy-content="Xóa thông báo" onclick="Xoa(this.id)" style="background: transparent; border: 0;"> <img src="assets/xoa.png" width="30" height="30" ></button>
+           </nav>
+           ';
+         }else if($row["theloai"]=='cvhethan'){
+           $count++;
+           echo '
+           <nav id="thongbao'.$row["id"].'" class="navbar navbar-light bg-light tagthongbao">
+           <a class="navbar-brand" href="task/">
+           <img src="assets/daihan.png" width="30" height="30" alt=""> Công việc dài hạn "'.$row["title"].'"  đã hết hạn.
+           </a>
+           <button id="'.$row["id"].'" class="js-tooltip" data-tippy-content="Xóa thông báo" onclick="Xoa(this.id)" style="background: transparent; border: 0;"> <img src="assets/xoa.png" width="30" height="30" ></button>
+           </nav>
+           ';
+         }
+       }
+       if ($count == 0){
+        echo "Không có thông báo.";
       }
-      ?>
-    </div>
-  </div> <!-- <!content> -->
+    }
+    ?>
+  </div>
+</div> <!-- <!content> -->
 </div>
 <div id="overlay">
   <form method="post" action="trangthai.php" class="form" > 
@@ -79,6 +91,24 @@ if (getLoggedMemberID()=="guest"){
   </form>
 </div>
 </div>
+<script type="text/javascript">
+  function Xoa(id){
+    document.getElementById("thongbao"+id).style.display = "none";
+    console.log(id);
+    $.ajax({
+      type : "POST",  
+      url  : "request/xoathongbao.php",  
+      data : {id : id},
+      success: function(res){ 
+        Swal.fire(
+          'Đã xóa!',
+          '',
+          'success'
+          )
+      }
+    });
+  }
+</script>
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 <script defer src="assets/js/manifest2daf.js?v=a5dd59f074"></script>
 <script defer src="assets/js/vendor2daf.js?v=a5dd59f074"></script>

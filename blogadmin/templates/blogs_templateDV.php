@@ -7,11 +7,7 @@
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Muli" />
-<script type="text/javascript">
-	function checkinput(){
-		document.getElementById("posted1").checked = true;
-	}
-</script>
+
 <a name="detail-view"></a>
 
 <div class="panel-body" id="blogs_dv_container">
@@ -43,7 +39,7 @@
 					<div class="col-lg-9">
 						<span class="help-block collapse" id="title-description"><div class="alert alert-info">Tên công việc</div></span>
 
-						<input maxlength="190" onclick="checkinput()" type="text" class="form-control" name="title" id="title" value="<%%VALUE(title)%%>" required>
+						<input maxlength="190" onclick='document.getElementById("posted1").checked = true;' type="text" class="form-control" name="title" id="title" value="<%%VALUE(title)%%>" required>
 					</div>
 				</div>
 
@@ -64,7 +60,7 @@
 					<div class="col-lg-9">
 						<span class="help-block collapse" id="tags-description"><div class="alert alert-info">Hãy đặt thêm tag để dễ dàng ghi nhớ và phân loại công việc</div></span>
 
-						<input maxlength="40" type="text" class="form-control" name="tags" id="tags" value="<%%VALUE(tags)%%>" required>
+						<input maxlength="40"  onclick='document.getElementById("posted1").checked = true;' type="text" class="form-control" name="tags" id="tags" value="<%%VALUE(tags)%%>" required>
 					</div>
 				</div>
 
@@ -115,7 +111,7 @@
 				<label for="tags" class="control-label col-lg-3">Ngày hết hạn<span class="text-danger">*</span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#ngayhethan-description"></i></label>
 				<div class="col-lg-9">
 					<span class="help-block collapse" id="ngayhethan-description"><div class="alert alert-info">Ngày hết hạn</div></span>
-					<input  id="datepicker" maxlength="40" type="text" class="form-control"  id="ngayhethan" value="" name="ngayhethan"  required="" placeholder="Chọn ngày hết hạn">
+					<input  onclick='document.getElementById("posted1").checked = true;' id="datepicker" maxlength="40" type="text" class="form-control"  id="ngayhethan" value="" name="ngayhethan"  required="" placeholder="Chọn ngày hết hạn">
 					<script type="text/javascript">
 						$("#datepicker").datepicker({ 
 							format: 'yyyy/mm/dd' 

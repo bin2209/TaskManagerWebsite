@@ -417,9 +417,9 @@
 
 		if(!$msg){ // if no msg, use url to detect message to display
 			if($_REQUEST['record-added-ok'] != ''){
-				header('location:vieccanlam.php');
 				$msg = $Translation['new record saved'];
 				$class = 'alert-success';
+				header('location:vieccanlam.php');
 			}elseif($_REQUEST['record-added-error'] != ''){
 				$msg = $Translation['Couldn\'t save the new record'];
 				$class = 'alert-danger';

@@ -62,7 +62,7 @@ if (getLoggedMemberID()=='guest'){
         <span class="icon-menu"></span>
       </button>
       <a href="index.html" class="m-site-name in-mobile-topbar">
-        Khu vực thành viên
+        TaskVN
       </a>
       <button class="m-icon-button in-mobile-topbar js-open-search" aria-label="Open search">
         <span class="icon-search"></span>
@@ -85,19 +85,23 @@ if (getLoggedMemberID()=='guest'){
                 <li class="nav-ve-fonos" role="menuitem">
                  <?php 
                  if ($returnfolder==1) { 
-                  echo ' <a href="../">Trở về</a>';
+                  echo ' <a href="../">Trở về trang trước</a>';
                 } else if ($returnfolder == 2){
                   if (strpos($path, $vieccanlam) == true){
-                    echo '<p style="font-size: 1.125rem;"><a href="./">Trở về</a></p>';
+                    echo '<p style="font-size: 1.76rem !important"><a href="./">Trở về trang trước</a></p>';
                   } else
-                  echo '<a href="./">Trở về</a>';
+                  echo '<a href="./">Trở về trang trước</a>';
                 } 
                 ?>
               </li>
             </ul>
           </nav>
           <div class="m-nav__right">
-            <p class="in-menu-main more js-toggle-submenu m-icon-button" style="padding-left: 10px;   cursor: pointer; width: 100%; font-size: 15px;" >  
+            <?php 
+            if ($returnfolder==1)  echo ' <a href="../caidat.php">';
+            else echo '<a href="caidat.php">';
+            ?>
+            <p class="in-menu-main more m-icon-button" style="padding-left: 10px;   cursor: pointer; width: 100%; font-size: 15px;" >  
               <?php
               header('Content-type: text/html; charset=utf-8');
               $sql = "SELECT * FROM membership_users WHERE memberID = '".getLoggedMemberID()."'";
@@ -108,98 +112,99 @@ if (getLoggedMemberID()=='guest'){
 
                     echo $row["custom1"];
                     if ($row["custom2"]=='')
-                      echo '<img src="http://taskvn.com/blogadmin/assets/user.png" style="width:40px; margin-left:20px; border:2px solid #ccc; border-radius: 50%;" >';
+                      echo '<img src="http://taskvn.com/blogadmin/assets/user.png" style="width: 40px; margin-right: 13px; margin-left: 7px; border: 2px solid #ccc; border-radius: 50%;" >';
                     else
-                      echo '<img src="'.$row["custom2"].'" style="width:40px; margin-left:20px; border:2px solid #ccc; border-radius: 50%;" >';
+                      echo '<img src="'.$row["custom2"].'" style="width: 40px; margin-right: 13px; margin-left: 7px; border: 2px solid #ccc; border-radius: 50%;" >';
                   }
                 }
               }
               ?>
               <p>
-                <button class="m-icon-button in-menu-main more js-toggle-submenu  js-tooltip" aria-label="Toggle submenu"  data-tippy-content="Menu">
-                  <i class="fa fa-bars" aria-hidden="true" style="font-size:30px;"></i>
-                  <!-- <span class="">  -->
-                  </button>
-                  <style type="text/css">
-                    .menulink{
-                      padding: 4px;
-                    }
-                  </style>
-                  <div class="m-submenu js-submenu">
-                    <div class="l-wrapper in-submenu">
-                      <section class="m-recent-articles">
-                        <li class="menulink"><i class="fa fa-user"></i> <strong>
-                         <?php 
-                         if ($returnfolder==1)  echo ' <a href="../task">Công việc thường xuyên</a>';
-                         else echo '<a href="task/">Công việc thường xuyên</a>';
-                         ?>
-                       </strong></li>
-
-                       <li class="menulink"><i class="fa fa-user"></i> <strong>
-                         <?php 
-                         if ($returnfolder==1)  echo ' <a href="../danhsachcongviec.php">Công việc dài hạn</a>';
-                         else echo '<a href="danhsachcongviec.php">Công việc dài hạn</a>';
-                         ?>
-                       </strong></li>
-
-                       <li class="menulink"><i class="fa fa-user"></i> <strong>
-
-                        <?php 
-                        if ($returnfolder==1)   echo ' <a href="../luutru">Lưu trữ dữ liệu</a>';
-                        else echo '<a href="luutru/">Lưu trữ dữ liệu</a>';
-                        ?>
-
-                      </strong></li> 
-
-                      <li class="menulink"><i class="fa fa-user"></i> <strong>  
-                        <?php 
-                        if ($returnfolder==1)  echo ' <a href="../chat">Thảo luận</a>';
-                        else echo ' <a href="chat/">Thảo luận</a>';
-                        ?>
-                      </strong></li>
-
+              </a>
+              <button class="m-icon-button in-menu-main more js-toggle-submenu  js-tooltip" aria-label="Toggle submenu"  data-tippy-content="Menu">
+                <i class="fa fa-bars" aria-hidden="true" style="font-size:30px;"></i>
+                <!-- <span class="">  -->
+                </button>
+                <style type="text/css">
+                  .menulink{
+                    padding: 4px;
+                  }
+                </style>
+                <div class="m-submenu js-submenu">
+                  <div class="l-wrapper in-submenu">
+                    <section class="m-recent-articles">
                       <li class="menulink"><i class="fa fa-user"></i> <strong>
                        <?php 
-                       if ($returnfolder==1) echo '<a href="../caidat.php">Cài đặt tài khoản</a>';
-                       else  echo ' <a href="caidat.php">Cài đặt tài khoản</a>';
+                       if ($returnfolder==1)  echo ' <a href="../task">Công việc thường xuyên</a>';
+                       else echo '<a href="task/">Công việc thường xuyên</a>';
                        ?>
-                     </strong> </a></li>
+                     </strong></li>
 
-                     <li class="menulink">
+                     <li class="menulink"><i class="fa fa-user"></i> <strong>
+                       <?php 
+                       if ($returnfolder==1)  echo ' <a href="../danhsachcongviec.php">Công việc dài hạn</a>';
+                       else echo '<a href="danhsachcongviec.php">Công việc dài hạn</a>';
+                       ?>
+                     </strong></li>
+
+                     <li class="menulink"><i class="fa fa-user"></i> <strong>
+
                       <?php 
-                      if ($returnfolder==1)  echo '<a  href="../index.php?signOut=1"><i class="fa fa-power-off"></i> <strong>Đăng xuất</strong> </a>';
-                      else  echo '<a  href="index.php?signOut=1"><i class="fa fa-power-off"></i> <strong>Đăng xuất</strong> </a>';
+                      if ($returnfolder==1)   echo ' <a href="../luutru">Lưu trữ dữ liệu</a>';
+                      else echo '<a href="luutru/">Lưu trữ dữ liệu</a>';
                       ?>
-                    </li>
 
-                    <?php if(getLoggedAdmin()){ ?>
-                     <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm hidden-xs"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
-                     <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm visible-xs btn-sm"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
+                    </strong></li> 
+
+                    <li class="menulink"><i class="fa fa-user"></i> <strong>  
+                      <?php 
+                      if ($returnfolder==1)  echo ' <a href="../chat">Thảo luận</a>';
+                      else echo ' <a href="chat/">Thảo luận</a>';
+                      ?>
+                    </strong></li>
+
+                    <li class="menulink"><i class="fa fa-user"></i> <strong>
+                     <?php 
+                     if ($returnfolder==1) echo '<a href="../caidat.php">Cài đặt tài khoản</a>';
+                     else  echo ' <a href="caidat.php">Cài đặt tài khoản</a>';
+                     ?>
+                   </strong> </a></li>
+
+                   <li class="menulink">
+                    <?php 
+                    if ($returnfolder==1)  echo '<a  href="../index.php?signOut=1"><i class="fa fa-power-off"></i> <strong>Đăng xuất</strong> </a>';
+                    else  echo '<a  href="index.php?signOut=1"><i class="fa fa-power-off"></i> <strong>Đăng xuất</strong> </a>';
+                    ?>
+                  </li>
+
+                  <?php if(getLoggedAdmin()){ ?>
+                   <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm hidden-xs"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
+                   <a href="<?php echo PREPEND_PATH; ?>admin/pageHome.php" class="btn btn-danger navbar-btn btn-sm visible-xs btn-sm"><i class="fa fa-cog"></i> <strong><?php echo $Translation['admin area']; ?></strong></a>
+                 <?php } ?>
+                 <?php if(!$_GET['signIn'] && !$_GET['loginFailed']){ ?>
+                   <?php if(getLoggedMemberID() == $adminConfig['anonymousMember']){ ?>
+                     <p class="navbar-text navbar-right">&nbsp;</p>
+                     <ul class="nav navbar-nav navbar-right hidden-xs" style="min-width: 330px;">
+                     </ul>
+                     <ul class="nav navbar-nav visible-xs">
+                     </ul>
                    <?php } ?>
-                   <?php if(!$_GET['signIn'] && !$_GET['loginFailed']){ ?>
-                     <?php if(getLoggedMemberID() == $adminConfig['anonymousMember']){ ?>
-                       <p class="navbar-text navbar-right">&nbsp;</p>
-                       <ul class="nav navbar-nav navbar-right hidden-xs" style="min-width: 330px;">
-                       </ul>
-                       <ul class="nav navbar-nav visible-xs">
-                       </ul>
-                     <?php } ?>
-                   <?php } ?>
-                 </section>
-               </div>
+                 <?php } ?>
+               </section>
              </div>
-           </li>
-           <button class="m-icon-button in-menu-main js-open-search" aria-label="Open search">
-            <span class="icon-search"></span>
-          </button>
-          <div class="m-toggle-darkmode js-tooltip" data-tippy-content="Bật chế độ tối" style="margin-left: 0px !important;">
-            <input type="checkbox" class="js-toggle-darkmode">
-            <div></div>
-          </div>
+           </div>
+         </li>
+         <button class="m-icon-button in-menu-main js-open-search" aria-label="Open search">
+          <span class="icon-search"></span>
+        </button>
+        <div class="m-toggle-darkmode js-tooltip" data-tippy-content="Bật chế độ tối" style="margin-left: 0px !important;">
+          <input type="checkbox" class="js-toggle-darkmode">
+          <div></div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 </header>
 
