@@ -59,7 +59,12 @@
 
 												while($row = mysqli_fetch_assoc($result)) {
 													echo $row["custom1"];
-													echo '<img src="'.$row["custom2"].'" style="position: fixed; top:23px; width:40px; margin-left:20px;  border:2px solid #ccc; border-radius: 50%;" >';
+													if ($row["custom2"]==''){
+														echo '<img src="blogadmin/assets/user.png" style="position: fixed; top:23px; width:40px; margin-left:20px;  border:2px solid #ccc; border-radius: 50%;" >';
+													} else{
+														echo '<img src="'.$row["custom2"].'" style="position: fixed; top:23px; width:40px; margin-left:20px;  border:2px solid #ccc; border-radius: 50%;" >';
+													}
+													
 												}
 											}
 										}

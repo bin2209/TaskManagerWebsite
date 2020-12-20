@@ -6,6 +6,7 @@ include("libs/db_connect.php");
 $currentuser=getLoggedMemberID();
 $sql = "SELECT  posted,author FROM blogs";
 $result = mysqli_query($con, $sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -33,52 +34,28 @@ $result = mysqli_query($con, $sql);
   <ul class="nav navbar-nav list-inline" >
     <li id="tool1" class="list-inline-item  js-tooltip" data-tippy-content=" Công việc thường xuyên" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="task/"> <img src="../images/giaodien/1.png"></a></li>
     <li class="list-inline-item js-tooltip" data-tippy-content=" Công việc dài hạn" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="danhsachcongviec.php"> <img src="../images/giaodien/4t.png"></a></li>
-    <li class="list-inline-item js-tooltip" data-tippy-content="Lưu trữ tài liệu" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="luutru/"> <img src="../images/giaodien/2t.png"></li>
-      <li class="list-inline-item js-tooltip" data-tippy-content="Thảo luận" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="chat/"> <img src="../images/giaodien/3t.png"></adàli>
-      </ul>
-    </div>
+    <li class="list-inline-item js-tooltip" data-tippy-content="Lưu trữ tài liệu" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="luutru/"> <img src="../images/giaodien/2t.png"></a></li>
+    <li class="list-inline-item js-tooltip" data-tippy-content="Thảo luận" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="chat/"> <img src="../images/giaodien/3t.png"></a></li>
+  </ul>
+</div>
 
-    <article class="m-article-card post tag-a-better-you">
-      <div class="m-article-card__picture lozad" data-background-image="content/images/system/1.jpg">
-
-      </div>
-      <div class="m-article-card__info">
-        <a href="task/" class="m-article-card__info-link">
-          <div>
-            <h2 class="m-article-card__title js-article-card-title ">
-             Số công việc thường xuyên.
-           </h2>
-           <h2 >
-            <?php 
-            $sqlx = "SELECT  user FROM todo";
-            $resultx = mysqli_query($con, $sqlx);
-            if (mysqli_num_rows($resultx) > 0) {
-              $count=0;
-              while($row = mysqli_fetch_assoc($resultx)) if ($row["user"] == $currentuser) $count++;    
-            }
-            echo $count;
-            ?>
-          </h2>
-        </div>
-      </a>
-    </div>
-  </article>
-  <article class="m-article-card post tag-nhung-cuon-sach-hay-nhat">
-    <div class="m-article-card__picture lozad" data-background-image="content/images/system/2.jpg">
-      <a href="danhsachcongviec" class="m-article-card__picture-link" aria-label="Article"></a>
-    </div>
-
-    <div class="m-article-card__info">
-  <a href="vieccanlam.php" class="m-article-card__info-link">
-    <div>
-      <h2 class="m-article-card__title js-article-card-title " >
-        Số công việc dài hạn.
-      </h2>
-      <h2 >
+<article class="m-article-card post tag-a-better-you">
+  <div class="m-article-card__picture lozad" data-background-image="content/images/system/1.jpg">
+    <a href="task/" class="m-article-card__picture-link" aria-label="Article"></a>
+  </div>
+  <div class="m-article-card__info">
+    <a href="task/" class="m-article-card__info-link">
+      <div>
+        <h2 class="m-article-card__title js-article-card-title ">
+         Số công việc thường xuyên.
+       </h2>
+       <h2 >
         <?php 
-        if (mysqli_num_rows($result) > 0) {
+        $sqlx = "SELECT  user FROM todo";
+        $resultx = mysqli_query($con, $sqlx);
+        if (mysqli_num_rows($resultx) > 0) {
           $count=0;
-          while($row = mysqli_fetch_assoc($result)) if ($row["author"] == $currentuser) $count++;    
+          while($row = mysqli_fetch_assoc($resultx)) if ($row["user"] == $currentuser) $count++;    
         }
         echo $count;
         ?>
@@ -87,38 +64,70 @@ $result = mysqli_query($con, $sql);
   </a>
 </div>
 </article>
+<article class="m-article-card post ">
+  <div class="m-article-card__picture lozad" data-background-image="content/images/system/2.jpg">
+    <a href="vieccanlam.php" class="m-article-card__picture-link" aria-label="Article"></a>
+  </div>
+  <div class="m-article-card__info">
+    <a href="vieccanlam.php" class="m-article-card__info-link">
+      <div>
+        <h2 class="m-article-card__title js-article-card-title " >
+          Số công việc dài hạn.
+        </h2>
+        <h2 >
+          <?php 
+          if (mysqli_num_rows($result) > 0) {
+            $count=0;
+            while($row = mysqli_fetch_assoc($result)) if ($row["author"] == $currentuser) $count++;    
+          }
+          echo $count;
+          ?>
+        </h2>
+      </div>
+    </a>
+  </div>
+</article>
 
 <article class="m-article-card post tag-thai-van-linh-book-club">
   <div class="m-article-card__picture lozad" data-background-image="content/images/system/3.jpg">
+    <a href="thongbao.php" class="m-article-card__picture-link" aria-label="Article"></a>
   </div>
   <div class="m-article-card__info">
-    <a href="" class="m-article-card__info-link">
+    <a href="thongbao.php" class="m-article-card__info-link">
       <div>
         <h2 class="m-article-card__title js-article-card-title ">
          Thông báo & thư hệ thống.
        </h2>
        <h2>
-         0
-       </h2>
-     </div>
-   </a>
- </div>
+        <?php 
+        $sql = "SELECT * FROM thongbao";
+        $result = mysqli_query($con, $sql);
+        if (mysqli_num_rows($result) > 0) {
+          $count=0;
+          while($row = mysqli_fetch_assoc($result)) if ($row["user"] == $currentuser) $count++;    
+        }
+        echo $count;
+        ?>
+      </h2>
+    </div>
+  </a>
+</div>
 </article>
 <article class="m-article-card post tag-thai-van-linh-book-club">
   <div class="m-article-card__picture lozad" data-background-image="content/images/system/4.jpg">
-  </div>
-  <div class="m-article-card__info">
-    <a href="" class="m-article-card__info-link">
-      <div>
-        <h2 class="m-article-card__title js-article-card-title ">
-         Thống kê hiệu suất làm việc
-       </h2>
-        <h2 class="m-article-card__title js-article-card-title ">
-         $Biến số hiển thị cho % hiệu suất tổng quát (mô tả)
-       </h2>
-     </div>
-   </a>
+   <a href="thongke.php" class="m-article-card__picture-link" aria-label="Article"></a>
  </div>
+ <div class="m-article-card__info">
+  <a href="thongke.php" class="m-article-card__info-link">
+    <div>
+      <h2 class="m-article-card__title js-article-card-title ">
+       Thống kê hiệu suất làm việc
+     </h2>
+     <h2 class="m-article-card__title js-article-card-title ">
+     </h2>
+   </div>
+ </a>
+</div>
 </article>
 
 
@@ -167,6 +176,25 @@ if ($usernow=="admin") {
 }
 ?>
 
+
+
+<?php 
+// TẠO MỚI USER Ở BẢNG THỐNG KÊ DÀI HẠN
+$found = false;
+$sql = "SELECT * FROM `thongkedaihan`";
+$result = mysqli_query($con, $sql);
+if (mysqli_num_rows($result) > 0) {
+  while($row = mysqli_fetch_assoc($result)) {
+    if ($row["user"]== getLoggedMemberID()){
+      $found= true;
+    }
+  }
+}
+if($found == false){
+  $sql = 'INSERT INTO thongkedaihan (id,user,cvhoanthanh,cvchuaxong,cvhethan) VALUES (0,"'.getLoggedMemberID().'",0,0,0)';
+  $result = mysqli_query($con, $sql);
+}
+?>
 </div>
 </div>
 

@@ -7,6 +7,11 @@
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Muli" />
+<script type="text/javascript">
+	function checkinput(){
+		document.getElementById("posted1").checked = true;
+	}
+</script>
 <a name="detail-view"></a>
 
 <div class="panel-body" id="blogs_dv_container">
@@ -38,7 +43,7 @@
 					<div class="col-lg-9">
 						<span class="help-block collapse" id="title-description"><div class="alert alert-info">Tên công việc</div></span>
 
-						<input maxlength="190" type="text" class="form-control" name="title" id="title" value="<%%VALUE(title)%%>" required>
+						<input maxlength="190" onclick="checkinput()" type="text" class="form-control" name="title" id="title" value="<%%VALUE(title)%%>" required>
 					</div>
 				</div>
 
@@ -120,14 +125,12 @@
 			</div>
 
 
-			<div class="form-group">
+			<div class="form-group" style="display: none;">
 				<hr class="hidden-md hidden-lg">
 				<label for="posted" class="control-label col-lg-3">Trạng thái<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
 				<div class="col-lg-9">
 					<%%COMBO(posted)%%>
 				</div>
-
-
 			</div>
 
 			<div class="form-group">

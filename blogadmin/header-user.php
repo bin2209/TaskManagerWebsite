@@ -9,12 +9,15 @@ $chat = '/chat/';
 $luutru = '/luutru/';
 $task = '/task/';
 $duan = '/duan/';
-if ((strpos($path, $chat) == true)||(strpos($path, $luutru) == true ||(strpos($path, $task) == true)||(strpos($path, $duan) == true))) { 
-  $returnfolder = 1 ; // ở trong chat
-} 
-else { 
-  $returnfolder = 0 ;
-} 
+
+//------------custom
+$thongbao ='thongbao.php';
+$thongke ='thongke.php';
+$vieccanlam = 'vieccanlam.php';
+if ((strpos($path, $chat) == true)||(strpos($path, $luutru) == true ||(strpos($path, $task) == true)||(strpos($path, $duan) == true)))  $returnfolder = 1 ; 
+else if(strpos($path, $thongbao) == true || strpos($path, $thongke) == true || strpos($path, $vieccanlam) == true)  $returnfolder = 2;
+else $returnfolder = 0 ;
+
 
 if (strpos($path, 'vieccanlam.php') == true) { 
   include("lib.php");
@@ -81,11 +84,13 @@ if (getLoggedMemberID()=='guest'){
                 </li>
                 <li class="nav-ve-fonos" role="menuitem">
                  <?php 
-                  // $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-                  // $key = '/chat/';
-                 // echo $returnfolder;
                  if ($returnfolder==1) { 
                   echo ' <a href="../">Trở về</a>';
+                } else if ($returnfolder == 2){
+                  if (strpos($path, $vieccanlam) == true){
+                    echo '<p style="font-size: 1.125rem;"><a href="./">Trở về</a></p>';
+                  } else
+                  echo '<a href="./">Trở về</a>';
                 } 
                 ?>
               </li>
@@ -102,7 +107,10 @@ if (getLoggedMemberID()=='guest'){
                   while($row = mysqli_fetch_assoc($result)) {
 
                     echo $row["custom1"];
-                    echo '<img src="'.$row["custom2"].'" style="width:40px; margin-left:20px; border:2px solid #ccc; border-radius: 50%;" >';
+                    if ($row["custom2"]=='')
+                      echo '<img src="http://taskvn.com/blogadmin/assets/user.png" style="width:40px; margin-left:20px; border:2px solid #ccc; border-radius: 50%;" >';
+                    else
+                      echo '<img src="'.$row["custom2"].'" style="width:40px; margin-left:20px; border:2px solid #ccc; border-radius: 50%;" >';
                   }
                 }
               }
@@ -149,7 +157,7 @@ if (getLoggedMemberID()=='guest'){
                         else echo ' <a href="chat/">Thảo luận</a>';
                         ?>
                       </strong></li>
-                      
+
                       <li class="menulink"><i class="fa fa-user"></i> <strong>
                        <?php 
                        if ($returnfolder==1) echo '<a href="../caidat.php">Cài đặt tài khoản</a>';

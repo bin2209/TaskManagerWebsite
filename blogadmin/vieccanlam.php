@@ -5,6 +5,7 @@
 </head>
 <html>
 <link rel="stylesheet" type="text/css" href="css/iosdesign.css">
+
 <?php
 $currDir=dirname(__FILE__);
 include("$currDir/defaultLang.php");

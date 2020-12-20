@@ -4,6 +4,11 @@
   border-radius: 3em;
   background: #ffffffe6 !important;
   width: auto !important;
+  max-width: 500px !important;
+}
+.swal2-image{
+  max-height: 350px !important;
+  max-width: 350px !important;
 }
 .swal2-title{
   font-family: 'Muli', sans-serif !important;
@@ -137,12 +142,12 @@ h1{
 
 
 .btn {
-    padding: 4px 10px;
-    border: 0px solid;
-    border-radius: 3em;
-    padding: 8px 14px;
-    font-size: 14px;
+  padding: 4px 10px;
+  border: 0px solid;
+  border-radius: 3em;
+  padding: 8px 14px;
+  font-size: 14px;
 }
 .btn:hover {
-    background-color: #ccc;
+  background-color: #ccc;
 }

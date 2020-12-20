@@ -24,6 +24,22 @@ if($found == false){
   $result = mysqli_query($con, $sql);
 }
 //------------------------------------------------------------------------------------------------
+// TẠO MỚI USER Ở BẢNG THỐNG KÊ NGÀY
+$thongkengaytao = date("Y-m-d");
+$found = false;
+$sql = "SELECT * FROM `thongkengay`";
+$result = mysqli_query($con, $sql);
+if (mysqli_num_rows($result) > 0) {
+  while($row = mysqli_fetch_assoc($result)) {
+    if ($row["user"]== getLoggedMemberID() && $row["ngay"]==$thongkengaytao){
+      $found= true;
+    }
+  }
+}
+if($found == false){
+  $sql = 'INSERT INTO thongkengay (id,user,ngay,soluong) VALUES (0,"'.getLoggedMemberID().'","'.$thongkengaytao.'",0)';
+  $result = mysqli_query($con, $sql);
+}
 
 //------------------------------------------------------------------------------------------------
 // CHECK BẢNG TODO XEM CÁI NÀO QUÁ HẠN -> SET LẠI TIME: '1999-09-09 19:59:59': VÀ THỐNG KÊ ++;
@@ -42,6 +58,11 @@ if (mysqli_num_rows($result) > 0) {
         // QUÁ THỜI GIAN -> SET LÊN DATABASE THONGKE;
         $sql_thongke = "UPDATE thongke SET taskhethan = taskhethan + 1 WHERE user='".getLoggedMemberID()."'";
         $result_thongke = mysqli_query($con, $sql_thongke);
+        
+        //THÔNG BÁO -> SET LÊN DATABASE THONGBAO;
+        $sql_thongbao = 'INSERT INTO thongbao (id,user,title,noidung,link,theloai) VALUES (0,"'.getLoggedMemberID().'","'.$row["task"].'","'.$row["noidung"].'","'.$row["id"].'","taskhethan")';
+        $result_thongbao = mysqli_query($con, $sql_thongbao);
+
         // LÍNH CANH: CHỈNH VỀ 1999;
         $id = $row["id"];
         $_sql_linhcanh = 'UPDATE todo SET ngayhethan = "1999-09-09 19:59:59" WHERE id='.$id.'';
@@ -316,8 +337,6 @@ function updateTextInput(val) {
   });
  }
 
-
-
  function remove(data) {
   Swal.fire({
     title: 'Xóa công việc này ?',
@@ -355,13 +374,6 @@ function addstemp(data,name,id){
   </script>
 
 </div>
-<!-- <script src="lich/js/mobiscroll.jquery.min.js"></script> -->
-<!-- <div id="lich">
- <input id="datepicker" width="276" />
-</div>
--->
-
-
 <script>
   $('#datepicker').datepicker();
 </script>

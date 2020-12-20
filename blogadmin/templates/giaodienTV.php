@@ -8,14 +8,10 @@
 	<div class="m-article-card__info">
 		<center><p class="m-article-card__tag" id="blogs-title-<%%VALUE(id)%%>">
 			<%%VALUE(title)%%>
-
 		</p></center>
 		<center><hr style="margin: 5px; " width="80%"></hr></center>
 		<div style="font-size: 14px; text-align: center;">
 			<p  id="blogs-star-<%%VALUE(id)%%>">Độ quan trọng <%%VALUE(star)%%> <i class="fa fa-star"></i>  </p>
-			<!-- <p id="blogs-star-<%%VALUE(id)%%>" >Nội dung: <%%VALUE(content)%%></p> -->
-			<!-- <p id="blogs-date-<%%VALUE(id)%%>">Ngày tạo: <%%VALUE(date)%%> </p>  -->
-			<!-- <p id="blogs-ngayhethan-<%%VALUE(id)%%>"> Ngày hết hạn: <%%VALUE(ngayhethan)%%> </p> -->
 			<p id="thoigian<%%VALUE(id)%%>">TIME</p>
 		</div>
 	</div>
@@ -28,7 +24,7 @@
 			imageUrl: 'images/<%%VALUE(photo)%%>',
 			showCancelButton: false,
 			showDenyButton: true,
-			denyButtonText: 'Chỉnh sửa',
+			denyButtonText: 'Xóa',
 			confirmButtonColor: '#3085d6',
 			cancelButtonColor: '#d33',
 			confirmButtonText: 'Tham gia công việc',
@@ -39,22 +35,38 @@
 				window.location.href = "duan/index.php?run=<%%VALUE(id)%%>&key=<%%VALUE(author)%%>&code=<%%VALUE(member)%%>";
 			}
 			if (result.isDenied){
-				window.location.href ="vieccanlam.php?SelectedID=<%%VALUE(id)%%>";
+				Swal.fire({
+					title: 'Xóa công việc với trạng thái?',
+					text: 'Việc này giúp bạn thống kê được công việc hiệu quả hơn',
+					icon: 'warning',
+					showCloseButton: true,
+					showDenyButton: true,
+					confirmButtonColor: '#3085d6',
+					confirmButtonText: 'Xóa, đã hoàn thành',
+					denyButtonText: 'Xóa, chưa xong'
+				}).then((result) => {
+					if (result.isConfirmed) {
+						id = 'hoanthanh<%%VALUE(id)%%>';
+						console.log(id);
+					} else if (result.isDenied){
+						id = 'chuaxong<%%VALUE(id)%%>';
+						console.log(id);
+					}
+					$.ajax({
+						type : "POST",  
+						url  : "request/xoaduan.php",  
+						data : {id : id},
+						success: function(res){ 
+							Swal.fire(
+								'Đã xóa!',
+								'',
+								'success'
+								)
+							location.reload();
+						}
+					});
+				})
 			}
 		})
 	}
 </script>
-
-
-
-	<!-- 	<td id="blogs-title-<%%VALUE(id)%%>" class="blogs-title js-tooltip" data-tippy-content="x"><%%SELECT%%><%%VALUE(title)%%><%%ENDSELECT%%></td>
-		<td id="blogs-category-<%%VALUE(id)%%>" class="blogs-category"><%%SELECT%%><%%VALUE(category)%%><%%ENDSELECT%%></td>
-		<td id="blogs-tags-<%%VALUE(id)%%>" class="blogs-tags"><%%SELECT%%><%%VALUE(tags)%%><%%ENDSELECT%%></td>
-		<td id="blogs-content-<%%VALUE(id)%%>" class="blogs-content"><%%SELECT%%><%%VALUE(content)%%><%%ENDSELECT%%></td>
-		<td id="blogs-photo-<%%VALUE(id)%%>" class="blogs-photo"><a href="<%%TRANSLATION(ImageFolder)%%><%%VALUE(photo)%%>" data-lightbox="blogs-photo"><img src="thumbnail.php?i=<%%VALUE(photo)%%>&t=blogs&f=photo&v=tv" class="img-thumbnail"></a></td>
-		<td id="blogs-date-<%%VALUE(id)%%>" class="blogs-date"><%%SELECT%%><%%VALUE(date)%%><%%ENDSELECT%%></td>
-		<td id="blogs-ngayhethan-<%%VALUE(id)%%>" class="blogs-ngayhethan"><%%SELECT%%><%%VALUE(ngayhethan)%%><%%ENDSELECT%%></td>
-		<td id="blogs-author-<%%VALUE(id)%%>" class="blogs-author"><%%SELECT%%><%%VALUE(author)%%><%%ENDSELECT%%></td>
-		<td id="blogs-posted-<%%VALUE(id)%%>" class="blogs-posted"><%%SELECT%%><%%VALUE(posted)%%><%%ENDSELECT%%></td>
-		<td id="blogs-star-<%%VALUE(id)%%>" class="blogs-star"><%%SELECT%%><%%VALUE(star)%%><%%ENDSELECT%%></td>
- -->

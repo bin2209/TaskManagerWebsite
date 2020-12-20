@@ -1181,7 +1181,7 @@ EOT;
 		<div class="input-group" id="quick-search">
 			<input type="text" id="SearchString" name="SearchString" value="{$safe_search}" class="form-control" placeholder="{$safe_label}" style="    border-radius: 3em;
     padding: 8px 14px;
-    font-size: 14px;" required>
+    font-size: 14px;" >
 			<span class="input-group-btn">
 				<button style="    border: 0px solid;
     border-radius: 3em;
