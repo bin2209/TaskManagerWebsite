@@ -8,7 +8,8 @@ include("../../../blogadmin/lib.php");
 include("../../libs/db_connect.php");
 $startDate = time();
 $id = $_POST['id'];
-// $id = 'khacdrag25';
+// $id = 'khacdrag172,thoigian:2020-12-18T21:37';
+// $id = 'khacdrag161,thoigian:2020-12-23T22:03';
 $mai = 'ngaymaidrag';
 $tuansau = 'tuansaudrag';
 $khac = 'khacdrag';
@@ -33,8 +34,42 @@ if ($posmai !== false){
 	SET thongbao = "'.$time.'" WHERE id='.$id.';
 	';
 } else if($poskhac !== false){
+
 	$id = str_replace("khacdrag","",$id);
+
+	$id = str_replace("thoigian:","",$id);
+	// $id = str_replace("", replace, subject)
+	//LOC TIME 
+	$timekhac = str_replace(",thoigian:", "", $id);
+
+	// $timekhac = str_replace("172", "", $timekhac);
+
+	$id =  substr($id,0,strpos($id,","));
+	// $id = str_replace($timekhac,"",$id);
+
+
+	$timekhac = str_replace("T", " ", $timekhac);
+	$timekhac = $timekhac.':00';
+	$timekhac = str_replace($id.',', "", $timekhac);
+
+	echo $id;
+	echo "<br>";
+	echo $timekhac;
+
+	$sql = 'UPDATE todo
+	SET thongbao = "'.$timekhac.'" WHERE id='.$id.';
+	';
 }
+//TESTCASE
+// echo "<br>";
+// $time = date('Y-m-d H:i:s', strtotime('+7 day', $startDate));
+// echo $id;
+// echo "<br>";
+// echo $time;
+// echo "<br>";
+// echo $timekhac;
+//TESTCASE
+
 
 $result = mysqli_query($con, $sql);
 if($result){

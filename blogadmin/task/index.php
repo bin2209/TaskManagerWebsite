@@ -205,13 +205,43 @@ if (mysqli_num_rows($result) > 0) {
     location.reload(true);
   }
   function setthongbao(id){
-   console.log(id);
-   $.post("tinhnang/nhacnhorequest.php",
-   {
-    id: id,
-  });
-   location.reload(true);
- }
+    var str = id;
+    var n = str.indexOf("khacdrag");
+    //NẾU KHÁC
+    if (n!=-1){
+      Swal.fire({
+        title: 'Cài đặt thời gian nhận nhắc nhở',
+      // icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Đồng ý',
+      html: '<input type="datetime-local"  id="datepicker"  name="datepicker">',
+    }).then((result) => {
+
+      if (result.isConfirmed) {
+        datepicker = $("input#datepicker").val();
+        result_khac = id+',thoigian:'+datepicker;
+        console.log(result_khac);
+        id = result_khac;
+      }
+      $.post("tinhnang/nhacnhorequest.php",
+      {
+        id: id,
+      });
+      location.reload(true);
+    })
+  } else{ // 2 OPTION CHỌN SẴN
+    console.log(id);
+    $.post("tinhnang/nhacnhorequest.php",
+    {
+      id: id,
+    });
+    location.reload(true);
+  }
+}
+
+
  //LICH
  function showcalendar(){
   $("#datepicker").datepicker(); 

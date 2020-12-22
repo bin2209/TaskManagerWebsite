@@ -116,7 +116,7 @@ if($_POST['action'] == 'changePassword' && $mi['username'] != $adminConfig['admi
 						<fieldset id="profile">
 							<div class="form-group">
 								<label for="email"><?php echo $Translation['email']; ?></label>
-								<input type="email" id="email" name="email" value="<?php echo $mi['email']; ?>" class="form-control">
+								<input type="email" id="email" name="email" value="<?php echo $mi['email']; ?>" class="form-control" readonly>
 							</div>
 
 							<?php for($i=1; $i<5; $i++){ ?>
