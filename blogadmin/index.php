@@ -14,12 +14,38 @@ $arrTables = getTableList();
 
 if(isset($_GET['signOut'])){
 	logOutUser();
-	redirect("index.php?signIn=1");
+	// redirect("index.php?signIn=1");
+	redirect("../");
 }elseif(isset($_GET['loginFailed']) || isset($_GET['signIn'])){
 	if(!headers_sent() && isset($_GET['loginFailed'])) header('HTTP/1.0 403 Forbidden');
-	include("{$currDir}/login.php");
-}else{
-	
+	echo '<script type="text/javascript">
+	function dangnhapthatbai(){
+		Swal.fire({
+			position: "top-end",
+			icon: "error",
+			title: "Đăng nhập thất bại",
+			text: "Kiểm tra lại tài khoản hoặc mật khẩu",
+			showConfirmButton: false,
+			timer: 2000
+			})
+		}
 
-	include("{$currDir}/main.php");
-}
+		</script>';
+		include("{$currDir}/login.php");
+	}else{
+
+
+		include("{$currDir}/main.php");
+	}
+	?>
+	<link rel="stylesheet" type="text/css" href="css/iosdesign.css">
+	<style type="text/css">
+		.swal2-popup{
+			border-radius: 3em;
+			background: #ffffffe6 !important;
+			width: 400px !important;
+		}
+	</style>
+	<script type="text/javascript">
+		dangnhapthatbai();
+	</script>

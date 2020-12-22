@@ -50,7 +50,7 @@
 									<?php
 									include("blogadmin/libs/db_connect.php");
 									if(getLoggedMemberID()=='guest' ){
-										print "Đăng nhập";
+										echo '<div class="subscribe-btn-navbar-wrapper" style="position: relative; top: 12px; margin-top: -19px; "><div class="clickable btnWrapper  subscribe-btn-navbar" style="background:linear-gradient(to right, #ffa659 0%, #ff6d6d 100%);color:white; padding: 7px 1.5em;" >Đăng nhập</div></div>';
 									} else {
 										$sql = "SELECT * FROM membership_users WHERE memberID = '".getLoggedMemberID()."'";
 										$result = mysqli_query($con, $sql);

@@ -12,6 +12,7 @@ if (getLoggedMemberID()=="guest"){
 $found = false;
 $sql = "SELECT * FROM `thongke`";
 $result = mysqli_query($con, $sql);
+
 if (mysqli_num_rows($result) > 0) {
   while($row = mysqli_fetch_assoc($result)) {
     if ($row["user"]== getLoggedMemberID()){

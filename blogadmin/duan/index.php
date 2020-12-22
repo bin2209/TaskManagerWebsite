@@ -10,6 +10,8 @@ session_start();
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/iosdesign.css">
 	<!-- DATE PICKER -->
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 	<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
@@ -53,7 +55,7 @@ session_start();
 	// echo 'IDBLOGS: ' . $_GET['run'] . '<br>';
 	// echo 'USER: ' . $_GET['key'] . '<br>';
 	// echo 'Member: ' . $_GET['code'] . '<br>';
-
+			header("Content-type: text/html; charset=utf-8");
 
 			$idblogs = $_GET['run'];
 			$user = $_GET['key'];
@@ -65,6 +67,7 @@ session_start();
 			}
 			mysqli_query($con,"SET NAMES 'utf8'");
 			$sql = "SELECT * FROM blogs WHERE id='".$idblogs."'";
+
 
 			$result = mysqli_query($con, $sql);
 
@@ -90,7 +93,9 @@ session_start();
 
 				<?php  
 				$sql = "SELECT * FROM `duan`";
+				mysqli_query($con, "SET NAMES 'utf8'");
 				$result = mysqli_query($con, $sql);
+
 				$i=0;
 				if (mysqli_num_rows($result) > 0) {
 					while($row = mysqli_fetch_assoc($result)) {
@@ -109,12 +114,15 @@ session_start();
 							if (mysqli_num_rows($result) > 0) {
 								if ($a[$x]!=$lastday ){
 									$sql = "SELECT * FROM duan WHERE datepicker='".$a[$x]."'";
+									mysqli_query($con, "SET NAMES 'utf8'");
 									$result = mysqli_query($con, $sql);
+
 									echo '	
 									<section class="block">
 									<div class="each-year">
 									<div class="title">'.$a[$x].'</div>';
 									while($row = mysqli_fetch_assoc($result)) {
+
 										echo '
 										<div class="each-event" id="congviec'.$row["id"].'">
 										<i class="fa fa-times" id="'.$row["id"].'" onclick="xoa(this.id);" aria-hidden="true" style="float:right;"></i>
@@ -154,14 +162,19 @@ session_start();
 		// }
 		function taomoi(){
 			Swal.fire({
-				title: 'Tạo mới',
+				title: 'Thêm công đoạn',
 				showDenyButton: false,
 				showCancelButton: false,
-				confirmButtonText: `Save`,
+				showCancelButton: true,
+				confirmButtonText: `Lưu`,
 				denyButtonText: `Don't save`,
-				html: '<input type="text" id="tieude" name="tieude"><br>'
-				+'<input type="text" id="noidung" name="noidung"><br>'
-				+'<input type="date" id="datepicker"  name="datepicker">',
+				html: 
+				'<style>input{padding: 6px 12px; border: 1px solid #ccc; border-radius: 3em;}</style><span>Tiêu đề</span><br>'+
+				'<input type="text" placeholder="Nhập tiêu đề" id="tieude" name="tieude"><br>'
+				+'<span>Nội dung</span><br>'
+				+'<input type="text" placeholder="Nhập nội dung" id="noidung" name="noidung"><br>'
+				+'<span>Ngày thực hiện</span><br>'
+				+'<input type="date"  id="datepicker"  name="datepicker">',
 			}).then((result) => {
 				if (result.isConfirmed) {
 					tieude = $( "input#tieude" ).val();

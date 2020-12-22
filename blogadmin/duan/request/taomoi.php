@@ -29,7 +29,7 @@ $datepicker = $_POST["datepicker"];
 
 $sql = "INSERT INTO duan (id, idblogs, tieude, noidung, user ,datepicker ) VALUES (0, ".$idblogs.", '".$tieude."','".$noidung."','".$user."','".$datepicker."')";
 
-
+mysqli_query($con, "SET NAMES 'utf8'");
 $result = mysqli_query($con, $sql);
 echo $result;
 
