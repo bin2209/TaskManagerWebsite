@@ -125,7 +125,7 @@
  										<nav id="tag{{ image.filename }}" class="navbar navbar-light bg-light ng-scope" ng-repeat="image in images">
  											<div class="">
  												<a class="navbar-brand ng-binding" href="#">
- 													<img id="dinhdangfile" src="upload/{{ image.dinhdang }}" alt="" width="30" height="30">{{ image.shortname }}
+ 													<img id="dinhdangfile" src="upload/{{ image.anhdinhdang }}" alt="" width="30" height="30">{{ image.shortname }}
  												</a>
  											</div>
  											<div>
