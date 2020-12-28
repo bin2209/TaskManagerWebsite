@@ -211,26 +211,26 @@ if (mysqli_num_rows($result) > 0) {
     if (n!=-1){
       Swal.fire({
         title: 'Cài đặt thời gian nhận nhắc nhở',
-      // icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Đồng ý',
-      html: '<input type="datetime-local"  id="datepicker"  name="datepicker">',
-    }).then((result) => {
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Đồng ý',
+        html: '<style>input { padding: 6px 12px; border: 1px solid #ccc; border-radius: 3em; }</style><input type="datetime-local"  id="datepicker"  name="datepicker">',
+      }).then((result) => {
 
-      if (result.isConfirmed) {
-        datepicker = $("input#datepicker").val();
-        result_khac = id+',thoigian:'+datepicker;
-        console.log(result_khac);
-        id = result_khac;
-      }
-      $.post("tinhnang/nhacnhorequest.php",
-      {
-        id: id,
-      });
-      location.reload(true);
-    })
+        if (result.isConfirmed) {
+          datepicker = $("input#datepicker").val();
+          result_khac = id+',thoigian:'+datepicker;
+          console.log(result_khac);
+          id = result_khac;
+        }
+        $.post("tinhnang/nhacnhorequest.php",
+        {
+          id: id,
+        });
+        location.reload(true);
+      })
   } else{ // 2 OPTION CHỌN SẴN
     console.log(id);
     $.post("tinhnang/nhacnhorequest.php",
@@ -240,12 +240,28 @@ if (mysqli_num_rows($result) > 0) {
     location.reload(true);
   }
 }
-
-
- //LICH
- function showcalendar(){
-  $("#datepicker").datepicker(); 
+function setdinhky(id){
+  time = $("input#datepicker").val();
+  console.log(time);
+  console.log(id);
+  $.ajax({
+    type : "POST", 
+    url  : "tinhnang/dinhkyrequest.php", 
+    data : {
+      id : id,
+      time: time
+    },
+    success: function(res){  
+      // location.reload(true);
+      // window.location.href = "https://taskvn.com/blogadmin/task";
+    }
+     // location.reload(true);
+  });
+  location.reload(true);
 }
+
+
+
 function updateTextInput(val) {
   document.getElementById('textInput').value=val; 
 }
@@ -292,12 +308,12 @@ function updateTextInput(val) {
   if (result.isDenied){
     Swal.fire({
       title: 'Nhắc nhở định kì',
-      html:'<label>Chọn ngày bắt đầu</label> <center><input id="datepicker" width="276" onclick="showcalendar()" /></center>'
-      +'<label>Khoảng thời gian thông báo</label> <center><input type="number" id="textInput" value="" ><center>',
+      html:'<style>input,button { padding: 6px 12px; border: 1px solid #ccc; border-radius: 3em; } .btn-outline-primary{width:50%;}</style><label>Thời gian bắt đầu thông báo</label> <center><input type="datetime-local" id="datepicker" width="276" required/></center><label>Lặp lại</label><br><button  id="hangngay'+id+'" type="button" class="btn btn-outline-primary swal2-confirm swal2-styled" onclick="setdinhky(this.id)">Hàng ngày</button><button  id="hangtuan'+id+'" type="button" class="btn btn-outline-primary swal2-confirm swal2-styled" onclick="setdinhky(this.id)">Hàng tuần</button><button  id="hangthang'+id+'" type="button" class="btn btn-outline-primary swal2-confirm swal2-styled" onclick="setdinhky(this.id)">Hàng tháng</button>',
+
       showCloseButton: true,
+      showConfirmButton: false,
       showCancelButton: false,
       focusConfirm: false,
-      confirmButtonText:  'Đặt định kỳ',
     }).then((result) => {
       if (result.isConfirmed) {
       //  $.ajax({
@@ -388,26 +404,43 @@ function updateTextInput(val) {
   })
 }
 function addstemp(data,name,id){
-      // console.log(data);
-      // console.log(id);  
-      id = id;
-      data= data;
-      $.ajax({
-        type : "POST",  
-        url  : "stamp.php",  
-        data : {id : id, data: data},
-        success: function(res){ 
-         // $('#tablecontent').load(document.URL +' #tablecontent');
-         location.reload();
-       }
-     });
-    }
-  </script>
+  id = id;
+  data= data;
+  $.ajax({
+    type : "POST",  
+    url  : "stamp.php",  
+    data : {id : id, data: data},
+    success: function(res){ 
+     location.reload();
+   }
+ });
+}
 
-</div>
-<script>
-  $('#datepicker').datepicker();
+function tatdinhky(id){
+  Swal.fire({
+    title: 'Tắt thông báo định kỳ?',
+    text: "Công việc này sẽ không nhận được nhắc nhở nữa.",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Đồng ý',
+    cancelButtonText: 'Hủy'
+  }).then((result) => {
+    if (result.isConfirmed) {
+     $.ajax({
+      type : "POST", 
+      url  : "tinhnang/tatdinhky.php", 
+      data : {id : id},
+      success: function(res){  
+        location.reload();
+      }
+    });
+   }
+ })
+}
 </script>
+</div>
 
 
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>

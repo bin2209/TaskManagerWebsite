@@ -1,3 +1,7 @@
+<script defer src="../../assets/js/manifest2daf.js?v=a5dd59f074"></script>
+<script defer src="../../assets/js/vendor2daf.js?v=a5dd59f074"></script>
+<script defer src="../../assets/js/app2daf.js?v=a5dd59f074"></script>
+
 <div id="reload" style="display: none">reload</div>
 <div id="tablecontent">
   <table id="table_one" class="table" cellspacing="1" cellpadding="1">
@@ -6,10 +10,10 @@
         <tr class="addnew">
           <th scope="col" style="vertical-align: inherit !important;"><i class="fa fa-plus"></i>  </th>
           <th scope="col">
-            <input type="text" class="form-control" name="task" id="task" aria-describedby="" required="true" placeholder="Task">
+            <input type="text" class="form-control" name="task" id="task" aria-describedby="" required="true" placeholder="Tiêu đề công việc">
           </th>
           <th scope="col">
-            <textarea class="form-control" name="noidung" id="noidung" rows="1" required="true" placeholder="Nội dung"></textarea>
+            <textarea class="form-control" name="noidung" id="noidung" rows="1" required="true" placeholder="Nội dung công việc"></textarea>
           </th>
           <th scope="col"> 
             <input type="text" class="form-control" name="trangthai" id="trangthai" value="doing" aria-describedby="emailHelp" style="display: none;">
@@ -25,7 +29,6 @@
         function dragstemp(ev){
          ev.dataTransfer.setData("text", ev.target.id);
          x= ev.dataTransfer.getData("text"); 
-
        }
        function dropstamp(ev){
         ev.preventDefault();
@@ -95,13 +98,13 @@
            }
                //star
                if ($row["star"]=="0"){ // danghoatdong
-                echo ' <td><span class="fa fa-star " onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
+                echo ' <td><span class="fa fa-star js-tooltip" data-tippy-content="Thêm sao quan trọng" onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
               } else {
-                echo ' <td><span class="fa fa-star checkedstar" onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
+                echo ' <td><span class="fa fa-star checkedstar js-tooltip" data-tippy-content="Bỏ sao quan trọng"" onclick="makestar(this.id)" type="radio" id="star'.$row["id"].'" name="" value="star'.$row["id"].'"></span></td>';
               }
 
               if ($row["ngayhethan"]!=NULL){
-                echo '<td class="thongbaotime"  id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i>';
+                echo '<td class="thongbaotime js-tooltip" data-tippy-content="Công việc hôm nay" id="xoahomnay'.$row["id"].'" onclick="xoahomnay(this.id)"><i class="fa fa-calendar"></i>';
                 date_default_timezone_set('Asia/Ho_Chi_Minh');
                 $your_date = strtotime($row["ngayhethan"]);
                 $now = strtotime(date('Y-m-d H:i:s'));
@@ -118,7 +121,7 @@
               }
                 //THÔNG BÁO
               if ($row["thongbao"]!=NULL){
-                echo '<td class="thongbaotime" id="xoathongbao'.$row["id"].'" onclick="xoathongbao(this.id)"  style=" min-width: 52px;"><i class="fa fa-bell"></i><i class="fa fa-bell-slash"></i>';
+                echo '<td class="thongbaotime js-tooltip" data-tippy-content="Thông báo một lần vào '.$row["thongbao"].'" id="xoathongbao'.$row["id"].'" onclick="xoathongbao(this.id)"  style=" min-width: 52px;"><i class="fa fa-bell"></i><i class="fa fa-bell-slash"></i>';
                 date_default_timezone_set('Asia/Ho_Chi_Minh');
                 $your_date = strtotime($row["thongbao"]);
                 $now = strtotime(date('Y-m-d H:i:s'));
@@ -147,92 +150,60 @@
               } else{
                 echo "<td></td>";
               }
+              // Thông báo định kỳ
+              if ($row["timedinhky"]!=NULL){
+                if ($row["laplai"]=='ngay'){
+                  $thoigiandinhky = "hàng ngày";
+                } else if ($row["laplai"]=='tuan'){
+                 $thoigiandinhky = "hàng tuần";
+               } else if ($row["laplai"]=='thang'){
+                 $thoigiandinhky = "hàng tháng";
+               }
+               echo '<td class="thongbaotime js-tooltip" data-tippy-content="Thông báo định kỳ '.$thoigiandinhky.'" id="'.$row["id"].'" onclick="tatdinhky(this.id)" style=" min-width: 52px;"><img src="img/infinity_60px.png" width="20px">';
+               date_default_timezone_set('Asia/Ho_Chi_Minh');
+               $your_date = strtotime($row["timedinhky"]);
+               $now = strtotime(date('Y-m-d H:i:s'));
+               $datediff = $your_date - $now;
+               $hours =round($datediff / (60 * 60)); 
+               $days =round($datediff / (60 * 60*24)); 
+               if ($days>0){
+                echo "<span class='thongbaotext'>".$days."d</span>";
+                echo "</td>";
+              } else if ($days==0&&$hours>0) {
+                echo "<span class='thongbaotext'>".$hours."h</span>";
+                echo "</td>";
+              } 
 
-              echo '</tr> ';
+            } else{
+              echo "<td></td>";
             }
+
+
+            echo '</tr> ';
           }
         }
-        ?>
-      </form>
-    </tbody>
-  </table>
+      }
+      ?>
+    </form>
+  </tbody>
+</table>
 </div>
-<script>
-  function makestar(clicked_id){
-   id = clicked_id;
-   var element = document.getElementById(id);
-   element.classList.add("checked");
-   $.ajax({
-    type : "POST", 
-    url  : "trangthai.php", 
-    data : {id : id},
-    success: function(res){  
-          // $('#tablecontent').load( ' #tablecontent');
-          location.reload();
-        }
-      });
- }
- function funtrangthaiclick(clicked_id) {
-  id = clicked_id;
-  $.ajax({
-    type : "POST", 
-    url  : "trangthai.php", 
-    data : {id : id},
-    success: function(res){  
-          // $('#tablecontent').load( ' #tablecontent');
-          location.reload();
-        }
-      });
-}
-function xoathongtin() {
-  var removefirstid = document.getElementsByClassName("remove")[0].id;
-  var id = document.getElementById(removefirstid).value;
-  $.ajax({
-    type : "POST",  
-    url  : "trangthai.php",  
-    data : {id : id},
-    success: function(res){ 
-         // $('#tablecontent').load(document.URL +' #tablecontent');
-         location.reload();
-       }
-     });
-}
+<script type="text/javascript">
+  function setdinhky(id){
+    time = $("input#datepicker").val();
+    console.log(time);
+    console.log(id);
+    $.ajax({
+      type : "POST", 
+      url  : "tinhnang/dinhkyrequest.php", 
+      data : {
+        id : id,
+        time: time
+      },
+      success: function(res){  
+        location.reload();
+      }
+    });
+  }
 
 </script>
-<script type="text/javascript">
-  function remove() {
-    Swal.fire({
-      title: 'Xóa công việc này ?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Xóa'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        xoathongtin();
-        Swal.fire(
-          'Đã xóa!',
-          '',
-          'success'
-          )
-      }
-      location.reload();
-    })
-  }
-  function addstemp(data,name,id){
-      // console.log(data);
-      // console.log(id);  
-      id = id;
-      data= data;
-      $.ajax({
-        type : "POST",  
-        url  : "stamp.php",  
-        data : {id : id, data: data},
-        success: function(res){ 
-         // $('#tablecontent').load(document.URL +' #tablecontent');
-         location.reload();
-       }
-     });
-    }
-  </script>

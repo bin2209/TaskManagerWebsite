@@ -183,20 +183,7 @@ session_start();
 					idblogs = $("input#idblogs").val();
 					user = $("input#user").val();
 					Swal.fire('Đã thêm!', '', 'success');
-					$.ajax({
-						type : "POST",  
-						url  : "request/taomoi.php",  
-						data : {
-							idblogs: idblogs,
-							tieude: tieude,
-							noidung: noidung,
-							datepicker: datepicker,
-							user: user,
-						},
-						success: function(res){ 
-							location.reload();
-						}
-					});
+				
 				}
 			})
 		}

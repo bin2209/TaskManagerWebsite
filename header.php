@@ -45,7 +45,7 @@
 								</a>
 							</li>
 							
-							<li class="nav-item"><a class="nav-link" href="blogadmin">
+							<li class="nav-item"><a class="nav-link" href="blogadmin/login.php">
 								<div style="color:#557fa7" class="fonos-text mb-0  fonos-light ">
 									<?php
 									include("blogadmin/libs/db_connect.php");

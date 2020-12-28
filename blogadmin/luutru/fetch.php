@@ -7,13 +7,18 @@ $userupload = getLoggedMemberID();
 
 $query=$conn->query($sql);
 
-
-
 $currentuser = getLoggedMemberID();
 while($row=$query->fetch_array()){
 	if ($row["userupload"]==$currentuser){
-			$output[] = $row;
+		
+		if (strpos($row["filename"],".psd")){
+			$row["dinhdang"]=  '../img/psd.png';
+		} else{
+			$row["dinhdang"]=  $row["filename"];
+		}
+		$output[] = $row;
 	}
+
 }
 
 echo json_encode($output);

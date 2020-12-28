@@ -1,26 +1,14 @@
 <?php 
-// if(!isset($Translation)){ @header('Location: index.php?signIn=1'); exit; }
 $url= 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; 
 if (strpos($url, 'index.php?signIn=1')){
 	header("Location:login.php");
 }
-
-require_once('loginfb/configfb.php');
-$redirectTo = "http://localhost/resblog/blogadmin/loginfb/callback.php";
-$data = ['email'];
-$fullURL = $handler->getLoginUrl($redirectTo, $data);
-
 ?>
   <link rel="icon" href="../images/logo.png" type="image/x-icon"/>
   <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon"/>
 <link rel="stylesheet" href="css/bootstraplogin.css">
 <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 <script src="js/bootstraplogin.js"></script>
-<!-- <?php if($_GET['loginFailed']){ ?>
-	<div class="alert alert-danger"><?php echo $Translation['login failed']; ?></div>
-	<?php } ?> -->
-	<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
-	<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Muli" />
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<style type="text/css">
@@ -62,13 +50,6 @@ $fullURL = $handler->getLoginUrl($redirectTo, $data);
 						" class="login100-form-btn" name="signIn" type="submit" id="submit" value="signIn" ><i class="fa fa-sign-in" aria-hidden="true" style="position: relative; right: 10px;"></i>Đăng nhập
 					</button>
 				</div>
-			<!-- 	<div class="container-login100-form-btn facebook-btn">
-					<button style="background: #1877f2;
-					background: -webkit-linear-gradient(to right, #ff4b1f, #ff9068); 
-					background: linear-gradient(to right, #007bff, rgb(0 123 255 / 75%));
-					" class="login100-form-btn" onclick="window.location = '<?php echo $fullURL ?>'" ><i class="fa fa-facebook" style="position: relative; right: 10px;"></i> Tiếp tục bằng facebook
-				</button>
-			</div> -->
 			<div class="container-login100-form-btn facebook-btn">
 					<button style="background: linear-gradient(to right, #eee, #fff7f7); color: #615c5c;
 					" class="login100-form-btn" onclick="window.location = 'logingg/index.php'" ><img src="logingg/google.png" style="position: relative; right: 10px; width: 20px;"></i> Tiếp tục bằng Google

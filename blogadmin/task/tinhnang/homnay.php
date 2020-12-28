@@ -1,3 +1,6 @@
+<script defer src="../../assets/js/manifest2daf.js?v=a5dd59f074"></script>
+<script defer src="../../assets/js/vendor2daf.js?v=a5dd59f074"></script>
+<script defer src="../../assets/js/app2daf.js?v=a5dd59f074"></script>
 <?php 
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 include("../../../blogadmin/lib.php");  
@@ -179,7 +182,6 @@ if ($countmyday == 0 ){
 
 <center><button type="submit" class="btn btn-primary" id="add" onclick="themhomnay()">Thêm</button></center>
 <script type="text/javascript">
-	
 	function clickid(id){
 		console.log(id);
 		$.post("tinhnang/alltomyday.php",
@@ -188,15 +190,13 @@ if ($countmyday == 0 ){
 		});
 		location.reload(true);
 	}
-
 	function themhomnay() {
 		Swal.fire({
 			title: 'Thêm',
-			html: '<?php $countall =0 ; $sql = "SELECT * FROM `todo`"; $result = mysqli_query($con, $sql); if (mysqli_num_rows($result) > 0) { echo "<table><form>"; while($row = mysqli_fetch_assoc($result)) { if ($row["user"]== getLoggedMemberID() && $row["ngayhethan"]== NULL){ $countall++; echo ' <tr style="border-top: 1px solid #ccc;" id="'.$row["id"].'" onclick="clickid(this.id)"> <td >'. $row["task"].'</td><td>'. $row["noidung"] .'</td> </tr>'; } } } if ($countall == 0){ echo "Danh sách thêm cần trống, hãy thêm mới một công việc";} echo "</form></table>"; ?>',
+			html: '<style>tr:hover{background: #a5c7e9; cursor: pointer;}</style><?php $countall =0 ; $sql = "SELECT * FROM `todo`"; $result = mysqli_query($con, $sql); if (mysqli_num_rows($result) > 0) { echo "<table><form>"; while($row = mysqli_fetch_assoc($result)) { if ($row["user"]== getLoggedMemberID() && $row["ngayhethan"]== NULL){ $countall++; echo ' <tr style="border-top: 1px solid #ccc;" id="'.$row["id"].'" onclick="clickid(this.id)"> <td >'. $row["task"].'</td><td>'. $row["noidung"] .'</td> </tr>'; } } } if ($countall == 0){ echo "Danh sách thêm cần trống, hãy thêm mới một công việc";} echo "</form></table>"; ?>',
 			showCloseButton: true,
 			showConfirmButton: false,
 			showCancelButton: true,
 		})
 	}
-
 </script>
