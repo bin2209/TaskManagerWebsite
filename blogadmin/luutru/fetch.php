@@ -10,12 +10,16 @@ $query=$conn->query($sql);
 $currentuser = getLoggedMemberID();
 while($row=$query->fetch_array()){
 	if ($row["userupload"]==$currentuser){
-		
+		$file = $row["filename"];
+		$findfirst = strpos($file,'_'); // TÌM KÍ TỰ _ ĐỂ RENAME FILE CHO GỌN
+		$shortname = substr($file, $findfirst+1);
+
 		if (strpos($row["filename"],".psd")){
 			$row["dinhdang"]=  '../img/psd.png';
 		} else{
 			$row["dinhdang"]=  $row["filename"];
 		}
+		$row["shortname"]= $shortname;
 		$output[] = $row;
 	}
 

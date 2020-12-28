@@ -1,0 +1,75 @@
+Searching 15036 files for "blog_admin_db"
+
+C:\wamp64\www\resblog\adminstats\db.php:
+    1  <?php
+    2: $con=mysqli_connect("localhost","root","","blog_admin_db");
+    3  // Check connection
+    4  if (mysqli_connect_errno())
+
+C:\wamp64\www\resblog\blogadmin\chat\demochat\database_connection.php:
+    3  //database_connection.php
+    4  
+    5: $connect = new PDO("mysql:host=localhost;dbname=blog_admin_db;charset=utf8mb4", "root", "");
+    6  
+    7  date_default_timezone_set('Asia/Kolkata');
+
+C:\wamp64\www\resblog\blogadmin\config.bak.php:
+    3  	$dbUsername = 'root';
+    4  	$dbPassword = '';
+    5: 	$dbDatabase = 'blog_admin_db';
+    6  
+    7  	$adminConfig = array(
+
+C:\wamp64\www\resblog\blogadmin\config.php:
+    3  	$dbUsername = 'root';
+    4  	$dbPassword = '';
+    5: 	$dbDatabase = 'blog_admin_db';
+    6  
+    7  	$adminConfig = array(
+
+C:\wamp64\www\resblog\blogadmin\libs\db_connect.php:
+    1  <?php
+    2  
+    3: $con=mysqli_connect("localhost","root","","blog_admin_db");
+    4  
+    5  // Check connection
+
+C:\wamp64\www\resblog\blogadmin\luutru\angular_uploadfile.sql:
+   18  
+   19  --
+   20: -- Base de données: `blog_admin_db`
+   21  --
+   22: CREATE DATABASE IF NOT EXISTS `blog_admin_db` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+   23: USE `blog_admin_db`;
+   24  
+   25  -- --------------------------------------------------------
+
+C:\wamp64\www\resblog\blogadmin\luutru\fetch.php:
+    1  <?php
+    2  include("../../blogadmin/lib.php"); 
+    3: $conn = new mysqli('localhost', 'root', '', 'blog_admin_db');
+    4  $output = array();
+    5  $sql = "SELECT * FROM upload";
+
+C:\wamp64\www\resblog\blogadmin\luutru\upload.php:
+    2  include("../../blogadmin/lib.php"); 
+    3  $userupload = getLoggedMemberID();
+    4: $conn = new mysqli('localhost', 'root', '', 'blog_admin_db');
+    5  $out = array('error' => false);
+    6  
+
+C:\wamp64\www\resblog\database\mainsetting.php:
+    4  $db_user ='root';
+    5  $db_pass ='';
+    6: $db_name ='blog_admin_db';
+    7  $url='http://localhost/'
+    8  
+
+C:\wamp64\www\resblog\databasefile\truong.sql:
+   20  
+   21  --
+   22: -- Database: `blog_admin_db`
+   23  --
+   24  
+
+12 matches across 10 files

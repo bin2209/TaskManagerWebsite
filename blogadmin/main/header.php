@@ -1,9 +1,10 @@
 
 <?php 
 header('Content-type: text/html; charset=utf-8');
+session_start();
 include("../libs/db_connect.php");
 include 'functionOfMain.php';
-session_start();
+$currentuser = getLoggedMemberID();
 
 if(!defined('PREPEND_PATH')) define('PREPEND_PATH', ''); 
 $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
@@ -39,7 +40,6 @@ if (getLoggedMemberID()=='guest'){
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
     </button>
-    <!-- Topbar Tim kiem -->
     <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
     <div class="input-group">
@@ -91,48 +91,46 @@ $sql = "SELECT * FROM thongbao";
 mysqli_query($con, "SET NAMES 'utf8'");
 $result = mysqli_query($con, $sql);
 if (mysqli_num_rows($result) > 0) {
-
     $count=0;
     while($row = mysqli_fetch_assoc($result)) if ($row["user"] == $currentuser){
       if ($row["theloai"]=='taskhethan'  && $count<=4){
-         $count++;
-         echo '<a class="dropdown-item d-flex align-items-center" href="#">
-         <div class="mr-3">
-         <div class="icon-circle bg-primary">
-         <i class="fas fa-file-alt text-white"></i>
-         </div>
-         </div>
-         <div>
-         <div class="small text-gray-500">Công việc thường xuyên</div>
-         <span class="font-weight-bold">Công việc thường xuyên "'.$row["title"].'" đã quá 24h.</span>
-         </div>
-         </a>';
-     }else if($row["theloai"]=='cvhethan'  && $count<=4){
-         $count++;
-         echo '<a class="dropdown-item d-flex align-items-center" href="#">
-         <div class="mr-3">
-         <div class="icon-circle bg-primary">
-         <i class="fas fa-file-alt text-white"></i>
-         </div>
-         </div>
-         <div>
-         <div class="small text-gray-500">Công việc dài hạn.</div>
-         <span class="font-weight-bold">Công việc dài hạn "'.$row["title"].'"  đã hết hạn.</span>
-         </div>
-         </a>';
-     }
- }
-  echo $result;
- echo $count;
- if ($count == 0){
+       $count++;
+       echo '<a class="dropdown-item d-flex align-items-center" href="#">
+       <div class="mr-3">
+       <div class="icon-circle bg-primary">
+       <i class="fas fa-file-alt text-white"></i>
+       </div>
+       </div>
+       <div>
+       <div class="small text-gray-500">Công việc thường xuyên</div>
+       <span class="font-weight-bold">Công việc thường xuyên "'.$row["title"].'" đã quá 24h.</span>
+       </div>
+       </a>';
+   }else if($row["theloai"]=='cvhethan'  && $count<=4){
+       $count++;
+       echo '<a class="dropdown-item d-flex align-items-center" href="#">
+       <div class="mr-3">
+       <div class="icon-circle bg-primary">
+       <i class="fas fa-file-alt text-white"></i>
+       </div>
+       </div>
+       <div>
+       <div class="small text-gray-500">Công việc dài hạn.</div>
+       <span class="font-weight-bold">Công việc dài hạn "'.$row["title"].'"  đã hết hạn.</span>
+       </div>
+       </a>';
+   }
+}
+if ($count == 0){
     echo ' <div style="padding:10px;"> <span class="font-weight-bold">Không có thông báo nào.</span> </div>';
 }
 }
+
 ?>
 
 
 <a class="dropdown-item text-center small text-gray-500" href="../thongbao.php">
- 
+
     <?php 
     if (SoLuongThongBao()>5){
         echo 'Xem tất cả thông báo';

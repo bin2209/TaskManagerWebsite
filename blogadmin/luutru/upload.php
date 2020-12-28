@@ -17,10 +17,10 @@ if(!empty($_FILES['file']['name'])){
 
 		if($query){
 			if($count > 1){
-				$out['message'] = 'Files Đã được tải lên thành công!';
+				$out['message'] = 'Các tệp tin đã được tải lên thành công!';
 			}
 			else{
-				$out['message'] = 'File Đã được tải lên thành công!';
+				$out['message'] = 'Tệp tin đã được tải lên thành công!';
 			}
 
 		}
