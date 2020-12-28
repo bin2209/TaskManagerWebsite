@@ -1,0 +1,11 @@
+blog_admin_db
+
+binazur1_taskvn
+truong322
+binazur1_taskvn
+
+
+fblogin configfb.php
+
+$redirectTo = "http://localhost/resblog\blogadmin\loginfb/callback.php";
+$redirectTo = "http://taskvn.com\blogadmin\loginfb/callback.php";
