@@ -2,11 +2,12 @@
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 $currDir = dirname(__FILE__);
 include("blogadmin/lib.php");
+session_start();
 $x = new DataList;
 $x->TableTitle = $Translation['homepage'];
 $tablesPerRow = 2;
 $arrTables = getTableList();
-// include("libs/db_connect.php");
+include("blogadmin/libs/db_connect.php");
 ?>
 
 
