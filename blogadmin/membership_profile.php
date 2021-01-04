@@ -1,3 +1,10 @@
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+
 <?php
 $currDir=dirname(__FILE__);
 include("$currDir/defaultLang.php");
@@ -95,7 +102,10 @@ if($_POST['action'] == 'changePassword' && $mi['username'] != $adminConfig['admi
 		if(is_array($userTables))  foreach($userTables as $tn => $tc){
 			$permissions[$tn] = getTablePermissions($tn);
 		}
-		include_once("$currDir/header.php"); ?>
+		include_once("$currDir/header.php"); 
+
+
+		?>
 		<div class="page-header">
 		</div>
 		<div id="notify" class="alert alert-success" style="display: none;"></div>
@@ -117,6 +127,13 @@ if($_POST['action'] == 'changePassword' && $mi['username'] != $adminConfig['admi
 							<div class="form-group">
 								<label for="email"><?php echo $Translation['email']; ?></label>
 								<input type="email" id="email" name="email" value="<?php echo $mi['email']; ?>" class="form-control" readonly>
+								<?php 
+								if($mi['xacthuc'] == '1'){
+									echo "Email đã xác thực.";
+								} else{
+									echo "Email chưa xác thực.". ' <a href ="xacthucemail.php">Xác thực tài khoản.</a>';
+								}
+								?>
 							</div>
 
 							<?php for($i=1; $i<5; $i++){ ?>
@@ -152,11 +169,15 @@ if($_POST['action'] == 'changePassword' && $mi['username'] != $adminConfig['admi
 				<div class="panel panel-info">
 					<div class="panel-body">
 						<div class="form-group">
-							<label><?php echo $Translation['group']; ?></label>
+							<label>Thông tin tài khoản:</label>
 							<div class="form-control-static"><?php 
 							if ($mi['comments']=='facebook'){
-								echo "Sử dụng tài khoản Facebook";
-							} else{
+								echo "Sử dụng tài khoản Facebook.";
+							} if ($mi['comments']=='gmail'){
+								echo "Tài khoản đã liên kết với Google.".'<br>';
+								echo $mi['email'];
+							}
+							else{
 								echo "Sử dụng tài khoản TaskVN.com";
 							}
 

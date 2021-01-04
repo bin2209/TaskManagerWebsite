@@ -181,10 +181,20 @@
 	// membership_passwordReset.php
 	$Translation['password reset']="Trang đặt lại mật khẩu";
 	$Translation['password reset details']="Nhập tên người dùng hoặc địa chỉ email của bạn dưới đây. Sau đó, chúng tôi sẽ gửi một liên kết đặc biệt đến email của bạn. Sau khi nhấp vào liên kết đó, bạn sẽ được yêu cầu nhập mật khẩu mới.";
+	$Translation['xacthuc email details']="Xác thực email dưới để nhận được thông báo từ TASKVN.COM";
+
 	$Translation['password reset subject']="Hướng dẫn đặt lại mật khẩu";
+	$Translation['xacthuc email subject']="Xác thực tài khoản TASKVN.COM";
+
 	$Translation['password reset message']="Dear member, \n If you have requested to reset/change your password, please click on this link: \n <ResetLink> \n\n If you didn't request a password reset/change, please ignore this message. \n\n Regards.";
+
+	$Translation['xacthuc email']="TASKVN.COM xin chào người dùng, \n Hãy xác thực email của bạn bằng cách nhấn vào đường link này : \n <ResetLink> \n\n. \n\n Trân trọng.";
+
 	$Translation['password reset ready']="Một email với hướng dẫn đặt lại mật khẩu đã được gửi đến địa chỉ email đã đăng ký của bạn. Vui lòng làm theo hướng dẫn trong email đó. <br> <br> Nếu bạn không nhận được email này trong vòng 5 phút, hãy thử đặt lại mật khẩu của bạn một lần nữa và đảm bảo bạn nhập đúng tên người dùng hoặc địa chỉ email.";
+
 	$Translation['password reset invalid']="Invalid username or password. <a href=membership_passwordReset.php>Try again</a>, or go <a href=index.php>back to homepage</a>.";
+	$Translation['xacthuc email invalid']="Lỗi <a href=xacthucemail.php>thử lại</a>, hoặc <a href=index.php> trở về trang chính</a>.";
+
 	$Translation['password change']="Password Change Page";
 	$Translation['new password']="Mật khẩu mới";
 	$Translation['password reset done']="Your password was changed successfully. You can <a href=index.php?signOut=1>log in with the new password here</a>.";

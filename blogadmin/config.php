@@ -1,8 +1,8 @@
 <?php
 	$dbServer = 'localhost';
-	$dbUsername = 'root';
-	$dbPassword = '';
-	$dbDatabase = 'blog_admin_db';
+	$dbUsername = 'binazur1_taskvn';
+	$dbPassword = 'truong322';
+	$dbDatabase = 'binazur1_taskvn';
 
 	$adminConfig = array(
 		'adminUsername' => "admin",
@@ -21,16 +21,16 @@
 		'MySQLDateFormat' => "%m/%d/%Y",
 		'PHPDateFormat' => "n/j/Y",
 		'PHPDateTimeFormat' => "m/d/Y, h:i a",
-		'senderName' => "Membership management",
-		'senderEmail' => "ronniengoda@gmail.com",
+		'senderName' => "Thông báo từ TASKVN (LOCALHOST)",
+		'senderEmail' => "binteam@outlook.com",
 		'approvalSubject' => "Your membership is now approved",
 		'approvalMessage' => "Dear member,\r\n\r\nYour membership is now approved by the admin. You can log in to your account here:\r\nhttp://localhost/blogadmin\r\n\r\nRegards,\r\nAdmin",
 		'hide_twitter_feed' => "",
 		'maintenance_mode_message' => "<b>Our website is currently down for maintenance</b><br>\r\nWe expect to be back in a couple hours. Thanks for your patience.",
-		'mail_function' => "mail",
-		'smtp_server' => "",
-		'smtp_encryption' => "",
-		'smtp_port' => "25",
-		'smtp_user' => "",
-		'smtp_pass' => ""
+		'mail_function' => "smtp",
+		'smtp_server' => "smtp.office365.com",
+		'smtp_encryption' => "tls",
+		'smtp_port' => "587",
+		'smtp_user' => "binteam@outlook.com",
+		'smtp_pass' => "TRUONG322"
 	);

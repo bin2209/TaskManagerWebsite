@@ -91,27 +91,14 @@ if(!isset($_SESSION['access_token']))
   $linkanh = $_SESSION["user_image"];
 
   if ($tim_email_tontai == true){
-    // echo "Ton tai";
   } else{
-    // echo "Ko ton tai";
     $sql = 'INSERT INTO membership_users (memberID, passMD5, email, signupDate, groupID, isBanned, isApproved, custom1, custom2, custom3, custom4, comments, pass_reset_key, pass_reset_expiry, xacthuc) VALUES ("'.$email.'","'.md5($email."22/9/2003").'","'.$email.'","'.$ngaytao.'","3","0","1","'.$firtname.'","'.$linkanh.'",NULL,NULL,"gmail",NULL,NULL,1)';
-     // $sql = 'INSERT INTO membership_users (memberID, passMD5, email, signupDate, groupID, isBanned, isApproved, custom1, custom2, custom3, custom4, comments, pass_reset_key, pass_reset_expiry, xacthuc) VALUES ("binazure@gmail.com","6d90d027a6020aa0c51a2bf8694d7c10","binazure@gmail.com","2020-12-14","3","0","1","BINTEAM","https://lh3.googleusercontent.com/a-/AOh14Gj4wfa3AGsX7zGO9i-Nq-DV9H_9gTVsqyeRY1lY3Q=s96-c",NULL,NULL,"gmail",NULL,NULL,1)';
+
     $result =  mysqli_query($con, $sql);
     if ($result){
       header("Refresh:0");
     }
   }
-  // echo $_SESSION['user_email_address'];
-  // echo "<br>";
-  // echo md5($_SESSION['user_email_address']."22/9/2003");
-  // echo "<br>";
-  // echo $_SESSION['user_email_address'];
-  // echo "<br>";
-  // echo $ngaytao;
-  // echo "<br>";
-  // echo $_SESSION['user_first_name'];
-  // echo "<br>";
-  // echo   $_SESSION["user_image"];
 
   ?>
 

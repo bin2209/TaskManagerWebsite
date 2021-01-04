@@ -24,7 +24,6 @@
 				</div>
 				<?php
 
-				include_once("$currDir/footer.php");
 				exit;
 			}
 
@@ -47,7 +46,6 @@
 			<?php
 		}
 
-		include_once("$currDir/footer.php");
 		exit;
 	}
 #_______________________________________________________________________________
@@ -97,7 +95,6 @@
 			<?php
 		}
 
-		include_once("$currDir/footer.php");
 		exit;
 	}
 #_______________________________________________________________________________
@@ -136,7 +133,6 @@
 				</div>
 				<?php
 
-				include_once("$currDir/footer.php");
 				exit;
 			}
 

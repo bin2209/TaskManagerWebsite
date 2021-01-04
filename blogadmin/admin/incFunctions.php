@@ -1264,6 +1264,7 @@
 
 		if($memberID){
 			$res = sql("select * from membership_users where memberID='" . makeSafe($memberID) . "'", $eo);
+
 			if($row = db_fetch_assoc($res)){
 				$mi = array(
 					'username' => $memberID,
@@ -1272,12 +1273,13 @@
 					'admin' => ($adminConfig['adminUsername'] == $memberID ? true : false),
 					'email' => $row['email'],
 					'custom' => array(
-						$row['custom1'], 
+						utf8_decode($row['custom1']), 
 						$row['custom2'], 
 						$row['custom3'], 
 						$row['custom4']
 					),
 					'banned' => ($row['isBanned'] ? true : false),
+					'xacthuc' => $row['xacthuc'],
 					'approved' => ($row['isApproved'] ? true : false),
 					'signupDate' => @date('n/j/Y', @strtotime($row['signupDate'])),
 					'comments' => $row['comments'],
