@@ -141,12 +141,16 @@ $adminConfig = config('adminConfig');
 
 			// determine password reset URL
 			$ResetLink = application_url("xacthucemail.php?key=$key");
+			$NguoiDung = $mi['username'];
+
+			$NoiDungMail = nl2br(str_replace('<ResetLink>', $ResetLink, $Translation['xacthuc email']));
+			$NoiDungMail = nl2br(str_replace('<NguoiDung>', $NguoiDung, $NoiDungMail));
 
 			// gửi mail
 			sendmail(array(
 				'to' => $row['email'],
 				'subject' => $Translation['xacthuc email subject'],
-				'message' => nl2br(str_replace('<ResetLink>', $ResetLink, $Translation['xacthuc email']))
+				'message' => $NoiDungMail
 			));
 
 			// display confirmation

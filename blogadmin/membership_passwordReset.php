@@ -144,12 +144,16 @@
 
 			// determine password reset URL
 			$ResetLink = application_url("membership_passwordReset.php?key=$key");
+			$NguoiDung = $mi['memberID'];
+
+			$NoiDungMail = nl2br(str_replace('<ResetLink>', $ResetLink, $Translation['password reset message']));
+			$NoiDungMail = nl2br(str_replace('<NguoiDung>', $NguoiDung, $NoiDungMail));
 
 			// send reset instructions
 			sendmail(array(
 				'to' => $row['email'],
 				'subject' => $Translation['password reset subject'],
-				'message' => nl2br(str_replace('<ResetLink>', $ResetLink, $Translation['password reset message']))
+				'message' => $NoiDungMail
 			));
 
 			// display confirmation

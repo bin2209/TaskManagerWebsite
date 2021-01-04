@@ -1,8 +1,8 @@
 <?php
 	$dbServer = 'localhost';
-	$dbUsername = 'binazur1_taskvn';
-	$dbPassword = 'truong322';
-	$dbDatabase = 'binazur1_taskvn';
+	$dbUsername = 'root';
+	$dbPassword = '';
+	$dbDatabase = 'blog_admin_db';
 
 	$adminConfig = array(
 		'adminUsername' => "admin",
@@ -32,5 +32,5 @@
 		'smtp_encryption' => "tls",
 		'smtp_port' => "587",
 		'smtp_user' => "binteam@outlook.com",
-		'smtp_pass' => "TRUONG322"
+		'smtp_pass' => "truong322"
 	);
