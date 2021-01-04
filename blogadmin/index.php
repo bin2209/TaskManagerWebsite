@@ -10,18 +10,21 @@ $x->TableTitle = $Translation['homepage'];
 $tablesPerRow = 2;
 $arrTables = getTableList();
 
+
+
 	// according to provided GET parameters, either log out, show login form (possibly with a failed login message), or show homepage
 
+$url= 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; 
+if (strpos($url, 'index.php?signIn=1')){
+	header("Location:login.php");
+}
 
 if(isset($_GET['signOut'])){
 	logOutUser();
 	// redirect("index.php?signIn=1");
 	redirect("../");
 }elseif(isset($_GET['loginFailed']) || isset($_GET['signIn'])){
-	if(!headers_sent() && isset($_GET['loginFailed'])) header('HTTP/1.0 403 Forbidden');
-
-	// redirect("login.php?loginFailed=1");
-	
+	if(!headers_sent() && isset($_GET['loginFailed'])) redirect("login.php?loginFailed=1");
 	}else{
 
 //------------------------------------------------------------------------------------------------

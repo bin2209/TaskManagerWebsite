@@ -1,8 +1,5 @@
 <?php 
-$url= 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; 
-if (strpos($url, 'index.php?signIn=1')){
-	header("Location:login.php");
-}
+
 include("lib.php");
 if(getLoggedMemberID()!='guest'){
 	header("Location:index.php");
@@ -15,6 +12,7 @@ if(getLoggedMemberID()!='guest'){
 <link rel="icon" href="../images/logo.png" type="image/x-icon"/>
 <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon"/>
 <link rel="stylesheet" href="css/bootstraplogin.css">
+<link rel="stylesheet" href="css/iosdesign.css">
 <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 <script src="js/bootstraplogin.js"></script>
 <title>Đăng nhập - TaskVN</title>
@@ -90,35 +88,15 @@ if(getLoggedMemberID()!='guest'){
 </div>
 </div>
 <?php 
-	if(isset($_GET['loginFailed']) || isset($_GET['signIn'])){
-		if(!headers_sent() && isset($_GET['loginFailed'])) header('HTTP/1.0 403 Forbidden');
+if(isset($_GET['loginFailed']) || isset($_GET['signIn'])){
+	if(!headers_sent() && isset($_GET['loginFailed'])) echo '<script type="text/javascript"> $(document).ready(function() { Swal.fire({ icon: "error", title: "Đăng nhập thất bại", text: "Kiểm tra lại tài khoản hoặc mật khẩu", showConfirmButton: false, timer: 2000 }) }) </script>';
+		}
+		?>
 
-		echo '<script>
-			Swal.fire({
-				position: "top-end",
-				icon: "error",
-				title: "Đăng nhập thất bại",
-				text: "Kiểm tra lại tài khoản hoặc mật khẩu",
-				showConfirmButton: false,
-				timer: 2000
-			});
-		</script>';
-	}
+		<script type="text/javascript">
+			document.getElementById('register').onclick = function(){ Swal.fire({ title: 'Đăng Ký Tài Khoản', showConfirmButton: false , showCloseButton: true, html: '<style> .navbar-header{display:none;} </style> <iframe src="membership_signup.php" height="300px"></iframe>  ' }) };
+		</script>
 
-	?>
-<script type="text/javascript">
-	var clickregister = document.getElementById("register");
-	document.getElementById('register').onclick = function(){
-		Swal.fire({
-			title: 'Đăng Ký Tài Khoản',
-			showConfirmButton: false ,
-			showCloseButton: true,
-			html:
-			'<style> .navbar-header{display:none;} </style> <iframe src="membership_signup.php" height="300px"></iframe>  ' 
-
-		})
-	};
-</script>
-<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="552ce77f2189bec496c552c0-|49" defer=""></script></html>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<?php include'../chatbox.html'; ?>
+		<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="552ce77f2189bec496c552c0-|49" defer=""></script></html>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+		<?php include'../chatbox.html'; ?>
