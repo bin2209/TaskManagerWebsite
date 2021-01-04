@@ -605,7 +605,6 @@ body {
 
 .fonos-root-navbar {
   min-height: 72px;
-  padding: 1rem 0 !important;
   border-bottom: 1px solid;
   border-color: rgba(0, 0, 0, 0.1); }
   .fonos-root-navbar .navbar-toggler {

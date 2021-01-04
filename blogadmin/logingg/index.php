@@ -83,15 +83,6 @@ if(!isset($_SESSION['access_token']))
       if ($row["email"]==$_SESSION['user_email_address']){
         $tim_email_tontai=true;
       }
-        // echo '
-        // <tr style="border-top: 1px solid #ccc;" id="'.$row["memberID"].'" onclick="clickid(this.id)">
-        // '.$row["memberID"].'
-        // </tr>
-        // <tr style="border-top: 1px solid #ccc;" id="'.$row["email"].'" onclick="clickid(this.id)">
-        // '.$row["email"].'
-        // </tr>
-        // <br>
-        // ';
     }
   } 
   $ngaytao = date("Y-m-d");

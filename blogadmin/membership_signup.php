@@ -1,5 +1,5 @@
 <?php
-	$app_name = 'BLOG ADMIN';
+	$app_name = 'TASKVN';
 	$currDir = dirname(__FILE__);
 	include("{$currDir}/defaultLang.php");
 	include("{$currDir}/language.php");

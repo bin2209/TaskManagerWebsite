@@ -1,17 +1,35 @@
 <?php
 include("../../blogadmin/lib.php");
 include('database_connection.php');
-session_start();
-// echo $_SESSION['user_id']);
-if(!isset($_SESSION['user_id']))
-{
-	header("location:login.php");
-}
-?>
-<?php include_once("{$currDir}/header-user.php"); ?>
-<div class="panel panel-default">
-	<div class="panel-body">
-		<!-- TABLE THAO LUAN-->
+// include("../libs/db_connect.php");
+
+
+$currentuser = getLoggedMemberID();
+$sql = "SELECT * FROM `login` WHERE `username` = '$currentuser'";
+$result = mysqli_query($con, $sql);
+if ($result)
+	if (mysqli_num_rows($result) > 0) {
+		while($row = mysqli_fetch_assoc($result)) {
+			if ($row["username"]==$currentuser){
+				$idnguoidung = $row["user_id"];
+			}
+		}
+	}
+	
+// echo $idnguoidung;
+	$_SESSION['user_id'] = $_SESSION[$idnguoidung];
+	if(!isset($_SESSION[$idnguoidung]))
+	{
+	// header("location:login.php");
+	} else{
+
+	}
+
+	?>
+	<?php include_once("{$currDir}/header-user.php"); ?>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<!-- TABLE THAO LUAN-->
 		<!-- 
 <div id="group_chat_dialog" title="Group Chat Window">
 	<div id="group_chat_history" style="height:400px; border:1px solid #ccc; overflow-y: scroll; margin-bottom:24px; padding:16px;">

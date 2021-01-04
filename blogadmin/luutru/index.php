@@ -1,18 +1,18 @@
  <html lang="en"><head>
- 		<style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+ 	<style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
  	<meta charset="utf-8">
  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
  	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
  	<link href="css/sb-admin-2.min.css" rel="stylesheet">
+ 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Muli" />
  	<link rel="stylesheet" type="text/css" href="../css/iosdesign.css">
 
  	<?php 
- 	session_start();
  	include("../../blogadmin/lib.php"); 
  	?>
- 	<body id="page-top" ng-app="app" ng-controller="uploader" ng-init="fetch()" class="ng-scope">
+ 	<body id="page-top" ng-app="app" ng-controller="uploader" ng-init="fetch()" class="ng-scope ">
  		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>  
  		<div id="wrapper">
  			<?php include '../main/leftmenu.php'; ?>
@@ -91,8 +91,8 @@
  								<div class="card-body">
  									<div class="t-4 pb-2">
  										<div class="h5 mb-0 font-weight-bold text-gray-800">
- 											<input class="btn btn-primary" type="file" file-input="files" multiple="">
- 											<button class="btn btn-primary" ng-click="upload()"><span class="glyphicon glyphicon-download-alt"></span> Tải tệp lên</button>
+ 											<input class="btn btn-primary" type="file" file-input="files" multiple="" style="max-width: 20em !important; margin-bottom: 10px;">
+ 											<button class="btn btn-primary" ng-click="upload()"><span class="glyphicon glyphicon-download-alt" ></span> Tải tệp lên</button>
  											<div ng-show="error" class="alert alert-danger text-center" style="margin-top:30px;">
  												<button type="button" class="close" ng-click="clearMessage()"><span aria-hidden="true">&times;</span></button>
  												<span class="glyphicon glyphicon-remove"></span> {{ errorMessage }}

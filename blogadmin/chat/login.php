@@ -2,7 +2,6 @@
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 $currDir = dirname(__FILE__);
 include('database_connection.php');
-session_start();
 include("../../blogadmin/lib.php");
 $message = '';
 // register.php

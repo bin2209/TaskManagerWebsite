@@ -1,6 +1,11 @@
  /*IOS DESIGN MADE BY NGUYEN TRUONG */ 
-
- .swal2-popup{
+ body{
+  font-family: 'Muli', sans-serif !important;
+}
+#wrapper{
+  font-family: 'Muli', sans-serif !important;
+}
+.swal2-popup{
   border-radius: 3em;
   background: #ffffffe6 !important;
   width: auto !important;

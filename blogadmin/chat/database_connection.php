@@ -2,10 +2,14 @@
 
 //database_connection.php
 include '../../database/mainsetting.php';
+include("../libs/db_connect.php");
+
 
 $connect = new PDO("mysql:host=".$db_host.";dbname=".$db_name.";charset=utf8mb4", "".$db_user."", "".$db_pass."");
 
 date_default_timezone_set('Asia/Kolkata');
+
+
 
 function fetch_user_last_activity($user_id, $connect)
 {
@@ -74,11 +78,11 @@ function fetch_user_chat_history($from_user_id, $to_user_id, $connect)
 		}
 		$output .= '
 		<li style="border-bottom:1px dotted #ccc;padding-top:8px; padding-left:8px; padding-right:8px;'.$dynamic_background.'">
-			<p>'.$user_name.' - '.$chat_message.'
-				<div align="right">
-					- <small><em>'.$row['timestamp'].'</em></small>
-				</div>
-			</p>
+		<p>'.$user_name.' - '.$chat_message.'
+		<div align="right">
+		- <small><em>'.$row['timestamp'].'</em></small>
+		</div>
+		</p>
 		</li>
 		';
 	}
@@ -200,11 +204,11 @@ function fetch_group_chat_history($connect)
 		$output .= '
 
 		<li style="border-bottom:1px dotted #ccc;padding-top:8px; padding-left:8px; padding-right:8px;'.$dynamic_background.'">
-			<p>'.$user_name.' - '.$chat_message.' 
-				<div align="right">
-					- <small><em>'.$row['timestamp'].'</em></small>
-				</div>
-			</p>
+		<p>'.$user_name.' - '.$chat_message.' 
+		<div align="right">
+		- <small><em>'.$row['timestamp'].'</em></small>
+		</div>
+		</p>
 		</li>
 		';
 	}

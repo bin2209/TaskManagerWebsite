@@ -27,7 +27,8 @@ $(document).ready(function() {
             	for (var i = 1; i <= eID; i++) {
                 	$('#star-' + i).addClass('vote-active');
             	}
-            	$('p#vote-desc').html('<span class="blue">' + eID + ' (' + eID * 10 + '%)</span> &middot; ' + 1 + ' đánh giá');
+            	// $('p#vote-desc').html('<span class="blue">' + eID + ' (' + eID * 10 + '%)</span> &middot; ' + 1 + ' đánh giá');
+                $('p#vote-desc').html('<span class="blue"> Cảm ơn bạn đã đánh giá trải nghiêm <3 !</span>');
             	$('#cate-rating').addClass('rating-ok');
         	}
         });

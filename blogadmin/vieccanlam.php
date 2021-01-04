@@ -1,10 +1,12 @@
-<?php include_once("header-user.php"); ?>
-<!-- <?php @include("hooks/links-home.php"); ?> -->
+<?php include_once("header-user.php");
+  
+
+ ?>
 <!DOCTYPE html>
 <head>
 </head>
 <html>
-<link rel="stylesheet" type="text/css" href="css/iosdesign.css">
+<link rel="stylesheet" type="text/css" href="../css/iosdesign.css">
 
 <?php
 $currDir=dirname(__FILE__);

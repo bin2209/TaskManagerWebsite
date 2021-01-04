@@ -8,6 +8,9 @@ $x->TableTitle = $Translation['homepage'];
 $tablesPerRow = 2;
 $arrTables = getTableList();
 include("blogadmin/libs/db_connect.php");
+
+
+
 ?>
 
 
@@ -159,5 +162,6 @@ include("blogadmin/libs/db_connect.php");
 							<script type="text/javascript" src="_next\static\chunks\947d55b11c9714556c7cb6e35f131a072a36cbdf.80e82394d6490ff9750b.js"></script>
 							<script src="js/menumobile.js"></script>
 							<?php include'chatbox.html'; ?>
+							<?php include'asknotification.html'; ?>
 						</body>
 						</html>

@@ -33,7 +33,7 @@ $result = mysqli_query($con, $sql);
 <div style="text-align: center;width: 100%; display: inline;">
   <ul class="nav navbar-nav list-inline" >
     <li id="tool1" class="list-inline-item  js-tooltip" data-tippy-content=" Công việc thường xuyên" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="task/"> <img src="../images/giaodien/1.png"></a></li>
-    <li class="list-inline-item js-tooltip" data-tippy-content=" Công việc dài hạn" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="danhsachcongviec.php"> <img src="../images/giaodien/4t.png"></a></li>
+    <li class="list-inline-item js-tooltip" data-tippy-content=" Công việc dài hạn" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="vieccanlam.php"> <img src="../images/giaodien/4t.png"></a></li>
     <li class="list-inline-item js-tooltip" data-tippy-content="Lưu trữ tài liệu" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="luutru/"> <img src="../images/giaodien/2t.png"></a></li>
     <li class="list-inline-item js-tooltip" data-tippy-content="Thảo luận" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="chat/"> <img src="../images/giaodien/3t.png"></a></li>
     <li class="list-inline-item js-tooltip" data-tippy-content="Thống kê" data-toggle="tooltip" data-placement="bottom"><a class="social-icon text-xs-center" href="thongke.php"> <img src="../images/giaodien/5t.png"></a></li>

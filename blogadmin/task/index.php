@@ -1,6 +1,9 @@
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="http://localhost/resblog/thongbao/easyNotify.js"></script>
 <?php 
 include("../../blogadmin/lib.php"); 
 include("../libs/db_connect.php");
+
 $currentuser= getLoggedMemberID();
 if (getLoggedMemberID()=="guest"){
   header("location:../login.php");
@@ -68,6 +71,14 @@ if (mysqli_num_rows($result) > 0) {
         $id = $row["id"];
         $_sql_linhcanh = 'UPDATE todo SET ngayhethan = "1999-09-09 19:59:59" WHERE id='.$id.'';
         $result_linhcanh = mysqli_query($con, $_sql_linhcanh);
+
+        //THÔNG BÁO
+        include ('../../thongbao/receivemessage.php');
+        $event = 'task';
+        $title = 'Công việc '. $row["task"].' thường xuyên đã quá hạn';
+        $noidung = 'Nội dung: '. $row["noidung"];
+        postmessage($event, $id, $title, $noidung);
+
       }
       // echo $row["ngayhethan"];
     }
@@ -85,6 +96,7 @@ if (mysqli_num_rows($result) > 0) {
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="../css/iosdesign.css">
 <link rel="stylesheet" href="css/menuleft.css">
+
 <link rel="stylesheet" type="text/css" href="../assets/css/app2daf.css?v=a5dd59f074" media="screen" /> <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700|Montserrat:400,500,600,700|Roboto:400,500,700&amp;display=swap&amp;subset=vietnamese" rel="stylesheet"> 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- STAR -->
@@ -256,7 +268,7 @@ function setdinhky(id){
       // window.location.href = "https://taskvn.com/blogadmin/task";
     }
      // location.reload(true);
-  });
+   });
   location.reload(true);
 }
 

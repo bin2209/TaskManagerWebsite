@@ -1,25 +1,37 @@
 <?php
-	function detect_config($redirect_to_setup = true){
-		$config_exists = is_readable(dirname(__FILE__) . '/config.php');
 
-		if(!$config_exists && $redirect_to_setup){
-			$url = (request_outside_admin_folder() ? '' : '../') . 'setup.php';
 
-			if(!headers_sent()){
-				@header("Location: $url");
-			}else{
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;url=' . $url . '">' .
-					 '<script>window.location = "' . $url . '";</script>';
-			}
-			exit;
+$file = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+$ifFileInLocalhost = 'resblog';
+if (strpos($file,$ifFileInLocalhost)){
+	$fullurl = ($_SERVER['DOCUMENT_ROOT'].'/resblog/database/mainsetting.php');
+} else {
+	$fullurl = ($_SERVER['DOCUMENT_ROOT'].'/database/mainsetting.php');
+}
+
+include $fullurl;
+
+function detect_config($redirect_to_setup = true){
+	$config_exists = is_readable(dirname(__FILE__) . '/config.php');
+
+	if(!$config_exists && $redirect_to_setup){
+		$url = (request_outside_admin_folder() ? '' : '../') . 'setup.php';
+
+		if(!headers_sent()){
+			@header("Location: $url");
+		}else{
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;url=' . $url . '">' .
+			'<script>window.location = "' . $url . '";</script>';
 		}
-
-		return $config_exists;
+		exit;
 	}
 
-	function migrate_config(){
-		$curr_dir = dirname(__FILE__);
-		if(!is_readable($curr_dir . '/admin/incConfig.php') || !detect_config(false)){
+	return $config_exists;
+}
+
+function migrate_config(){
+	$curr_dir = dirname(__FILE__);
+	if(!is_readable($curr_dir . '/admin/incConfig.php') || !detect_config(false)){
 			return false; // nothing to migrate
 		}
 
@@ -54,14 +66,14 @@
 		$new_admin_config = substr($new_admin_config, 0, -2) . "\n";
 
 		$new_config = "<?php\n" . 
-			"\t\$dbServer = '" . addslashes($config_array['dbServer']) . "';\n" .
-			"\t\$dbUsername = '" . addslashes($config_array['dbUsername']) . "';\n" .
-			"\t\$dbPassword = '" . addslashes($config_array['dbPassword']) . "';\n" .
-			"\t\$dbDatabase = '" . addslashes($config_array['dbDatabase']) . "';\n" .
+		"\t\$dbServer = '" . addslashes($config_array['dbServer']) . "';\n" .
+		"\t\$dbUsername = '" . addslashes($config_array['dbUsername']) . "';\n" .
+		"\t\$dbPassword = '" . addslashes($config_array['dbPassword']) . "';\n" .
+		"\t\$dbDatabase = '" . addslashes($config_array['dbDatabase']) . "';\n" .
 
-			"\n\t\$adminConfig = array(\n" . 
-				$new_admin_config .
-			"\t);";
+		"\n\t\$adminConfig = array(\n" . 
+		$new_admin_config .
+		"\t);";
 
 		if(detect_config(false)){
 			// attempt to back up config
@@ -83,10 +95,10 @@
 		static $config;
 
 		$default_config = array(
-			'dbServer' => '',
-			'dbUsername' => '',
-			'dbPassword' => '',
-			'dbDatabase' => '',
+			'dbServer' => $db_host,
+			'dbUsername' => $db_user,
+			'dbPassword' => $db_pass,
+			'dbDatabase' => $db_name,
 
 			'adminConfig' => array(
 				'adminUsername' => '',

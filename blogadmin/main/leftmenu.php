@@ -1,10 +1,10 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="http://taskvn.com/">
         <div class="sidebar-brand-text mx-3">TASKVN <sup>.com</sup></div>
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="../">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Về trang chính</span></a>
         </li>
