@@ -14,8 +14,6 @@ elseif ($currentuser=="guest") {
   redirect("index.php?signIn=1");
 }
   else {
-      # code...if details available above show alert to user
-    
     echo '<div class="alert alert-success fade in fade-out">
     <style>.alert {border: 1.5px solid black; border-radius: 3em; padding: 5px 20px 16px 20px;} </style>
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

@@ -143,8 +143,8 @@ if (getLoggedMemberID()=='guest'){
 
                      <li class="menulink"><i class="fa fa-user"></i> <strong>
                        <?php 
-                       if ($returnfolder==1)  echo ' <a href="../danhsachcongviec.php">Công việc dài hạn</a>';
-                       else echo '<a href="danhsachcongviec.php">Công việc dài hạn</a>';
+                       if ($returnfolder==1)  echo ' <a href="../vieccanlam.php">Công việc dài hạn</a>';
+                       else echo '<a href="vieccanlam.php">Công việc dài hạn</a>';
                        ?>
                      </strong></li>
 
@@ -226,13 +226,13 @@ if ($usernow=="admin") {
     $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
     $keychat = '/chat/';
     $keyluutru = '/luutru/';
-    $keydanhsachcongviec ='danhsachcongviec.php';
+    $keyvieccanlam ='vieccanlam.php';
     $keycaidat='caidat.php';
 
   $ketqua = basename($path);//index
   if (strpos($path, $keychat) == true) { //chat
     echo '<h1 class="m-hero-title bigger">Thảo luận</h1>';
-  } else if (strpos($path, $keydanhsachcongviec) == true){
+  } else if (strpos($path, $keyvieccanlam) == true){
    echo '<h1 class="m-hero-title bigger">Danh sách công việc</h1>';
  } else if (strpos($path, $keycaidat) == true){
    echo '<h1 class="m-hero-title bigger">Cài đặt tài khoản</h1>';
@@ -253,9 +253,37 @@ if ($usernow=="admin") {
  <?php 
  $path = $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
  $ketqua = basename($path);
+
+ // CHECK XAC THUC
+ $sql = "SELECT * FROM `membership_users`";
+  $result = mysqli_query($con, $sql);
+  $tim_email_tontai = false;
+  $isXacThuc = 0;
+  if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+      if ($row["memberID"]==getLoggedMemberID()){
+        if ($row["xacthuc"]==1)  $isXacThuc = 1; else $isXacThuc = 0;
+        break;
+      }
+    }
+  } 
+
+
  if  ($ketqua=="index.php"){
   include("libs/alerts.php");
+
+  if ($isXacThuc==0 ){
+  echo '<div class="alert in fade-out">
+    <style>.alert {margin-top:20px; border: 2px solid #495057 !important; border-radius: 3em !important; padding: 5px 20px 16px 20px;} .fade{display:none;}</style>
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+
+    <strong>Vui lòng <a href="caidat.php" style="color:#007bff;"> xác thực email</a> để nhận thông báo từ TaskVN. </strong>.
+    </div>';
+};
+
 }
+
+
 ?>
 </div>
 <main>
