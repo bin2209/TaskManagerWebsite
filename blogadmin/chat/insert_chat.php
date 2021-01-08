@@ -3,6 +3,14 @@
 //insert_chat.php
 
 include('database_connection.php');
+include("../../blogadmin/lib.php");
+
+
+
+session_start();
+$useronline = getLoggedMemberID();
+$_SESSION["username"] = getLoggedMemberID();
+$_SESSION["user_id"]= getUserID($useronline, $connect);
 
 session_start();
 

@@ -1,15 +1,10 @@
 <?php
 
 //database_connection.php
-include '../../database/mainsetting.php';
-include("../libs/db_connect.php");
 
-
-$connect = new PDO("mysql:host=".$db_host.";dbname=".$db_name.";charset=utf8mb4", "".$db_user."", "".$db_pass."");
+$connect = new PDO("mysql:host=localhost;dbname=blog_admin_db;charset=utf8mb4", "root", "");
 
 date_default_timezone_set('Asia/Kolkata');
-
-
 
 function fetch_user_last_activity($user_id, $connect)
 {
@@ -51,7 +46,7 @@ function fetch_user_chat_history($from_user_id, $to_user_id, $connect)
 		{
 			if($row["status"] == '2')
 			{
-				$chat_message = '<em>Tin nhắn đã được xóa.</em>';
+				$chat_message = '<em>This message has been removed</em>';
 				$user_name = '<b class="text-success">Bạn</b>';
 			}
 			else
@@ -67,7 +62,7 @@ function fetch_user_chat_history($from_user_id, $to_user_id, $connect)
 		{
 			if($row["status"] == '2')
 			{
-				$chat_message = '<em>Tin nhắn đã được xóa.</em>';
+				$chat_message = '<em>This message has been removed</em>';
 			}
 			else
 			{
@@ -146,7 +141,7 @@ function fetch_is_type_status($user_id, $connect)
 	{
 		if($row["is_type"] == 'yes')
 		{
-			$output = ' - <small><em><span class="text-muted">Đang nhập...</span></em></small>';
+			$output = ' - <small><em><span class="text-muted">Typing...</span></em></small>';
 		}
 	}
 	return $output;
@@ -176,7 +171,7 @@ function fetch_group_chat_history($connect)
 		{
 			if($row["status"] == '2')
 			{
-				$chat_message = '<em>Tin nhắn đã được xóa.</em>';
+				$chat_message = '<em>This message has been removed</em>';
 				$user_name = '<b class="text-success">Bạn</b>';
 			}
 			else
@@ -191,7 +186,7 @@ function fetch_group_chat_history($connect)
 		{
 			if($row["status"] == '2')
 			{
-				$chat_message = '<em>Tin nhắn đã được xóa.</em>';
+				$chat_message = '<em>This message has been removed</em>';
 			}
 			else
 			{
@@ -216,5 +211,34 @@ function fetch_group_chat_history($connect)
 	return $output;
 }
 
+function TimBanBe($name,$connect){
+	$name = substr($name, 0, strlen($name)-2);
+	$query = "
+	SELECT * FROM login 
+	WHERE username = '$name'
+	";
+
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	$result = $statement->fetchAll();
+	$check = 0;
+	foreach($result as $row)
+	{
+		if ($row['username']==$name) $check = 1; 
+	}
+	// echo var_dump($name);
+	if ($check==0) return 0; else return 1;
+}
+function getUserID($user, $connect){
+	// $_POST['nguoidung']
+	$query = "SELECT user_id FROM login WHERE username = '$user'";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	$result = $statement->fetchAll();
+	foreach($result as $row)
+	{
+		return $row['user_id'];
+	}
+}
 
 ?>
