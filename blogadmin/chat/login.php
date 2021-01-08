@@ -150,7 +150,7 @@ if(isset($_POST['login']))
 					<div class="form-group">
 					</div>
 					<div class="form-group">
-						<input id="login" type="submit" name="login" class="btn btn-info" value="Login" />
+						<input id="login" type="submit" name="login" class="btn btn-info" value="Login" style="display: none;" />
 					</div>
 					<div align="center">
 						<!-- <a href="register.php">Register</a> -->
